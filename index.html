@@ -1,0 +1,367 @@
+# <!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برآورد آسیب‌های شغلی و اقتصادی در شرایط جنگ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 400px; }
+        }
+        .loading-shimmer {
+            background: linear-gradient(90deg, #292524 25%, #44403c 50%, #292524 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            800: '#292524',
+                            900: '#1c1917',
+                        },
+                        danger: {
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                        },
+                        gemini: {
+                            500: '#8e75ff',
+                            600: '#7c3aed'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased overflow-x-hidden">
+
+    
+    
+    <nav class="bg-stone-900 text-stone-50 py-4 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-tight">گزارش تحلیلی: بحران اشتغال</h1>
+            <div class="hidden md:flex space-x-6 space-x-reverse">
+                <button onclick="scrollToSection('overview')" class="hover:text-danger-500 transition-colors">نمای کلی</button>
+                <button onclick="scrollToSection('comparison')" class="hover:text-danger-500 transition-colors">مقایسه بخش‌ها</button>
+                <button onclick="scrollToSection('interactive')" class="hover:text-danger-500 transition-colors">تحلیل تفکیکی</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+
+        <section id="overview" class="text-center space-y-6 pt-8">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900 leading-tight">
+                برآورد شوک اشتغال در سناریوی جنگ
+            </h2>
+            <p class="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto">
+                تحلیل آماری از دست رفتن مشاغل و شدت آسیب به تفکیک صنایع استراتژیک.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                    <p class="text-stone-500 font-medium mb-2">کل مشاغل در معرض خطر</p>
+                    <p class="text-4xl font-black text-danger-600">~ ۱۸.۵ میلیون</p>
+                    <p class="text-sm text-stone-400 mt-2">مستقیم و غیرمستقیم</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                    <p class="text-stone-500 font-medium mb-2">شدیدترین نرخ آسیب</p>
+                    <p class="text-3xl font-black text-stone-800">لجستیک و هوانوردی</p>
+                    <p class="text-sm text-stone-400 mt-2">توقف ۱۰۰٪ فعالیت‌های تجاری</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                    <p class="text-stone-500 font-medium mb-2">جمعیت تحت تاثیر غیرمستقیم</p>
+                    <p class="text-3xl font-black text-stone-800">۱۴+ میلیون نفر</p>
+                    <p class="text-sm text-stone-400 mt-2">زنجیره تامین و خدمات</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-stone-200">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-stone-900 mb-3">مقایسه حجم بیکاری در صنایع</h3>
+                <p class="text-stone-600">
+                    نمودار زیر مجموع عددی افراد آسیب‌دیده را نشان می‌دهد.
+                </p>
+            </div>
+            <div class="chart-container">
+                <canvas id="mainComparisonChart"></canvas>
+            </div>
+        </section>
+
+        <section id="interactive" class="bg-stone-900 text-stone-50 p-6 md:p-10 rounded-3xl shadow-xl">
+            <div class="mb-10 text-center">
+                <h3 class="text-2xl font-bold mb-3">تحلیل شدت آسیب در هر صنعت</h3>
+                <p class="text-stone-400 max-w-2xl mx-auto">
+                    نمودار زیر نشان می‌دهد چه درصدی از **کل شاغلین آن صنعت خاص** تحت تاثیر قرار گرفته‌اند.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/3 space-y-3" id="industry-buttons"></div>
+
+                <div class="lg:w-2/3 bg-stone-800 p-6 md:p-8 rounded-2xl border border-stone-700 relative flex flex-col">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 id="detail-title" class="text-2xl font-bold text-white mb-2">...</h4>
+                            <div class="mb-4">
+                                <span class="text-xs text-stone-500 uppercase tracking-widest">کل نیروی کار صنعت:</span>
+                                <span id="detail-total-workforce" class="text-stone-400 font-bold mr-2">۰</span>
+                            </div>
+                            <p id="detail-desc" class="text-stone-300 mb-8 leading-relaxed italic text-sm">...</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-stone-700/50 p-4 rounded-lg">
+                                    <p class="text-sm text-stone-400 mb-1">کل افراد آسیب‌دیده (مستقیم+غیرمستقیم)</p>
+                                    <p id="detail-affected" class="text-xl font-bold text-danger-400">۰</p>
+                                </div>
+                                <div class="bg-stone-700/50 p-4 rounded-lg">
+                                    <p class="text-sm text-stone-400 mb-1">درصد شدت بحران در این صنعت</p>
+                                    <p id="detail-percentage" class="text-xl font-bold text-orange-400">۰٪</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <div class="chart-container !h-64 !max-h-64">
+                                <canvas id="detailDoughnutChart"></canvas>
+                            </div>
+                            <p class="text-xs text-stone-500 mt-4">سهم آسیب‌دیدگان از کل شاغلین این صنف</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-stone-700">
+                        <div id="ai-insight-container" class="hidden">
+                            <h5 class="text-gemini-500 font-bold flex items-center gap-2 mb-3">✨ تحلیل هوشمند Gemini:</h5>
+                            <div id="ai-insight-content" class="text-stone-300 text-sm leading-relaxed bg-stone-900/50 p-4 rounded-xl border border-stone-700/50 whitespace-pre-wrap"></div>
+                        </div>
+                        
+                        <div id="ai-loading" class="hidden space-y-2">
+                            <div class="h-4 w-1/4 loading-shimmer rounded"></div>
+                            <div class="h-4 w-full loading-shimmer rounded"></div>
+                        </div>
+
+                        <button id="ai-btn" onclick="generateIndustryInsight()" class="mt-4 w-full bg-gemini-600 hover:bg-gemini-500 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                            ✨ تحلیل راهبردی بازسازی صنعت
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-stone-200 mb-10 relative overflow-hidden">
+            <h3 class="text-2xl font-bold text-stone-900 mb-4">✨ تدوین استراتژی ملی تاب‌آوری</h3>
+            <p class="text-stone-600 mb-6">بر اساس وزن هر صنعت در اقتصاد، یک نقشه راه برای حفاظت از کل بازار کار تولید کنید.</p>
+            <div id="strategy-content" class="hidden mb-6 bg-stone-50 p-6 rounded-2xl border border-stone-100 text-stone-800 whitespace-pre-wrap text-sm leading-loose"></div>
+            <button id="strategy-btn" onclick="generateNationalStrategy()" class="bg-stone-900 hover:bg-stone-800 text-white px-8 py-3 rounded-xl font-bold transition-all">
+                ✨ تولید نقشه راه کلان
+            </button>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 text-stone-400 py-8 text-center text-sm">
+        <p>توسعه یافته با Gemini 2.5 Flash</p>
+    </footer>
+
+    <div id="error-toast" class="fixed bottom-6 right-6 bg-red-600 text-white px-6 py-3 rounded-xl shadow-2xl hidden z-[100]">
+        خطا در ارتباط با هوش مصنوعی. تلاش مجدد...
+    </div>
+
+    <script>
+        const apiKey = "";
+        let currentIndustry = null;
+
+        const industries = [
+            { id: 'digital', name: 'اقتصاد دیجیتال', totalWorkforce: 18000000, direct: 3500000, indirect: 11500000, desc: 'وابستگی شدید به زیرساخت اینترنت و پلتفرم‌های بین‌المللی.' },
+            { id: 'retail', name: 'خرده‌فروشی و اصناف', totalWorkforce: 6500000, direct: 1500000, indirect: 500000, desc: 'کسب‌وکارهای محلی که با قطع زنجیره تامین و کاهش قدرت خرید مواجه می‌شوند.' },
+            { id: 'manufacturing', name: 'تولید و صنایع سنگین', totalWorkforce: 3200000, direct: 400000, indirect: 800000, desc: 'صنایع کارخانه‌ای وابسته به انرژی و قطعات وارداتی.' },
+            { id: 'energy', name: 'انرژی و پتروشیمی', totalWorkforce: 650000, direct: 150000, indirect: 400000, desc: 'تاسیسات استراتژیک که در صورت آسیب، کل چرخه اقتصاد را متوقف می‌کنند.' },
+            { id: 'steel', name: 'صنایع فولاد و فلزات', totalWorkforce: 180000, direct: 20000, indirect: 50000, desc: 'صنعتی با هزینه ثابت بالا که توقف آن بیکاری تخصصی شدیدی ایجاد می‌کند.' },
+            { id: 'logistics', name: 'لجستیک و هوانوردی', totalWorkforce: 220000, direct: 57000, indirect: 120000, desc: 'حساس‌ترین بخش به حریم هوایی و امنیت مرزها.' },
+            { id: 'military', name: 'صنایع نظامی', totalWorkforce: 450000, direct: 50000, indirect: 100000, desc: 'بخش‌های صنعتی فعال در حوزه لجستیک دفاعی.' }
+        ];
+
+        let comparisonChartInstance = null;
+        let detailChartInstance = null;
+
+        Chart.defaults.font.family = 'Vazirmatn';
+
+        async function callGemini(prompt, systemInstruction) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            const maxRetries = 5;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, { method: 'POST', body: JSON.stringify(payload) });
+                    if (!response.ok) throw new Error();
+                    const result = await response.json();
+                    return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                } catch (e) {
+                    if (i === maxRetries - 1) throw e;
+                    showToast(true);
+                    await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
+                }
+            }
+        }
+
+        function showToast(show) {
+            const toast = document.getElementById('error-toast');
+            toast.classList.toggle('hidden', !show);
+            if(show) setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        async function generateIndustryInsight() {
+            if (!currentIndustry) return;
+            const btn = document.getElementById('ai-btn');
+            const loader = document.getElementById('ai-loading');
+            const container = document.getElementById('ai-insight-container');
+            const content = document.getElementById('ai-insight-content');
+
+            btn.disabled = true; loader.classList.remove('hidden'); container.classList.add('hidden');
+
+            const prompt = `صنعت: ${currentIndustry.name}. کل شاغلین: ${currentIndustry.totalWorkforce}. آسیب‌دیده: ${currentIndustry.direct + currentIndustry.indirect}. یک تحلیل دقیق و ۳ راهکار بازسازی در ۲ پاراگراف ارائه بده.`;
+            try {
+                content.innerText = await callGemini(prompt, "تو یک اقتصاددان ارشد ایرانی هستی.");
+                container.classList.remove('hidden');
+            } catch (e) {
+                content.innerText = "خطا در دریافت پاسخ.";
+                container.classList.remove('hidden');
+            } finally {
+                loader.classList.add('hidden'); btn.disabled = false;
+            }
+        }
+
+        async function generateNationalStrategy() {
+            const btn = document.getElementById('strategy-btn');
+            const div = document.getElementById('strategy-content');
+            btn.disabled = true; btn.innerText = "...";
+            try {
+                div.innerText = await callGemini("یک استراتژی ملی ۳ مرحله‌ای برای مدیریت بحران اشتغال ۱۸ میلیون نفری در ایران جنگ‌زده بنویس.", "تو مشاور ارشد اقتصادی هستی.");
+                div.classList.remove('hidden');
+            } catch (e) {
+                showToast(true);
+            } finally {
+                btn.disabled = false; btn.innerText = "✨ به‌روزرسانی استراتژی";
+            }
+        }
+
+        const formatNumber = (num) => new Intl.NumberFormat('fa-IR').format(num);
+
+        function initComparisonChart() {
+            const ctx = document.getElementById('mainComparisonChart').getContext('2d');
+            comparisonChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: industries.map(ind => ind.name),
+                    datasets: [
+                        { label: 'بیکاری مستقیم', data: industries.map(ind => ind.direct), backgroundColor: '#dc2626' },
+                        { label: 'بیکاری غیرمستقیم', data: industries.map(ind => ind.indirect), backgroundColor: '#f87171' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { ticks: { callback: v => v >= 1000000 ? formatNumber(v/1000000)+'M' : formatNumber(v) } }
+                    }
+                }
+            });
+        }
+
+        function buildInteractiveDashboard() {
+            const container = document.getElementById('industry-buttons');
+            industries.forEach((ind, i) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-right px-5 py-4 rounded-xl font-bold transition-all border border-stone-700 ${i === 0 ? 'bg-danger-600 text-white' : 'bg-stone-800 text-stone-300'}`;
+                btn.innerText = ind.name;
+                btn.onclick = () => selectIndustry(ind.id, btn);
+                container.appendChild(btn);
+            });
+            selectIndustry(industries[0].id, container.firstChild);
+        }
+
+        function selectIndustry(id, activeBtn) {
+            const buttons = document.getElementById('industry-buttons').children;
+            for (let b of buttons) b.className = 'w-full text-right px-5 py-4 rounded-xl font-bold transition-all border border-stone-700 bg-stone-800 text-stone-300';
+            activeBtn.className = 'w-full text-right px-5 py-4 rounded-xl font-bold transition-all border border-danger-500 bg-danger-600 text-white shadow-lg';
+
+            const data = industries.find(i => i.id === id);
+            currentIndustry = data;
+            
+            const totalAffected = data.direct + data.indirect;
+            const percentage = ((totalAffected / data.totalWorkforce) * 100).toFixed(1);
+
+            document.getElementById('detail-title').innerText = data.name;
+            document.getElementById('detail-desc').innerText = data.desc;
+            document.getElementById('detail-total-workforce').innerText = formatNumber(data.totalWorkforce) + ' نفر';
+            document.getElementById('detail-affected').innerText = formatNumber(totalAffected) + ' نفر';
+            document.getElementById('detail-percentage').innerText = formatNumber(percentage) + '٪';
+
+            document.getElementById('ai-insight-container').classList.add('hidden');
+            updateDetailChart(data);
+        }
+
+        function updateDetailChart(data) {
+            const ctx = document.getElementById('detailDoughnutChart').getContext('2d');
+            const affected = data.direct + data.indirect;
+            const remaining = Math.max(0, data.totalWorkforce - affected);
+
+            if (detailChartInstance) detailChartInstance.destroy();
+            detailChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['مشاغل آسیب‌دیده', 'مشاغل فعال باقی‌مانده'],
+                    datasets: [{
+                        data: [affected, remaining],
+                        backgroundColor: ['#ef4444', '#1c1917'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '80%',
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+
+        window.onload = () => {
+            initComparisonChart();
+            buildInteractiveDashboard();
+        };
+    </script>
+</body>
+</html>
