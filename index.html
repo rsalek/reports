@@ -1,396 +1,609 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گزارش راهبردی بحران اشتغال و زیرساخت در شرایط جنگ</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <style>
-        body { font-family: 'Vazirmatn', sans-serif; scroll-behavior: smooth; }
-        .chart-container { position: relative; width: 100%; max-width: 900px; margin: auto; height: 400px; }
-        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(231, 229, 228, 0.5); }
-        .stat-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-        .loading-shimmer {
-            background: linear-gradient(90deg, #f5f5f4 25%, #e7e5e4 50%, #f5f5f4 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-    </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        stone: { 50: '#fafaf9', 100: '#f5f5f4', 200: '#e7e5e4', 800: '#292524', 900: '#1c1917' },
-                        danger: { 500: '#ef4444', 600: '#dc2626', 700: '#b91c1c' },
-                        gemini: { 500: '#8e75ff', 600: '#7c3aed' }
-                    },
-                    borderRadius: { '4xl': '2rem', '5xl': '3rem' }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports Library | rsalek/reports</title>
+  <meta name="description" content="Landing page for published stock analysis reports in the docs folder.">
+  <style>
+    :root {
+      --bg-dark: #0b1220;
+      --bg-dark-2: #111b2e;
+      --bg-light: #f7fbff;
+      --card: #ffffff;
+      --text: #0f172a;
+      --text-soft: #475569;
+      --text-invert: #e5eefc;
+      --muted-invert: #a8b6ca;
+      --line: rgba(15, 23, 42, 0.08);
+      --line-invert: rgba(148, 163, 184, 0.16);
+      --blue: #2563eb;
+      --blue-soft: #dbeafe;
+      --green: #16a34a;
+      --green-soft: #dcfce7;
+      --amber: #d97706;
+      --amber-soft: #fef3c7;
+      --shadow: 0 18px 48px rgba(15, 23, 42, 0.10);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 24%),
+        radial-gradient(circle at top right, rgba(22, 163, 74, 0.12), transparent 20%),
+        linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 34%, var(--bg-light) 34%, #ffffff 100%);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(11, 18, 32, 0.78);
+      border-bottom: 1px solid var(--line-invert);
+    }
+
+    .nav-inner, .shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-invert);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #60a5fa, #22c55e);
+      box-shadow: 0 0 0 6px rgba(96, 165, 250, 0.14);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted-invert);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text-invert); }
+
+    .hero {
+      padding: 76px 0 34px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line-invert);
+      box-shadow: 0 28px 60px rgba(2, 8, 23, 0.24);
+      border-radius: calc(var(--radius) + 6px);
+    }
+
+    .hero-main {
+      padding: 34px;
+      color: var(--text-invert);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(96, 165, 250, 0.20);
+      color: #bfdbfe;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(2.3rem, 4vw, 4.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-main p {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted-invert);
+      font-size: 1.04rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text-invert);
+      border-color: rgba(148,163,184,0.22);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-side-card {
+      padding: 22px;
+      color: var(--text-invert);
+    }
+
+    .hero-side-card h3 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(148,163,184,0.14);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .metric .value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .metric .label {
+      font-size: 0.88rem;
+      color: var(--muted-invert);
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.9rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--text-soft);
+      max-width: 65ch;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .ticker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border: 1px solid rgba(37,99,235,0.12);
+    }
+
+    .ticker.green { color: var(--green); background: var(--green-soft); border-color: rgba(22,163,74,0.12); }
+    .ticker.amber { color: var(--amber); background: var(--amber-soft); border-color: rgba(217,119,6,0.12); }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      color: var(--text-soft);
+      font-size: 0.80rem;
+      font-weight: 600;
+    }
+
+    .summary {
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      min-height: 92px;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(15, 23, 42, 0.10);
+      background: #ffffff;
+    }
+
+    .link-btn.primary {
+      background: var(--text);
+      color: #ffffff;
+      border-color: var(--text);
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+    }
+
+    .panel p, .panel li {
+      color: var(--text-soft);
+    }
+
+    .footer {
+      padding: 24px 0 56px;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .footer a {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .overview,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .summary { min-height: 0; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner { padding: 14px 0; }
+      .nav-links { display: none; }
+      .hero { padding-top: 48px; }
+      .hero-main,
+      .hero-side-card,
+      .card,
+      .panel { padding: 20px; }
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      h1 { font-size: 2.4rem; }
+    }
+  </style>
 </head>
-<body class="bg-stone-50 text-stone-900 antialiased overflow-x-hidden">
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>Reports Library</span>
+      </div>
+      <div class="nav-links">
+        <a href="#reports">Reports</a>
+        <a href="#overview">Overview</a>
+        <a href="#archive">Archive</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Chosen Palette: Warm Neutrals with High-Contrast Red & AI Violet -->
-    <!-- Application Structure Plan: Linear narrative flow (Summary -> Global Comparison Bar Chart -> Interactive Drill-down -> Deep Analysis -> AI Strategy). This layout ensures the user understands the scale before diving into details. -->
-
-    <nav class="bg-stone-900/95 backdrop-blur-md text-white py-4 sticky top-0 z-50 shadow-lg border-b border-stone-800">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-3 h-3 bg-danger-600 rounded-full animate-pulse"></div>
-                <h1 class="text-xl font-black tracking-tighter">گزارش راهبردی بحران</h1>
-            </div>
-            <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-stone-400">
-                <a href="#summary" class="hover:text-danger-500 transition">خلاصه</a>
-                <a href="#global-chart" class="hover:text-danger-500 transition">نمای کلان</a>
-                <a href="#dashboard" class="hover:text-danger-500 transition">جزئیات بخش</a>
-                <a href="#strategy" class="hover:text-danger-500 transition">استراتژی</a>
-            </div>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-main">
+        <div class="eyebrow">Research index</div>
+        <h1>Published report landing page for the docs library</h1>
+        <p>
+          This page provides a single entry point to the five published stock analysis reports currently stored in the <code>docs</code> folder. Each card links directly to the full report and presents the core investment posture at a glance.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#reports">Browse reports</a>
+          <a class="btn btn-secondary" href="archive/index-war-crisis-2026-04-16.html">Open archived previous index</a>
         </div>
-    </nav>
+      </div>
 
-    <main class="max-w-7xl mx-auto px-6 py-12 space-y-24">
-
-        <!-- Section 1: Executive Summary -->
-        <section id="summary" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div class="lg:col-span-5 space-y-6">
-                <span class="inline-block px-4 py-1 bg-danger-100 text-danger-700 rounded-full text-xs font-bold">نسخه ۲.۰ - تحلیل زیرساختی</span>
-                <h2 class="text-4xl md:text-6xl font-black text-stone-900 leading-[1.2]">ابعاد اقتصادی<br/><span class="text-danger-600">شوک نظامی</span></h2>
-                <p class="text-lg text-stone-500 leading-relaxed text-justify">
-                    در صورت وقوع یک درگیری نظامی گسترده، ایران با بزرگترین ریزش بازار کار در تاریخ معاصر مواجه خواهد شد. این گزارش با تمرکز بر <strong>۱۰ تا ۲۰ میلیون شغل</strong> که در معرض تهدید آنی هستند، ابعاد تخریب زنجیره‌های ارزش در بخش‌های خدمات دیجیتال، صنایع سنگین و حمل‌ونقل بین‌المللی را تحلیل می‌کند.
-                </p>
-                <div class="flex gap-4">
-                    <div class="p-4 bg-white rounded-2xl border border-stone-200 shadow-sm flex-1">
-                        <p class="text-2xl font-black text-stone-900">۱۸.۵M</p>
-                        <p class="text-xs text-stone-400">جمعیت تحت تاثیر (تخمین)</p>
-                    </div>
-                    <div class="p-4 bg-white rounded-2xl border border-stone-200 shadow-sm flex-1">
-                        <p class="text-2xl font-black text-danger-600">۴۸٪</p>
-                        <p class="text-xs text-stone-400">نرخ توقف تولید صنعتی</p>
-                    </div>
-                </div>
+      <div class="hero-side">
+        <div class="hero-side-card">
+          <h3>Library snapshot</h3>
+          <div class="metric-grid">
+            <div class="metric">
+              <div class="value">5</div>
+              <div class="label">Reports indexed</div>
             </div>
-            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-3">
-                    <h4 class="font-bold text-stone-900 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-stone-900 rounded-full"></span> اقتصاد دیجیتال
-                    </h4>
-                    <p class="text-sm text-stone-600 leading-relaxed">
-                        ۲.۵ میلیون شغل مستقیم در اینستاگرام و پلتفرم‌های خرد با اولین اختلال اینترنت ناپدید می‌شوند. وابستگی ۱۲ میلیون شغل غیرمستقیم به زیرساخت شبکه، این بخش را به "انبار باروت" بیکاری تبدیل کرده است.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-3">
-                    <h4 class="font-bold text-stone-900 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-danger-600 rounded-full"></span> لجستیک و بنادر
-                    </h4>
-                    <p class="text-sm text-stone-600 leading-relaxed">
-                        ۱۷ هزار نفر در ایرلاین‌ها و ۱۰ هزار نفر در بنادر و کشتی‌سازی به دلیل توقف کریدورهای هوایی و دریایی، اشتغال خود را در هفته اول بحران از دست خواهند داد.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-3">
-                    <h4 class="font-bold text-stone-900 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-stone-900 rounded-full"></span> صنایع مادر (فولاد)
-                    </h4>
-                    <p class="text-sm text-stone-600 leading-relaxed">
-                        ۲۰ هزار شاغل مستقیم و ۵۰ هزار شاغل در صنایع پایین‌دستی فولاد با قطعی انرژی و توقف صادرات، زنجیره تولیدی ۷۰ هزار نفری را با سکون کامل مواجه می‌کنند.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-3">
-                    <h4 class="font-bold text-stone-900 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-danger-600 rounded-full"></span> انرژی و پتروشیمی
-                    </h4>
-                    <p class="text-sm text-stone-600 leading-relaxed">
-                        بیش از ۷۰۰ هزار نفر در زنجیره انرژی اشتغال دارند. آسیب به زیرساخت‌های صادراتی نفت، توان پرداخت حقوق کل بخش دولتی را فلج خواهد کرد.
-                    </p>
-                </div>
+            <div class="metric">
+              <div class="value">13</div>
+              <div class="label">Modules per report</div>
             </div>
-        </section>
-
-        <!-- Section 2: Global Bar Chart (The Requested Graph) -->
-        <section id="global-chart" class="bg-white p-8 md:p-12 rounded-[3rem] shadow-sm border border-stone-200">
-            <div class="mb-10 text-center md:text-right space-y-2">
-                <h3 class="text-3xl font-black text-stone-900">مقایسه سراسری نرخ آسیب</h3>
-                <p class="text-stone-500">نمای کلان از مشاغل مستقیم و غیرمستقیم در معرض خطر در صنایع استراتژیک.</p>
+            <div class="metric">
+              <div class="value">HTML</div>
+              <div class="label">Primary format</div>
             </div>
-            <div class="chart-container">
-                <canvas id="globalBarChart"></canvas>
+            <div class="metric">
+              <div class="value">Docs</div>
+              <div class="label">Source folder</div>
             </div>
-        </section>
-
-        <!-- Section 3: Interactive Dashboard -->
-        <section id="dashboard" class="bg-stone-900 text-white p-8 md:p-14 rounded-[4xl] shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,#3b0764,transparent)] opacity-20 pointer-events-none"></div>
-            
-            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="space-y-2">
-                        <h3 class="text-3xl font-black">تحلیل عمیق صنایع</h3>
-                        <p class="text-stone-400 text-sm">یک صنعت را برای مشاهده جزئیات و ✨ تحلیل هوشمند انتخاب کنید.</p>
-                    </div>
-                    <div id="industry-nav" class="space-y-3"></div>
-                </div>
-
-                <div class="lg:col-span-8 bg-stone-800/50 p-8 rounded-4xl border border-white/10 backdrop-blur-md">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div class="space-y-6">
-                            <h4 id="ind-title" class="text-3xl font-black text-danger-500">...</h4>
-                            <p id="ind-text" class="text-stone-300 leading-relaxed text-sm text-justify">در حال بارگذاری اطلاعات...</p>
-                            
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="bg-stone-900/80 p-5 rounded-2xl border border-white/5">
-                                    <p class="text-[10px] text-stone-500 uppercase tracking-widest mb-1">شاغلین مستقیم</p>
-                                    <p id="ind-direct" class="text-xl font-black">۰</p>
-                                </div>
-                                <div class="bg-stone-900/80 p-5 rounded-2xl border border-white/5">
-                                    <p class="text-[10px] text-stone-500 uppercase tracking-widest mb-1">شدت بحران</p>
-                                    <p id="ind-percent" class="text-xl font-black text-orange-500">۰٪</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center justify-center">
-                            <div class="chart-container !h-64 !w-64">
-                                <canvas id="detailDoughnutChart"></canvas>
-                            </div>
-                            <p class="text-[10px] text-stone-500 mt-6 uppercase tracking-widest text-center">سهم آسیب‌دیدگان از کل شاغلین این صنف</p>
-                        </div>
-                    </div>
-
-                    <!-- AI Component -->
-                    <div class="mt-10 pt-8 border-t border-white/10">
-                        <div id="ai-insight-box" class="hidden mb-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                            <div class="flex items-center gap-2 text-gemini-500 font-bold mb-3">
-                                <span class="w-2 h-2 bg-gemini-500 rounded-full"></span>
-                                <span class="text-sm">تحلیل هوشمند و راهکار بازسازی:</span>
-                            </div>
-                            <div id="ai-insight-content" class="text-sm text-stone-300 leading-relaxed bg-black/30 p-5 rounded-2xl border border-white/5 whitespace-pre-wrap"></div>
-                        </div>
-                        
-                        <div id="ai-loader" class="hidden mb-6 space-y-3">
-                            <div class="h-3 w-1/4 loading-shimmer rounded bg-white/5"></div>
-                            <div class="h-3 w-full loading-shimmer rounded bg-white/5"></div>
-                            <div class="h-3 w-5/6 loading-shimmer rounded bg-white/5"></div>
-                        </div>
-
-                        <button id="ai-btn" onclick="generateInsight()" class="w-full py-4 bg-gemini-600 hover:bg-gemini-500 text-white font-black rounded-2xl transition-all shadow-xl shadow-gemini-600/20 flex items-center justify-center gap-3">
-                            ✨ تحلیل راهبردی با Gemini 2.5
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Deep Strategy Analysis -->
-        <section id="strategy" class="bg-white p-8 md:p-14 rounded-[4xl] shadow-sm border border-stone-200 grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div class="lg:col-span-1 space-y-6">
-                <h3 class="text-2xl font-black text-stone-900">نقشه راه نجات اشتغال</h3>
-                <p class="text-stone-500 text-sm leading-relaxed">
-                    در شرایطی که زیرساخت‌های حیاتی آسیب دیده‌اند، حفظ معیشت ۱۸ میلیون نفر نیازمند رویکردهای غیرمتعارف اقتصادی است. این نقشه راه به صورت پویا توسط هوش مصنوعی و بر اساس کل داده‌های گزارش تولید می‌شود.
-                </p>
-                <button onclick="generateNationalStrategy()" id="strategy-btn" class="bg-stone-900 hover:bg-stone-800 text-white px-8 py-3 rounded-xl font-bold transition-all text-sm w-full md:w-auto">
-                    ✨ تدوین استراتژی ملی
-                </button>
-            </div>
-            <div class="lg:col-span-2 bg-stone-50 p-8 rounded-4xl border border-stone-100 min-h-[300px]">
-                <div id="strategy-placeholder" class="h-full flex flex-col justify-center items-center text-stone-400 space-y-4">
-                    <div class="w-12 h-12 border-4 border-stone-200 border-t-danger-500 rounded-full animate-spin hidden" id="strategy-spinner"></div>
-                    <p id="strategy-msg">برای مشاهده نقشه راه، دکمه تدوین استراتژی را کلیک کنید.</p>
-                </div>
-                <div id="strategy-content" class="hidden text-stone-800 text-sm leading-loose whitespace-pre-wrap"></div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-stone-900 text-stone-500 py-16 text-center">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="text-stone-300 font-bold mb-2">گزارش جامع تحلیلی بحران اشتغال</p>
-            <p class="text-xs max-w-xl mx-auto leading-relaxed opacity-60">
-                تمامی داده‌های آماری بر اساس شبیه‌سازی مدل‌های اقتصادی کلان در شرایط بحران استخراج شده‌اند. تحلیل‌های کیفی توسط مدل زبانی Gemini 2.5 Flash تولید می‌گردد.
-            </p>
-            <div class="mt-8 flex justify-center gap-4">
-                <div class="w-8 h-8 bg-stone-800 rounded-lg"></div>
-                <div class="w-8 h-8 bg-stone-800 rounded-lg"></div>
-                <div class="w-8 h-8 bg-stone-800 rounded-lg"></div>
-            </div>
+          </div>
         </div>
-    </footer>
+        <div class="hero-side-card" id="archive">
+          <h3>Archive</h3>
+          <p style="margin:0; color: var(--muted-invert);">
+            The original root index has been preserved and moved to the archive folder so the previous page remains available.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        const apiKey = ""; // Provided by execution environment
-        let activeIndustry = null;
-        let globalBarChart = null;
-        let detailDoughnutChart = null;
+    <section class="section" id="reports">
+      <div class="section-head">
+        <div>
+          <h2>Indexed reports</h2>
+          <p>Direct links to each report in the repository, with a short landing summary and key metadata extracted from the documents.</p>
+        </div>
+      </div>
 
-        const industries = [
-            { id: 'digital', name: 'اقتصاد دیجیتال', workforce: 18000000, direct: 2500000, indirect: 12500000, text: 'بزرگترین کانون اشتغال خرد کشور. تنها در پلتفرم اینستاگرام ۲.۵ میلیون نفر به طور مستقیم کسب درآمد می‌کنند. اختلال اینترنت به معنای قطع معیشت حدود ۱۵ میلیون نفر به صورت غیرمستقیم است. این بخش بیشترین وابستگی را به پایداری برق و شبکه دیتا دارد.' },
-            { id: 'aviation', name: 'هوانوردی و ایرلاین', workforce: 250000, direct: 17000, indirect: 80000, text: '۱۷ هزار نفر در شرکت‌های هواپیمایی مشغولند. با توقف پروازهای تجاری و بستن حریم هوایی، کل زنجیره خدمات فرودگاهی، ناوبری، کیترینگ و گردشگری ورودی در کمتر از ۷۲ ساعت فلج خواهد شد.' },
-            { id: 'steel', name: 'صنایع فولاد و فلزات', workforce: 350000, direct: 20000, indirect: 50000, text: '۲۰ هزار نفر مستقیماً در کارخانجات فولاد و ۵۰ هزار نفر در صنایع پایین‌دستی، ماشین‌سازی و تامین مواد اولیه اشتغال دارند. قطعی گاز و برق در کنار اختلال صادرات از بنادر جنوبی، کل این زنجیره را متوقف می‌کند.' },
-            { id: 'maritime', name: 'بنادر و کشتیرانی', workforce: 150000, direct: 10000, indirect: 60000, text: 'توقف فعالیت بنادر و کشتی‌سازی‌ها، ۱۰ هزار نفر را مستقیماً بیکار کرده و صادرات/واردات کالاهای استراتژیک را فلج می‌کند. بخش عظیمی از ترانزیت جاده‌ای نیز وابسته به تخلیه و بارگیری این بنادر است.' },
-            { id: 'energy', name: 'انرژی و پتروشیمی', workforce: 850000, direct: 150000, indirect: 550000, text: 'شریان اصلی بودجه کشور. ۷۰۰ هزار نفر در زنجیره تولید، انتقال و پالایش انرژی فعال هستند. هرگونه آسیب به زیرساخت‌های پالایشگاهی منجر به قفل شدن کل سیستم حمل‌ونقل و لجستیک داخلی خواهد شد.' },
-            { id: 'retail', name: 'اصناف و خرده‌فروشی', workforce: 6500000, direct: 1200000, indirect: 2000000, text: 'کاهش شدید قدرت خرید، وحشت عمومی و تورم افسارگسیخته ناشی از جنگ، منجر به تعطیلی گسترده واحدهای صنفی غیرضروری می‌شود که بخش بزرگی از اشتغال شهری را تشکیل می‌دهند.' }
-        ];
+      <div class="cards">
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <span class="ticker green">BMI</span>
+              <h3>Badger Meter</h3>
+            </div>
+          </div>
+          <div class="meta">
+            <span class="pill">Generated 2026-03-19</span>
+            <span class="pill">Phase 5</span>
+            <span class="pill">Rating: Buy</span>
+          </div>
+          <div class="summary">
+            A smart water infrastructure compounder with a narrow but stable moat, strong cash conversion, and a software-led margin expansion story anchored by municipal metering and AMI adoption.
+          </div>
+          <div class="card-actions">
+            <a class="link-btn primary" href="docs/BMI_Full_Report.html">Open report</a>
+            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/BMI_Full_Report.html">View source</a>
+          </div>
+        </article>
 
-        const format = (n) => new Intl.NumberFormat('fa-IR').format(n);
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <span class="ticker green">MELI</span>
+              <h3>MercadoLibre</h3>
+            </div>
+          </div>
+          <div class="meta">
+            <span class="pill">Generated 2026-03-23</span>
+            <span class="pill">Phase 4</span>
+            <span class="pill">Rating: Strong Buy</span>
+          </div>
+          <div class="summary">
+            A Latin American commerce and fintech ecosystem with a wide moat built on network effects, logistics, and payments infrastructure, currently framed as a high-conviction platform-scale compounder.
+          </div>
+          <div class="card-actions">
+            <a class="link-btn primary" href="docs/MELI_Full_Report.html">Open report</a>
+            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/MELI_Full_Report.html">View source</a>
+          </div>
+        </article>
 
-        function initCharts() {
-            // Global Bar Chart
-            const ctxBar = document.getElementById('globalBarChart').getContext('2d');
-            globalBarChart = new Chart(ctxBar, {
-                type: 'bar',
-                data: {
-                    labels: industries.map(i => i.name),
-                    datasets: [
-                        { label: 'بیکاری مستقیم', data: industries.map(i => i.direct), backgroundColor: '#dc2626', borderRadius: 8 },
-                        { label: 'بیکاری غیرمستقیم', data: industries.map(i => i.indirect), backgroundColor: '#f87171', borderRadius: 8 }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Vazirmatn' } } },
-                        y: { stacked: true, border: { display: false }, ticks: { font: { family: 'Vazirmatn' }, callback: v => v >= 1000000 ? format(v/1000000) + 'M' : format(v) } }
-                    },
-                    plugins: {
-                        legend: { position: 'top', rtl: true, labels: { font: { family: 'Vazirmatn', weight: 'bold' } } },
-                        tooltip: { textDirection: 'rtl', titleFont: { family: 'Vazirmatn' }, bodyFont: { family: 'Vazirmatn' } }
-                    }
-                }
-            });
-        }
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <span class="ticker amber">PANW</span>
+              <h3>Palo Alto Networks</h3>
+            </div>
+          </div>
+          <div class="meta">
+            <span class="pill">Generated 2026-02-01</span>
+            <span class="pill">Phase 4</span>
+            <span class="pill">Rating: Buy</span>
+          </div>
+          <div class="summary">
+            A platformising cybersecurity leader with a wide moat, strong recurring revenue, and significant M&amp;A integration risk tied to CyberArk and Chronosphere.
+          </div>
+          <div class="card-actions">
+            <a class="link-btn primary" href="docs/PANW_Full_Report.html">Open report</a>
+            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/PANW_Full_Report.html">View source</a>
+          </div>
+        </article>
 
-        function updateDetailView(industry, btn) {
-            // UI Toggle
-            document.querySelectorAll('#industry-nav button').forEach(b => b.className = 'w-full text-right p-4 rounded-2xl font-bold transition-all border border-white/5 bg-white/5 text-stone-400 hover:bg-white/10');
-            btn.className = 'w-full text-right p-4 rounded-2xl font-bold transition-all border border-danger-500/50 bg-danger-600 text-white shadow-xl shadow-danger-600/20';
-            
-            activeIndustry = industry;
-            document.getElementById('ind-title').innerText = industry.name;
-            document.getElementById('ind-text').innerText = industry.text;
-            document.getElementById('ind-direct').innerText = format(industry.direct);
-            
-            const totalAffected = industry.direct + industry.indirect;
-            const percent = ((totalAffected / industry.workforce) * 100).toFixed(1);
-            document.getElementById('ind-percent').innerText = format(percent) + '٪';
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <span class="ticker amber">UBER</span>
+              <h3>Uber Technologies</h3>
+            </div>
+          </div>
+          <div class="meta">
+            <span class="pill">Generated 2026-02-09</span>
+            <span class="pill">Phase 4</span>
+            <span class="pill">Rating: Buy</span>
+          </div>
+          <div class="summary">
+            A marketplace and super-app cash generator whose current investment case centres on operating leverage, Uber One retention, and the unresolved debate over AV disintermediation versus AV aggregation.
+          </div>
+          <div class="card-actions">
+            <a class="link-btn primary" href="docs/UBER_Full_Report.html">Open report</a>
+            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/UBER_Full_Report.html">View source</a>
+          </div>
+        </article>
 
-            // Reset AI
-            document.getElementById('ai-insight-box').classList.add('hidden');
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <span class="ticker green">ZS</span>
+              <h3>Zscaler</h3>
+            </div>
+          </div>
+          <div class="meta">
+            <span class="pill">Generated 2026-03-20</span>
+            <span class="pill">Phase 3</span>
+            <span class="pill">Rating: Strong Buy</span>
+          </div>
+          <div class="summary">
+            A zero-trust security leader positioned as a self-funding growth asset with strong free cash flow, high retention, and a market disconnect between operating quality and compressed valuation.
+          </div>
+          <div class="card-actions">
+            <a class="link-btn primary" href="docs/ZS_Full_Report.html">Open report</a>
+            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/ZS_Full_Report.html">View source</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-            // Update Doughnut
-            const ctxDoughnut = document.getElementById('detailDoughnutChart').getContext('2d');
-            if (detailDoughnutChart) detailDoughnutChart.destroy();
-            detailDoughnutChart = new Chart(ctxDoughnut, {
-                type: 'doughnut',
-                data: {
-                    labels: ['آسیب‌دیده', 'باقی‌مانده'],
-                    datasets: [{
-                        data: [totalAffected, Math.max(0, industry.workforce - totalAffected)],
-                        backgroundColor: ['#ef4444', '#1c1917'],
-                        borderWidth: 0,
-                        hoverOffset: 10
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '85%',
-                    plugins: { legend: { display: false } }
-                }
-            });
-        }
+    <section class="section" id="overview">
+      <div class="section-head">
+        <div>
+          <h2>Collection overview</h2>
+          <p>This landing page is deliberately simple: one repository index, direct report access, and a lightweight summary layer so visitors can move quickly from overview to full document.</p>
+        </div>
+      </div>
 
-        async function callGemini(prompt, system) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            const maxRetries = 5;
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const res = await fetch(url, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: prompt }] }],
-                            systemInstruction: { parts: [{ text: system }] }
-                        })
-                    });
-                    if (!res.ok) throw new Error();
-                    const json = await res.json();
-                    return json.candidates?.[0]?.content?.parts?.[0]?.text;
-                } catch (e) {
-                    if (i === maxRetries - 1) throw e;
-                    await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
-                }
-            }
-        }
+      <div class="overview">
+        <div class="panel">
+          <h3>What this page includes</h3>
+          <ul>
+            <li>Direct links to each report under <code>docs/</code>.</li>
+            <li>Generation date, broad phase, and current recommendation label for each report.</li>
+            <li>A preserved link to the previous root index page now stored in <code>archive/</code>.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Design intent</h3>
+          <ul>
+            <li>Act as a clean repository landing page rather than a full dashboard.</li>
+            <li>Make report discovery immediate on desktop and mobile.</li>
+            <li>Keep the visual treatment polished but maintainable in a single static HTML file.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        async function generateInsight() {
-            if (!activeIndustry) return;
-            const btn = document.getElementById('ai-btn');
-            const loader = document.getElementById('ai-loader');
-            const box = document.getElementById('ai-insight-box');
-            const content = document.getElementById('ai-insight-content');
-
-            btn.disabled = true; loader.classList.remove('hidden'); box.classList.add('hidden');
-            
-            const prompt = `صنعت: ${activeIndustry.name}. آمار مستقیم: ${activeIndustry.direct} نفر. آمار غیرمستقیم: ${activeIndustry.indirect} نفر. تحلیل بازسازی و راهکار جلوگیری از نابودی کامل مشاغل در ۳ پاراگراف کوتاه.`;
-            const system = "تو یک استراتژیست ارشد اقتصادی متخصص در بحران هستی. لحنی جدی، دقیق و راهبردی داشته باش.";
-            
-            try {
-                const text = await callGemini(prompt, system);
-                content.innerText = text;
-                box.classList.remove('hidden');
-            } catch (e) {
-                content.innerText = "خطا در دریافت تحلیل. لطفاً دوباره تلاش کنید.";
-                box.classList.remove('hidden');
-            } finally {
-                loader.classList.add('hidden'); btn.disabled = false;
-            }
-        }
-
-        async function generateNationalStrategy() {
-            const btn = document.getElementById('strategy-btn');
-            const msg = document.getElementById('strategy-msg');
-            const spinner = document.getElementById('strategy-spinner');
-            const content = document.getElementById('strategy-content');
-
-            btn.disabled = true; msg.classList.add('hidden'); spinner.classList.remove('hidden');
-            content.classList.add('hidden');
-
-            const summary = industries.map(i => `${i.name}: ${i.direct + i.indirect} نفر`).join('، ');
-            const prompt = `بر اساس داده‌های بیکاری صنایع ایران (${summary})، یک نقشه راه ۳ مرحله‌ای (تاب‌آوری، تثبیت، بازسازی) برای کل کشور تدوین کن. پاسخ به صورت لیستی و با زبان فارسی باشد.`;
-            const system = "تو مشاور عالی اقتصادی در شرایط جنگی هستی.";
-
-            try {
-                const text = await callGemini(prompt, system);
-                content.innerText = text;
-                content.classList.remove('hidden');
-                spinner.classList.add('hidden');
-            } catch (e) {
-                msg.innerText = "خطا در تدوین استراتژی.";
-                msg.classList.remove('hidden');
-                spinner.classList.add('hidden');
-            } finally {
-                btn.disabled = false;
-            }
-        }
-
-        window.onload = () => {
-            initCharts();
-            const nav = document.getElementById('industry-nav');
-            industries.forEach((ind, i) => {
-                const btn = document.createElement('button');
-                btn.className = `w-full text-right p-4 rounded-2xl font-bold transition-all border border-white/5 bg-white/5 text-stone-400 hover:bg-white/10`;
-                btn.innerText = ind.name;
-                btn.onclick = () => updateDetailView(ind, btn);
-                nav.appendChild(btn);
-            });
-            updateDetailView(industries[0], nav.firstChild);
-        };
-    </script>
+    <div class="footer">
+      Root index updated for the reports library. Previous root page archived at
+      <a href="archive/index-war-crisis-2026-04-16.html">archive/index-war-crisis-2026-04-16.html</a>.
+    </div>
+  </main>
 </body>
 </html>
