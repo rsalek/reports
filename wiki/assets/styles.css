@@ -111,7 +111,8 @@ input {
   margin: 22px auto 34px;
   display: grid;
   grid-template-columns: var(--side-column) minmax(420px, 1fr) var(--side-column);
-  min-height: calc(100vh - 104px);
+  height: calc(100vh - 104px);
+  min-height: 620px;
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: var(--radius-lg);
@@ -333,6 +334,7 @@ input {
     #f8fbff;
   background-size: 42px 42px, 42px 42px, auto, auto, auto;
   overflow: hidden;
+  align-self: stretch;
 }
 
 .graph-toolbar {
@@ -609,6 +611,8 @@ input {
   .wiki-layout {
     grid-template-columns: minmax(250px, var(--side-column)) 1fr;
     grid-template-rows: minmax(520px, 58vh) auto;
+    height: auto;
+    min-height: calc(100vh - 104px);
   }
 
   .reader {

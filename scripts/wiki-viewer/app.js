@@ -218,7 +218,7 @@ function graphSize() {
 
 function initializeNodePositions(nodes) {
   const centerX = state.width / 2;
-  const centerY = state.height / 2;
+  const centerY = Math.max(150, state.height * 0.38);
   const radius = Math.min(state.width, state.height) * 0.34;
   nodes.forEach((node, index) => {
     const angle = (index / Math.max(nodes.length, 1)) * Math.PI * 2;
@@ -232,7 +232,7 @@ function initializeNodePositions(nodes) {
 function simulateLayout(nodes, edges) {
   const nodeMap = new Map(nodes.map((node) => [node.id, node]));
   const centerX = state.width / 2;
-  const centerY = state.height / 2 + 22;
+  const centerY = Math.max(160, state.height * 0.4);
   const iterations = 260;
 
   for (let step = 0; step < iterations; step += 1) {
@@ -284,7 +284,7 @@ function simulateLayout(nodes, edges) {
       node.x += node.vx;
       node.y += node.vy;
       node.x = Math.max(42, Math.min(state.width - 42, node.x));
-      node.y = Math.max(96, Math.min(state.height - 42, node.y));
+      node.y = Math.max(110, Math.min(state.height - 42, node.y));
     }
   }
 }
