@@ -276,6 +276,17 @@ input {
   font-weight: 800;
 }
 
+.page-kicker {
+  display: block;
+  margin-top: 3px;
+  color: var(--blue);
+  font-size: 0.7rem;
+  line-height: 1.25;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .page-path {
   display: block;
   margin-top: 4px;
@@ -381,13 +392,22 @@ input {
 
 .node text {
   fill: #0f172a;
-  font-size: 11px;
   font-weight: 800;
   paint-order: stroke;
   stroke: rgba(255, 255, 255, 0.88);
   stroke-width: 4px;
   stroke-linejoin: round;
   pointer-events: none;
+}
+
+.node-label-main {
+  font-size: 11px;
+}
+
+.node-label-sub {
+  fill: #475569;
+  font-size: 8.5px;
+  font-weight: 750;
 }
 
 .node.dim,
@@ -610,12 +630,21 @@ input {
     width: calc(100% - 20px);
     margin-top: 10px;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 440px auto;
+    grid-template-rows: 440px auto auto;
   }
 
   .sidebar {
+    order: 2;
     max-height: none;
     border-right: 0;
+  }
+
+  .graph-panel {
+    order: 1;
+  }
+
+  .reader {
+    order: 3;
   }
 
   .page-results {

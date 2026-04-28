@@ -21,7 +21,7 @@ const state = {
   height: 700,
 };
 
-const collapsedPageLimit = 8;
+const collapsedPageLimit = 5;
 
 const els = {
   pages: document.getElementById("stat-pages"),
@@ -72,7 +72,7 @@ function idFromHash() {
 function scorePage(page, query) {
   if (!query) return 1;
   const q = query.toLowerCase();
-  const haystack = [page.title, page.ticker, page.path, page.groupLabel, page.plainText].join(" ").toLowerCase();
+  const haystack = [page.title, page.displayTitle, page.graphLabel, page.kicker, page.ticker, page.path, page.groupLabel, page.plainText].join(" ").toLowerCase();
   if (!haystack.includes(q)) return 0;
   let score = 1;
   if (page.ticker && page.ticker.toLowerCase() === q) score += 6;
@@ -120,7 +120,8 @@ function renderPageList() {
       const ticker = page.ticker ? ` · ${escapeHtml(page.ticker)}` : "";
       return `
         <button class="page-item${active}" type="button" data-id="${escapeHtml(page.id)}">
-          <span class="page-title">${escapeHtml(page.title)}${ticker}</span>
+          <span class="page-title">${escapeHtml(page.displayTitle || page.title)}${ticker}</span>
+          <span class="page-kicker">${escapeHtml(page.kicker || page.groupLabel)}</span>
           <span class="page-path">${escapeHtml(page.path)}</span>
         </button>
       `;
@@ -139,7 +140,7 @@ function linkButton(id) {
   const page = state.pageById.get(id);
   if (!page) return "";
   const ticker = page.ticker ? ` · ${escapeHtml(page.ticker)}` : "";
-  return `<button type="button" data-id="${escapeHtml(id)}">${escapeHtml(page.title)}${ticker}</button>`;
+  return `<button type="button" data-id="${escapeHtml(id)}">${escapeHtml(page.displayTitle || page.title)}${ticker}</button>`;
 }
 
 function renderLinkLists(page) {
@@ -164,9 +165,9 @@ function selectPage(id, updateHash = true) {
   const page = state.pageById.get(id);
   if (!page) return;
   state.selectedId = id;
-  els.focus.textContent = page.title;
+  els.focus.textContent = page.displayTitle || page.title;
   els.readerGroup.textContent = page.groupLabel;
-  els.readerTitle.textContent = page.title;
+  els.readerTitle.textContent = page.displayTitle || page.title;
   els.readerMeta.textContent = `${page.path}${page.updated ? ` · updated ${page.updated}` : ""}`;
   els.readerBody.classList.remove("empty-state");
   els.readerBody.innerHTML = page.html;
@@ -313,11 +314,16 @@ function renderGraph() {
     .map((node) => {
       const color = groupColors[node.group] || groupColors["wiki-note"];
       const r = nodeRadius(node);
-      const label = node.ticker || node.title;
+      const label = node.graphLabel || node.displayTitle || node.title;
+      const sublabel = node.kicker || node.groupLabel || "";
       return `
         <g class="node" data-id="${escapeHtml(node.id)}" transform="translate(${node.x.toFixed(1)} ${node.y.toFixed(1)})">
+          <title>${escapeHtml(node.displayTitle || node.title)}</title>
           <circle r="${r.toFixed(1)}" fill="${color}"></circle>
-          <text x="${(r + 6).toFixed(1)}" y="4">${escapeHtml(label)}</text>
+          <text x="${(r + 7).toFixed(1)}" y="-2">
+            <tspan class="node-label-main">${escapeHtml(label)}</tspan>
+            <tspan class="node-label-sub" x="${(r + 7).toFixed(1)}" dy="13">${escapeHtml(sublabel)}</tspan>
+          </text>
         </g>
       `;
     })

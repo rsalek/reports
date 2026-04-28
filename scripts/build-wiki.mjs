@@ -10,7 +10,11 @@ const sourceRoot = path.resolve(process.env.WIKI_SOURCE || defaultSource);
 const outRoot = path.resolve(process.env.WIKI_OUT || path.join(repoRoot, "wiki"));
 const templateRoot = path.join(__dirname, "wiki-viewer");
 const WIKILINK_RE = /\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|([^\]]+))?\]\]/g;
-const HIDDEN_PAGE_IDS = new Set(["wiki/_system/Operational Log"]);
+const HIDDEN_PAGE_IDS = new Set([
+  "wiki/_system/Operational Log",
+  "wiki/_system/Durable Queries",
+  "wiki/_system/Cross-Stock Map",
+]);
 
 function readDirRecursive(dir, predicate) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -102,7 +106,8 @@ function isPrivateTarget(value) {
 
 function isHiddenTarget(value) {
   const normalized = withoutMd(value.trim().replace(/\\/g, "/").replace(/^\/+/, ""));
-  return HIDDEN_PAGE_IDS.has(normalized) || HIDDEN_PAGE_IDS.has(`wiki/${normalized.replace(/^wiki\//, "")}`);
+  const normalizedWithWiki = `wiki/${normalized.replace(/^wiki\//, "")}`;
+  return normalized.startsWith("wiki/_system/") || HIDDEN_PAGE_IDS.has(normalized) || HIDDEN_PAGE_IDS.has(normalizedWithWiki);
 }
 
 function hasHiddenWikilink(line) {
@@ -110,6 +115,7 @@ function hasHiddenWikilink(line) {
   let match;
   while ((match = re.exec(line)) !== null) {
     if (isHiddenTarget(match[1])) return true;
+    if (isPrivateTarget(match[1])) return true;
   }
   return false;
 }
@@ -118,6 +124,8 @@ function removeHiddenReferences(markdown) {
   return markdown
     .split(/\r?\n/)
     .filter((line) => !hasHiddenWikilink(line))
+    .filter((line) => !/^##\s+(Durable Queries|Operations)\s*$/.test(line.trim()))
+    .filter((line) => !/`raw\/` is immutable/.test(line))
     .join("\n");
 }
 
@@ -142,6 +150,60 @@ function labelForGroup(group) {
     "query-note": "Query Notes",
     "wiki-note": "Wiki Notes",
   }[group] || "Wiki Notes";
+}
+
+function tickerFromPath(id) {
+  const match = id.match(/^wiki\/stocks\/([^/]+)\//);
+  return match ? match[1] : "";
+}
+
+function sourceDateFromId(id) {
+  const match = id.match(/\/(\d{4}-\d{2}-\d{2})\s+/);
+  return match ? match[1] : "";
+}
+
+function shortCompanyName(title, ticker) {
+  return title.replace(new RegExp(`\\s*\\(${ticker}\\)$`), "").trim();
+}
+
+function curatedLabels(page) {
+  const ticker = page.ticker || tickerFromPath(page.id);
+  if (page.group === "stock-hub") {
+    return {
+      displayTitle: page.title,
+      graphLabel: ticker || shortCompanyName(page.title, ticker),
+      kicker: "Stock hub",
+    };
+  }
+  if (page.group === "topic-note") {
+    const label = page.title.toLowerCase().includes("thesis") ? "Thesis" : page.title.replace(/\s+-\s+.+$/, "");
+    return {
+      displayTitle: `${ticker} ${label}`,
+      graphLabel: `${ticker} ${label}`,
+      kicker: "Topic note",
+    };
+  }
+  if (page.group === "source-note") {
+    const date = sourceDateFromId(page.id);
+    const sourceKind = page.title.toLowerCase().includes("earnings") ? "Earnings update" : "Source report";
+    return {
+      displayTitle: `${ticker} ${sourceKind}${date ? ` (${date})` : ""}`,
+      graphLabel: `${ticker} ${sourceKind}`,
+      kicker: date || "Source note",
+    };
+  }
+  if (page.group === "cross-stock") {
+    return {
+      displayTitle: page.title,
+      graphLabel: page.title.replace(" - Moat, Growth, and Valuation Framing", ""),
+      kicker: "Cross-stock comparison",
+    };
+  }
+  return {
+    displayTitle: page.title,
+    graphLabel: page.title,
+    kicker: page.groupLabel,
+  };
 }
 
 function extractTitle(markdown, relPath, frontmatter) {
@@ -385,12 +447,26 @@ const pages = markdownFiles.map((filePath) => {
     outboundLinks: [],
     backlinks: [],
   };
-}).filter((page) => !HIDDEN_PAGE_IDS.has(page.id));
+}).filter((page) => !isHiddenTarget(page.id));
+
+for (const page of pages) {
+  Object.assign(page, curatedLabels(page));
+}
 
 const resolveLink = buildResolvers(pages);
 const pageById = new Map(pages.map((page) => [page.id, page]));
 const brokenLinkSet = new Set();
 const edges = [];
+const edgeKeys = new Set();
+
+function addEdge(source, target) {
+  if (!source || !target || source === target) return;
+  if (!pageById.has(source) || !pageById.has(target)) return;
+  const key = `${source} -> ${target}`;
+  if (edgeKeys.has(key)) return;
+  edgeKeys.add(key);
+  edges.push({ source, target });
+}
 
 for (const page of pages) {
   const outbound = new Set();
@@ -402,7 +478,7 @@ for (const page of pages) {
     const target = resolveLink(match[1]);
     if (target && target !== page.id) {
       outbound.add(target);
-      edges.push({ source: page.id, target });
+      addEdge(page.id, target);
     } else if (!target) {
       brokenLinkSet.add(`${page.id} -> ${match[1]}`);
     }
@@ -410,7 +486,33 @@ for (const page of pages) {
   page.outboundLinks = [...outbound].sort();
 }
 
+const stockHubByTicker = new Map(pages.filter((page) => page.group === "stock-hub" && page.ticker).map((page) => [page.ticker, page.id]));
+const stockNotesByTicker = new Map();
 for (const page of pages) {
+  if (!page.ticker || page.group === "stock-hub") continue;
+  if (!stockNotesByTicker.has(page.ticker)) stockNotesByTicker.set(page.ticker, []);
+  stockNotesByTicker.get(page.ticker).push(page);
+}
+
+for (const [ticker, hubId] of stockHubByTicker.entries()) {
+  const stockNotes = stockNotesByTicker.get(ticker) || [];
+  const topicNotes = stockNotes.filter((page) => page.group === "topic-note");
+  const sourceNotes = stockNotes.filter((page) => page.group === "source-note");
+  for (const note of stockNotes) {
+    addEdge(hubId, note.id);
+    const hub = pageById.get(hubId);
+    if (hub && !hub.outboundLinks.includes(note.id)) hub.outboundLinks.push(note.id);
+  }
+  for (const topic of topicNotes) {
+    for (const source of sourceNotes) {
+      addEdge(topic.id, source.id);
+      if (!topic.outboundLinks.includes(source.id)) topic.outboundLinks.push(source.id);
+    }
+  }
+}
+
+for (const page of pages) {
+  page.outboundLinks.sort();
   page.html = renderMarkdown(page.markdown, resolveLink, brokenLinkSet);
   delete page.markdown;
 }
@@ -466,12 +568,15 @@ const search = {
   records: pages.map((page) => ({
     id: page.id,
     title: page.title,
+    displayTitle: page.displayTitle,
+    graphLabel: page.graphLabel,
+    kicker: page.kicker,
     path: page.path,
     ticker: page.ticker,
     type: page.type,
     group: page.group,
     updated: page.updated,
-    text: [page.title, page.ticker, page.path, page.groupLabel, page.plainText].filter(Boolean).join(" "),
+    text: [page.title, page.displayTitle, page.graphLabel, page.kicker, page.ticker, page.path, page.groupLabel, page.plainText].filter(Boolean).join(" "),
   })),
 };
 
