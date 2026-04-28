@@ -1,0 +1,814 @@
+{
+  "generatedAt": "2026-04-28T11:21:02.750Z",
+  "source": "LLM-wiki/wiki",
+  "stats": {
+    "pages": 24,
+    "links": 57,
+    "stocks": 6,
+    "latestUpdated": "2026-04-19"
+  },
+  "groups": [
+    {
+      "id": "stock-hub",
+      "label": "Stock Hubs",
+      "count": 6
+    },
+    {
+      "id": "topic-note",
+      "label": "Topic Notes",
+      "count": 6
+    },
+    {
+      "id": "source-note",
+      "label": "Source Notes",
+      "count": 7
+    },
+    {
+      "id": "cross-stock",
+      "label": "Cross-Stock",
+      "count": 1
+    },
+    {
+      "id": "system-note",
+      "label": "System Notes",
+      "count": 3
+    },
+    {
+      "id": "wiki-note",
+      "label": "Wiki Notes",
+      "count": 1
+    }
+  ],
+  "nodes": [
+    {
+      "id": "wiki/Stock Knowledge Wiki",
+      "path": "wiki/Stock Knowledge Wiki.md",
+      "title": "Stock Knowledge Wiki",
+      "type": "wiki-index",
+      "ticker": "",
+      "updated": "2026-04-19",
+      "group": "wiki-note",
+      "groupLabel": "Wiki Notes",
+      "outboundLinks": [
+        "wiki/_system/Cross-Stock Map",
+        "wiki/_system/Durable Queries",
+        "wiki/_system/Operational Log",
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/BMI/Badger Meter (BMI)",
+        "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+        "wiki/stocks/MELI/MercadoLibre (MELI)",
+        "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+        "wiki/stocks/UBER/Uber Technologies (UBER)",
+        "wiki/stocks/ZS/Zscaler (ZS)"
+      ],
+      "backlinks": [
+        "wiki/stocks/BMI/Badger Meter (BMI)",
+        "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+        "wiki/stocks/MELI/MercadoLibre (MELI)",
+        "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+        "wiki/stocks/UBER/Uber Technologies (UBER)",
+        "wiki/stocks/ZS/Zscaler (ZS)"
+      ],
+      "degree": 16,
+      "excerpt": "Stock Knowledge Wiki This is the global entrypoint for the stock research wiki. Start here before answering questions or adding new sources. Stocks BMI Badger Meter: smart water infrastructure compounder whose long term ",
+      "plainText": "Stock Knowledge Wiki This is the global entrypoint for the stock research wiki. Start here before answering questions or adding new sources. Stocks BMI Badger Meter: smart water infrastructure compounder whose long term AMI and software thesis remains intact, but the current stance has shifted to HOLD after Q1 2026 margin compression and weaker short cycle demand. GRAB Grab Holdings: Southeast Asian superapp at a profitability inflection, with a strong ecosystem moat and a regulatory heavy risk profile. MELI MercadoLibre: Latin American commerce and fintech ecosystem with wide moat platform characteristics and operating leverage. PANW Palo Alto Networks: platformizing cybersecurity leader with recurring revenue strength and M&A integration risk. UBER Uber Technologies: marketplace and super app cash generator with AV disruption versus aggregation as the central debate. ZS Zscaler: zero trust security leader framed as a self funding growth asset with valuation compression. Cross Stock Notes PANW vs ZS Moat, Growth, and Valuation Framing Cross Stock Index Durable Queries Queries Index Operations Operational Log Raw Inbox Instructions Conventions raw/ is immutable. wiki/ is the maintained knowledge layer. File durable analysis back into the wiki when it will be useful again.",
+      "html": "<h1 id=\"stock-knowledge-wiki\">Stock Knowledge Wiki</h1>\n<p>This is the global entrypoint for the stock research wiki. Start here before answering questions or adding new sources.</p>\n<h2 id=\"stocks\">Stocks</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FBMI%2FBadger%20Meter%20(BMI)\" data-wiki-link=\"wiki/stocks/BMI/Badger Meter (BMI)\">BMI - Badger Meter</a>: smart water infrastructure compounder whose long-term AMI and software thesis remains intact, but the current stance has shifted to <code>HOLD</code> after Q1 2026 margin compression and weaker short-cycle demand.</li>\n<li><a href=\"#/wiki%2Fstocks%2FGRAB%2FGrab%20Holdings%20(GRAB)\" data-wiki-link=\"wiki/stocks/GRAB/Grab Holdings (GRAB)\">GRAB - Grab Holdings</a>: Southeast Asian superapp at a profitability inflection, with a strong ecosystem moat and a regulatory-heavy risk profile.</li>\n<li><a href=\"#/wiki%2Fstocks%2FMELI%2FMercadoLibre%20(MELI)\" data-wiki-link=\"wiki/stocks/MELI/MercadoLibre (MELI)\">MELI - MercadoLibre</a>: Latin American commerce and fintech ecosystem with wide-moat platform characteristics and operating leverage.</li>\n<li><a href=\"#/wiki%2Fstocks%2FPANW%2FPalo%20Alto%20Networks%20(PANW)\" data-wiki-link=\"wiki/stocks/PANW/Palo Alto Networks (PANW)\">PANW - Palo Alto Networks</a>: platformizing cybersecurity leader with recurring revenue strength and M&amp;A integration risk.</li>\n<li><a href=\"#/wiki%2Fstocks%2FUBER%2FUber%20Technologies%20(UBER)\" data-wiki-link=\"wiki/stocks/UBER/Uber Technologies (UBER)\">UBER - Uber Technologies</a>: marketplace and super-app cash generator with AV disruption versus aggregation as the central debate.</li>\n<li><a href=\"#/wiki%2Fstocks%2FZS%2FZscaler%20(ZS)\" data-wiki-link=\"wiki/stocks/ZS/Zscaler (ZS)\">ZS - Zscaler</a>: zero-trust security leader framed as a self-funding growth asset with valuation compression.</li>\n</ul>\n<h2 id=\"cross-stock-notes\">Cross-Stock Notes</h2>\n<ul>\n<li><a href=\"#/wiki%2Fcross-stock%2FPANW%20vs%20ZS%20-%20Moat%2C%20Growth%2C%20and%20Valuation%20Framing\" data-wiki-link=\"wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing\">PANW vs ZS - Moat, Growth, and Valuation Framing</a></li>\n<li><a href=\"#/wiki%2F_system%2FCross-Stock%20Map\" data-wiki-link=\"wiki/_system/Cross-Stock Map\">Cross-Stock Index</a></li>\n</ul>\n<h2 id=\"durable-queries\">Durable Queries</h2>\n<ul>\n<li><a href=\"#/wiki%2F_system%2FDurable%20Queries\" data-wiki-link=\"wiki/_system/Durable Queries\">Queries Index</a></li>\n</ul>\n<h2 id=\"operations\">Operations</h2>\n<ul>\n<li><a href=\"#/wiki%2F_system%2FOperational%20Log\" data-wiki-link=\"wiki/_system/Operational Log\">Operational Log</a></li>\n<li><span class=\"external-path\" title=\"Private source reference\">Raw Inbox Instructions</span></li>\n</ul>\n<h2 id=\"conventions\">Conventions</h2>\n<ul>\n<li><code>raw/</code> is immutable.</li>\n<li><code>wiki/</code> is the maintained knowledge layer.</li>\n<li>File durable analysis back into the wiki when it will be useful again.</li>\n</ul>"
+    },
+    {
+      "id": "wiki/_system/Cross-Stock Map",
+      "path": "wiki/_system/Cross-Stock Map.md",
+      "title": "Cross-Stock Index",
+      "type": "cross-stock-index",
+      "ticker": "",
+      "updated": "2026-04-17",
+      "group": "system-note",
+      "groupLabel": "System Notes",
+      "outboundLinks": [
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing"
+      ],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki"
+      ],
+      "degree": 2,
+      "excerpt": "Cross Stock Index PANW vs ZS Moat, Growth, and Valuation Framing Planned Expansion Cybersecurity platform comparisons beyond PANW and ZS Marketplace/network effect comparisons such as MELI vs UBER where useful Shared the",
+      "plainText": "Cross Stock Index PANW vs ZS Moat, Growth, and Valuation Framing Planned Expansion Cybersecurity platform comparisons beyond PANW and ZS Marketplace/network effect comparisons such as MELI vs UBER where useful Shared theme notes for valuation regimes, capital allocation quality, and regulatory risk",
+      "html": "<h1 id=\"cross-stock-index\">Cross-Stock Index</h1>\n<ul>\n<li><a href=\"#/wiki%2Fcross-stock%2FPANW%20vs%20ZS%20-%20Moat%2C%20Growth%2C%20and%20Valuation%20Framing\" data-wiki-link=\"wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing\">PANW vs ZS - Moat, Growth, and Valuation Framing</a></li>\n</ul>\n<h2 id=\"planned-expansion\">Planned Expansion</h2>\n<ul>\n<li>Cybersecurity platform comparisons beyond PANW and ZS</li>\n<li>Marketplace/network-effect comparisons such as MELI vs UBER where useful</li>\n<li>Shared theme notes for valuation regimes, capital allocation quality, and regulatory risk</li>\n</ul>"
+    },
+    {
+      "id": "wiki/_system/Durable Queries",
+      "path": "wiki/_system/Durable Queries.md",
+      "title": "Queries Index",
+      "type": "query-index",
+      "ticker": "",
+      "updated": "2026-04-17",
+      "group": "system-note",
+      "groupLabel": "System Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki"
+      ],
+      "degree": 1,
+      "excerpt": "Queries Index This directory stores durable answers that are worth preserving as notes. Routine chat answers do not need to be filed automatically. Filing Rule Save a query result here only when it is substantial, likely",
+      "plainText": "Queries Index This directory stores durable answers that are worth preserving as notes. Routine chat answers do not need to be filed automatically. Filing Rule Save a query result here only when it is substantial, likely to be reused, or explicitly requested by the user.",
+      "html": "<h1 id=\"queries-index\">Queries Index</h1>\n<p>This directory stores durable answers that are worth preserving as notes. Routine chat answers do not need to be filed automatically.</p>\n<h2 id=\"filing-rule\">Filing Rule</h2>\n<p>Save a query result here only when it is substantial, likely to be reused, or explicitly requested by the user.</p>"
+    },
+    {
+      "id": "wiki/_system/Operational Log",
+      "path": "wiki/_system/Operational Log.md",
+      "title": "Operational Log",
+      "type": "system-note",
+      "ticker": "",
+      "updated": "",
+      "group": "system-note",
+      "groupLabel": "System Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/stocks/BMI/Badger Meter (BMI)",
+        "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+        "wiki/stocks/MELI/MercadoLibre (MELI)",
+        "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+        "wiki/stocks/UBER/Uber Technologies (UBER)",
+        "wiki/stocks/ZS/Zscaler (ZS)"
+      ],
+      "degree": 7,
+      "excerpt": "Operational Log [2026 04 17] setup Stock knowledge wiki bootstrap Created the root wiki structure, templates, stock hubs, source notes, cross stock index, and Codex operating guide. [2026 04 17] ingest Seed report snapsh",
+      "plainText": "Operational Log [2026 04 17] setup Stock knowledge wiki bootstrap Created the root wiki structure, templates, stock hubs, source notes, cross stock index, and Codex operating guide. [2026 04 17] ingest Seed report snapshot BMI Saved [private raw source] Full Report.html , created the initial source note, and linked the BMI stock hub. [2026 04 17] ingest Seed report snapshot MELI Saved [private raw source] Full Report.html , created the initial source note, and linked the MELI stock hub. [2026 04 17] ingest Seed report snapshot PANW Saved [private raw source] Full Report.html , created the initial source note, and linked the PANW stock hub. [2026 04 17] ingest Seed report snapshot UBER Saved [private raw source] Full Report.html , created the initial source note, and linked the UBER stock hub. [2026 04 17] ingest Seed report snapshot ZS Saved [private raw source] Full Report.html , created the initial source note, and linked the ZS stock hub. [2026 04 17] file Seed cross stock comparison PANW vs ZS Created an initial comparison note to support recurring cybersecurity platform questions and shared valuation framing. [2026 04 19] ingest BMI post earnings thesis refresh Moved BMI Earnings Update.md from [private raw source] to [private raw source] 04 19 BMI Earnings Update.md , created a new BMI source note, and updated the BMI hub and thesis note to reflect the downgrade to HOLD . [2026 04 19] ingest GRAB first stock onboarding Moved GRAB Full Report.html from [private raw source] to [private raw source] 04 19 GRAB Full Report.html , created the first GRAB stock hub, source note, and thesis note, and added GRAB to the main stock index.",
+      "html": "<h1 id=\"operational-log\">Operational Log</h1>\n<h2 id=\"2026-04-17-setup-stock-knowledge-wiki-bootstrap\">[2026-04-17] setup | Stock knowledge wiki bootstrap</h2>\n<p>Created the root wiki structure, templates, stock hubs, source notes, cross-stock index, and Codex operating guide.</p>\n<h2 id=\"2026-04-17-ingest-seed-report-snapshot-bmi\">[2026-04-17] ingest | Seed report snapshot - BMI</h2>\n<p>Saved <code>[private raw source]</code>, created the initial source note, and linked the BMI stock hub.</p>\n<h2 id=\"2026-04-17-ingest-seed-report-snapshot-meli\">[2026-04-17] ingest | Seed report snapshot - MELI</h2>\n<p>Saved <code>[private raw source]</code>, created the initial source note, and linked the MELI stock hub.</p>\n<h2 id=\"2026-04-17-ingest-seed-report-snapshot-panw\">[2026-04-17] ingest | Seed report snapshot - PANW</h2>\n<p>Saved <code>[private raw source]</code>, created the initial source note, and linked the PANW stock hub.</p>\n<h2 id=\"2026-04-17-ingest-seed-report-snapshot-uber\">[2026-04-17] ingest | Seed report snapshot - UBER</h2>\n<p>Saved <code>[private raw source]</code>, created the initial source note, and linked the UBER stock hub.</p>\n<h2 id=\"2026-04-17-ingest-seed-report-snapshot-zs\">[2026-04-17] ingest | Seed report snapshot - ZS</h2>\n<p>Saved <code>[private raw source]</code>, created the initial source note, and linked the ZS stock hub.</p>\n<h2 id=\"2026-04-17-file-seed-cross-stock-comparison-panw-vs-zs\">[2026-04-17] file | Seed cross-stock comparison - PANW vs ZS</h2>\n<p>Created an initial comparison note to support recurring cybersecurity platform questions and shared valuation framing.</p>\n<h2 id=\"2026-04-19-ingest-bmi-post-earnings-thesis-refresh\">[2026-04-19] ingest | BMI post-earnings thesis refresh</h2>\n<p>Moved <code>BMI_Earnings_Update.md</code> from <code>[private raw source]</code> to <code>[private raw source]</code>, created a new BMI source note, and updated the BMI hub and thesis note to reflect the downgrade to <code>HOLD</code>.</p>\n<h2 id=\"2026-04-19-ingest-grab-first-stock-onboarding\">[2026-04-19] ingest | GRAB first-stock onboarding</h2>\n<p>Moved <code>GRAB_Full_Report.html</code> from <code>[private raw source]</code> to <code>[private raw source]</code>, created the first GRAB stock hub, source note, and thesis note, and added GRAB to the main stock index.</p>"
+    },
+    {
+      "id": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+      "path": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing.md",
+      "title": "PANW vs ZS - Moat, Growth, and Valuation Framing",
+      "type": "comparison",
+      "ticker": "",
+      "updated": "2026-04-17",
+      "group": "cross-stock",
+      "groupLabel": "Cross-Stock",
+      "outboundLinks": [
+        "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+        "wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report",
+        "wiki/stocks/ZS/Zscaler (ZS)",
+        "wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report"
+      ],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/_system/Cross-Stock Map",
+        "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+        "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis",
+        "wiki/stocks/ZS/Zscaler (ZS)",
+        "wiki/stocks/ZS/topics/Zscaler - Investment Thesis"
+      ],
+      "degree": 10,
+      "excerpt": "PANW vs ZS Moat, Growth, and Valuation Framing This is the first reusable comparison note for the cybersecurity coverage set. It is intentionally compact and should be expanded as more sources are ingested. Side by Side ",
+      "plainText": "PANW vs ZS Moat, Growth, and Valuation Framing This is the first reusable comparison note for the cybersecurity coverage set. It is intentionally compact and should be expanded as more sources are ingested. Side by Side View Dimension PANW ZS Core framing Broad cybersecurity platform consolidator Zero trust cloud native specialist Moat Wide moat framed around scale, platform breadth, and installed enterprise relationships Narrower but strong category position tied to zero trust architecture and execution Growth posture Still growing, but with more emphasis on platform integration and cross sell at scale Higher growth profile with self funding growth and strong retention Valuation framing Buy rated despite integration and SBC concerns because the platform can consolidate spend Strong Buy framing driven by perceived disconnect between operating quality and compressed valuation Key tension CyberArk and Chronosphere integration risk may complicate the platform story Heavy SBC, uncertainty, and crowded expectations can punish even small growth disappointments Synthesis PANW reads like a mature platform leader trying to widen its lead by integrating adjacent products and acquisitions. The moat argument is based on breadth, enterprise relevance, and recurring revenue durability, but the wiki should keep pressure on integration risk and capital allocation quality. ZS reads like a more focused architecture bet. The moat is narrower in breadth but stronger in category purity: if zero trust adoption remains a durable secular trend, ZS may have the cleaner product story. The valuation case is more explicitly about market dislocation between quality and price. In practical terms, PANW currently looks like the broader enterprise consolidation bet, while ZS looks like the purer zero trust growth bet. Open Questions Does PANW's acquisition led breadth deepen the moat or dilute execution quality over time? Can ZS sustain category leadership if large platform vendors successfully bundle adjacent zero trust capabilities? How should future ingests normalize SBC and capital allocation concerns across both names? Links PANW seed report note ZS seed report note",
+      "html": "<h1 id=\"panw-vs-zs-moat-growth-and-valuation-framing\">PANW vs ZS - Moat, Growth, and Valuation Framing</h1>\n<p>This is the first reusable comparison note for the cybersecurity coverage set. It is intentionally compact and should be expanded as more sources are ingested.</p>\n<h2 id=\"side-by-side-view\">Side-by-Side View</h2>\n<p>| Dimension | PANW | ZS | | --- | --- | --- | | Core framing | Broad cybersecurity platform consolidator | Zero-trust cloud-native specialist | | Moat | Wide moat framed around scale, platform breadth, and installed enterprise relationships | Narrower but strong category position tied to zero-trust architecture and execution | | Growth posture | Still growing, but with more emphasis on platform integration and cross-sell at scale | Higher-growth profile with self-funding growth and strong retention | | Valuation framing | Buy-rated despite integration and SBC concerns because the platform can consolidate spend | Strong Buy framing driven by perceived disconnect between operating quality and compressed valuation | | Key tension | CyberArk and Chronosphere integration risk may complicate the platform story | Heavy SBC, uncertainty, and crowded expectations can punish even small growth disappointments |</p>\n<h2 id=\"synthesis\">Synthesis</h2>\n<p><a href=\"#/wiki%2Fstocks%2FPANW%2FPalo%20Alto%20Networks%20(PANW)\" data-wiki-link=\"wiki/stocks/PANW/Palo Alto Networks (PANW)\">PANW</a> reads like a mature platform leader trying to widen its lead by integrating adjacent products and acquisitions. The moat argument is based on breadth, enterprise relevance, and recurring revenue durability, but the wiki should keep pressure on integration risk and capital allocation quality.</p>\n<p><a href=\"#/wiki%2Fstocks%2FZS%2FZscaler%20(ZS)\" data-wiki-link=\"wiki/stocks/ZS/Zscaler (ZS)\">ZS</a> reads like a more focused architecture bet. The moat is narrower in breadth but stronger in category purity: if zero-trust adoption remains a durable secular trend, ZS may have the cleaner product story. The valuation case is more explicitly about market dislocation between quality and price.</p>\n<p>In practical terms, PANW currently looks like the broader enterprise consolidation bet, while ZS looks like the purer zero-trust growth bet.</p>\n<h2 id=\"open-questions\">Open Questions</h2>\n<ul>\n<li>Does PANW&#39;s acquisition-led breadth deepen the moat or dilute execution quality over time?</li>\n<li>Can ZS sustain category leadership if large platform vendors successfully bundle adjacent zero-trust capabilities?</li>\n<li>How should future ingests normalize SBC and capital allocation concerns across both names?</li>\n</ul>\n<h2 id=\"links\">Links</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FPANW%2Fsources%2F2026-02-01%20PANW%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report\">PANW seed report note</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FZS%2Fsources%2F2026-03-20%20ZS%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report\">ZS seed report note</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/BMI/Badger Meter (BMI)",
+      "path": "wiki/stocks/BMI/Badger Meter (BMI).md",
+      "title": "Badger Meter (BMI)",
+      "type": "stock-hub",
+      "ticker": "BMI",
+      "updated": "2026-04-19",
+      "group": "stock-hub",
+      "groupLabel": "Stock Hubs",
+      "outboundLinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/_system/Operational Log",
+        "wiki/stocks/BMI/sources/2026-03-19 BMI Seed Full Report",
+        "wiki/stocks/BMI/sources/2026-04-19 BMI Earnings Update",
+        "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis"
+      ],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis"
+      ],
+      "degree": 7,
+      "excerpt": "Badger Meter (BMI) Thesis Snapshot Badger Meter remains a smart water infrastructure compounder with a credible long term AMI and software transition, but the near term thesis has weakened after Q1 2026 exposed softer sh",
+      "plainText": "Badger Meter (BMI) Thesis Snapshot Badger Meter remains a smart water infrastructure compounder with a credible long term AMI and software transition, but the near term thesis has weakened after Q1 2026 exposed softer short cycle demand and operating margin compression below the prior 18% discipline threshold. Core Facts Ticker: BMI Company: Badger Meter Current view: HOLD Latest thesis state: WEAKENING Seed report date: 2026 03 19 Latest earnings refresh: 2026 04 19 Coverage status: seed report plus post earnings refresh Source Coverage Seed report summary Q1 2026 earnings update Investment thesis Open Questions Does short cycle municipal demand recover in Q2 and Q3, or is the slowdown deeper than management expects? Can operating margins revert toward 19%+ quickly enough to restore the premium multiple? How much execution risk is embedded in PRASA timing and the new UDlive acquisition? Related Pages Global index Operational log",
+      "html": "<h1 id=\"badger-meter-bmi\">Badger Meter (BMI)</h1>\n<h2 id=\"thesis-snapshot\">Thesis Snapshot</h2>\n<p>Badger Meter remains a smart water infrastructure compounder with a credible long-term AMI and software transition, but the near-term thesis has weakened after Q1 2026 exposed softer short-cycle demand and operating margin compression below the prior 18% discipline threshold.</p>\n<h2 id=\"core-facts\">Core Facts</h2>\n<ul>\n<li>Ticker: BMI</li>\n<li>Company: Badger Meter</li>\n<li>Current view: <code>HOLD</code></li>\n<li>Latest thesis state: <code>WEAKENING</code></li>\n<li>Seed report date: 2026-03-19</li>\n<li>Latest earnings refresh: 2026-04-19</li>\n<li>Coverage status: seed report plus post-earnings refresh</li>\n</ul>\n<h2 id=\"source-coverage\">Source Coverage</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FBMI%2Fsources%2F2026-03-19%20BMI%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/BMI/sources/2026-03-19 BMI Seed Full Report\">Seed report summary</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FBMI%2Fsources%2F2026-04-19%20BMI%20Earnings%20Update\" data-wiki-link=\"wiki/stocks/BMI/sources/2026-04-19 BMI Earnings Update\">Q1 2026 earnings update</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FBMI%2Ftopics%2FBadger%20Meter%20-%20Investment%20Thesis\" data-wiki-link=\"wiki/stocks/BMI/topics/Badger Meter - Investment Thesis\">Investment thesis</a></li>\n</ul>\n<h2 id=\"open-questions\">Open Questions</h2>\n<ul>\n<li>Does short-cycle municipal demand recover in Q2 and Q3, or is the slowdown deeper than management expects?</li>\n<li>Can operating margins revert toward 19%+ quickly enough to restore the premium multiple?</li>\n<li>How much execution risk is embedded in PRASA timing and the new UDlive acquisition?</li>\n</ul>\n<h2 id=\"related-pages\">Related Pages</h2>\n<ul>\n<li><a href=\"#/wiki%2FStock%20Knowledge%20Wiki\" data-wiki-link=\"wiki/Stock Knowledge Wiki\">Global index</a></li>\n<li><a href=\"#/wiki%2F_system%2FOperational%20Log\" data-wiki-link=\"wiki/_system/Operational Log\">Operational log</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/BMI/sources/2026-03-19 BMI Seed Full Report",
+      "path": "wiki/stocks/BMI/sources/2026-03-19 BMI Seed Full Report.md",
+      "title": "BMI Seed Full Report",
+      "type": "source-note",
+      "ticker": "BMI",
+      "updated": "2026-04-17",
+      "group": "source-note",
+      "groupLabel": "Source Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/stocks/BMI/Badger Meter (BMI)",
+        "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis"
+      ],
+      "degree": 2,
+      "excerpt": "BMI Seed Full Report Source Raw snapshot: BMI Full Report.html Generated by AI Analyst Engine on 2026 03 19 Report framing: Phase 5 (Capital Return) Recommendation: BUY Key Facts The report frames BMI as a niche industri",
+      "plainText": "BMI Seed Full Report Source Raw snapshot: BMI Full Report.html Generated by AI Analyst Engine on 2026 03 19 Report framing: Phase 5 (Capital Return) Recommendation: BUY Key Facts The report frames BMI as a niche industrial compounder with strong cash generation and no borrowings at the end of 2025. The investment case centers on municipal metering stickiness, AMI rollout, and software integration. The source positions the company as a high quality business where valuation discipline matters more than business quality doubts. Key Takeaways The moat appears narrow but durable because of embedded utility relationships and operational reliability. Margin expansion is not only a hardware story; the report leans on higher value software and data layers. Position sizing and tranche based accumulation matter because the quality is strong but the stock can trade at a premium. Implications For The Wiki Keep the core thesis focused on water infrastructure digitization rather than generic industrial growth. Track valuation discipline separately from business quality. Add future notes around municipal budgets, AMI adoption, and recurring software economics. Follow up Questions What evidence best supports recurring software economics? How exposed is the thesis to public spending cycles?",
+      "html": "<h1 id=\"bmi-seed-full-report\">BMI Seed Full Report</h1>\n<h2 id=\"source\">Source</h2>\n<ul>\n<li>Raw snapshot: <span class=\"external-path\">BMI_Full_Report.html</span></li>\n<li>Generated by AI Analyst Engine on 2026-03-19</li>\n<li>Report framing: Phase 5 (Capital Return)</li>\n<li>Recommendation: <code>BUY</code></li>\n</ul>\n<h2 id=\"key-facts\">Key Facts</h2>\n<ul>\n<li>The report frames BMI as a niche industrial compounder with strong cash generation and no borrowings at the end of 2025.</li>\n<li>The investment case centers on municipal metering stickiness, AMI rollout, and software integration.</li>\n<li>The source positions the company as a high-quality business where valuation discipline matters more than business quality doubts.</li>\n</ul>\n<h2 id=\"key-takeaways\">Key Takeaways</h2>\n<ul>\n<li>The moat appears narrow but durable because of embedded utility relationships and operational reliability.</li>\n<li>Margin expansion is not only a hardware story; the report leans on higher-value software and data layers.</li>\n<li>Position sizing and tranche-based accumulation matter because the quality is strong but the stock can trade at a premium.</li>\n</ul>\n<h2 id=\"implications-for-the-wiki\">Implications For The Wiki</h2>\n<ul>\n<li>Keep the core thesis focused on water infrastructure digitization rather than generic industrial growth.</li>\n<li>Track valuation discipline separately from business quality.</li>\n<li>Add future notes around municipal budgets, AMI adoption, and recurring software economics.</li>\n</ul>\n<h2 id=\"follow-up-questions\">Follow-up Questions</h2>\n<ul>\n<li>What evidence best supports recurring software economics?</li>\n<li>How exposed is the thesis to public spending cycles?</li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/BMI/sources/2026-04-19 BMI Earnings Update",
+      "path": "wiki/stocks/BMI/sources/2026-04-19 BMI Earnings Update.md",
+      "title": "BMI Earnings Update",
+      "type": "source-note",
+      "ticker": "BMI",
+      "updated": "2026-04-19",
+      "group": "source-note",
+      "groupLabel": "Source Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/stocks/BMI/Badger Meter (BMI)",
+        "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis"
+      ],
+      "degree": 2,
+      "excerpt": "BMI Earnings Update Source Raw snapshot: 2026 04 19 BMI Earnings Update.md Document date: 2026 04 19 Earnings release date referenced: 2026 04 17 Recommendation: HOLD Thesis verdict: WEAKENING Key Facts Q1 2026 revenue c",
+      "plainText": "BMI Earnings Update Source Raw snapshot: 2026 04 19 BMI Earnings Update.md Document date: 2026 04 19 Earnings release date referenced: 2026 04 17 Recommendation: HOLD Thesis verdict: WEAKENING Key Facts Q1 2026 revenue came in at $202.3M, down 9% YoY, with management attributing the shortfall to project pacing delays and an unexpected short cycle order drop. Operating margin fell to 17.4%, below the prior 18% discipline threshold used in the existing BMI thesis. Free cash flow and the balance sheet remained healthy, with more than $200M in cash, zero debt, buybacks, and the new UDlive acquisition. Awarded AMI pipeline improved materially to 2.6M 3.6M connections awaiting deployment. Key Takeaways The long term infrastructure digitization and AMI backlog story is still alive, but the near term execution and volume picture weakened enough to pause accumulation. The current issue is less a broken secular thesis and more a combination of timing risk, short cycle softness, and operating deleverage. Management credibility is not broken, but confidence is slightly reduced because the severity of the short cycle miss appears to have surprised them. Implications For The Wiki BMI should now be treated as a HOLD pending evidence of sequential recovery. Track operating margin recovery, PRASA deployment timing, and short cycle municipal demand as the main near term watch items. Future BMI questions should weigh the still strong backlog against the now weaker tactical setup. Follow up Questions Does Q2 confirm that Q1 was only a timing air pocket? How quickly can margins revert above 19%? What early signals will show whether PRASA timing is real rather than aspirational?",
+      "html": "<h1 id=\"bmi-earnings-update\">BMI Earnings Update</h1>\n<h2 id=\"source\">Source</h2>\n<ul>\n<li>Raw snapshot: <span class=\"external-path\">2026-04-19 BMI Earnings Update.md</span></li>\n<li>Document date: 2026-04-19</li>\n<li>Earnings release date referenced: 2026-04-17</li>\n<li>Recommendation: <code>HOLD</code></li>\n<li>Thesis verdict: <code>WEAKENING</code></li>\n</ul>\n<h2 id=\"key-facts\">Key Facts</h2>\n<ul>\n<li>Q1 2026 revenue came in at $202.3M, down 9% YoY, with management attributing the shortfall to project pacing delays and an unexpected short-cycle order drop.</li>\n<li>Operating margin fell to 17.4%, below the prior 18% discipline threshold used in the existing BMI thesis.</li>\n<li>Free cash flow and the balance sheet remained healthy, with more than $200M in cash, zero debt, buybacks, and the new UDlive acquisition.</li>\n<li>Awarded AMI pipeline improved materially to 2.6M - 3.6M connections awaiting deployment.</li>\n</ul>\n<h2 id=\"key-takeaways\">Key Takeaways</h2>\n<ul>\n<li>The long-term infrastructure digitization and AMI backlog story is still alive, but the near-term execution and volume picture weakened enough to pause accumulation.</li>\n<li>The current issue is less a broken secular thesis and more a combination of timing risk, short-cycle softness, and operating deleverage.</li>\n<li>Management credibility is not broken, but confidence is slightly reduced because the severity of the short-cycle miss appears to have surprised them.</li>\n</ul>\n<h2 id=\"implications-for-the-wiki\">Implications For The Wiki</h2>\n<ul>\n<li>BMI should now be treated as a <code>HOLD</code> pending evidence of sequential recovery.</li>\n<li>Track operating margin recovery, PRASA deployment timing, and short-cycle municipal demand as the main near-term watch items.</li>\n<li>Future BMI questions should weigh the still-strong backlog against the now-weaker tactical setup.</li>\n</ul>\n<h2 id=\"follow-up-questions\">Follow-up Questions</h2>\n<ul>\n<li>Does Q2 confirm that Q1 was only a timing air-pocket?</li>\n<li>How quickly can margins revert above 19%?</li>\n<li>What early signals will show whether PRASA timing is real rather than aspirational?</li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis",
+      "path": "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis.md",
+      "title": "Investment Thesis - BMI",
+      "type": "topic-note",
+      "ticker": "BMI",
+      "updated": "2026-04-19",
+      "group": "topic-note",
+      "groupLabel": "Topic Notes",
+      "outboundLinks": [
+        "wiki/stocks/BMI/Badger Meter (BMI)",
+        "wiki/stocks/BMI/sources/2026-03-19 BMI Seed Full Report",
+        "wiki/stocks/BMI/sources/2026-04-19 BMI Earnings Update"
+      ],
+      "backlinks": [
+        "wiki/stocks/BMI/Badger Meter (BMI)"
+      ],
+      "degree": 4,
+      "excerpt": "Investment Thesis BMI Current View BMI is still a high quality smart water infrastructure story, but the current investable stance has shifted from active accumulation to patience. The long term thesis remains intact, ye",
+      "plainText": "Investment Thesis BMI Current View BMI is still a high quality smart water infrastructure story, but the current investable stance has shifted from active accumulation to patience. The long term thesis remains intact, yet the near term setup weakened when Q1 2026 operating margins fell to 17.4% and short cycle demand softened more than expected. Evidence Seed report summary Q1 2026 earnings update Municipal metering and AMI adoption are treated as durable demand anchors. The seed report highlights a net cash balance and disciplined capital positioning. The earnings refresh confirms that backlog and PRASA timing still support the long term case, but also shows near term operating deleverage and a broken tactical accumulation trigger. What Could Change If short cycle orders do not recover and PRASA slips further, the \"timing issue\" explanation weakens materially. If operating margins stay below the old 18% floor, the premium multiple likely remains under pressure. If software and SaaS mix cannot offset mechanical meter softness, the quality narrative may not protect the stock near term. Links BMI hub",
+      "html": "<h1 id=\"investment-thesis-bmi\">Investment Thesis - BMI</h1>\n<h2 id=\"current-view\">Current View</h2>\n<p>BMI is still a high-quality smart water infrastructure story, but the current investable stance has shifted from active accumulation to patience. The long-term thesis remains intact, yet the near-term setup weakened when Q1 2026 operating margins fell to 17.4% and short-cycle demand softened more than expected.</p>\n<h2 id=\"evidence\">Evidence</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FBMI%2Fsources%2F2026-03-19%20BMI%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/BMI/sources/2026-03-19 BMI Seed Full Report\">Seed report summary</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FBMI%2Fsources%2F2026-04-19%20BMI%20Earnings%20Update\" data-wiki-link=\"wiki/stocks/BMI/sources/2026-04-19 BMI Earnings Update\">Q1 2026 earnings update</a></li>\n<li>Municipal metering and AMI adoption are treated as durable demand anchors.</li>\n<li>The seed report highlights a net cash balance and disciplined capital positioning.</li>\n<li>The earnings refresh confirms that backlog and PRASA timing still support the long-term case, but also shows near-term operating deleverage and a broken tactical accumulation trigger.</li>\n</ul>\n<h2 id=\"what-could-change\">What Could Change</h2>\n<ul>\n<li>If short-cycle orders do not recover and PRASA slips further, the &quot;timing issue&quot; explanation weakens materially.</li>\n<li>If operating margins stay below the old 18% floor, the premium multiple likely remains under pressure.</li>\n<li>If software and SaaS mix cannot offset mechanical meter softness, the quality narrative may not protect the stock near term.</li>\n</ul>\n<h2 id=\"links\">Links</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FBMI%2FBadger%20Meter%20(BMI)\" data-wiki-link=\"wiki/stocks/BMI/Badger Meter (BMI)\">BMI hub</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+      "path": "wiki/stocks/GRAB/Grab Holdings (GRAB).md",
+      "title": "Grab Holdings (GRAB)",
+      "type": "stock-hub",
+      "ticker": "GRAB",
+      "updated": "2026-04-19",
+      "group": "stock-hub",
+      "groupLabel": "Stock Hubs",
+      "outboundLinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/_system/Operational Log",
+        "wiki/stocks/GRAB/sources/2026-01-17 GRAB Full Report",
+        "wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis"
+      ],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis"
+      ],
+      "degree": 6,
+      "excerpt": "Grab Holdings (GRAB) Thesis Snapshot Grab is currently framed as a Southeast Asian superapp at a profitability inflection: a dominant ecosystem with strong network effects, a fortress balance sheet, and improving operati",
+      "plainText": "Grab Holdings (GRAB) Thesis Snapshot Grab is currently framed as a Southeast Asian superapp at a profitability inflection: a dominant ecosystem with strong network effects, a fortress balance sheet, and improving operating leverage, offset by material regulatory and structural risks. Core Facts Ticker: GRAB Company: Grab Holdings Current view: BUY Source report date: 2026 01 17 Coverage status: bootstrapped from one full report Source Coverage Full report summary Investment thesis Open Questions How durable is Grab's moat if regulators change the economics of gig work across Southeast Asia? Does the profitability inflection represent a sustainable operating model or just a favorable phase of optimization? How much upside depends on financial services and advertising mix versus the core mobility and delivery base? Related Pages Global index Operational log",
+      "html": "<h1 id=\"grab-holdings-grab\">Grab Holdings (GRAB)</h1>\n<h2 id=\"thesis-snapshot\">Thesis Snapshot</h2>\n<p>Grab is currently framed as a Southeast Asian superapp at a profitability inflection: a dominant ecosystem with strong network effects, a fortress balance sheet, and improving operating leverage, offset by material regulatory and structural risks.</p>\n<h2 id=\"core-facts\">Core Facts</h2>\n<ul>\n<li>Ticker: GRAB</li>\n<li>Company: Grab Holdings</li>\n<li>Current view: <code>BUY</code></li>\n<li>Source report date: 2026-01-17</li>\n<li>Coverage status: bootstrapped from one full report</li>\n</ul>\n<h2 id=\"source-coverage\">Source Coverage</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FGRAB%2Fsources%2F2026-01-17%20GRAB%20Full%20Report\" data-wiki-link=\"wiki/stocks/GRAB/sources/2026-01-17 GRAB Full Report\">Full report summary</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FGRAB%2Ftopics%2FGrab%20Holdings%20-%20Investment%20Thesis\" data-wiki-link=\"wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis\">Investment thesis</a></li>\n</ul>\n<h2 id=\"open-questions\">Open Questions</h2>\n<ul>\n<li>How durable is Grab&#39;s moat if regulators change the economics of gig work across Southeast Asia?</li>\n<li>Does the profitability inflection represent a sustainable operating model or just a favorable phase of optimization?</li>\n<li>How much upside depends on financial services and advertising mix versus the core mobility and delivery base?</li>\n</ul>\n<h2 id=\"related-pages\">Related Pages</h2>\n<ul>\n<li><a href=\"#/wiki%2FStock%20Knowledge%20Wiki\" data-wiki-link=\"wiki/Stock Knowledge Wiki\">Global index</a></li>\n<li><a href=\"#/wiki%2F_system%2FOperational%20Log\" data-wiki-link=\"wiki/_system/Operational Log\">Operational log</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/GRAB/sources/2026-01-17 GRAB Full Report",
+      "path": "wiki/stocks/GRAB/sources/2026-01-17 GRAB Full Report.md",
+      "title": "GRAB Full Report",
+      "type": "source-note",
+      "ticker": "GRAB",
+      "updated": "2026-04-19",
+      "group": "source-note",
+      "groupLabel": "Source Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+        "wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis"
+      ],
+      "degree": 2,
+      "excerpt": "GRAB Full Report Source Raw snapshot: 2026 04 19 GRAB Full Report.html Generated by AI Analyst Engine on 2026 01 17 Recommendation: BUY Conviction: MEDIUM HIGH Target price: $5.55 Key Facts The report frames Grab as a fo",
+      "plainText": "GRAB Full Report Source Raw snapshot: 2026 04 19 GRAB Full Report.html Generated by AI Analyst Engine on 2026 01 17 Recommendation: BUY Conviction: MEDIUM HIGH Target price: $5.55 Key Facts The report frames Grab as a former growth at all costs company that has crossed into a profitability inflection, with positive adjusted EBITDA and adjusted free cash flow in 2024. It highlights 48M monthly transacting users, strong ecosystem lock in across mobility, delivery, and financial services, and roughly $5.4B of liquidity against negligible debt. The moat argument depends on the Southeast Asia superapp flywheel: high frequency use cases plus financial services stickiness and local network density. The biggest cited risks are labor regulation, nominee/shareholding structures in key markets, and execution risk around affordability driven growth. Key Takeaways GRAB is being pitched as a rare crossover asset: still capable of strong growth, but no longer dependent on external capital. The valuation case is not purely a deep discount story; it depends on the market re rating the company as a self funding platform rather than a legacy cash burner. Regulatory risk is central, not peripheral. This stock should carry a heavier governance and policy overlay than many current names in the wiki. Implications For The Wiki Treat GRAB as a platform and profitability transition story, not just a ride hailing business. Keep separate future notes for regulation, financial services, profitability quality, and Southeast Asia competitive positioning. Any future comparison work with UBER should distinguish global AV/aggregation questions from GRAB's local regulatory and ecosystem structure. Follow up Questions Can adjusted profitability translate into durable GAAP operating leverage? How exposed is the thesis to labor and ownership rule changes across Indonesia, Malaysia, and Singapore? What mix shift is required for financial services and advertising to drive multiple expansion?",
+      "html": "<h1 id=\"grab-full-report\">GRAB Full Report</h1>\n<h2 id=\"source\">Source</h2>\n<ul>\n<li>Raw snapshot: <span class=\"external-path\">2026-04-19 GRAB Full Report.html</span></li>\n<li>Generated by AI Analyst Engine on 2026-01-17</li>\n<li>Recommendation: <code>BUY</code></li>\n<li>Conviction: <code>MEDIUM-HIGH</code></li>\n<li>Target price: <code>$5.55</code></li>\n</ul>\n<h2 id=\"key-facts\">Key Facts</h2>\n<ul>\n<li>The report frames Grab as a former growth-at-all-costs company that has crossed into a profitability inflection, with positive adjusted EBITDA and adjusted free cash flow in 2024.</li>\n<li>It highlights 48M monthly transacting users, strong ecosystem lock-in across mobility, delivery, and financial services, and roughly $5.4B of liquidity against negligible debt.</li>\n<li>The moat argument depends on the Southeast Asia superapp flywheel: high-frequency use cases plus financial services stickiness and local network density.</li>\n<li>The biggest cited risks are labor regulation, nominee/shareholding structures in key markets, and execution risk around affordability-driven growth.</li>\n</ul>\n<h2 id=\"key-takeaways\">Key Takeaways</h2>\n<ul>\n<li>GRAB is being pitched as a rare crossover asset: still capable of strong growth, but no longer dependent on external capital.</li>\n<li>The valuation case is not purely a deep discount story; it depends on the market re-rating the company as a self-funding platform rather than a legacy cash-burner.</li>\n<li>Regulatory risk is central, not peripheral. This stock should carry a heavier governance and policy overlay than many current names in the wiki.</li>\n</ul>\n<h2 id=\"implications-for-the-wiki\">Implications For The Wiki</h2>\n<ul>\n<li>Treat GRAB as a platform and profitability-transition story, not just a ride-hailing business.</li>\n<li>Keep separate future notes for regulation, financial services, profitability quality, and Southeast Asia competitive positioning.</li>\n<li>Any future comparison work with UBER should distinguish global AV/aggregation questions from GRAB&#39;s local regulatory and ecosystem structure.</li>\n</ul>\n<h2 id=\"follow-up-questions\">Follow-up Questions</h2>\n<ul>\n<li>Can adjusted profitability translate into durable GAAP operating leverage?</li>\n<li>How exposed is the thesis to labor and ownership-rule changes across Indonesia, Malaysia, and Singapore?</li>\n<li>What mix shift is required for financial services and advertising to drive multiple expansion?</li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis",
+      "path": "wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis.md",
+      "title": "Investment Thesis - GRAB",
+      "type": "topic-note",
+      "ticker": "GRAB",
+      "updated": "2026-04-19",
+      "group": "topic-note",
+      "groupLabel": "Topic Notes",
+      "outboundLinks": [
+        "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+        "wiki/stocks/GRAB/sources/2026-01-17 GRAB Full Report"
+      ],
+      "backlinks": [
+        "wiki/stocks/GRAB/Grab Holdings (GRAB)"
+      ],
+      "degree": 3,
+      "excerpt": "Investment Thesis GRAB Current View GRAB is currently best understood as a Southeast Asian superapp crossing from growth into self funding scale. The thesis combines improving profitability, ecosystem lock in, and a stro",
+      "plainText": "Investment Thesis GRAB Current View GRAB is currently best understood as a Southeast Asian superapp crossing from growth into self funding scale. The thesis combines improving profitability, ecosystem lock in, and a strong balance sheet, with the main uncertainty coming from regulation and structural legal risk rather than near term liquidity. Evidence Full report summary The report highlights positive adjusted EBITDA and adjusted free cash flow in 2024, plus visible operating leverage as revenue grows faster than overhead. Network strength comes from combining mobility and delivery frequency with financial services stickiness. The company is described as having a liquidity fortress and enough balance sheet flexibility to fund M&A and buybacks internally. What Could Change Gig worker reclassification or tighter regulatory treatment could materially impair the unit economics. If the profitability pivot stalls before GAAP breakeven becomes durable, the re rating case weakens. If affordability led growth caps monetization quality, the platform may stay large without becoming sufficiently profitable. Links GRAB hub",
+      "html": "<h1 id=\"investment-thesis-grab\">Investment Thesis - GRAB</h1>\n<h2 id=\"current-view\">Current View</h2>\n<p>GRAB is currently best understood as a Southeast Asian superapp crossing from growth into self-funding scale. The thesis combines improving profitability, ecosystem lock-in, and a strong balance sheet, with the main uncertainty coming from regulation and structural legal risk rather than near-term liquidity.</p>\n<h2 id=\"evidence\">Evidence</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FGRAB%2Fsources%2F2026-01-17%20GRAB%20Full%20Report\" data-wiki-link=\"wiki/stocks/GRAB/sources/2026-01-17 GRAB Full Report\">Full report summary</a></li>\n<li>The report highlights positive adjusted EBITDA and adjusted free cash flow in 2024, plus visible operating leverage as revenue grows faster than overhead.</li>\n<li>Network strength comes from combining mobility and delivery frequency with financial-services stickiness.</li>\n<li>The company is described as having a liquidity fortress and enough balance sheet flexibility to fund M&amp;A and buybacks internally.</li>\n</ul>\n<h2 id=\"what-could-change\">What Could Change</h2>\n<ul>\n<li>Gig worker reclassification or tighter regulatory treatment could materially impair the unit economics.</li>\n<li>If the profitability pivot stalls before GAAP breakeven becomes durable, the re-rating case weakens.</li>\n<li>If affordability-led growth caps monetization quality, the platform may stay large without becoming sufficiently profitable.</li>\n</ul>\n<h2 id=\"links\">Links</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FGRAB%2FGrab%20Holdings%20(GRAB)\" data-wiki-link=\"wiki/stocks/GRAB/Grab Holdings (GRAB)\">GRAB hub</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/MELI/MercadoLibre (MELI)",
+      "path": "wiki/stocks/MELI/MercadoLibre (MELI).md",
+      "title": "MercadoLibre (MELI)",
+      "type": "stock-hub",
+      "ticker": "MELI",
+      "updated": "2026-04-17",
+      "group": "stock-hub",
+      "groupLabel": "Stock Hubs",
+      "outboundLinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/_system/Operational Log",
+        "wiki/stocks/MELI/sources/2026-03-23 MELI Seed Full Report",
+        "wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis"
+      ],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis"
+      ],
+      "degree": 6,
+      "excerpt": "MercadoLibre (MELI) Thesis Snapshot MercadoLibre is currently framed as a rare platform scale compounder in Latin America: a commerce and fintech ecosystem with a wide moat built on network effects, logistics, payments i",
+      "plainText": "MercadoLibre (MELI) Thesis Snapshot MercadoLibre is currently framed as a rare platform scale compounder in Latin America: a commerce and fintech ecosystem with a wide moat built on network effects, logistics, payments infrastructure, and operating leverage. Core Facts Ticker: MELI Company: MercadoLibre Current seed view: STRONG BUY Seed report date: 2026 03 23 Coverage status: bootstrapped from one seed report Source Coverage Seed report summary Investment thesis Open Questions How much of the moat comes from logistics versus payments versus merchant density? Which regulatory risks in LatAm matter most to the next 2 to 3 years of compounding? What conditions would break the blue chip growth framing? Related Pages Global index Operational log",
+      "html": "<h1 id=\"mercadolibre-meli\">MercadoLibre (MELI)</h1>\n<h2 id=\"thesis-snapshot\">Thesis Snapshot</h2>\n<p>MercadoLibre is currently framed as a rare platform-scale compounder in Latin America: a commerce and fintech ecosystem with a wide moat built on network effects, logistics, payments infrastructure, and operating leverage.</p>\n<h2 id=\"core-facts\">Core Facts</h2>\n<ul>\n<li>Ticker: MELI</li>\n<li>Company: MercadoLibre</li>\n<li>Current seed view: <code>STRONG BUY</code></li>\n<li>Seed report date: 2026-03-23</li>\n<li>Coverage status: bootstrapped from one seed report</li>\n</ul>\n<h2 id=\"source-coverage\">Source Coverage</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FMELI%2Fsources%2F2026-03-23%20MELI%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/MELI/sources/2026-03-23 MELI Seed Full Report\">Seed report summary</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FMELI%2Ftopics%2FMercadoLibre%20-%20Investment%20Thesis\" data-wiki-link=\"wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis\">Investment thesis</a></li>\n</ul>\n<h2 id=\"open-questions\">Open Questions</h2>\n<ul>\n<li>How much of the moat comes from logistics versus payments versus merchant density?</li>\n<li>Which regulatory risks in LatAm matter most to the next 2 to 3 years of compounding?</li>\n<li>What conditions would break the blue-chip-growth framing?</li>\n</ul>\n<h2 id=\"related-pages\">Related Pages</h2>\n<ul>\n<li><a href=\"#/wiki%2FStock%20Knowledge%20Wiki\" data-wiki-link=\"wiki/Stock Knowledge Wiki\">Global index</a></li>\n<li><a href=\"#/wiki%2F_system%2FOperational%20Log\" data-wiki-link=\"wiki/_system/Operational Log\">Operational log</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/MELI/sources/2026-03-23 MELI Seed Full Report",
+      "path": "wiki/stocks/MELI/sources/2026-03-23 MELI Seed Full Report.md",
+      "title": "MELI Seed Full Report",
+      "type": "source-note",
+      "ticker": "MELI",
+      "updated": "2026-04-17",
+      "group": "source-note",
+      "groupLabel": "Source Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/stocks/MELI/MercadoLibre (MELI)",
+        "wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis"
+      ],
+      "degree": 2,
+      "excerpt": "MELI Seed Full Report Source Raw snapshot: MELI Full Report.html Generated by AI Analyst Engine on 2026 03 23 Report framing: Phase 4 (Operating Leverage) Recommendation: STRONG BUY Key Facts The report frames MELI as a ",
+      "plainText": "MELI Seed Full Report Source Raw snapshot: MELI Full Report.html Generated by AI Analyst Engine on 2026 03 23 Report framing: Phase 4 (Operating Leverage) Recommendation: STRONG BUY Key Facts The report frames MELI as a \"blue chip growth\" asset in Latin America with a broad ecosystem spanning commerce, logistics, and fintech. It highlights 121 million active buyers, $65.04 billion of GMV in FY25, and sustained 30%+ revenue growth across 27 consecutive quarters. The core fear discount comes from short term AI worries, regional volatility, and regulatory concerns rather than a broken business model. Key Takeaways The moat case is multi layered: marketplace liquidity, logistics density, payments reach, and data flywheels reinforce each other. Operating leverage matters because the market may still be underpricing earnings power as the ecosystem scales. Regulatory and tax disputes are real, but the report still treats them as manageable within a high conviction long term case. Implications For The Wiki Treat MELI as a platform note set, not just an e commerce company. Keep separate topic pages for commerce, fintech, logistics, and regulation as coverage expands. Track whether future sources support or weaken the \"blue chip growth at a discount\" framing. Follow up Questions Where is the strongest marginal moat today: merchant services, logistics, or Mercado Pago? How vulnerable is the thesis to political or tax changes in Brazil, Argentina, and Mexico?",
+      "html": "<h1 id=\"meli-seed-full-report\">MELI Seed Full Report</h1>\n<h2 id=\"source\">Source</h2>\n<ul>\n<li>Raw snapshot: <span class=\"external-path\">MELI_Full_Report.html</span></li>\n<li>Generated by AI Analyst Engine on 2026-03-23</li>\n<li>Report framing: Phase 4 (Operating Leverage)</li>\n<li>Recommendation: <code>STRONG BUY</code></li>\n</ul>\n<h2 id=\"key-facts\">Key Facts</h2>\n<ul>\n<li>The report frames MELI as a &quot;blue chip growth&quot; asset in Latin America with a broad ecosystem spanning commerce, logistics, and fintech.</li>\n<li>It highlights 121 million active buyers, $65.04 billion of GMV in FY25, and sustained 30%+ revenue growth across 27 consecutive quarters.</li>\n<li>The core fear discount comes from short-term AI worries, regional volatility, and regulatory concerns rather than a broken business model.</li>\n</ul>\n<h2 id=\"key-takeaways\">Key Takeaways</h2>\n<ul>\n<li>The moat case is multi-layered: marketplace liquidity, logistics density, payments reach, and data flywheels reinforce each other.</li>\n<li>Operating leverage matters because the market may still be underpricing earnings power as the ecosystem scales.</li>\n<li>Regulatory and tax disputes are real, but the report still treats them as manageable within a high-conviction long-term case.</li>\n</ul>\n<h2 id=\"implications-for-the-wiki\">Implications For The Wiki</h2>\n<ul>\n<li>Treat MELI as a platform note set, not just an e-commerce company.</li>\n<li>Keep separate topic pages for commerce, fintech, logistics, and regulation as coverage expands.</li>\n<li>Track whether future sources support or weaken the &quot;blue chip growth at a discount&quot; framing.</li>\n</ul>\n<h2 id=\"follow-up-questions\">Follow-up Questions</h2>\n<ul>\n<li>Where is the strongest marginal moat today: merchant services, logistics, or Mercado Pago?</li>\n<li>How vulnerable is the thesis to political or tax changes in Brazil, Argentina, and Mexico?</li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis",
+      "path": "wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis.md",
+      "title": "Investment Thesis - MELI",
+      "type": "topic-note",
+      "ticker": "MELI",
+      "updated": "2026-04-17",
+      "group": "topic-note",
+      "groupLabel": "Topic Notes",
+      "outboundLinks": [
+        "wiki/stocks/MELI/MercadoLibre (MELI)",
+        "wiki/stocks/MELI/sources/2026-03-23 MELI Seed Full Report"
+      ],
+      "backlinks": [
+        "wiki/stocks/MELI/MercadoLibre (MELI)"
+      ],
+      "degree": 3,
+      "excerpt": "Investment Thesis MELI Current View MELI is currently the clearest platform compounding story in the vault. The thesis is that a tightly integrated commerce, logistics, and fintech ecosystem creates a wide moat that can ",
+      "plainText": "Investment Thesis MELI Current View MELI is currently the clearest platform compounding story in the vault. The thesis is that a tightly integrated commerce, logistics, and fintech ecosystem creates a wide moat that can keep compounding even while macro and regulatory fear suppress valuation. Evidence Seed report summary The seed report points to durable user and GMV expansion, long streaks of 30%+ revenue growth, and ecosystem reinforcement between marketplace and payments. The report explicitly frames the stock as a discounted \"blue chip growth\" asset rather than a speculative hyper growth name. What Could Change Regulatory intervention, tax disputes, or cross border friction could lower the ecosystem's compounding rate. If operating leverage stalls, the valuation re rating case weakens even if growth stays healthy. If regional macro volatility becomes chronic, investor discounting may persist longer than the thesis assumes. Links MELI hub",
+      "html": "<h1 id=\"investment-thesis-meli\">Investment Thesis - MELI</h1>\n<h2 id=\"current-view\">Current View</h2>\n<p>MELI is currently the clearest platform compounding story in the vault. The thesis is that a tightly integrated commerce, logistics, and fintech ecosystem creates a wide moat that can keep compounding even while macro and regulatory fear suppress valuation.</p>\n<h2 id=\"evidence\">Evidence</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FMELI%2Fsources%2F2026-03-23%20MELI%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/MELI/sources/2026-03-23 MELI Seed Full Report\">Seed report summary</a></li>\n<li>The seed report points to durable user and GMV expansion, long streaks of 30%+ revenue growth, and ecosystem reinforcement between marketplace and payments.</li>\n<li>The report explicitly frames the stock as a discounted &quot;blue chip growth&quot; asset rather than a speculative hyper-growth name.</li>\n</ul>\n<h2 id=\"what-could-change\">What Could Change</h2>\n<ul>\n<li>Regulatory intervention, tax disputes, or cross-border friction could lower the ecosystem&#39;s compounding rate.</li>\n<li>If operating leverage stalls, the valuation re-rating case weakens even if growth stays healthy.</li>\n<li>If regional macro volatility becomes chronic, investor discounting may persist longer than the thesis assumes.</li>\n</ul>\n<h2 id=\"links\">Links</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FMELI%2FMercadoLibre%20(MELI)\" data-wiki-link=\"wiki/stocks/MELI/MercadoLibre (MELI)\">MELI hub</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+      "path": "wiki/stocks/PANW/Palo Alto Networks (PANW).md",
+      "title": "Palo Alto Networks (PANW)",
+      "type": "stock-hub",
+      "ticker": "PANW",
+      "updated": "2026-04-17",
+      "group": "stock-hub",
+      "groupLabel": "Stock Hubs",
+      "outboundLinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/_system/Operational Log",
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report",
+        "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis"
+      ],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis"
+      ],
+      "degree": 8,
+      "excerpt": "Palo Alto Networks (PANW) Thesis Snapshot PANW is currently framed as a wide moat cybersecurity platform leader with strong recurring revenue and platform breadth, offset by execution risk around acquisition integration ",
+      "plainText": "Palo Alto Networks (PANW) Thesis Snapshot PANW is currently framed as a wide moat cybersecurity platform leader with strong recurring revenue and platform breadth, offset by execution risk around acquisition integration and capital allocation quality. Core Facts Ticker: PANW Company: Palo Alto Networks Current seed view: BUY Seed report date: 2026 02 01 Coverage status: bootstrapped from one seed report Source Coverage Seed report summary Investment thesis PANW vs ZS comparison Open Questions Will platform breadth outweigh the complexity added by acquisitions? How should the wiki treat SBC and buyback quality in the PANW case? Which metrics best show whether platform consolidation is truly deepening customer lock in? Related Pages Global index Operational log",
+      "html": "<h1 id=\"palo-alto-networks-panw\">Palo Alto Networks (PANW)</h1>\n<h2 id=\"thesis-snapshot\">Thesis Snapshot</h2>\n<p>PANW is currently framed as a wide-moat cybersecurity platform leader with strong recurring revenue and platform breadth, offset by execution risk around acquisition integration and capital allocation quality.</p>\n<h2 id=\"core-facts\">Core Facts</h2>\n<ul>\n<li>Ticker: PANW</li>\n<li>Company: Palo Alto Networks</li>\n<li>Current seed view: <code>BUY</code></li>\n<li>Seed report date: 2026-02-01</li>\n<li>Coverage status: bootstrapped from one seed report</li>\n</ul>\n<h2 id=\"source-coverage\">Source Coverage</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FPANW%2Fsources%2F2026-02-01%20PANW%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report\">Seed report summary</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FPANW%2Ftopics%2FPalo%20Alto%20Networks%20-%20Investment%20Thesis\" data-wiki-link=\"wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis\">Investment thesis</a></li>\n<li><a href=\"#/wiki%2Fcross-stock%2FPANW%20vs%20ZS%20-%20Moat%2C%20Growth%2C%20and%20Valuation%20Framing\" data-wiki-link=\"wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing\">PANW vs ZS comparison</a></li>\n</ul>\n<h2 id=\"open-questions\">Open Questions</h2>\n<ul>\n<li>Will platform breadth outweigh the complexity added by acquisitions?</li>\n<li>How should the wiki treat SBC and buyback quality in the PANW case?</li>\n<li>Which metrics best show whether platform consolidation is truly deepening customer lock-in?</li>\n</ul>\n<h2 id=\"related-pages\">Related Pages</h2>\n<ul>\n<li><a href=\"#/wiki%2FStock%20Knowledge%20Wiki\" data-wiki-link=\"wiki/Stock Knowledge Wiki\">Global index</a></li>\n<li><a href=\"#/wiki%2F_system%2FOperational%20Log\" data-wiki-link=\"wiki/_system/Operational Log\">Operational log</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report",
+      "path": "wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report.md",
+      "title": "PANW Seed Full Report",
+      "type": "source-note",
+      "ticker": "PANW",
+      "updated": "2026-04-17",
+      "group": "source-note",
+      "groupLabel": "Source Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+        "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis"
+      ],
+      "degree": 3,
+      "excerpt": "PANW Seed Full Report Source Raw snapshot: PANW Full Report.html Generated by AI Analyst Engine on 2026 02 01 Report framing: operating scale and platform integration Recommendation: BUY Key Facts The report presents PAN",
+      "plainText": "PANW Seed Full Report Source Raw snapshot: PANW Full Report.html Generated by AI Analyst Engine on 2026 02 01 Report framing: operating scale and platform integration Recommendation: BUY Key Facts The report presents PANW as a broad platform leader in cybersecurity with strong recurring revenue and enterprise relevance. It highlights a target price around $222 against a current price around $180 at report time. It flags buyback integrity and SBC as weaker points even while remaining constructive on the investment case. Key Takeaways The moat case is based on enterprise platform breadth and customer consolidation value. Acquisition integration is one of the main risks and should stay visible in the wiki as more sources arrive. Capital allocation deserves separate scrutiny so the platform narrative does not overpower governance concerns. Implications For The Wiki Track integration execution as a first class topic. Keep PANW linked to shared cybersecurity comparisons. Separate growth quality from capital allocation quality in future notes. Follow up Questions How much of PANW's moat is organic platform strength versus acquisition assembly? What are the best leading indicators for successful integration?",
+      "html": "<h1 id=\"panw-seed-full-report\">PANW Seed Full Report</h1>\n<h2 id=\"source\">Source</h2>\n<ul>\n<li>Raw snapshot: <span class=\"external-path\">PANW_Full_Report.html</span></li>\n<li>Generated by AI Analyst Engine on 2026-02-01</li>\n<li>Report framing: operating scale and platform integration</li>\n<li>Recommendation: <code>BUY</code></li>\n</ul>\n<h2 id=\"key-facts\">Key Facts</h2>\n<ul>\n<li>The report presents PANW as a broad platform leader in cybersecurity with strong recurring revenue and enterprise relevance.</li>\n<li>It highlights a target price around $222 against a current price around $180 at report time.</li>\n<li>It flags buyback integrity and SBC as weaker points even while remaining constructive on the investment case.</li>\n</ul>\n<h2 id=\"key-takeaways\">Key Takeaways</h2>\n<ul>\n<li>The moat case is based on enterprise platform breadth and customer consolidation value.</li>\n<li>Acquisition integration is one of the main risks and should stay visible in the wiki as more sources arrive.</li>\n<li>Capital allocation deserves separate scrutiny so the platform narrative does not overpower governance concerns.</li>\n</ul>\n<h2 id=\"implications-for-the-wiki\">Implications For The Wiki</h2>\n<ul>\n<li>Track integration execution as a first-class topic.</li>\n<li>Keep PANW linked to shared cybersecurity comparisons.</li>\n<li>Separate growth quality from capital allocation quality in future notes.</li>\n</ul>\n<h2 id=\"follow-up-questions\">Follow-up Questions</h2>\n<ul>\n<li>How much of PANW&#39;s moat is organic platform strength versus acquisition assembly?</li>\n<li>What are the best leading indicators for successful integration?</li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis",
+      "path": "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis.md",
+      "title": "Investment Thesis - PANW",
+      "type": "topic-note",
+      "ticker": "PANW",
+      "updated": "2026-04-17",
+      "group": "topic-note",
+      "groupLabel": "Topic Notes",
+      "outboundLinks": [
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+        "wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report"
+      ],
+      "backlinks": [
+        "wiki/stocks/PANW/Palo Alto Networks (PANW)"
+      ],
+      "degree": 4,
+      "excerpt": "Investment Thesis PANW Current View PANW is currently best understood as a large scale enterprise consolidation bet in cybersecurity. The upside comes from becoming the default platform for more security spend, while the",
+      "plainText": "Investment Thesis PANW Current View PANW is currently best understood as a large scale enterprise consolidation bet in cybersecurity. The upside comes from becoming the default platform for more security spend, while the main risk is that acquisition led breadth becomes harder to integrate or monetize cleanly. Evidence Seed report summary Platform breadth and recurring revenue are central to the seed thesis. The report still rates the stock a buy despite explicit concern around buybacks and SBC. What Could Change Failed integration or slower cross sell would weaken the platform moat case. If capital allocation concerns worsen, valuation support may erode even with steady growth. Links PANW hub PANW vs ZS comparison",
+      "html": "<h1 id=\"investment-thesis-panw\">Investment Thesis - PANW</h1>\n<h2 id=\"current-view\">Current View</h2>\n<p>PANW is currently best understood as a large-scale enterprise consolidation bet in cybersecurity. The upside comes from becoming the default platform for more security spend, while the main risk is that acquisition-led breadth becomes harder to integrate or monetize cleanly.</p>\n<h2 id=\"evidence\">Evidence</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FPANW%2Fsources%2F2026-02-01%20PANW%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report\">Seed report summary</a></li>\n<li>Platform breadth and recurring revenue are central to the seed thesis.</li>\n<li>The report still rates the stock a buy despite explicit concern around buybacks and SBC.</li>\n</ul>\n<h2 id=\"what-could-change\">What Could Change</h2>\n<ul>\n<li>Failed integration or slower cross-sell would weaken the platform moat case.</li>\n<li>If capital allocation concerns worsen, valuation support may erode even with steady growth.</li>\n</ul>\n<h2 id=\"links\">Links</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FPANW%2FPalo%20Alto%20Networks%20(PANW)\" data-wiki-link=\"wiki/stocks/PANW/Palo Alto Networks (PANW)\">PANW hub</a></li>\n<li><a href=\"#/wiki%2Fcross-stock%2FPANW%20vs%20ZS%20-%20Moat%2C%20Growth%2C%20and%20Valuation%20Framing\" data-wiki-link=\"wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing\">PANW vs ZS comparison</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/UBER/Uber Technologies (UBER)",
+      "path": "wiki/stocks/UBER/Uber Technologies (UBER).md",
+      "title": "Uber Technologies (UBER)",
+      "type": "stock-hub",
+      "ticker": "UBER",
+      "updated": "2026-04-17",
+      "group": "stock-hub",
+      "groupLabel": "Stock Hubs",
+      "outboundLinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/_system/Operational Log",
+        "wiki/stocks/UBER/sources/2026-02-09 UBER Seed Full Report",
+        "wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis"
+      ],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis"
+      ],
+      "degree": 6,
+      "excerpt": "Uber Technologies (UBER) Thesis Snapshot Uber is currently framed as a marketplace and super app cash generator whose bull case depends on operating leverage, Uber One retention, and the idea that autonomous vehicles may",
+      "plainText": "Uber Technologies (UBER) Thesis Snapshot Uber is currently framed as a marketplace and super app cash generator whose bull case depends on operating leverage, Uber One retention, and the idea that autonomous vehicles may strengthen aggregation rather than disintermediate the platform. Core Facts Ticker: UBER Company: Uber Technologies Current seed view: BUY Seed report date: 2026 02 09 Coverage status: bootstrapped from one seed report Source Coverage Seed report summary Investment thesis Open Questions Is AV ultimately a margin tailwind for the marketplace or an existential disintermediation risk? How durable is Uber One as a retention and ecosystem flywheel? How should the wiki balance strong cash generation against buyback skepticism? Related Pages Global index Operational log",
+      "html": "<h1 id=\"uber-technologies-uber\">Uber Technologies (UBER)</h1>\n<h2 id=\"thesis-snapshot\">Thesis Snapshot</h2>\n<p>Uber is currently framed as a marketplace and super-app cash generator whose bull case depends on operating leverage, Uber One retention, and the idea that autonomous vehicles may strengthen aggregation rather than disintermediate the platform.</p>\n<h2 id=\"core-facts\">Core Facts</h2>\n<ul>\n<li>Ticker: UBER</li>\n<li>Company: Uber Technologies</li>\n<li>Current seed view: <code>BUY</code></li>\n<li>Seed report date: 2026-02-09</li>\n<li>Coverage status: bootstrapped from one seed report</li>\n</ul>\n<h2 id=\"source-coverage\">Source Coverage</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FUBER%2Fsources%2F2026-02-09%20UBER%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/UBER/sources/2026-02-09 UBER Seed Full Report\">Seed report summary</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FUBER%2Ftopics%2FUber%20Technologies%20-%20Investment%20Thesis\" data-wiki-link=\"wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis\">Investment thesis</a></li>\n</ul>\n<h2 id=\"open-questions\">Open Questions</h2>\n<ul>\n<li>Is AV ultimately a margin tailwind for the marketplace or an existential disintermediation risk?</li>\n<li>How durable is Uber One as a retention and ecosystem flywheel?</li>\n<li>How should the wiki balance strong cash generation against buyback skepticism?</li>\n</ul>\n<h2 id=\"related-pages\">Related Pages</h2>\n<ul>\n<li><a href=\"#/wiki%2FStock%20Knowledge%20Wiki\" data-wiki-link=\"wiki/Stock Knowledge Wiki\">Global index</a></li>\n<li><a href=\"#/wiki%2F_system%2FOperational%20Log\" data-wiki-link=\"wiki/_system/Operational Log\">Operational log</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/UBER/sources/2026-02-09 UBER Seed Full Report",
+      "path": "wiki/stocks/UBER/sources/2026-02-09 UBER Seed Full Report.md",
+      "title": "UBER Seed Full Report",
+      "type": "source-note",
+      "ticker": "UBER",
+      "updated": "2026-04-17",
+      "group": "source-note",
+      "groupLabel": "Source Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/stocks/UBER/Uber Technologies (UBER)",
+        "wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis"
+      ],
+      "degree": 2,
+      "excerpt": "UBER Seed Full Report Source Raw snapshot: UBER Full Report.html Generated by AI Analyst Engine on 2026 02 09 Report framing: post Q4 2025 earnings cash flow and marketplace leverage Recommendation: BUY Key Facts The rep",
+      "plainText": "UBER Seed Full Report Source Raw snapshot: UBER Full Report.html Generated by AI Analyst Engine on 2026 02 09 Report framing: post Q4 2025 earnings cash flow and marketplace leverage Recommendation: BUY Key Facts The report treats UBER as a profitable marketplace with growing cash flow and a significant buyback authorization. Mean target price at report time was about $105 versus a current price around $74. The central narrative tension is whether autonomous vehicles bypass Uber or reinforce its demand aggregation layer. Key Takeaways The investment case is no longer purely a growth story; it is now tied to operating leverage and cash generation. AV is the defining strategic uncertainty and should remain a dedicated topic as the wiki grows. Buybacks add support to the case, but the report also reads management signaling skeptically. Implications For The Wiki Track AV strategy, marketplace economics, and Uber One separately. Keep an eye on whether cash generation is being converted into durable shareholder value. Treat sentiment divergence as a recurring feature of the UBER narrative. Follow up Questions What would confirm the \"AV aggregator\" thesis? How much switching cost actually exists in the consumer and driver networks?",
+      "html": "<h1 id=\"uber-seed-full-report\">UBER Seed Full Report</h1>\n<h2 id=\"source\">Source</h2>\n<ul>\n<li>Raw snapshot: <span class=\"external-path\">UBER_Full_Report.html</span></li>\n<li>Generated by AI Analyst Engine on 2026-02-09</li>\n<li>Report framing: post-Q4 2025 earnings cash flow and marketplace leverage</li>\n<li>Recommendation: <code>BUY</code></li>\n</ul>\n<h2 id=\"key-facts\">Key Facts</h2>\n<ul>\n<li>The report treats UBER as a profitable marketplace with growing cash flow and a significant buyback authorization.</li>\n<li>Mean target price at report time was about $105 versus a current price around $74.</li>\n<li>The central narrative tension is whether autonomous vehicles bypass Uber or reinforce its demand aggregation layer.</li>\n</ul>\n<h2 id=\"key-takeaways\">Key Takeaways</h2>\n<ul>\n<li>The investment case is no longer purely a growth story; it is now tied to operating leverage and cash generation.</li>\n<li>AV is the defining strategic uncertainty and should remain a dedicated topic as the wiki grows.</li>\n<li>Buybacks add support to the case, but the report also reads management signaling skeptically.</li>\n</ul>\n<h2 id=\"implications-for-the-wiki\">Implications For The Wiki</h2>\n<ul>\n<li>Track AV strategy, marketplace economics, and Uber One separately.</li>\n<li>Keep an eye on whether cash generation is being converted into durable shareholder value.</li>\n<li>Treat sentiment divergence as a recurring feature of the UBER narrative.</li>\n</ul>\n<h2 id=\"follow-up-questions\">Follow-up Questions</h2>\n<ul>\n<li>What would confirm the &quot;AV aggregator&quot; thesis?</li>\n<li>How much switching cost actually exists in the consumer and driver networks?</li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis",
+      "path": "wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis.md",
+      "title": "Investment Thesis - UBER",
+      "type": "topic-note",
+      "ticker": "UBER",
+      "updated": "2026-04-17",
+      "group": "topic-note",
+      "groupLabel": "Topic Notes",
+      "outboundLinks": [
+        "wiki/stocks/UBER/Uber Technologies (UBER)",
+        "wiki/stocks/UBER/sources/2026-02-09 UBER Seed Full Report"
+      ],
+      "backlinks": [
+        "wiki/stocks/UBER/Uber Technologies (UBER)"
+      ],
+      "degree": 3,
+      "excerpt": "Investment Thesis UBER Current View UBER is currently framed as a scaled demand aggregation platform that is finally converting network scale into meaningful profitability. The thesis becomes especially interesting if au",
+      "plainText": "Investment Thesis UBER Current View UBER is currently framed as a scaled demand aggregation platform that is finally converting network scale into meaningful profitability. The thesis becomes especially interesting if autonomy increases the value of aggregated demand and routing instead of removing Uber from the loop. Evidence Seed report summary The seed report emphasizes operating leverage, cash flow, and a divergence between market fear and financial reality. Uber One and super app behavior appear important to retention and ecosystem density. What Could Change If autonomous fleets bypass Uber, the central platform thesis weakens sharply. Regulatory pressure, pricing changes, or weaker take rates could erode cash generation quality. Links UBER hub",
+      "html": "<h1 id=\"investment-thesis-uber\">Investment Thesis - UBER</h1>\n<h2 id=\"current-view\">Current View</h2>\n<p>UBER is currently framed as a scaled demand-aggregation platform that is finally converting network scale into meaningful profitability. The thesis becomes especially interesting if autonomy increases the value of aggregated demand and routing instead of removing Uber from the loop.</p>\n<h2 id=\"evidence\">Evidence</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FUBER%2Fsources%2F2026-02-09%20UBER%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/UBER/sources/2026-02-09 UBER Seed Full Report\">Seed report summary</a></li>\n<li>The seed report emphasizes operating leverage, cash flow, and a divergence between market fear and financial reality.</li>\n<li>Uber One and super-app behavior appear important to retention and ecosystem density.</li>\n</ul>\n<h2 id=\"what-could-change\">What Could Change</h2>\n<ul>\n<li>If autonomous fleets bypass Uber, the central platform thesis weakens sharply.</li>\n<li>Regulatory pressure, pricing changes, or weaker take rates could erode cash generation quality.</li>\n</ul>\n<h2 id=\"links\">Links</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FUBER%2FUber%20Technologies%20(UBER)\" data-wiki-link=\"wiki/stocks/UBER/Uber Technologies (UBER)\">UBER hub</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/ZS/Zscaler (ZS)",
+      "path": "wiki/stocks/ZS/Zscaler (ZS).md",
+      "title": "Zscaler (ZS)",
+      "type": "stock-hub",
+      "ticker": "ZS",
+      "updated": "2026-04-17",
+      "group": "stock-hub",
+      "groupLabel": "Stock Hubs",
+      "outboundLinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/_system/Operational Log",
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report",
+        "wiki/stocks/ZS/topics/Zscaler - Investment Thesis"
+      ],
+      "backlinks": [
+        "wiki/Stock Knowledge Wiki",
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/ZS/topics/Zscaler - Investment Thesis"
+      ],
+      "degree": 8,
+      "excerpt": "Zscaler (ZS) Thesis Snapshot Zscaler is currently framed as a zero trust security leader with strong free cash flow, retention, and a valuation disconnect between operating quality and market pricing. Core Facts Ticker: ",
+      "plainText": "Zscaler (ZS) Thesis Snapshot Zscaler is currently framed as a zero trust security leader with strong free cash flow, retention, and a valuation disconnect between operating quality and market pricing. Core Facts Ticker: ZS Company: Zscaler Current seed view: STRONG BUY Seed report date: 2026 03 20 Coverage status: bootstrapped from one seed report Source Coverage Seed report summary Investment thesis PANW vs ZS comparison Open Questions How durable is ZS's category edge if bundled platform offerings improve? What is the right way to evaluate dilution and capped call optics in the capital allocation story? Which growth signals matter most now that expectations remain high but valuation has compressed? Related Pages Global index Operational log",
+      "html": "<h1 id=\"zscaler-zs\">Zscaler (ZS)</h1>\n<h2 id=\"thesis-snapshot\">Thesis Snapshot</h2>\n<p>Zscaler is currently framed as a zero-trust security leader with strong free cash flow, retention, and a valuation disconnect between operating quality and market pricing.</p>\n<h2 id=\"core-facts\">Core Facts</h2>\n<ul>\n<li>Ticker: ZS</li>\n<li>Company: Zscaler</li>\n<li>Current seed view: <code>STRONG BUY</code></li>\n<li>Seed report date: 2026-03-20</li>\n<li>Coverage status: bootstrapped from one seed report</li>\n</ul>\n<h2 id=\"source-coverage\">Source Coverage</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FZS%2Fsources%2F2026-03-20%20ZS%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report\">Seed report summary</a></li>\n<li><a href=\"#/wiki%2Fstocks%2FZS%2Ftopics%2FZscaler%20-%20Investment%20Thesis\" data-wiki-link=\"wiki/stocks/ZS/topics/Zscaler - Investment Thesis\">Investment thesis</a></li>\n<li><a href=\"#/wiki%2Fcross-stock%2FPANW%20vs%20ZS%20-%20Moat%2C%20Growth%2C%20and%20Valuation%20Framing\" data-wiki-link=\"wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing\">PANW vs ZS comparison</a></li>\n</ul>\n<h2 id=\"open-questions\">Open Questions</h2>\n<ul>\n<li>How durable is ZS&#39;s category edge if bundled platform offerings improve?</li>\n<li>What is the right way to evaluate dilution and capped-call optics in the capital allocation story?</li>\n<li>Which growth signals matter most now that expectations remain high but valuation has compressed?</li>\n</ul>\n<h2 id=\"related-pages\">Related Pages</h2>\n<ul>\n<li><a href=\"#/wiki%2FStock%20Knowledge%20Wiki\" data-wiki-link=\"wiki/Stock Knowledge Wiki\">Global index</a></li>\n<li><a href=\"#/wiki%2F_system%2FOperational%20Log\" data-wiki-link=\"wiki/_system/Operational Log\">Operational log</a></li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report",
+      "path": "wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report.md",
+      "title": "ZS Seed Full Report",
+      "type": "source-note",
+      "ticker": "ZS",
+      "updated": "2026-04-17",
+      "group": "source-note",
+      "groupLabel": "Source Notes",
+      "outboundLinks": [],
+      "backlinks": [
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/ZS/Zscaler (ZS)",
+        "wiki/stocks/ZS/topics/Zscaler - Investment Thesis"
+      ],
+      "degree": 3,
+      "excerpt": "ZS Seed Full Report Source Raw snapshot: ZS Full Report.html Generated by AI Analyst Engine on 2026 03 20 Report framing: Q2 2026 update with self funding growth emphasis Recommendation: STRONG BUY Key Facts The report f",
+      "plainText": "ZS Seed Full Report Source Raw snapshot: ZS Full Report.html Generated by AI Analyst Engine on 2026 03 20 Report framing: Q2 2026 update with self funding growth emphasis Recommendation: STRONG BUY Key Facts The report frames ZS as a zero trust leader with strong retention, free cash flow, and valuation upside despite high uncertainty. Consensus targets and Morningstar fair value both suggest meaningful upside at report time. The report is more skeptical about dilution and capital allocation than about product market positioning. Key Takeaways The bull case is a category leadership story combined with a valuation dislocation story. ZS is positioned as a cleaner architecture bet than diversified cybersecurity platforms, though that focus can also narrow the moat. Expectations remain high, so even strong businesses can see sharp re ratings if growth softens. Implications For The Wiki Track category leadership, retention quality, and valuation framing separately. Keep ZS closely linked to broader cybersecurity comparisons. Maintain explicit notes on dilution and uncertainty rather than burying them inside the thesis. Follow up Questions Is ZS better viewed as a category leader or as one module in a future bundled platform world? How should the wiki normalize valuation versus uncertainty for high quality security names?",
+      "html": "<h1 id=\"zs-seed-full-report\">ZS Seed Full Report</h1>\n<h2 id=\"source\">Source</h2>\n<ul>\n<li>Raw snapshot: <span class=\"external-path\">ZS_Full_Report.html</span></li>\n<li>Generated by AI Analyst Engine on 2026-03-20</li>\n<li>Report framing: Q2 2026 update with self-funding growth emphasis</li>\n<li>Recommendation: <code>STRONG BUY</code></li>\n</ul>\n<h2 id=\"key-facts\">Key Facts</h2>\n<ul>\n<li>The report frames ZS as a zero-trust leader with strong retention, free cash flow, and valuation upside despite high uncertainty.</li>\n<li>Consensus targets and Morningstar fair value both suggest meaningful upside at report time.</li>\n<li>The report is more skeptical about dilution and capital allocation than about product-market positioning.</li>\n</ul>\n<h2 id=\"key-takeaways\">Key Takeaways</h2>\n<ul>\n<li>The bull case is a category leadership story combined with a valuation dislocation story.</li>\n<li>ZS is positioned as a cleaner architecture bet than diversified cybersecurity platforms, though that focus can also narrow the moat.</li>\n<li>Expectations remain high, so even strong businesses can see sharp re-ratings if growth softens.</li>\n</ul>\n<h2 id=\"implications-for-the-wiki\">Implications For The Wiki</h2>\n<ul>\n<li>Track category leadership, retention quality, and valuation framing separately.</li>\n<li>Keep ZS closely linked to broader cybersecurity comparisons.</li>\n<li>Maintain explicit notes on dilution and uncertainty rather than burying them inside the thesis.</li>\n</ul>\n<h2 id=\"follow-up-questions\">Follow-up Questions</h2>\n<ul>\n<li>Is ZS better viewed as a category leader or as one module in a future bundled platform world?</li>\n<li>How should the wiki normalize valuation versus uncertainty for high-quality security names?</li>\n</ul>"
+    },
+    {
+      "id": "wiki/stocks/ZS/topics/Zscaler - Investment Thesis",
+      "path": "wiki/stocks/ZS/topics/Zscaler - Investment Thesis.md",
+      "title": "Investment Thesis - ZS",
+      "type": "topic-note",
+      "ticker": "ZS",
+      "updated": "2026-04-17",
+      "group": "topic-note",
+      "groupLabel": "Topic Notes",
+      "outboundLinks": [
+        "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+        "wiki/stocks/ZS/Zscaler (ZS)",
+        "wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report"
+      ],
+      "backlinks": [
+        "wiki/stocks/ZS/Zscaler (ZS)"
+      ],
+      "degree": 4,
+      "excerpt": "Investment Thesis ZS Current View ZS is currently the cleanest zero trust architecture bet in the vault. The thesis combines high quality recurring growth, strong cash generation, and a valuation setup where the market a",
+      "plainText": "Investment Thesis ZS Current View ZS is currently the cleanest zero trust architecture bet in the vault. The thesis combines high quality recurring growth, strong cash generation, and a valuation setup where the market appears more focused on uncertainty than on operating quality. Evidence Seed report summary The seed report explicitly frames the stock as a strong buy with compressed valuation and strong free cash flow. Retention, category leadership, and secular zero trust adoption are central supports. What Could Change If bundled competitors reduce the distinctiveness of ZS's architecture, the moat may narrow. If high expectations collide with even modest deceleration, multiple compression could persist. Links ZS hub PANW vs ZS comparison",
+      "html": "<h1 id=\"investment-thesis-zs\">Investment Thesis - ZS</h1>\n<h2 id=\"current-view\">Current View</h2>\n<p>ZS is currently the cleanest zero-trust architecture bet in the vault. The thesis combines high-quality recurring growth, strong cash generation, and a valuation setup where the market appears more focused on uncertainty than on operating quality.</p>\n<h2 id=\"evidence\">Evidence</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FZS%2Fsources%2F2026-03-20%20ZS%20Seed%20Full%20Report\" data-wiki-link=\"wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report\">Seed report summary</a></li>\n<li>The seed report explicitly frames the stock as a strong buy with compressed valuation and strong free cash flow.</li>\n<li>Retention, category leadership, and secular zero-trust adoption are central supports.</li>\n</ul>\n<h2 id=\"what-could-change\">What Could Change</h2>\n<ul>\n<li>If bundled competitors reduce the distinctiveness of ZS&#39;s architecture, the moat may narrow.</li>\n<li>If high expectations collide with even modest deceleration, multiple compression could persist.</li>\n</ul>\n<h2 id=\"links\">Links</h2>\n<ul>\n<li><a href=\"#/wiki%2Fstocks%2FZS%2FZscaler%20(ZS)\" data-wiki-link=\"wiki/stocks/ZS/Zscaler (ZS)\">ZS hub</a></li>\n<li><a href=\"#/wiki%2Fcross-stock%2FPANW%20vs%20ZS%20-%20Moat%2C%20Growth%2C%20and%20Valuation%20Framing\" data-wiki-link=\"wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing\">PANW vs ZS comparison</a></li>\n</ul>"
+    }
+  ],
+  "edges": [
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/stocks/BMI/Badger Meter (BMI)"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/stocks/GRAB/Grab Holdings (GRAB)"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/stocks/MELI/MercadoLibre (MELI)"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/stocks/PANW/Palo Alto Networks (PANW)"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/stocks/UBER/Uber Technologies (UBER)"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/stocks/ZS/Zscaler (ZS)"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/_system/Cross-Stock Map"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/_system/Durable Queries"
+    },
+    {
+      "source": "wiki/Stock Knowledge Wiki",
+      "target": "wiki/_system/Operational Log"
+    },
+    {
+      "source": "wiki/_system/Cross-Stock Map",
+      "target": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing"
+    },
+    {
+      "source": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+      "target": "wiki/stocks/PANW/Palo Alto Networks (PANW)"
+    },
+    {
+      "source": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+      "target": "wiki/stocks/ZS/Zscaler (ZS)"
+    },
+    {
+      "source": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+      "target": "wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report"
+    },
+    {
+      "source": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing",
+      "target": "wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/BMI/Badger Meter (BMI)",
+      "target": "wiki/stocks/BMI/sources/2026-03-19 BMI Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/BMI/Badger Meter (BMI)",
+      "target": "wiki/stocks/BMI/sources/2026-04-19 BMI Earnings Update"
+    },
+    {
+      "source": "wiki/stocks/BMI/Badger Meter (BMI)",
+      "target": "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis"
+    },
+    {
+      "source": "wiki/stocks/BMI/Badger Meter (BMI)",
+      "target": "wiki/Stock Knowledge Wiki"
+    },
+    {
+      "source": "wiki/stocks/BMI/Badger Meter (BMI)",
+      "target": "wiki/_system/Operational Log"
+    },
+    {
+      "source": "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis",
+      "target": "wiki/stocks/BMI/sources/2026-03-19 BMI Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis",
+      "target": "wiki/stocks/BMI/sources/2026-04-19 BMI Earnings Update"
+    },
+    {
+      "source": "wiki/stocks/BMI/topics/Badger Meter - Investment Thesis",
+      "target": "wiki/stocks/BMI/Badger Meter (BMI)"
+    },
+    {
+      "source": "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+      "target": "wiki/stocks/GRAB/sources/2026-01-17 GRAB Full Report"
+    },
+    {
+      "source": "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+      "target": "wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis"
+    },
+    {
+      "source": "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+      "target": "wiki/Stock Knowledge Wiki"
+    },
+    {
+      "source": "wiki/stocks/GRAB/Grab Holdings (GRAB)",
+      "target": "wiki/_system/Operational Log"
+    },
+    {
+      "source": "wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis",
+      "target": "wiki/stocks/GRAB/sources/2026-01-17 GRAB Full Report"
+    },
+    {
+      "source": "wiki/stocks/GRAB/topics/Grab Holdings - Investment Thesis",
+      "target": "wiki/stocks/GRAB/Grab Holdings (GRAB)"
+    },
+    {
+      "source": "wiki/stocks/MELI/MercadoLibre (MELI)",
+      "target": "wiki/stocks/MELI/sources/2026-03-23 MELI Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/MELI/MercadoLibre (MELI)",
+      "target": "wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis"
+    },
+    {
+      "source": "wiki/stocks/MELI/MercadoLibre (MELI)",
+      "target": "wiki/Stock Knowledge Wiki"
+    },
+    {
+      "source": "wiki/stocks/MELI/MercadoLibre (MELI)",
+      "target": "wiki/_system/Operational Log"
+    },
+    {
+      "source": "wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis",
+      "target": "wiki/stocks/MELI/sources/2026-03-23 MELI Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/MELI/topics/MercadoLibre - Investment Thesis",
+      "target": "wiki/stocks/MELI/MercadoLibre (MELI)"
+    },
+    {
+      "source": "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+      "target": "wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+      "target": "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis"
+    },
+    {
+      "source": "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+      "target": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing"
+    },
+    {
+      "source": "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+      "target": "wiki/Stock Knowledge Wiki"
+    },
+    {
+      "source": "wiki/stocks/PANW/Palo Alto Networks (PANW)",
+      "target": "wiki/_system/Operational Log"
+    },
+    {
+      "source": "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis",
+      "target": "wiki/stocks/PANW/sources/2026-02-01 PANW Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis",
+      "target": "wiki/stocks/PANW/Palo Alto Networks (PANW)"
+    },
+    {
+      "source": "wiki/stocks/PANW/topics/Palo Alto Networks - Investment Thesis",
+      "target": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing"
+    },
+    {
+      "source": "wiki/stocks/UBER/Uber Technologies (UBER)",
+      "target": "wiki/stocks/UBER/sources/2026-02-09 UBER Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/UBER/Uber Technologies (UBER)",
+      "target": "wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis"
+    },
+    {
+      "source": "wiki/stocks/UBER/Uber Technologies (UBER)",
+      "target": "wiki/Stock Knowledge Wiki"
+    },
+    {
+      "source": "wiki/stocks/UBER/Uber Technologies (UBER)",
+      "target": "wiki/_system/Operational Log"
+    },
+    {
+      "source": "wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis",
+      "target": "wiki/stocks/UBER/sources/2026-02-09 UBER Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/UBER/topics/Uber Technologies - Investment Thesis",
+      "target": "wiki/stocks/UBER/Uber Technologies (UBER)"
+    },
+    {
+      "source": "wiki/stocks/ZS/Zscaler (ZS)",
+      "target": "wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/ZS/Zscaler (ZS)",
+      "target": "wiki/stocks/ZS/topics/Zscaler - Investment Thesis"
+    },
+    {
+      "source": "wiki/stocks/ZS/Zscaler (ZS)",
+      "target": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing"
+    },
+    {
+      "source": "wiki/stocks/ZS/Zscaler (ZS)",
+      "target": "wiki/Stock Knowledge Wiki"
+    },
+    {
+      "source": "wiki/stocks/ZS/Zscaler (ZS)",
+      "target": "wiki/_system/Operational Log"
+    },
+    {
+      "source": "wiki/stocks/ZS/topics/Zscaler - Investment Thesis",
+      "target": "wiki/stocks/ZS/sources/2026-03-20 ZS Seed Full Report"
+    },
+    {
+      "source": "wiki/stocks/ZS/topics/Zscaler - Investment Thesis",
+      "target": "wiki/stocks/ZS/Zscaler (ZS)"
+    },
+    {
+      "source": "wiki/stocks/ZS/topics/Zscaler - Investment Thesis",
+      "target": "wiki/cross-stock/PANW vs ZS - Moat, Growth, and Valuation Framing"
+    }
+  ],
+  "activity": [
+    "Operational Log [2026 04 17] setup Stock knowledge wiki bootstrap Created the root wiki structure, templates, stock hubs, source notes, cross stock index, and Codex operating guide. [2026 04 17] ingest Seed report snapshot BMI Saved [private raw source] Full Report.html , created the initial source note, and linked the BMI stock hub. [2026 04 17] ingest Seed report snapshot MELI Saved [private raw source] Full Report.html , created the initial source note, and linked the MELI stock hub. [2026 04 17] ingest Seed report snapshot PANW Saved [private raw source] Full Report.html , created the initial source note, and linked the PANW stock hub. [2026 04 17] ingest Seed report snapshot UBER Saved [private raw source] Full Report.html , created the initial source note, and linked the UBER stock hub. [2026 04 17] ingest Seed report snapshot ZS Saved [private raw source] Full Report.html , created the initial source note, and linked the ZS stock hub. [2026 04 17] file Seed cross stock comparison PANW vs ZS Created an initial comparison note to support recurring cybersecurity platform questions and shared valuation framing. [2026 04 19] ingest BMI post earnings thesis refresh Moved BMI Earnings Update.md from [private raw source] to [private raw source] 04 19 BMI Earnings Update.md , created a new BMI source note, and updated the BMI hub and thesis note to reflect the downgrade to HOLD . [2026 04 19] ingest GRAB first stock onboarding Moved GRAB Full Report.html from [private raw source] to [private raw source] 04 19 GRAB Full Report.html , created the first GRAB stock hub, source note, and thesis note, and added GRAB to the main stock index."
+  ]
+}

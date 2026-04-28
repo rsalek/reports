@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Knowledge Wiki | rsalek/reports</title>
+  <meta name="description" content="Interactive stock research wiki generated from the private LLM-wiki knowledge vault.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="../">
+        <span class="brand-dot"></span>
+        <span>
+          <strong>Stock Knowledge Wiki</strong>
+          <small>rsalek/reports</small>
+        </span>
+      </a>
+      <nav class="top-links" aria-label="Site navigation">
+        <a href="../">Reports</a>
+        <a href="https://github.com/rsalek/reports">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="wiki-layout">
+      <aside class="sidebar" aria-label="Wiki controls">
+        <section class="control-block">
+          <div class="section-label">Knowledge Map</div>
+          <h1>Published stock research wiki</h1>
+          <p class="lede">Compiled from the maintained Markdown wiki. Raw source files stay private.</p>
+        </section>
+
+        <section class="stats-grid" aria-label="Wiki statistics">
+          <div><strong id="stat-pages">0</strong><span>Pages</span></div>
+          <div><strong id="stat-links">0</strong><span>Links</span></div>
+          <div><strong id="stat-stocks">0</strong><span>Stocks</span></div>
+          <div><strong id="stat-updated">--</strong><span>Updated</span></div>
+        </section>
+
+        <section class="control-block">
+          <label class="field-label" for="searchInput">Search</label>
+          <input id="searchInput" class="search-input" type="search" placeholder="Ticker, company, topic, source..." autocomplete="off">
+        </section>
+
+        <section class="control-block">
+          <div class="field-label">Filter</div>
+          <div id="groupFilters" class="filter-list"></div>
+        </section>
+
+        <section class="control-block page-results">
+          <div class="field-label">Pages</div>
+          <div id="pageList" class="page-list"></div>
+        </section>
+      </aside>
+
+      <section class="graph-panel" aria-label="Wiki graph">
+        <div class="graph-toolbar">
+          <div>
+            <div class="section-label">Graph</div>
+            <strong id="focusLabel">All notes</strong>
+          </div>
+          <button id="resetButton" type="button">Reset</button>
+        </div>
+        <svg id="graphSvg" role="img" aria-label="Interactive wiki link graph"></svg>
+      </section>
+
+      <article class="reader" aria-label="Selected wiki note">
+        <header class="reader-head">
+          <div>
+            <div class="section-label" id="readerGroup">Select a note</div>
+            <h2 id="readerTitle">Open a page from the graph or list</h2>
+          </div>
+          <div id="readerTicker" class="ticker-chip" hidden></div>
+        </header>
+        <div id="readerMeta" class="reader-meta"></div>
+        <div id="readerBody" class="reader-body empty-state">
+          Search or click a node to read the compiled wiki note here.
+        </div>
+        <footer class="link-drawer">
+          <section>
+            <h3>Outbound Links</h3>
+            <div id="outboundLinks" class="link-list muted">None yet.</div>
+          </section>
+          <section>
+            <h3>Backlinks</h3>
+            <div id="backlinks" class="link-list muted">None yet.</div>
+          </section>
+        </footer>
+      </article>
+    </main>
+  </div>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build:wiki": "node scripts/build-wiki.mjs"
+  },
+  "devDependencies": {}
+}
