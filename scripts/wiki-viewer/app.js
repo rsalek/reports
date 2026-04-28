@@ -15,10 +15,13 @@ const state = {
   selectedId: null,
   activeGroup: "all",
   query: "",
+  pageListExpanded: false,
   svg: null,
   width: 900,
   height: 700,
 };
+
+const collapsedPageLimit = 8;
 
 const els = {
   pages: document.getElementById("stat-pages"),
@@ -109,8 +112,9 @@ function renderPageList() {
     els.pageList.innerHTML = '<div class="muted">No matching notes.</div>';
     return;
   }
-  els.pageList.innerHTML = pages
-    .slice(0, 80)
+  const visiblePages = state.pageListExpanded ? pages : pages.slice(0, collapsedPageLimit);
+  const remaining = pages.length - visiblePages.length;
+  const pageButtons = visiblePages
     .map((page) => {
       const active = page.id === state.selectedId ? " active" : "";
       const ticker = page.ticker ? ` · ${escapeHtml(page.ticker)}` : "";
@@ -122,6 +126,13 @@ function renderPageList() {
       `;
     })
     .join("");
+  const toggle = pages.length > collapsedPageLimit
+    ? `<button class="page-list-toggle" type="button" data-action="toggle-pages">${state.pageListExpanded ? "Show fewer" : `Show all ${pages.length}`}</button>`
+    : "";
+  const count = !state.pageListExpanded && remaining > 0
+    ? `<div class="page-list-count">${remaining} more notes hidden</div>`
+    : "";
+  els.pageList.innerHTML = `${pageButtons}${toggle}${count}`;
 }
 
 function linkButton(id) {
@@ -178,6 +189,7 @@ function resetSelection() {
   state.selectedId = null;
   state.query = "";
   state.activeGroup = "all";
+  state.pageListExpanded = false;
   els.search.value = "";
   els.focus.textContent = "All notes";
   els.readerGroup.textContent = "Select a note";
@@ -348,12 +360,19 @@ function bindEvents() {
     const button = event.target.closest("[data-group]");
     if (!button) return;
     state.activeGroup = button.dataset.group;
+    state.pageListExpanded = false;
     renderFilters();
     renderPageList();
     updateGraphFocus();
   });
 
   els.pageList.addEventListener("click", (event) => {
+    const toggle = event.target.closest("[data-action='toggle-pages']");
+    if (toggle) {
+      state.pageListExpanded = !state.pageListExpanded;
+      renderPageList();
+      return;
+    }
     const button = event.target.closest("[data-id]");
     if (button) selectPage(button.dataset.id);
   });
@@ -365,6 +384,7 @@ function bindEvents() {
 
   els.search.addEventListener("input", () => {
     state.query = els.search.value.trim();
+    state.pageListExpanded = Boolean(state.query);
     renderPageList();
     updateGraphFocus();
   });

@@ -245,7 +245,7 @@ input {
 
 .page-list {
   min-height: 0;
-  overflow: auto;
+  overflow: visible;
   margin-top: 10px;
   display: grid;
   gap: 8px;
@@ -284,6 +284,29 @@ input {
   font-size: 0.68rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.page-list-toggle {
+  width: 100%;
+  min-height: 36px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: var(--radius);
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 0.78rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.page-list-toggle:hover {
+  border-color: rgba(37, 99, 235, 0.48);
+  background: #dbeafe;
+}
+
+.page-list-count {
+  color: var(--text-soft);
+  font-size: 0.74rem;
+  text-align: center;
 }
 
 .graph-panel {

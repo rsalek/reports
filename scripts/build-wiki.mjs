@@ -10,6 +10,7 @@ const sourceRoot = path.resolve(process.env.WIKI_SOURCE || defaultSource);
 const outRoot = path.resolve(process.env.WIKI_OUT || path.join(repoRoot, "wiki"));
 const templateRoot = path.join(__dirname, "wiki-viewer");
 const WIKILINK_RE = /\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|([^\]]+))?\]\]/g;
+const HIDDEN_PAGE_IDS = new Set(["wiki/_system/Operational Log"]);
 
 function readDirRecursive(dir, predicate) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -99,6 +100,27 @@ function isPrivateTarget(value) {
   return normalized === "raw" || normalized.startsWith("raw/");
 }
 
+function isHiddenTarget(value) {
+  const normalized = withoutMd(value.trim().replace(/\\/g, "/").replace(/^\/+/, ""));
+  return HIDDEN_PAGE_IDS.has(normalized) || HIDDEN_PAGE_IDS.has(`wiki/${normalized.replace(/^wiki\//, "")}`);
+}
+
+function hasHiddenWikilink(line) {
+  const re = new RegExp(WIKILINK_RE.source, "g");
+  let match;
+  while ((match = re.exec(line)) !== null) {
+    if (isHiddenTarget(match[1])) return true;
+  }
+  return false;
+}
+
+function removeHiddenReferences(markdown) {
+  return markdown
+    .split(/\r?\n/)
+    .filter((line) => !hasHiddenWikilink(line))
+    .join("\n");
+}
+
 function classifyPage(id, frontmatter) {
   if (frontmatter.type === "stock-hub") return "stock-hub";
   if (frontmatter.type === "source-note") return "source-note";
@@ -131,7 +153,7 @@ function extractTitle(markdown, relPath, frontmatter) {
 }
 
 function plainTextFromMarkdown(markdown) {
-  return stripFrontmatter(markdown)
+  return removeHiddenReferences(stripFrontmatter(markdown))
     .replace(/```[\s\S]*?```/g, " ")
     .replace(WIKILINK_RE, (_, target, alias) => alias || target)
     .replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1")
@@ -197,6 +219,10 @@ function renderInline(text, resolveLink, brokenLinks) {
       const label = alias || path.posix.basename(target);
       return `<span class="external-path" title="Private source reference">${escapeHtml(label)}</span>`;
     }
+    if (isHiddenTarget(target)) {
+      const label = alias || path.posix.basename(target);
+      return `<span class="external-path" title="Hidden from public wiki">${escapeHtml(label)}</span>`;
+    }
     const resolved = resolveLink(target);
     const label = alias || path.posix.basename(target);
     if (!resolved) {
@@ -210,7 +236,7 @@ function renderInline(text, resolveLink, brokenLinks) {
 }
 
 function renderMarkdown(markdown, resolveLink, brokenLinks) {
-  const lines = stripFrontmatter(markdown).split(/\r?\n/);
+  const lines = removeHiddenReferences(stripFrontmatter(markdown)).split(/\r?\n/);
   const html = [];
   let paragraph = [];
   let listType = null;
@@ -359,7 +385,7 @@ const pages = markdownFiles.map((filePath) => {
     outboundLinks: [],
     backlinks: [],
   };
-});
+}).filter((page) => !HIDDEN_PAGE_IDS.has(page.id));
 
 const resolveLink = buildResolvers(pages);
 const pageById = new Map(pages.map((page) => [page.id, page]));
@@ -372,6 +398,7 @@ for (const page of pages) {
   const re = new RegExp(WIKILINK_RE.source, "g");
   while ((match = re.exec(page.markdown)) !== null) {
     if (isPrivateTarget(match[1])) continue;
+    if (isHiddenTarget(match[1])) continue;
     const target = resolveLink(match[1]);
     if (target && target !== page.id) {
       outbound.add(target);
@@ -407,7 +434,6 @@ const groups = groupOrder
     count: pages.filter((page) => page.group === group).length,
   }));
 
-const activityPage = pages.find((page) => page.id === "wiki/_system/Operational Log");
 const stockPages = pages.filter((page) => page.group === "stock-hub");
 const latestUpdated = pages
   .map((page) => page.updated)
@@ -432,13 +458,7 @@ const graph = {
     html,
   })),
   edges,
-  activity: activityPage
-    ? activityPage.plainText
-        .split(/(?=\d{4}-\d{2}-\d{2})/)
-        .map((item) => item.trim())
-        .filter(Boolean)
-        .slice(-8)
-    : [],
+  activity: [],
 };
 
 const search = {
