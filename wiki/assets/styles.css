@@ -20,6 +20,7 @@
   --shadow: 0 18px 48px rgba(15, 23, 42, 0.10);
   --radius: 8px;
   --radius-lg: 10px;
+  --side-column: 330px;
 }
 
 * { box-sizing: border-box; }
@@ -109,7 +110,7 @@ input {
   width: min(1440px, calc(100% - 28px));
   margin: 22px auto 34px;
   display: grid;
-  grid-template-columns: minmax(260px, 330px) minmax(420px, 1fr) minmax(360px, 520px);
+  grid-template-columns: var(--side-column) minmax(420px, 1fr) var(--side-column);
   min-height: calc(100vh - 104px);
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.72);
@@ -606,7 +607,7 @@ input {
 
 @media (max-width: 1180px) {
   .wiki-layout {
-    grid-template-columns: minmax(250px, 310px) 1fr;
+    grid-template-columns: minmax(250px, var(--side-column)) 1fr;
     grid-template-rows: minmax(520px, 58vh) auto;
   }
 
