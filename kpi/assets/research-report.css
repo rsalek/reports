@@ -14,6 +14,9 @@ a { color:inherit; }
 .brand { display:flex; align-items:center; gap:13px; font-weight:650; }
 .ticker { background:var(--brand-dark); color:#fff; padding:5px 8px; border-radius:5px; font-size:12px; letter-spacing:.02em; }
 .meta { color:var(--muted); font-size:12px; text-align:right; }
+.topbar-actions { display:flex; align-items:center; gap:10px; }
+.report-link { color:var(--brand-dark); font-size:12px; font-weight:650; text-decoration:none; border-bottom:1px solid var(--brand); }
+.report-link:hover,.report-link:focus-visible { background:var(--brand-bg); outline:2px solid transparent; }
 main { max-width:1280px; margin:0 auto; padding:28px; }
 h1 { margin:0; font-size:25px; line-height:1.22; font-weight:680; }
 h2 { margin:0 0 14px; font-size:17px; line-height:1.3; }
@@ -83,6 +86,14 @@ tbody tr:hover { background:var(--row-hover); }
 .source-item a:hover,.source-item a:focus-visible { text-decoration:underline; }
 .source-item p { color:var(--muted); margin-top:3px; font-size:12px; }
 .foot { color:var(--muted); font-size:12px; padding-bottom:40px; }
+.narrative { max-width:920px; }
+.narrative section { padding:24px 0; }
+.narrative p + p { margin-top:12px; }
+.narrative ul { margin:10px 0 0; padding-left:20px; }
+.narrative li + li { margin-top:7px; }
+.narrative .summary-line { margin-top:12px; font-size:16px; line-height:1.58; }
+.narrative .method { display:grid; grid-template-columns:170px 1fr; gap:10px 20px; border-top:1px solid var(--line); }
+.narrative .method dt,.narrative .method dd { padding-top:10px; }
 .hidden { display:none; }
 @media (max-width:900px) {
   .intro,.split,.notes,.scenario-grid { grid-template-columns:1fr; }
@@ -108,6 +119,8 @@ tbody tr:hover { background:var(--row-hover); }
 @media (max-width:560px) {
   .topbar { padding:9px 16px; }
   .topbar .meta { display:none; }
+  .topbar-actions { gap:8px; }
+  .report-link { font-size:11px; }
   main { padding:20px 16px; }
   h1 { font-size:22px; }
   .metrics { grid-template-columns:1fr; }
@@ -116,4 +129,6 @@ tbody tr:hover { background:var(--row-hover); }
   .bridge,.debate-row { grid-template-columns:1fr; gap:2px; }
   .scenario-read { align-items:flex-start; flex-direction:column; gap:4px; }
   td { grid-template-columns:98px minmax(0,1fr); }
+  .narrative .method { grid-template-columns:1fr; gap:0; }
+  .narrative .method dd { padding-top:2px; }
 }

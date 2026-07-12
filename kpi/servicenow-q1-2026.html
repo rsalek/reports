@@ -16,7 +16,7 @@
 <body>
   <header class="topbar">
     <a class="brand" href="../"><span class="ticker">NOW</span><span>ServiceNow KPI Monitor</span></a>
-    <div class="meta">Q1 2026 baseline | Updated July 12, 2026</div>
+    <div class="topbar-actions"><a class="report-link" href="servicenow-q1-2026-thesis.html">Read thesis</a><div class="meta">Q1 2026 baseline | Updated July 12, 2026</div></div>
   </header>
   <main>
     <div class="intro">
@@ -27,9 +27,9 @@
       <div class="decision">
         <dl>
           <dt>Thesis</dt><dd>Constructive; long-range framework strengthened</dd>
-          <dt>Action</dt><dd>Wait for organic proof; Base DCF upside is modest</dd>
+          <dt>Action</dt><dd>Wait for organic proof; normalized DCFs cluster near $122-$125</dd>
           <dt>Next proof</dt><dd>Q2 cRPO >=19.5% CC; organic bridge</dd>
-          <dt>Valuation</dt><dd>$122.10 external FCFF Base vs. $107.71 snapshot</dd>
+          <dt>Valuation</dt><dd>$122.10 FCFF / $124.70 normalized Finbox vs. $107.71</dd>
         </dl>
       </div>
     </div>
@@ -93,17 +93,27 @@
           </dl>
         </div>
         <div class="scenario">
-          <div class="case"><strong>Market consensus</strong><span class="price">$140.95</span></div>
+          <div class="case"><strong>Normalized Finbox</strong><span class="price">$124.70</span></div>
           <dl>
-            <dt>Median</dt><dd>$135</dd>
-            <dt>Range</dt><dd>$85-$236 across 46 analysts</dd>
-            <dt>Role</dt><dd>External expectations and dispersion</dd>
-            <dt>Read</dt><dd>Supports upside, but is not a valuation method</dd>
+            <dt>Range</dt><dd>$114.99-$134.42</dd>
+            <dt>Base inputs</dt><dd>4.5x terminal revenue; 9.5% WACC</dd>
+            <dt>Role</dt><dd>Preferred Finbox interpretation</dd>
+            <dt>Read</dt><dd>Corroborates FCFF without adopting Finbox's 6.0x exit</dd>
           </dl>
         </div>
       </div>
-      <div class="scenario-read"><span><strong>Decision framing:</strong> $122.10 is the FCFF cross-check; $130-$155 is the near-term Base range.</span><span>Do not average methods mechanically</span></div>
-      <p class="quality"><b>Why standard FCFF:</b> It values the operating business independently of financing and captures the cash consequences of AI infrastructure and acquisition integration. The Alpha Spread output remains an external, assumption-led model; terminal value, tax, net CapEx, shares, cash, investments, and debt still require internal tie-out. Assumptions and action triggers are recorded in <a class="cite" href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/trackers/thesis_tracker.md">the thesis tracker</a>.</p>
+      <div class="scenario-read"><span><strong>Decision framing:</strong> $122.10 remains the FCFF anchor; normalized Finbox triangulates around $124.70.</span><span>Do not average methods mechanically</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>External model</th><th>Published output</th><th>Terminal basis</th><th>Terminal share of EV</th><th>House use</th></tr></thead>
+          <tbody>
+            <tr><td data-label="External model">Alpha Spread FCFF</td><td data-label="Published output">$122.10 Base</td><td data-label="Terminal basis">0% perpetual growth; 8.29% WACC</td><td data-label="Terminal share of EV">About 75%</td><td data-label="House use">Preferred external intrinsic check</td></tr>
+            <tr><td data-label="External model">Finbox Revenue Exit</td><td data-label="Published output">$153.75</td><td data-label="Terminal basis">6.0x revenue; 9.5% WACC</td><td data-label="Terminal share of EV">79.4%</td><td data-label="House use">Best Finbox method, normalized to 4.0x-5.0x</td></tr>
+            <tr><td data-label="External model">Finbox EBITDA Exit</td><td data-label="Published output">$157.90</td><td data-label="Terminal basis">24.7x EBITDA; 9.5% WACC</td><td data-label="Terminal share of EV">79.9%</td><td data-label="House use">Secondary only; terminal-year classification break</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="quality"><b>Why Revenue Exit is the better Finbox model:</b> its terminal driver is tied to the credible $30.075bn 2030 revenue path and is less exposed to Finbox's discontinuous 2030 adjusted-EBITDA classification. The published $153.75 is not the house Base: at 4.0x/4.5x/5.0x terminal revenue and the same 9.5% WACC, value is $114.99/$124.70/$134.42. Detailed tab findings and calculations are in <a class="cite" href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/trackers/valuation_model_review.md">the valuation model review</a>.</p>
     </section>
 
     <section>
@@ -117,6 +127,7 @@
             <tr><td data-label="Date">Jun. 3</td><td data-label="Source">BofA conference</td><td data-label="New evidence">Demand described as strong; $300m AI savings to the bottom line across 2025-2026; hybrid pricing bridges seats to consumption.</td><td data-label="Classification"><span class="status green">Reinforcing</span></td><td data-label="What changed">Improves evidence for AI value and operating leverage; no new quarterly guidance.</td><td data-label="Action impact">No change; wait for proof. <a class="cite" href="#source-bofa">TR-BAC-26 pp.4-8</a></td></tr>
             <tr><td data-label="Date">Received Jul. 11</td><td data-label="Source">Goldman summary</td><td data-label="New evidence">Target cut to $145 from $163; Buy retained; Q2 organic cRPO benchmark framed at about 17.25%.</td><td data-label="Classification"><span class="status amber">Assumption changed</span></td><td data-label="What changed">Adds an external organic-growth and valuation bar. It is not company guidance or consensus.</td><td data-label="Action impact">Security thesis still not decision-grade. <a class="cite" href="#source-gs">BR-GS-01</a></td></tr>
             <tr><td data-label="Date">Jul. 11-12</td><td data-label="Source">Capital IQ + Alpha Spread</td><td data-label="New evidence">$107.71 price snapshot; $16.199bn/$19.222bn FY2026/FY2027 revenue consensus; FCFF Bear/Base/Bull values of $70.19/$122.10/$206.09.</td><td data-label="Classification"><span class="status amber">Assumption changed</span></td><td data-label="What changed">Moves valuation from unscored to conditional and exposes WACC/terminal sensitivity.</td><td data-label="Action impact">Base upside is modest; wait for Q2 and model tie-out. <a class="cite" href="#source-as">VAL-AS-0712</a></td></tr>
+            <tr><td data-label="Date">Jul. 12</td><td data-label="Source">Finbox DCF models</td><td data-label="New evidence">Revenue Exit $153.75 and EBITDA Exit $157.90 published midpoints; both use 9.5% WACC and derive about 79%-80% of EV from terminal value.</td><td data-label="Classification"><span class="status amber">Conflicting evidence</span></td><td data-label="What changed">Revenue Exit is selected as the cleaner Finbox method, but normalized to a $114.99-$134.42 range.</td><td data-label="Action impact">Corroborates the existing Base near $124.70; does not justify adopting the headline values. <a class="cite" href="#source-fb-rev">VAL-FB-REV-0712</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -156,7 +167,8 @@
             <tr data-group="profit"><td class="rank" data-label="#">9</td><td class="name" data-label="KPI">Subscription gross margin</td><td data-label="Q1 actual">81.5% non-GAAP</td><td data-label="Next threshold">FY26 &gt;=81.5%</td><td data-label="Status"><span class="status amber">Compressed</span></td><td data-label="Investor read">Down 300 bps YoY; watch cloud costs and acquisition-related amortization.</td><td class="source" data-label="Source"><a class="cite" href="#source-er">ER pp.13,17</a></td></tr>
             <tr data-group="valuation"><td class="rank" data-label="#">10</td><td class="name" data-label="KPI">FY2027 normalized EPS</td><td data-label="Q1 actual">$5.03 consensus</td><td data-label="Next threshold">Q2 estimate revisions</td><td data-label="Status"><span class="status green">Valuation anchor</span></td><td data-label="Investor read">At $107.71, spot implies 21.43x FY2027 normalized EPS.</td><td class="source" data-label="Source"><a class="cite" href="#source-ciq">CIQ-EST-0711</a></td></tr>
             <tr data-group="valuation"><td class="rank" data-label="#">11</td><td class="name" data-label="KPI">Standard FCFF</td><td data-label="Q1 actual">$122.10 Base</td><td data-label="Next threshold">Internal model tie-out</td><td data-label="Status"><span class="status amber">External check</span></td><td data-label="Investor read">About 13% price upside, but terminal value is roughly 75% of present value.</td><td class="source" data-label="Source"><a class="cite" href="#source-as">VAL-AS-0712</a></td></tr>
-            <tr data-group="valuation"><td class="rank" data-label="#">12</td><td class="name" data-label="KPI">Analyst target distribution</td><td data-label="Q1 actual">$85 low / $140.95 mean / $236 high</td><td data-label="Next threshold">Post-Q2 target revisions</td><td data-label="Status"><span class="status amber">External check</span></td><td data-label="Investor read">Wide dispersion shows that AI duration and margins remain heavily debated.</td><td class="source" data-label="Source"><a class="cite" href="#source-ciq">CIQ p.1</a></td></tr>
+            <tr data-group="valuation"><td class="rank" data-label="#">12</td><td class="name" data-label="KPI">Normalized Finbox Revenue Exit</td><td data-label="Q1 actual">$124.70 midpoint</td><td data-label="Next threshold">Q2 model refresh</td><td data-label="Status"><span class="status amber">External check</span></td><td data-label="Investor read">$114.99-$134.42 at 4.0x-5.0x terminal revenue; published $153.75 is too terminal-heavy for Base.</td><td class="source" data-label="Source"><a class="cite" href="#source-fb-rev">VAL-FB-REV-0712</a></td></tr>
+            <tr data-group="valuation"><td class="rank" data-label="#">13</td><td class="name" data-label="KPI">Analyst target distribution</td><td data-label="Q1 actual">$85 low / $140.95 mean / $236 high</td><td data-label="Next threshold">Post-Q2 target revisions</td><td data-label="Status"><span class="status amber">External check</span></td><td data-label="Investor read">Wide dispersion shows that AI duration and margins remain heavily debated.</td><td class="source" data-label="Source"><a class="cite" href="#source-ciq">CIQ p.1</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -195,25 +207,27 @@
       <div class="notes">
         <div class="note"><h3>Proves it</h3><p>Q2 cRPO at or above 19.5% CC, organic cRPO at or above Goldman's roughly 17.25% bar, subscription growth at or above 21%, continued >100% Now Assist cohort growth, and stable large-deal activity.</p></div>
         <div class="note"><h3>Breaks it</h3><p>Both cRPO and subscription growth miss guide, renewal falls below 97%, and large deals weaken together. That combination would point to demand, not timing noise.</p></div>
-        <div class="note"><h3>Still missing</h3><p>An audited internal FCFF bridge, detailed estimate revisions and cRPO consensus, the complete Goldman note, and repeat disclosure supporting product-vector ACV.</p></div>
+        <div class="note"><h3>Still missing</h3><p>An audited internal FCFF bridge with normalized D&amp;A, NWC, CapEx, cash tax, SBC/dilution and capital bridge; detailed estimate revisions and cRPO consensus; and repeat product-vector ACV disclosure.</p></div>
       </div>
     </section>
 
     <section id="sources" class="foot">
       <h2>Sources and evidence posture</h2>
       <div class="source-list">
-        <div class="source-item" id="source-10k"><strong>10K-FY25 · FY2025 Form 10-K</strong><p>Business, risk disclosures, historical financials, and the prior-year baseline.</p></div>
-        <div class="source-item" id="source-10q"><strong>10Q-Q1-26 · Q1 2026 Form 10-Q</strong><p>Primary source for GAAP actuals, RPO definitions, renewal rate, cash flow, and risk detail.</p></div>
-        <div class="source-item" id="source-er"><strong>ER-Q1-26 · Q1 2026 earnings release</strong><p>Reported KPIs, non-GAAP reconciliations, and Q2/FY2026 formal guidance.</p></div>
-        <div class="source-item" id="source-tr"><strong>TR-Q1-26 · Q1 2026 earnings transcript</strong><p>Management commentary, AI monetization, acquisition bridges, and analyst Q&amp;A.</p></div>
-        <div class="source-item" id="source-evercore"><strong>TR-EVC-26 · Evercore Global TMT Conference</strong><p>Management discussion of data and analytics, RaptorDB, platform differentiation, and the ARR milestone.</p></div>
-        <div class="source-item" id="source-bofa"><strong>TR-BAC-26 · Bank of America Technology Conference</strong><p>Demand, AI savings, hybrid pricing, growth vectors, and long-term margin framing.</p></div>
-        <div class="source-item" id="source-gs"><strong>BR-GS-01 · Goldman target-price summary</strong><p>User-supplied broker summary; external expectation rather than company guidance or full consensus.</p></div>
-        <div class="source-item" id="source-id"><strong>TR-ID-26 · ServiceNow Investor Day 2026</strong><p>Management's 2030 revenue, AI mix, consumption economics, product-vector and 2027 margin framework.</p></div>
-        <div class="source-item" id="source-ciq"><strong>CIQ-EST-0711 · Capital IQ Estimate Highlights</strong><p>Dated price, normalized EPS consensus, target-price dispersion, and valuation multiples.</p></div>
+        <div class="source-item" id="source-10k"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/quarterly/Annual report - Q4 2025.pdf">10K-FY25 · FY2025 Form 10-K</a><p>Business, risk disclosures, historical financials, and the prior-year baseline.</p></div>
+        <div class="source-item" id="source-10q"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/quarterly/Quarterly report - Q1 2026.pdf">10Q-Q1-26 · Q1 2026 Form 10-Q</a><p>Primary source for GAAP actuals, RPO definitions, renewal rate, cash flow, and risk detail.</p></div>
+        <div class="source-item" id="source-er"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/quarterly/Earnings release - Q1 2026.pdf">ER-Q1-26 · Q1 2026 earnings release</a><p>Reported KPIs, non-GAAP reconciliations, and Q2/FY2026 formal guidance.</p></div>
+        <div class="source-item" id="source-tr"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/quarterly/ServiceNow – Q1 2026 – Transcript – Quartr.pdf">TR-Q1-26 · Q1 2026 earnings transcript</a><p>Management commentary, AI monetization, acquisition bridges, and analyst Q&amp;A.</p></div>
+        <div class="source-item" id="source-evercore"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/events/ServiceNow – 2026 Evercore Global TMT Conference – Transcript – Quartr.pdf">TR-EVC-26 · Evercore Global TMT Conference</a><p>Management discussion of data and analytics, RaptorDB, platform differentiation, and the ARR milestone.</p></div>
+        <div class="source-item" id="source-bofa"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/events/ServiceNow – Bank of America 2026 Global Technology Conference – Transcript – Quartr.pdf">TR-BAC-26 · Bank of America Technology Conference</a><p>Demand, AI savings, hybrid pricing, growth vectors, and long-term margin framing.</p></div>
+        <div class="source-item" id="source-gs"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/news/ServiceNow New.md">BR-GS-01 · Goldman target-price summary</a><p>User-supplied broker summary; external expectation rather than company guidance or full consensus.</p></div>
+        <div class="source-item" id="source-id"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/events/ServiceNow – Investor Day 2026 – Transcript – Quartr.pdf">TR-ID-26 · ServiceNow Investor Day 2026</a><p>Management's 2030 revenue, AI mix, consumption economics, product-vector and 2027 margin framework.</p></div>
+        <div class="source-item" id="source-ciq"><a href="https://github.com/rsalek/KPIs/blob/main/stocks/NOW/sources/analyst-research/spglobal_servicenow,inc._estimatehighlights_11-07-2026_85192a7f-40a4-4c21-8077-16bf026e9471.pdf.pdf">CIQ-EST-0711 · Capital IQ Estimate Highlights</a><p>Dated price, normalized EPS consensus, target-price dispersion, and valuation multiples.</p></div>
         <div class="source-item" id="source-as"><a href="https://www.alphaspread.com/security/nyse/now/dcf-valuation/base-case">VAL-AS-0712 · Alpha Spread FCFF model</a><p>Five-year Bear/Base/Bull DCF, annual operating assumptions, capital bridge, and terminal-value sensitivity; reviewed in Safari on July 12, 2026.</p></div>
+        <div class="source-item" id="source-fb-rev"><a href="https://finbox.com/NYSE:NOW/models/dcf-revenue-exit-5yr">VAL-FB-REV-0712 · Finbox Revenue Exit</a><p>Preferred Finbox method. Every input and supporting-calculation tab reviewed; published midpoint normalized through a 4.0x-5.0x terminal revenue sensitivity.</p></div>
+        <div class="source-item" id="source-fb-ebitda"><a href="https://finbox.com/NYSE:NOW/models/dcf-ebitda-exit-5yr">VAL-FB-EBITDA-0712 · Finbox EBITDA Exit</a><p>Secondary model review; 2030 EBITDA, other-income, and D&amp;A classifications require normalization.</p></div>
       </div>
-      <p>Reviewed: Q1 2026 earnings materials, FY2025 Form 10-K, Investor Day and conference transcripts, Capital IQ estimate/key-stat snapshots, product and partner releases, a user-provided Goldman summary, and the Alpha Spread operating/discount-rate models. The preferred external FCFF cross-check is $122.10 Base, versus $70.19 Bear and $206.09 Bull. The Base value is assumption-led and terminal-value-heavy; it is not an approved target or recommendation. The $107.71 price and all market comparisons are as of the July 11 Capital IQ / Alpha Spread snapshot.</p>
+      <p>Reviewed: Q1 2026 earnings materials, FY2025 Form 10-K, Investor Day and conference transcripts, Capital IQ estimate/key-stat snapshots, product and partner releases, a user-provided Goldman summary, Alpha Spread, and every usable tab in Finbox's Revenue and EBITDA Exit DCFs. DCF Growth Exit was excluded. The preferred external FCFF cross-check remains $122.10 Base; the preferred Finbox interpretation is $114.99-$134.42 with a $124.70 midpoint. These values are assumption-led and not approved targets or recommendations. The $107.71 price and market comparisons are as of the July 11 snapshot.</p>
     </section>
   </main>
   <script>
