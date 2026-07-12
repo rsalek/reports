@@ -117,9 +117,10 @@ tbody tr:hover { background:var(--row-hover); }
   .filters .filter { min-height:44px; }
 }
 @media (max-width:560px) {
-  .topbar { padding:9px 16px; }
+  .topbar { padding:9px 16px; gap:8px 12px; }
+  .brand > span:last-child { display:none; }
   .topbar .meta { display:none; }
-  .topbar-actions { gap:8px; }
+  .topbar-actions { gap:8px; flex-wrap:wrap; justify-content:flex-end; }
   .report-link { font-size:11px; }
   main { padding:20px 16px; }
   h1 { font-size:22px; }
