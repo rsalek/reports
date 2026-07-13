@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Equity Deep Dive — Local Analysis Guide</title>
-  <meta name="description" content="How to prepare sources, run the Codex-native 14-step Equity Deep Dive, resume interrupted work, and validate cited outputs.">
+  <meta name="description" content="How to prepare sources, run and validate the Codex-native 14-step Equity Deep Dive, then create a private quality-gated HTML equity report.">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -27,7 +27,7 @@
     <header class="page-intro">
       <p class="breadcrumb"><a href="../">Reports Library</a> / Analysis guide</p>
       <h1>Equity Deep Dive</h1>
-      <p class="lede">Run a cited, resumable 14-step public-equity analysis locally with Codex. The workflow prepares evidence deterministically, keeps raw source files unchanged, and records every accepted output in a run manifest.</p>
+      <p class="lede">Run a cited, resumable 14-step public-equity analysis locally with Codex, then turn a validated run into a private analyst HTML report. The workflow prepares evidence deterministically, keeps raw source files unchanged, and fingerprints both analysis and report artifacts.</p>
       <div class="intro-actions">
         <a class="primary-action" href="#quick-start">Start the workflow</a>
         <a class="secondary-action" href="#prompt-sequence">Review the 14 steps</a>
@@ -43,6 +43,7 @@
         <a href="#sources">Source packet</a>
         <a href="#commands">Command lifecycle</a>
         <a href="#prompt-sequence">Prompt sequence</a>
+        <a href="#html-report">Private HTML report</a>
         <a href="#outputs">Outputs and state</a>
         <a href="#evidence">Evidence rules</a>
         <a href="#troubleshooting">Troubleshooting</a>
@@ -72,10 +73,15 @@
             <li>
               <strong>Accept only a valid run.</strong> The workflow is finished when all 14 Markdown outputs exist and validation prints <code>VALID</code>.
             </li>
+            <li>
+              <strong>Generate the private report when needed.</strong>
+              <pre><code>Use $equity-report for &lt;TICKER&gt;</code></pre>
+              <p>The report workflow requires a completed quality-v2 run and finishes only when validation prints <code>VALID REPORT</code>.</p>
+            </li>
           </ol>
 
           <div class="note">
-            <strong>What Codex handles:</strong> source inventory, extraction, evidence search, sequential prompt execution, citations, resumable state, and final validation.
+            <strong>What Codex handles:</strong> source inventory, extraction, evidence search, sequential prompt execution, citations, resumable state, report synthesis, deterministic HTML rendering, and final validation.
           </div>
         </section>
 
@@ -90,6 +96,7 @@
                 <tr><td>Investment workspace</td><td>Required</td><td>Contains the skill, prompts, helper CLI, ticker folders, and tests.</td></tr>
                 <tr><td>Python 3.9 or newer</td><td>Required</td><td>Runs source intake and the deterministic Phase 0 helper.</td></tr>
                 <tr><td><code>pypdf</code></td><td>Required for PDFs</td><td>Extracts text page by page without converting or rewriting the original PDF.</td></tr>
+                <tr><td><code>Markdown</code></td><td>Required for HTML reports</td><td>Renders the cited report synthesis and accepted analysis appendix into standalone HTML.</td></tr>
                 <tr><td><code>stocks/&lt;TICKER&gt;/sources/</code></td><td>Required</td><td>The hard input contract. At least one usable source is the practical minimum for meaningful analysis.</td></tr>
                 <tr><td>Portfolio details</td><td>Optional</td><td>Personalizes Steps 12 and 13. Defaults are used and labeled when details are absent.</td></tr>
               </tbody>
@@ -108,14 +115,19 @@
         <section id="folders">
           <h2>Folder structure</h2>
           <pre><code>Investment/
-├── .agents/skills/analyze-equity/
-│   ├── SKILL.md
-│   └── references/output-contract.md
+├── .agents/skills/
+│   ├── analyze-equity/
+│   │   ├── SKILL.md
+│   │   └── references/output-contract.md
+│   └── equity-report/
+│       ├── SKILL.md
+│       └── references/report-contract.md
 ├── app/
 │   ├── analysis_prompts/          # 14 numbered prompts
 │   ├── phase0_analysis.py         # prepare, search, status, validate
+│   ├── equity_report.py           # prepare, status, render, validate
 │   └── source_intake.py           # new/modified source tracking
-├── requirements.txt               # pypdf only
+├── requirements.txt               # pypdf and Markdown
 └── stocks/
     └── &lt;TICKER&gt;/
         ├── README.md
@@ -174,8 +186,10 @@
   --position-status Holding \
   --shares 125 \
   --average-cost 42.50 \
+  --cost-currency USD \
+  --current-allocation 3 \
   --target-allocation 5</code></pre>
-          <p>Allowed position states are <code>Watching</code> and <code>Holding</code>. Without supplied context, the manifest records Watching, zero shares, average cost 0.00, and a 5% target allocation as assumptions.</p>
+          <p>Allowed position states are <code>Watching</code> and <code>Holding</code>. A holding requires shares, average cost, three-letter cost currency, current allocation, and target allocation. Without supplied context, the manifest records Watching, zero shares, zero current allocation, and a 5% target allocation as assumptions.</p>
 
           <h3>3. Search evidence</h3>
           <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; search "revenue growth" --limit 12</code></pre>
@@ -226,6 +240,29 @@
           </ul>
         </section>
 
+        <section id="html-report">
+          <h2>Private quality-gated HTML report</h2>
+          <p><code>$equity-report</code> is separate from <code>$analyze-equity</code>. It accepts only a completed analysis-contract-v2 run, preserves all 14 accepted outputs, and creates a cited synthesis plus a deterministic standalone HTML report.</p>
+
+          <h3>Command lifecycle</h3>
+          <pre><code>python3 -B -m app.equity_report &lt;TICKER&gt; prepare [--run-id &lt;RUN&gt;]
+python3 -B -m app.equity_report &lt;TICKER&gt; status [--run-id &lt;RUN&gt;]
+python3 -B -m app.equity_report &lt;TICKER&gt; render [--run-id &lt;RUN&gt;]
+python3 -B -m app.equity_report &lt;TICKER&gt; validate [--run-id &lt;RUN&gt;]</code></pre>
+
+          <h3>What the report contains</h3>
+          <ul>
+            <li>A decision-first opening with dated market data, evidence confidence, underwriting status, and portfolio context.</li>
+            <li>Thesis, variant perception, business quality, operating drivers, valuation scenarios, risks, catalysts, falsifiers, and monitoring triggers.</li>
+            <li>A behavioral circuit breaker covering confirmation, overconfidence, herding, recency, sunk-cost or house-money effects, concentration, and cooling-off questions.</li>
+            <li>An aggregate evidence-quality summary, explicit contradictions, unresolved gaps, linked source register, and all 14 accepted outputs in a navigable appendix.</li>
+          </ul>
+
+          <div class="note">
+            Evidence confidence is not the same as investability. If current price, capitalization, share count, or valuation inputs are incomplete, the affected conclusion remains explicitly preliminary.
+          </div>
+        </section>
+
         <section id="outputs">
           <h2>Outputs and resumable state</h2>
           <pre><code>stocks/&lt;TICKER&gt;/outputs/phase0/&lt;run-id&gt;/
@@ -235,13 +272,17 @@
 ├── Step_14_Output.md
 ├── evidence_catalog.json
 ├── evidence_chunks.jsonl
-└── run_manifest.json</code></pre>
+├── run_manifest.json
+├── Report_Synthesis.md             # after $equity-report
+├── &lt;TICKER&gt;_Full_Report.html       # private personalized report
+└── report_manifest.json            # independent report fingerprints</code></pre>
           <ul>
             <li><code>run_manifest.json</code> records status, detected phase, assumptions, prompt and source hashes, citations, web sources, timestamps, and failures.</li>
             <li><code>evidence_catalog.json</code> inventories the usable sources, images requiring inspection, and isolated source errors.</li>
             <li><code>evidence_chunks.jsonl</code> stores deterministic ticker-specific search passages and machine citation identifiers.</li>
             <li>Completed outputs are immutable after <code>status</code> accepts and hashes them.</li>
             <li>The newest incomplete run resumes by default. A completed run or explicit <code>--new-run</code> creates a new timestamped run.</li>
+            <li><code>report_manifest.json</code> fingerprints the accepted analysis, synthesis, styles, portfolio context, and rendered HTML without modifying <code>run_manifest.json</code>.</li>
           </ul>
         </section>
 
@@ -275,6 +316,8 @@ Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD<
                 <tr><td>A completed step needs substantive revision</td><td>Start a fresh run. Do not alter a completed hashed output.</td></tr>
                 <tr><td>The run was interrupted</td><td>Run <code>prepare</code> without <code>--new-run</code>; it resumes the newest incomplete run at the first pending step.</td></tr>
                 <tr><td>Validation reports an evidence gap</td><td>Add reliable evidence and start a fresh run, or retain the explicit gap when the fact is genuinely unavailable.</td></tr>
+                <tr><td>The report command rejects a run</td><td>Complete and validate a quality-v2 Phase 0 run first. Legacy or incomplete runs are intentionally not rendered.</td></tr>
+                <tr><td>The report is marked preliminary</td><td>Refresh missing current primary inputs in a new analysis run; do not fill valuation gaps with assumptions presented as facts.</td></tr>
               </tbody>
             </table>
           </div>
@@ -284,7 +327,7 @@ Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD<
           <h2>Publication safety</h2>
           <ul>
             <li>Keep files beneath <code>sources/</code> unchanged and outside the public site.</li>
-            <li>Publish only permitted derived analysis and citations—never licensed documents, credentials, private paths, portfolio details, or raw evidence.</li>
+            <li>Publish only permitted derived analysis and citations—never licensed documents, credentials, private paths, portfolio details, raw evidence, or a personalized full report.</li>
             <li>Review generated output for sensitive information before publication.</li>
           </ul>
           <div class="note warning">

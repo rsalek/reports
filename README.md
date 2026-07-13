@@ -50,7 +50,18 @@ The builder publishes the viewer assets plus `wiki/data/graph.json` and `wiki/da
 
 ### Equity Deep Dive help
 
-The `help/` page explains how to run the Codex-native `$analyze-equity` workflow in the Investment workspace. It covers required files, recommended evidence, folder structure, the 14-prompt sequence, commands, resumable state, citations, validation, and publication safety.
+The `help/` page explains how to run the Codex-native `$analyze-equity` workflow and turn a completed quality-v2 run into a private HTML report with `$equity-report`. It covers required files, recommended evidence, portfolio context, the 14-prompt sequence, resumable state, citations, report validation, and publication safety.
+
+The full report lifecycle is intentionally separate from analysis:
+
+```bash
+python3 -B -m app.equity_report TICKER prepare
+python3 -B -m app.equity_report TICKER status
+python3 -B -m app.equity_report TICKER render
+python3 -B -m app.equity_report TICKER validate
+```
+
+The generated synthesis, HTML, and report manifest remain in the selected local Phase 0 run. Do not add personalized reports to this public repository.
 
 ## Local preview
 
