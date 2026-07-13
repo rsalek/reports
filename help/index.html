@@ -46,7 +46,7 @@
         <a href="#outputs">Outputs and state</a>
         <a href="#evidence">Evidence rules</a>
         <a href="#troubleshooting">Troubleshooting</a>
-        <a href="#boundaries">Boundaries</a>
+        <a href="#publication-safety">Publication safety</a>
       </aside>
 
       <article class="guide">
@@ -75,7 +75,7 @@
           </ol>
 
           <div class="note">
-            <strong>What Codex handles:</strong> source inventory, extraction, evidence search, sequential prompt execution, citations, resumable state, and final validation. You do not need Gemini, Colab, Google Drive, or an API key.
+            <strong>What Codex handles:</strong> source inventory, extraction, evidence search, sequential prompt execution, citations, resumable state, and final validation.
           </div>
         </section>
 
@@ -92,7 +92,6 @@
                 <tr><td><code>pypdf</code></td><td>Required for PDFs</td><td>Extracts text page by page without converting or rewriting the original PDF.</td></tr>
                 <tr><td><code>stocks/&lt;TICKER&gt;/sources/</code></td><td>Required</td><td>The hard input contract. At least one usable source is the practical minimum for meaningful analysis.</td></tr>
                 <tr><td>Portfolio details</td><td>Optional</td><td>Personalizes Steps 12 and 13. Defaults are used and labeled when details are absent.</td></tr>
-                <tr><td>Capital IQ documents</td><td>Optional</td><td>Existing PDFs can be useful evidence, but no Capital IQ parser or converter is required.</td></tr>
               </tbody>
             </table>
           </div>
@@ -281,15 +280,12 @@ Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD<
           </div>
         </section>
 
-        <section id="boundaries">
-          <h2>Boundaries</h2>
+        <section id="publication-safety">
+          <h2>Publication safety</h2>
           <ul>
-            <li>No Gemini API, Colab runtime, Google Drive mount, or separate model API.</li>
-            <li>No Capital IQ-specific parser or PDF-to-Markdown conversion.</li>
-            <li>No SEC downloader or filing parser.</li>
-            <li>No HTML/PDF report generation, executive-summary pass, podcast, quarterly comparison, or dashboard update.</li>
-            <li>No moving, renaming, overwriting, or converting files beneath <code>sources/</code>.</li>
-            <li>No publication of licensed research, paid-data documents, credentials, private paths, or raw source material.</li>
+            <li>Keep files beneath <code>sources/</code> unchanged and outside the public site.</li>
+            <li>Publish only permitted derived analysis and citations—never licensed documents, credentials, private paths, portfolio details, or raw evidence.</li>
+            <li>Review generated output for sensitive information before publication.</li>
           </ul>
           <div class="note warning">
             This workflow supports investment research and decision discipline. It does not provide personalized investment advice, guarantee data completeness, or replace independent verification.

@@ -50,7 +50,7 @@ The builder publishes the viewer assets plus `wiki/data/graph.json` and `wiki/da
 
 ### Equity Deep Dive help
 
-The `help/` page explains how to run the Codex-native `$analyze-equity` workflow in the Investment workspace. It covers required files, recommended evidence, folder structure, the 14-prompt sequence, commands, resumable state, citations, validation, and safety boundaries.
+The `help/` page explains how to run the Codex-native `$analyze-equity` workflow in the Investment workspace. It covers required files, recommended evidence, folder structure, the 14-prompt sequence, commands, resumable state, citations, validation, and publication safety.
 
 ## Local preview
 
@@ -82,7 +82,7 @@ When adding a new public artifact:
 4. Preview and link-check locally.
 5. Push and confirm the final public URL returns HTTP 200.
 
-## Privacy and data boundaries
+## Publication safety
 
 - Do not publish paid or licensed research documents unless publication rights are explicit.
 - Do not publish raw source folders, credentials, tokens, private absolute paths, or internal-only notes.

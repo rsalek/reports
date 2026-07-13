@@ -5,8 +5,12 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
-const defaultSource = "/Users/rezasalek/Documents/Obsidian Vault/LLM-wiki/wiki";
-const sourceRoot = path.resolve(process.env.WIKI_SOURCE || defaultSource);
+const sourceInput = process.env.WIKI_SOURCE;
+if (!sourceInput) {
+  console.error("WIKI_SOURCE is required. Set it to the private Wiki source directory.");
+  process.exit(1);
+}
+const sourceRoot = path.resolve(sourceInput);
 const outRoot = path.resolve(process.env.WIKI_OUT || path.join(repoRoot, "wiki"));
 const templateRoot = path.join(__dirname, "wiki-viewer");
 const WIKILINK_RE = /\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|([^\]]+))?\]\]/g;
