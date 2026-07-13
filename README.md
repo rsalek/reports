@@ -3,6 +3,7 @@
 Public equity research reports, KPI dashboards, a generated stock knowledge wiki, and the operating guide for the local Equity Deep Dive workflow.
 
 - [Live reports library](https://rsalek.github.io/reports/)
+- [Pacific Biosciences public report](https://rsalek.github.io/reports/docs/PACB_Full_Report.html)
 - [Equity Deep Dive help](https://rsalek.github.io/reports/help/)
 - [KPI dashboards](https://rsalek.github.io/reports/#kpi)
 - [Stock knowledge wiki](https://rsalek.github.io/reports/wiki/)
@@ -24,7 +25,7 @@ reports/
 
 ### Reports
 
-The `docs/` directory contains the complete company research reports linked from the landing page. Report cards should use repository-hosted HTML where possible and retain a separate GitHub source link.
+The `docs/` directory contains the company research reports linked from the landing page. Report cards should use repository-hosted HTML where possible and retain a separate GitHub source link. Public editions must exclude personalized portfolio context, private paths, licensed source documents, and private analysis appendices.
 
 ### KPI dashboards
 
