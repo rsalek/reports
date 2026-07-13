@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equity Deep Dive — Local Analysis Guide</title>
+  <meta name="description" content="How to prepare sources, run the Codex-native 14-step Equity Deep Dive, resume interrupted work, and validate cited outputs.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to guide</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../">Reports Library</a>
+      <nav aria-label="Site navigation">
+        <a href="../">Reports</a>
+        <a href="../#kpi">KPI</a>
+        <a href="../wiki/">Wiki</a>
+        <a href="https://github.com/rsalek/reports">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="page-shell">
+    <header class="page-intro">
+      <p class="breadcrumb"><a href="../">Reports Library</a> / Analysis guide</p>
+      <h1>Equity Deep Dive</h1>
+      <p class="lede">Run a cited, resumable 14-step public-equity analysis locally with Codex. The workflow prepares evidence deterministically, keeps raw source files unchanged, and records every accepted output in a run manifest.</p>
+      <div class="intro-actions">
+        <a class="primary-action" href="#quick-start">Start the workflow</a>
+        <a class="secondary-action" href="#prompt-sequence">Review the 14 steps</a>
+      </div>
+    </header>
+
+    <div class="documentation-layout">
+      <aside class="contents" aria-label="Guide contents">
+        <strong>On this page</strong>
+        <a href="#quick-start">Quick start</a>
+        <a href="#requirements">What you need</a>
+        <a href="#folders">Folder structure</a>
+        <a href="#sources">Source packet</a>
+        <a href="#commands">Command lifecycle</a>
+        <a href="#prompt-sequence">Prompt sequence</a>
+        <a href="#outputs">Outputs and state</a>
+        <a href="#evidence">Evidence rules</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#boundaries">Boundaries</a>
+      </aside>
+
+      <article class="guide">
+        <section id="quick-start">
+          <h2>Quick start</h2>
+          <ol class="steps">
+            <li>
+              <strong>Install the PDF dependency.</strong>
+              <pre><code>python3 -m pip install -r requirements.txt</code></pre>
+            </li>
+            <li>
+              <strong>Create the ticker workspace.</strong> Copy <code>stocks/_template/</code> to <code>stocks/&lt;TICKER&gt;/</code>, use an uppercase ticker, and update the company README.
+            </li>
+            <li>
+              <strong>Add source documents.</strong> Put them anywhere under <code>stocks/&lt;TICKER&gt;/sources/</code>. Keep the raw files unchanged.
+            </li>
+            <li>
+              <strong>Ask Codex to run it.</strong>
+              <pre><code>Run Phase 0 for &lt;TICKER&gt;</code></pre>
+              <p>Explicit invocation also works:</p>
+              <pre><code>Use $analyze-equity to analyze &lt;TICKER&gt;</code></pre>
+            </li>
+            <li>
+              <strong>Accept only a valid run.</strong> The workflow is finished when all 14 Markdown outputs exist and validation prints <code>VALID</code>.
+            </li>
+          </ol>
+
+          <div class="note">
+            <strong>What Codex handles:</strong> source inventory, extraction, evidence search, sequential prompt execution, citations, resumable state, and final validation. You do not need Gemini, Colab, Google Drive, or an API key.
+          </div>
+        </section>
+
+        <section id="requirements">
+          <h2>What you need</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Requirement</th><th>Needed?</th><th>Purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Investment workspace</td><td>Required</td><td>Contains the skill, prompts, helper CLI, ticker folders, and tests.</td></tr>
+                <tr><td>Python 3.9 or newer</td><td>Required</td><td>Runs source intake and the deterministic Phase 0 helper.</td></tr>
+                <tr><td><code>pypdf</code></td><td>Required for PDFs</td><td>Extracts text page by page without converting or rewriting the original PDF.</td></tr>
+                <tr><td><code>stocks/&lt;TICKER&gt;/sources/</code></td><td>Required</td><td>The hard input contract. At least one usable source is the practical minimum for meaningful analysis.</td></tr>
+                <tr><td>Portfolio details</td><td>Optional</td><td>Personalizes Steps 12 and 13. Defaults are used and labeled when details are absent.</td></tr>
+                <tr><td>Capital IQ documents</td><td>Optional</td><td>Existing PDFs can be useful evidence, but no Capital IQ parser or converter is required.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Supported files</h3>
+          <ul>
+            <li><strong>Extracted:</strong> PDF, Markdown, plain text, HTML, and HTM.</li>
+            <li><strong>Cataloged for visual review:</strong> PNG, JPG, and JPEG.</li>
+            <li><strong>Unreadable files:</strong> recorded as source errors without aborting other usable sources.</li>
+            <li><strong>Discovery:</strong> recursive; nested folders are allowed and evidence remains isolated by ticker.</li>
+          </ul>
+        </section>
+
+        <section id="folders">
+          <h2>Folder structure</h2>
+          <pre><code>Investment/
+├── .agents/skills/analyze-equity/
+│   ├── SKILL.md
+│   └── references/output-contract.md
+├── app/
+│   ├── analysis_prompts/          # 14 numbered prompts
+│   ├── phase0_analysis.py         # prepare, search, status, validate
+│   └── source_intake.py           # new/modified source tracking
+├── requirements.txt               # pypdf only
+└── stocks/
+    └── &lt;TICKER&gt;/
+        ├── README.md
+        ├── sources/
+        │   ├── quarterly/
+        │   ├── events/
+        │   ├── news/
+        │   └── analyst-research/
+        ├── trackers/
+        └── outputs/
+            └── phase0/
+                └── &lt;run-id&gt;/</code></pre>
+          <p>The source subfolders are a useful taxonomy, not a restriction. The helper inventories every supported file beneath <code>sources/</code> and never moves, renames, converts, or overwrites it.</p>
+        </section>
+
+        <section id="sources">
+          <h2>Recommended source packet</h2>
+          <p>More evidence improves coverage, but the packet should stay current, relevant, and legally usable.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Priority</th><th>Evidence</th><th>Main coverage</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Core</td><td>Latest annual report or 10-K</td><td>Business model, financial history, risks, capital structure, headcount, and long-term economics.</td></tr>
+                <tr><td>Core</td><td>Latest quarterly report or 10-Q</td><td>Current growth, margins, liquidity, guidance, dilution, and balance-sheet changes.</td></tr>
+                <tr><td>Core</td><td>Earnings release and call transcript</td><td>Guidance, operating drivers, management explanations, catalysts, and current debates.</td></tr>
+                <tr><td>Recommended</td><td>Investor presentation or analyst day</td><td>Strategy, market opportunity, product roadmap, capital allocation, and KPI definitions.</td></tr>
+                <tr><td>Recommended</td><td>Relevant 8-Ks and event transcripts</td><td>Financing, restructuring, M&amp;A, leadership, regulatory, and product developments.</td></tr>
+                <tr><td>Recommended</td><td>Proxy statement, ownership, and estimate evidence</td><td>Incentives, insider alignment, holder mix, revisions, and valuation context.</td></tr>
+                <tr><td>Optional</td><td>Legally usable market-data or research PDFs</td><td>Historical multiples, price context, consensus, peer comparisons, and sentiment.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note warning">
+            Do not publish licensed source documents, private source paths, credentials, or raw evidence. Public outputs should contain only permitted analysis and citations.
+          </div>
+        </section>
+
+        <section id="commands">
+          <h2>Command lifecycle</h2>
+          <p>Codex normally runs these commands for you. They are documented here for inspection, recovery, and manual verification.</p>
+          <p>Run them from the Investment repository root. For a different checkout location, add the global option <code>--root /path/to/Investment</code> immediately before the ticker.</p>
+
+          <h3>1. Scan source intake</h3>
+          <pre><code>python3 -B -m app.source_intake &lt;TICKER&gt; scan</code></pre>
+          <p>Reports new or modified files. The Phase 0 workflow does not mark them at this stage.</p>
+
+          <h3>2. Prepare or resume</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; prepare</code></pre>
+          <p>Builds the evidence catalog and chunks, then resumes the newest incomplete run. Create a separate run only when explicitly needed:</p>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; prepare --new-run</code></pre>
+
+          <h3>Optional portfolio context</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; prepare \
+  --position-status Holding \
+  --shares 125 \
+  --average-cost 42.50 \
+  --target-allocation 5</code></pre>
+          <p>Allowed position states are <code>Watching</code> and <code>Holding</code>. Without supplied context, the manifest records Watching, zero shares, average cost 0.00, and a 5% target allocation as assumptions.</p>
+
+          <h3>3. Search evidence</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; search "revenue growth" --limit 12</code></pre>
+          <p>Use <code>--run-id &lt;RUN_ID&gt;</code> to target a specific run or <code>--json</code> for machine-readable results.</p>
+
+          <h3>4. Synchronize status</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; status</code></pre>
+          <p>Status accepts valid step outputs, hashes them, and reports <code>next_step</code>. Use <code>--run-id</code> or <code>--json</code> when needed.</p>
+
+          <h3>5. Validate the complete run</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; validate --mark-sources</code></pre>
+          <p>Use <code>--run-id &lt;RUN_ID&gt;</code> to validate a non-default run. Source intake is marked only after completed outputs actually cite the incorporated evidence.</p>
+        </section>
+
+        <section id="prompt-sequence">
+          <h2>The 14-step prompt sequence</h2>
+          <p>The prompts run sequentially. They are not independent parallel reports: later judgments consume state from earlier steps.</p>
+          <div class="table-wrap">
+            <table class="sequence-table">
+              <thead>
+                <tr><th>Step</th><th>Analysis</th><th>Purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>01</td><td>Business Phase</td><td>Classify the company from startup through decline and establish the phase used later.</td></tr>
+                <tr><td>02</td><td>Business Analysis</td><td>Explain the value proposition, revenue architecture, customer structure, pricing, and economics.</td></tr>
+                <tr><td>03</td><td>Moat</td><td>Assess switching costs, network effects, intangible assets, cost advantages, and counter-positioning.</td></tr>
+                <tr><td>04</td><td>Long-Term Growth Drivers</td><td>Separate funded growth from narrative growth across customer acquisition and expansion.</td></tr>
+                <tr><td>05</td><td>Phase-Specific Key Metrics</td><td>Score the metrics, ownership signals, estimates, and value creation appropriate to Step 1's phase.</td></tr>
+                <tr><td>06</td><td>Risk</td><td>Run a forensic pre-mortem covering concentration, financial, governance, and structural risks.</td></tr>
+                <tr><td>07</td><td>Phase-Appropriate Valuation Metrics</td><td>Select the correct valuation family for Step 1's phase and judge support versus history and peers.</td></tr>
+                <tr><td>08</td><td>Price and Sentiment</td><td>Connect one-year price action to catalysts, positioning, analyst views, and narrative shifts.</td></tr>
+                <tr><td>09</td><td>Antifragility</td><td>Stress liquidity, leverage, cash generation, asset quality, and survival under operating shocks.</td></tr>
+                <tr><td>10</td><td>Reverse DCF</td><td>Translate the market price into the growth and margin expectations it implies.</td></tr>
+                <tr><td>11</td><td>Intrinsic Valuation</td><td>Estimate value with explicit operating, discount-rate, terminal, and scenario assumptions.</td></tr>
+                <tr><td>12</td><td>Final Decision and Buy Plan</td><td>Synthesize Steps 10 and 11 with prior evidence and portfolio context into an action framework.</td></tr>
+                <tr><td>13</td><td>Behavioral Bias Check</td><td>Audit confirmation bias, overconfidence, herding, recency, and position-specific behavior.</td></tr>
+                <tr><td>14</td><td>Efficiency and AI Productivity</td><td>Test productivity claims using per-employee trends, peer comparison, and distortion checks.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Required handoffs</h3>
+          <ul>
+            <li><strong>Step 1 → Steps 5 and 7:</strong> use the detected business phase.</li>
+            <li><strong>Steps 10 and 11 → Step 12:</strong> explicitly synthesize market-implied expectations and intrinsic value.</li>
+            <li><strong>Portfolio manifest → Steps 12 and 13:</strong> use supplied position data or clearly labeled defaults.</li>
+            <li><strong>All prior steps → later steps:</strong> use concise cited handoffs instead of duplicating whole outputs.</li>
+          </ul>
+        </section>
+
+        <section id="outputs">
+          <h2>Outputs and resumable state</h2>
+          <pre><code>stocks/&lt;TICKER&gt;/outputs/phase0/&lt;run-id&gt;/
+├── Step_01_Output.md
+├── Step_02_Output.md
+├── ...
+├── Step_14_Output.md
+├── evidence_catalog.json
+├── evidence_chunks.jsonl
+└── run_manifest.json</code></pre>
+          <ul>
+            <li><code>run_manifest.json</code> records status, detected phase, assumptions, prompt and source hashes, citations, web sources, timestamps, and failures.</li>
+            <li><code>evidence_catalog.json</code> inventories the usable sources, images requiring inspection, and isolated source errors.</li>
+            <li><code>evidence_chunks.jsonl</code> stores deterministic ticker-specific search passages and machine citation identifiers.</li>
+            <li>Completed outputs are immutable after <code>status</code> accepts and hashes them.</li>
+            <li>The newest incomplete run resumes by default. A completed run or explicit <code>--new-run</code> creates a new timestamped run.</li>
+          </ul>
+        </section>
+
+        <section id="evidence">
+          <h2>Evidence and citation rules</h2>
+          <ul>
+            <li>Prefer local evidence and read the original document when a search result needs surrounding context.</li>
+            <li>Supplement only when required information is absent locally, using primary sources such as the SEC, company investor relations, official exchanges, or regulators.</li>
+            <li>State an as-of date for web evidence.</li>
+            <li>Mark unsupported, unavailable, or stale facts as evidence gaps rather than estimating them.</li>
+            <li>Use the citation strings returned by evidence search. Never invent page numbers or chunk IDs.</li>
+          </ul>
+          <pre><code>Local PDF:  [[source:quarterly/example.pdf#page=12]]
+Local text: [[source:events/example.md#chunk=0123456789abcdef]]
+Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD</code></pre>
+          <p>Every material factual paragraph or table row should be traceable, and each step must contain at least one machine-checkable citation.</p>
+        </section>
+
+        <section id="troubleshooting">
+          <h2>Troubleshooting</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Symptom</th><th>What to do</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>pypdf</code> is missing</td><td>Run <code>python3 -m pip install -r requirements.txt</code>, then repeat <code>prepare</code>.</td></tr>
+                <tr><td>A PDF or text file cannot be read</td><td>Inspect its entry in <code>evidence_catalog.json</code>. Usable sources continue; replace the file only outside the workflow if you have a lawful clean copy.</td></tr>
+                <tr><td>An image is cataloged but has no text</td><td>Visually inspect it before relying on it. Images are not OCR-converted by this workflow.</td></tr>
+                <tr><td><code>status</code> leaves a step pending</td><td>Repair the reported citation, placeholder, or length issue, then rerun <code>status</code>.</td></tr>
+                <tr><td>A completed step needs substantive revision</td><td>Start a fresh run. Do not alter a completed hashed output.</td></tr>
+                <tr><td>The run was interrupted</td><td>Run <code>prepare</code> without <code>--new-run</code>; it resumes the newest incomplete run at the first pending step.</td></tr>
+                <tr><td>Validation reports an evidence gap</td><td>Add reliable evidence and start a fresh run, or retain the explicit gap when the fact is genuinely unavailable.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="boundaries">
+          <h2>Boundaries</h2>
+          <ul>
+            <li>No Gemini API, Colab runtime, Google Drive mount, or separate model API.</li>
+            <li>No Capital IQ-specific parser or PDF-to-Markdown conversion.</li>
+            <li>No SEC downloader or filing parser.</li>
+            <li>No HTML/PDF report generation, executive-summary pass, podcast, quarterly comparison, or dashboard update.</li>
+            <li>No moving, renaming, overwriting, or converting files beneath <code>sources/</code>.</li>
+            <li>No publication of licensed research, paid-data documents, credentials, private paths, or raw source material.</li>
+          </ul>
+          <div class="note warning">
+            This workflow supports investment research and decision discipline. It does not provide personalized investment advice, guarantee data completeness, or replace independent verification.
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Equity Research Library</strong>
+      <span>Local analysis guide · Reports · KPI dashboards · Wiki</span>
+    </div>
+    <a href="../">Return to the library</a>
+  </footer>
+</body>
+</html>
