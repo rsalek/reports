@@ -20,8 +20,10 @@
       --line-invert: rgba(148, 163, 184, 0.16);
       --blue: #2563eb;
       --blue-soft: #dbeafe;
-      --green: #16a34a;
+      --green: #166534;
       --green-soft: #dcfce7;
+      --red: #b42318;
+      --red-soft: #fee2e2;
       --amber: #d97706;
       --amber-soft: #fef3c7;
       --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
@@ -177,6 +179,7 @@
     .hero-side {
       display: grid;
       gap: 16px;
+      align-content: start;
     }
 
     .hero-side-card {
@@ -279,8 +282,19 @@
       border: 1px solid rgba(37,99,235,0.12);
     }
 
+    .ticker.blue { color: var(--blue); background: var(--blue-soft); border-color: rgba(37,99,235,0.12); }
     .ticker.green { color: var(--green); background: var(--green-soft); border-color: rgba(22,163,74,0.12); }
     .ticker.amber { color: var(--amber); background: var(--amber-soft); border-color: rgba(217,119,6,0.12); }
+    .ticker.red { color: var(--red); background: var(--red-soft); border-color: rgba(180,35,24,0.16); }
+
+    .flow-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted-invert);
+    }
+
+    .flow-list li + li { margin-top: 8px; }
+    .flow-list a:hover { color: var(--text-invert); }
 
     .card h3 {
       margin: 0;
@@ -454,6 +468,14 @@
             </div>
           </div>
         </div>
+        <div class="hero-side-card">
+          <h3>Three-minute route</h3>
+          <ol class="flow-list">
+            <li><a href="#reports"><strong>Read</strong> a full report for the thesis.</a></li>
+            <li><a href="#kpi"><strong>Check</strong> the KPIs, thresholds, and catalysts.</a></li>
+            <li><a href="wiki/"><strong>Connect</strong> recurring risks and themes in the wiki.</a></li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -511,7 +533,7 @@
         <article class="card">
           <div class="card-top">
             <div>
-              <span class="ticker amber">PANW</span>
+              <span class="ticker green">PANW</span>
               <h3>Palo Alto Networks</h3>
             </div>
           </div>
@@ -532,7 +554,7 @@
         <article class="card">
           <div class="card-top">
             <div>
-              <span class="ticker amber">UBER</span>
+              <span class="ticker green">UBER</span>
               <h3>Uber Technologies</h3>
             </div>
           </div>
@@ -595,7 +617,7 @@
         <article class="card">
           <div class="card-top">
             <div>
-              <span class="ticker">PACB</span>
+              <span class="ticker red">PACB</span>
               <h3>Pacific Biosciences</h3>
             </div>
           </div>
@@ -616,7 +638,7 @@
         <article class="card">
           <div class="card-top">
             <div>
-              <span class="ticker amber">IBM</span>
+              <span class="ticker blue">IBM</span>
               <h3>International Business Machines</h3>
             </div>
           </div>
@@ -670,7 +692,7 @@
         <article class="card">
           <div class="card-top">
             <div>
-              <span class="ticker green">DXCM</span>
+              <span class="ticker blue">DXCM</span>
               <h3>Dexcom KPI Monitor</h3>
             </div>
           </div>
@@ -692,7 +714,7 @@
         <article class="card">
           <div class="card-top">
             <div>
-              <span class="ticker">PACB</span>
+              <span class="ticker red">PACB</span>
               <h3>Pacific Biosciences KPI Monitor</h3>
             </div>
           </div>
@@ -714,7 +736,7 @@
         <article class="card">
           <div class="card-top">
             <div>
-              <span class="ticker amber">IBM</span>
+              <span class="ticker blue">IBM</span>
               <h3>IBM KPI Monitor</h3>
             </div>
           </div>
