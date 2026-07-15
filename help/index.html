@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equity Deep Dive — Local Analysis Guide</title>
-  <meta name="description" content="How to prepare sources, run and validate the Codex-native 14-step Equity Deep Dive, then create a private quality-gated HTML equity report.">
+  <title>Analysis Workflow — Codex-Native Equity Research</title>
+  <meta name="description" content="Use the Codex-native equity analysis, private report, and public-safe KPI handoff workflows from source intake through validation.">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -25,11 +25,11 @@
 
   <main id="content" class="page-shell">
     <header class="page-intro">
-      <p class="breadcrumb"><a href="../">Reports Library</a> / Analysis guide</p>
-      <h1>Equity Deep Dive</h1>
-      <p class="lede">Run a cited, resumable 14-step public-equity analysis locally with Codex, then turn a validated run into a private analyst HTML report. The workflow prepares evidence deterministically, keeps raw source files unchanged, and fingerprints both analysis and report artifacts.</p>
+      <p class="breadcrumb"><a href="../">Reports Library</a> / Analysis workflow</p>
+      <h1>Analysis workflow</h1>
+      <p class="lede">Move from a grounded local source packet to a cited, resumable 14-step equity analysis, a private full report, and—when the run is v4—a public-safe KPI handoff. The workflow keeps raw sources unchanged and validates every derived artifact before it can be used.</p>
       <div class="intro-actions">
-        <a class="primary-action" href="#quick-start">Start the workflow</a>
+        <a class="primary-action" href="#quick-start">Quick start</a>
         <a class="secondary-action" href="#prompt-sequence">Review the 14 steps</a>
       </div>
     </header>
@@ -37,13 +37,15 @@
     <div class="documentation-layout">
       <aside class="contents" aria-label="Guide contents">
         <strong>On this page</strong>
+        <a href="#skills">Codex skills</a>
         <a href="#quick-start">Quick start</a>
         <a href="#requirements">What you need</a>
         <a href="#folders">Folder structure</a>
         <a href="#sources">Source packet</a>
-        <a href="#commands">Command lifecycle</a>
+        <a href="#commands">Phase 0 lifecycle</a>
         <a href="#prompt-sequence">Prompt sequence</a>
         <a href="#html-report">Private HTML report</a>
+        <a href="#kpi-handoff">Public KPI handoff</a>
         <a href="#outputs">Outputs and state</a>
         <a href="#evidence">Evidence rules</a>
         <a href="#troubleshooting">Troubleshooting</a>
@@ -51,37 +53,58 @@
       </aside>
 
       <article class="guide">
+        <section id="skills">
+          <h2>Choose the Codex skill for the stage</h2>
+          <p>These skills are the workflow entry points. Use them from the Investment repository root; Codex will inspect the ticker workspace, preserve source files, and resume existing state where possible.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Skill</th><th>Use it for</th><th>Gate or output</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>$analyze-equity</code></td><td>Start, resume, or validate the 14-step Phase 0 analysis.</td><td>Completed run validates as <code>VALID</code>.</td></tr>
+                <tr><td><code>$equity-report</code></td><td>Turn a completed Phase 0 run into a cited private HTML report.</td><td>Requires a completed v2, v3, or v4 run; finishes as <code>VALID REPORT</code>.</td></tr>
+                <tr><td><code>$kpi-handoff</code></td><td>Compile a completed v4 run into an internal handoff and a redacted public KPI projection.</td><td>Preview and validate before the explicit <code>promote</code> step.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note">
+            <strong>Typical request:</strong> <code>Use $analyze-equity to analyze &lt;TICKER&gt;</code>. After it validates, ask separately for <code>$equity-report</code> or <code>$kpi-handoff</code>. Do not use the report skill to run analysis, or the KPI skill with an incomplete or pre-v4 run.
+          </div>
+        </section>
+
         <section id="quick-start">
           <h2>Quick start</h2>
           <ol class="steps">
             <li>
-              <strong>Install the PDF dependency.</strong>
-              <pre><code>python3 -m pip install -r requirements.txt</code></pre>
+              <strong>Open the Investment workspace.</strong> Work from the repository root that contains <code>app/</code>, <code>stocks/</code>, and <code>.agents/skills/</code>.
             </li>
             <li>
-              <strong>Create the ticker workspace.</strong> Copy <code>stocks/_template/</code> to <code>stocks/&lt;TICKER&gt;/</code>, use an uppercase ticker, and update the company README.
+              <strong>Create or initialize the ticker workspace.</strong> For new coverage, copy <code>stocks/_template/</code> to <code>stocks/&lt;TICKER&gt;/</code>, update its README, then run:
+              <pre><code>python3 -B -m app.source_intake &lt;TICKER&gt; initialize</code></pre>
             </li>
             <li>
               <strong>Add source documents.</strong> Put them anywhere under <code>stocks/&lt;TICKER&gt;/sources/</code>. Keep the raw files unchanged.
             </li>
             <li>
-              <strong>Ask Codex to run it.</strong>
-              <pre><code>Run Phase 0 for &lt;TICKER&gt;</code></pre>
-              <p>Explicit invocation also works:</p>
-              <pre><code>Use $analyze-equity to analyze &lt;TICKER&gt;</code></pre>
+              <strong>Scan and ask Codex to run it.</strong>
+              <pre><code>python3 -B -m app.source_intake &lt;TICKER&gt; scan
+
+Use $analyze-equity to analyze &lt;TICKER&gt;</code></pre>
+              <p>For a fresh run, provide portfolio context when relevant. Without it, the manifest records clearly labeled Watching defaults.</p>
             </li>
             <li>
-              <strong>Accept only a valid run.</strong> The workflow is finished when all 14 Markdown outputs exist and validation prints <code>VALID</code>.
+              <strong>Let the workflow pass its gates.</strong> Codex reviews required visuals, locks canonical facts and core calculations, prepares v4 retrieval, and records cited support and counter-evidence for each step.
             </li>
             <li>
-              <strong>Generate the private report when needed.</strong>
-              <pre><code>Use $equity-report for &lt;TICKER&gt;</code></pre>
-              <p>The report workflow requires a completed quality-v2 run and finishes only when validation prints <code>VALID REPORT</code>.</p>
+              <strong>Confirm the analysis gate.</strong> The Phase 0 workflow is complete only when validation prints <code>VALID</code>. Then choose the next artifact:
+              <pre><code>Use $equity-report for &lt;TICKER&gt;
+Use $kpi-handoff for &lt;TICKER&gt;</code></pre>
             </li>
           </ol>
 
           <div class="note">
-            <strong>What Codex handles:</strong> source inventory, extraction, evidence search, sequential prompt execution, citations, resumable state, report synthesis, deterministic HTML rendering, and final validation.
+            <strong>What Codex handles:</strong> source inventory, extraction, visual-review tracking, fact and calculation locks, hybrid retrieval, sequential prompt execution, citations, resumable state, private report synthesis, public-safe KPI projection, deterministic rendering, and final validation.
           </div>
         </section>
 
@@ -93,11 +116,12 @@
                 <tr><th>Requirement</th><th>Needed?</th><th>Purpose</th></tr>
               </thead>
               <tbody>
-                <tr><td>Investment workspace</td><td>Required</td><td>Contains the skill, prompts, helper CLI, ticker folders, and tests.</td></tr>
-                <tr><td>Python 3.9 or newer</td><td>Required</td><td>Runs source intake and the deterministic Phase 0 helper.</td></tr>
+                <tr><td>Investment workspace</td><td>Required</td><td>Contains the skills, prompts, helper CLIs, ticker folders, and tests.</td></tr>
+                <tr><td>Python 3.9 or newer</td><td>Required</td><td>Runs source intake, Phase 0, report rendering, and KPI handoff validation.</td></tr>
                 <tr><td><code>pypdf</code></td><td>Required for PDFs</td><td>Extracts text page by page without converting or rewriting the original PDF.</td></tr>
                 <tr><td><code>Markdown</code></td><td>Required for HTML reports</td><td>Renders the cited report synthesis and accepted analysis appendix into standalone HTML.</td></tr>
                 <tr><td><code>stocks/&lt;TICKER&gt;/sources/</code></td><td>Required</td><td>The hard input contract. At least one usable source is the practical minimum for meaningful analysis.</td></tr>
+                <tr><td>Codex with local skills</td><td>Required for the guided workflow</td><td>Use <code>$analyze-equity</code>, then the separate report or KPI skill as needed.</td></tr>
                 <tr><td>Portfolio details</td><td>Optional</td><td>Personalizes Steps 12 and 13. Defaults are used and labeled when details are absent.</td></tr>
               </tbody>
             </table>
@@ -116,18 +140,16 @@
           <h2>Folder structure</h2>
           <pre><code>Investment/
 ├── .agents/skills/
-│   ├── analyze-equity/
-│   │   ├── SKILL.md
-│   │   └── references/output-contract.md
-│   └── equity-report/
-│       ├── SKILL.md
-│       └── references/report-contract.md
+│   ├── analyze-equity/             # Phase 0 analysis and validation
+│   ├── equity-report/              # private HTML report
+│   └── kpi-handoff/                # public-safe KPI projection
 ├── app/
-│   ├── analysis_prompts/          # 14 numbered prompts
-│   ├── phase0_analysis.py         # prepare, search, status, validate
-│   ├── equity_report.py           # prepare, status, render, validate
-│   └── source_intake.py           # new/modified source tracking
-├── requirements.txt               # pypdf and Markdown
+│   ├── analysis_prompts/           # 14 numbered prompts
+│   ├── phase0_analysis.py          # prepare, retrieve, facts, calculate, validate
+│   ├── equity_report.py            # prepare, status, render, validate
+│   ├── kpi_handoff.py              # build and promote KPI artifacts
+│   └── source_intake.py            # initialize, scan, and mark source tracking
+├── requirements.txt                # pypdf and Markdown
 └── stocks/
     └── &lt;TICKER&gt;/
         ├── README.md
@@ -136,7 +158,7 @@
         │   ├── events/
         │   ├── news/
         │   └── analyst-research/
-        ├── trackers/
+        ├── trackers/                # durable thesis and KPI pointers
         └── outputs/
             └── phase0/
                 └── &lt;run-id&gt;/</code></pre>
@@ -168,17 +190,17 @@
         </section>
 
         <section id="commands">
-          <h2>Command lifecycle</h2>
+          <h2>Phase 0 lifecycle</h2>
           <p>Codex normally runs these commands for you. They are documented here for inspection, recovery, and manual verification.</p>
-          <p>Run them from the Investment repository root. For a different checkout location, add the global option <code>--root /path/to/Investment</code> immediately before the ticker.</p>
+          <p>Run them from the Investment repository root. For a different checkout location, add <code>--root /path/to/Investment</code> before the ticker.</p>
 
           <h3>1. Scan source intake</h3>
           <pre><code>python3 -B -m app.source_intake &lt;TICKER&gt; scan</code></pre>
-          <p>Reports new or modified files. The Phase 0 workflow does not mark them at this stage.</p>
+          <p>Reports new or modified files without marking them. After a completed validated run, source intake can be marked through <code>validate --mark-sources</code>.</p>
 
           <h3>2. Prepare or resume</h3>
           <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; prepare</code></pre>
-          <p>Builds the evidence catalog and chunks, then resumes the newest incomplete run. Create a separate run only when explicitly needed:</p>
+          <p>Builds the evidence catalog and chunks, then resumes the newest incomplete run. Use <code>--new-run</code> only when a fresh fingerprinted run is needed.</p>
           <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; prepare --new-run</code></pre>
 
           <h3>Optional portfolio context</h3>
@@ -189,24 +211,43 @@
   --cost-currency USD \
   --current-allocation 3 \
   --target-allocation 5</code></pre>
-          <p>Allowed position states are <code>Watching</code> and <code>Holding</code>. A holding requires shares, average cost, three-letter cost currency, current allocation, and target allocation. Without supplied context, the manifest records Watching, zero shares, zero current allocation, and a 5% target allocation as assumptions.</p>
+          <p>Allowed position states are <code>Watching</code> and <code>Holding</code>. A holding requires shares, average cost, three-letter cost currency, current allocation, and target allocation. Without supplied context, the manifest records clearly labeled Watching defaults.</p>
 
-          <h3>3. Search evidence</h3>
-          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; search "revenue growth" --limit 12</code></pre>
-          <p>Use <code>--run-id &lt;RUN_ID&gt;</code> to target a specific run or <code>--json</code> for machine-readable results.</p>
+          <h3>3. Review required visuals</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; review
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; review --mark &lt;VISUAL-ID&gt;</code></pre>
+          <p>Inspect every listed preview before writing analysis. Mark only the visual IDs actually reviewed; do not begin the 14 steps while the run reports <code>review_required</code>.</p>
 
-          <h3>4. Synchronize status</h3>
-          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; status</code></pre>
-          <p>Status accepts valid step outputs, hashes them, and reports <code>next_step</code>. Use <code>--run-id</code> or <code>--json</code> when needed.</p>
+          <h3>4. Lock facts and core calculations</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; facts prepare
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; facts build
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; facts status
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; facts validate --lock
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; calculate core</code></pre>
+          <p>Populate the fact candidates with source-backed assertions, preserve conflicts explicitly, and keep reported facts, guidance, estimates, market observations, and analyst assumptions distinct. Do not write Step 1 until facts and core calculations are locked.</p>
 
-          <h3>5. Validate the complete run</h3>
+          <h3>5. Prepare deterministic v4 retrieval</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; retrieve prepare
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; retrieve plan --step &lt;N&gt;
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; retrieve search "&lt;SUPPORT QUERY&gt;" --step &lt;N&gt; --kind support --explain
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; retrieve search "&lt;COUNTER QUERY&gt;" --step &lt;N&gt; --kind counter --explain
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; retrieve validate --step &lt;N&gt;</code></pre>
+          <p>For each step, satisfy the plan or record a gap, conflict, or review requirement. Register only material claims in the evidence sidecar and retain the counter-search trace even when it finds nothing.</p>
+
+          <h3>6. Complete, calculate, and synchronize</h3>
+          <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; status
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; calculate valuation
+python3 -B -m app.phase0_analysis &lt;TICKER&gt; calculate decision</code></pre>
+          <p>Write each numbered output from its prompt and cited evidence, starting at <code>next_step</code>. After Step 7, lock valuation assumptions and results; after Step 11, lock decision arithmetic before Step 12.</p>
+
+          <h3>7. Validate the complete run</h3>
           <pre><code>python3 -B -m app.phase0_analysis &lt;TICKER&gt; validate --mark-sources</code></pre>
-          <p>Use <code>--run-id &lt;RUN_ID&gt;</code> to validate a non-default run. Source intake is marked only after completed outputs actually cite the incorporated evidence.</p>
+          <p>Use <code>--run-id &lt;RUN_ID&gt;</code> to validate a non-default run. Completion requires <code>VALID</code>; accepted Markdown, evidence sidecars, retrieval traces, facts, and calculations are immutable.</p>
         </section>
 
         <section id="prompt-sequence">
           <h2>The 14-step prompt sequence</h2>
-          <p>The prompts run sequentially. They are not independent parallel reports: later judgments consume state from earlier steps.</p>
+          <p>The prompts run sequentially. They are not independent parallel reports: later judgments consume locked facts, calculations, retrieval evidence, and handoffs from earlier steps. The v4 run also accepts each Markdown output together with its step evidence sidecar and retrieval trace.</p>
           <div class="table-wrap">
             <table class="sequence-table">
               <thead>
@@ -233,16 +274,18 @@
 
           <h3>Required handoffs</h3>
           <ul>
+            <li><strong>Facts and core calculations → Step 1 onward:</strong> use locked values and preserve their fact or result IDs alongside the original source citations.</li>
             <li><strong>Step 1 → Steps 5 and 7:</strong> use the detected business phase.</li>
+            <li><strong>Step 7 → Steps 10 and 11:</strong> use one consistent valuation method, assumptions, and scenario inputs.</li>
             <li><strong>Steps 10 and 11 → Step 12:</strong> explicitly synthesize market-implied expectations and intrinsic value.</li>
             <li><strong>Portfolio manifest → Steps 12 and 13:</strong> use supplied position data or clearly labeled defaults.</li>
-            <li><strong>All prior steps → later steps:</strong> use concise cited handoffs instead of duplicating whole outputs.</li>
+            <li><strong>All prior steps → later steps:</strong> use concise cited handoffs instead of duplicating whole outputs; validate each v4 sidecar before status can accept it.</li>
           </ul>
         </section>
 
         <section id="html-report">
           <h2>Private quality-gated HTML report</h2>
-          <p><code>$equity-report</code> is separate from <code>$analyze-equity</code>. It accepts only a completed analysis-contract-v2 run, preserves all 14 accepted outputs, and creates a cited synthesis plus a deterministic standalone HTML report.</p>
+          <p><code>$equity-report</code> is separate from <code>$analyze-equity</code>. It accepts a completed analysis-contract-v2, v3, or v4 run, preserves all 14 accepted outputs, and creates a cited synthesis plus a deterministic standalone HTML report. It never runs the analysis steps or publishes the private artifact for you.</p>
 
           <h3>Command lifecycle</h3>
           <pre><code>python3 -B -m app.equity_report &lt;TICKER&gt; prepare [--run-id &lt;RUN&gt;]
@@ -263,6 +306,30 @@ python3 -B -m app.equity_report &lt;TICKER&gt; validate [--run-id &lt;RUN&gt;]</
           </div>
         </section>
 
+        <section id="kpi-handoff">
+          <h2>Public-safe KPI handoff</h2>
+          <p><code>$kpi-handoff</code> connects a completed v4 analysis to a deterministic KPI dashboard without scraping a report or exposing portfolio context. It reads locked facts, calculation results, reviewed evidence, and approved selections.</p>
+
+          <h3>Command lifecycle</h3>
+          <pre><code>python3 -B -m app.kpi_handoff &lt;TICKER&gt; prepare [--run-id &lt;RUN&gt;]
+python3 -B -m app.kpi_handoff &lt;TICKER&gt; build [--run-id &lt;RUN&gt;]
+python3 -B -m app.kpi_handoff &lt;TICKER&gt; preview [--run-id &lt;RUN&gt;]
+python3 -B -m app.kpi_handoff &lt;TICKER&gt; validate [--run-id &lt;RUN&gt;]
+python3 -B -m app.kpi_handoff &lt;TICKER&gt; promote [--run-id &lt;RUN&gt;]</code></pre>
+
+          <ol>
+            <li><strong>Prepare:</strong> select the newest completed v4 run unless a run ID is explicitly named.</li>
+            <li><strong>Curate:</strong> add stable KPI definitions, typed observations, thresholds, catalysts, risks, and monitoring triggers with lineage.</li>
+            <li><strong>Build and preview:</strong> compile the internal handoff and the redacted public projection; preview reads only the public projection.</li>
+            <li><strong>Validate:</strong> confirm hashes, source lineage, compatible periods and units, reviewed visuals, and absence of private fields.</li>
+            <li><strong>Promote:</strong> explicitly lock the validated run as <code>trackers/kpi_current.json</code>. Promotion does not publish or modify the public Reports site by itself.</li>
+          </ol>
+
+          <div class="note warning">
+            Public KPI output keeps only dated primary HTTPS evidence. Licensed, private, local-path, portfolio, and unsourced observations become explicit gaps instead of being copied into the public projection.
+          </div>
+        </section>
+
         <section id="outputs">
           <h2>Outputs and resumable state</h2>
           <pre><code>stocks/&lt;TICKER&gt;/outputs/phase0/&lt;run-id&gt;/
@@ -270,19 +337,29 @@ python3 -B -m app.equity_report &lt;TICKER&gt; validate [--run-id &lt;RUN&gt;]</
 ├── Step_02_Output.md
 ├── ...
 ├── Step_14_Output.md
+├── step_evidence/                  # v4 evidence sidecars
+├── retrieval_traces/               # v4 retrieval traces
 ├── evidence_catalog.json
 ├── evidence_chunks.jsonl
+├── evidence_blocks.jsonl
+├── evidence_tables.jsonl
+├── evidence_visuals/
+├── facts_ledger.json                # after facts validate --lock
+├── calculation_results/             # after calculate stages
 ├── run_manifest.json
 ├── Report_Synthesis.md             # after $equity-report
 ├── &lt;TICKER&gt;_Full_Report.html       # private personalized report
-└── report_manifest.json            # independent report fingerprints</code></pre>
+├── report_manifest.json             # independent report fingerprints
+├── kpi_handoff_public.json          # after $kpi-handoff build
+└── KPI_Dashboard_Preview.html       # after $kpi-handoff preview</code></pre>
           <ul>
-            <li><code>run_manifest.json</code> records status, detected phase, assumptions, prompt and source hashes, citations, web sources, timestamps, and failures.</li>
+            <li><code>run_manifest.json</code> records the contract, status, detected phase, assumptions, prompt and source hashes, citations, web sources, timestamps, and failures.</li>
             <li><code>evidence_catalog.json</code> inventories the usable sources, images requiring inspection, and isolated source errors.</li>
-            <li><code>evidence_chunks.jsonl</code> stores deterministic ticker-specific search passages and machine citation identifiers.</li>
-            <li>Completed outputs are immutable after <code>status</code> accepts and hashes them.</li>
+            <li><code>evidence_blocks.jsonl</code>, <code>evidence_tables.jsonl</code>, and <code>evidence_visuals/</code> retain structured context for reliable review.</li>
+            <li>For v4, each accepted step hashes its Markdown output, evidence sidecar, and retrieval trace together.</li>
             <li>The newest incomplete run resumes by default. A completed run or explicit <code>--new-run</code> creates a new timestamped run.</li>
             <li><code>report_manifest.json</code> fingerprints the accepted analysis, synthesis, styles, portfolio context, and rendered HTML without modifying <code>run_manifest.json</code>.</li>
+            <li>KPI handoff artifacts are fingerprinted separately; promotion writes only the validated run ID and hashes to <code>trackers/kpi_current.json</code>.</li>
           </ul>
         </section>
 
@@ -294,11 +371,13 @@ python3 -B -m app.equity_report &lt;TICKER&gt; validate [--run-id &lt;RUN&gt;]</
             <li>State an as-of date for web evidence.</li>
             <li>Mark unsupported, unavailable, or stale facts as evidence gaps rather than estimating them.</li>
             <li>Use the citation strings returned by evidence search. Never invent page numbers or chunk IDs.</li>
+            <li>For v4, register every material local or web citation in the step evidence sidecar; IDs supplement citations and never replace them.</li>
+            <li>Keep reported actuals, guidance, consensus estimates, market observations, and analyst assumptions distinct. Preserve conflicts instead of averaging them.</li>
           </ul>
           <pre><code>Local PDF:  [[source:quarterly/example.pdf#page=12]]
 Local text: [[source:events/example.md#chunk=0123456789abcdef]]
 Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD</code></pre>
-          <p>Every material factual paragraph or table row should be traceable, and each step must contain at least one machine-checkable citation.</p>
+          <p>Every material factual paragraph or table row should be traceable, and each step must contain at least one machine-checkable citation. Quantitative claims must also resolve to a locked fact or calculation result when the contract requires it.</p>
         </section>
 
         <section id="troubleshooting">
@@ -312,11 +391,15 @@ Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD<
                 <tr><td><code>pypdf</code> is missing</td><td>Run <code>python3 -m pip install -r requirements.txt</code>, then repeat <code>prepare</code>.</td></tr>
                 <tr><td>A PDF or text file cannot be read</td><td>Inspect its entry in <code>evidence_catalog.json</code>. Usable sources continue; replace the file only outside the workflow if you have a lawful clean copy.</td></tr>
                 <tr><td>An image is cataloged but has no text</td><td>Visually inspect it before relying on it. Images are not OCR-converted by this workflow.</td></tr>
-                <tr><td><code>status</code> leaves a step pending</td><td>Repair the reported citation, placeholder, or length issue, then rerun <code>status</code>.</td></tr>
+                <tr><td>Visual review is required</td><td>Run <code>review</code>, inspect every listed preview, and mark only the visual IDs you actually reviewed before continuing.</td></tr>
+                <tr><td>Facts will not lock</td><td>Inspect unresolved conflicts, missing periods or units, and unreviewed visual values. Fix the authoring inputs, then run <code>facts validate --lock</code> again.</td></tr>
+                <tr><td><code>status</code> leaves a step pending</td><td>Repair the reported citation, sidecar, retrieval, placeholder, handoff, or length issue, then rerun <code>status</code>.</td></tr>
+                <tr><td>Retrieval validation fails</td><td>Run the step plan, satisfy each requirement or record an explicit gap/conflict/review status, register material claims, and rerun <code>retrieve validate --step &lt;N&gt;</code>.</td></tr>
                 <tr><td>A completed step needs substantive revision</td><td>Start a fresh run. Do not alter a completed hashed output.</td></tr>
                 <tr><td>The run was interrupted</td><td>Run <code>prepare</code> without <code>--new-run</code>; it resumes the newest incomplete run at the first pending step.</td></tr>
                 <tr><td>Validation reports an evidence gap</td><td>Add reliable evidence and start a fresh run, or retain the explicit gap when the fact is genuinely unavailable.</td></tr>
-                <tr><td>The report command rejects a run</td><td>Complete and validate a quality-v2 Phase 0 run first. Legacy or incomplete runs are intentionally not rendered.</td></tr>
+                <tr><td>The report command rejects a run</td><td>Complete and validate a v2, v3, or v4 Phase 0 run first. Legacy or incomplete runs are intentionally not rendered.</td></tr>
+                <tr><td>The KPI handoff command rejects a run</td><td>Use a completed validated v4 run only; rebuild and validate the public projection before promotion.</td></tr>
                 <tr><td>The report is marked preliminary</td><td>Refresh missing current primary inputs in a new analysis run; do not fill valuation gaps with assumptions presented as facts.</td></tr>
               </tbody>
             </table>
@@ -328,7 +411,8 @@ Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD<
           <ul>
             <li>Keep files beneath <code>sources/</code> unchanged and outside the public site.</li>
             <li>Publish only permitted derived analysis and citations—never licensed documents, credentials, private paths, portfolio details, raw evidence, or a personalized full report.</li>
-            <li>Review generated output for sensitive information before publication.</li>
+            <li>Public KPI projections may retain only allowlisted values backed by dated primary HTTPS sources; withheld items must remain explicit gaps.</li>
+            <li>Review generated output for sensitive information before publication and run browser checks at desktop and 390px mobile widths.</li>
           </ul>
           <div class="note warning">
             This workflow supports investment research and decision discipline. It does not provide personalized investment advice, guarantee data completeness, or replace independent verification.
@@ -341,7 +425,7 @@ Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD<
   <footer class="site-footer">
     <div>
       <strong>Equity Research Library</strong>
-      <span>Local analysis guide · Reports · KPI dashboards · Wiki</span>
+      <span>Analysis workflow · Reports · KPI dashboards · Wiki</span>
     </div>
     <a href="../">Return to the library</a>
   </footer>

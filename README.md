@@ -6,7 +6,7 @@ Public equity research reports, KPI dashboards, a generated stock knowledge wiki
 - [IBM public report](https://rsalek.github.io/reports/docs/IBM_Full_Report.html)
 - [IBM KPI dashboard](https://rsalek.github.io/reports/kpi/ibm-q1-2026.html)
 - [Pacific Biosciences public report](https://rsalek.github.io/reports/docs/PACB_Full_Report.html)
-- [Equity Deep Dive help](https://rsalek.github.io/reports/help/)
+- [Analysis workflow guide](https://rsalek.github.io/reports/help/)
 - [KPI dashboards](https://rsalek.github.io/reports/#kpi)
 - [Stock knowledge wiki](https://rsalek.github.io/reports/wiki/)
 
@@ -51,9 +51,9 @@ npm run build:wiki
 
 The builder publishes the viewer assets plus `wiki/data/graph.json` and `wiki/data/search.json`. Do not patch generated JSON directly; make durable content changes in the source wiki and rebuild.
 
-### Equity Deep Dive help
+### Analysis workflow guide
 
-The `help/` page explains how to run the Codex-native `$analyze-equity` workflow and turn a completed quality-v2 run into a private HTML report with `$equity-report`. It covers required files, recommended evidence, portfolio context, the 14-prompt sequence, resumable state, citations, report validation, and publication safety.
+The `help/` page explains how to use the Codex-native `$analyze-equity`, `$equity-report`, and `$kpi-handoff` skills. It covers source intake, visual review, locked facts and calculations, deterministic v4 retrieval, the 14-step sequence, resumable state, private report rendering, public-safe KPI promotion, citations, validation, and publication safety.
 
 The full report lifecycle is intentionally separate from analysis:
 
