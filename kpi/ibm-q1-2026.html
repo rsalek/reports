@@ -66,6 +66,18 @@ h3 { margin-bottom:8px; font-size:14px; }
 .decision dl { display:grid; grid-template-columns:98px 1fr; gap:8px 12px; margin:0; }
 .decision dt { color:var(--muted); }
 .decision dd { margin:0; font-weight:600; }
+.scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); background:var(--paper); }
+.scenario { padding:18px; border-right:1px solid var(--line); }
+.scenario:last-child { border-right:0; }
+.scenario.current { border-top:3px solid var(--accent); padding-top:15px; }
+.scenario .case { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:10px; }
+.scenario .case strong { font-size:17px; }
+.scenario .price { font-size:22px; font-weight:680; white-space:nowrap; }
+.scenario dl { display:grid; grid-template-columns:94px 1fr; gap:7px 10px; margin:0; }
+.scenario dt { color:var(--muted); }
+.scenario dd { margin:0; font-weight:500; }
+.scenario-read { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-top:12px; color:var(--muted); }
+.scenario-read strong { color:var(--ink); }
 .posture-list { display:grid; grid-template-columns:1fr 1fr; gap:0; margin:0; border-top:1px solid var(--line); }
 .posture-item { padding:10px 12px 10px 0; border-bottom:1px solid var(--line); }
 .posture-item dt { color:var(--muted); font-size:12px; }
@@ -118,6 +130,9 @@ tbody tr:hover { background:#f8faf7; }
 footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px; color:var(--muted); font-size:12px; }
 @media (max-width:800px) {
   .intro { grid-template-columns:1fr; gap:20px; }
+  .scenario-grid { grid-template-columns:1fr; }
+  .scenario { border-right:0; border-bottom:1px solid var(--line); }
+  .scenario:last-child { border-bottom:0; }
   .metrics { grid-template-columns:repeat(2,1fr); }
   .metric { border-bottom:1px solid var(--line); }
   .signal-grid,.issue-grid { grid-template-columns:1fr; }
@@ -135,6 +150,7 @@ footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px
   .metrics { grid-template-columns:1fr; }
   .metric,.metric:first-child { padding:14px 0; border-right:0; }
   .toolbar { align-items:flex-start; flex-direction:column; }
+  .scenario-read { align-items:flex-start; flex-direction:column; gap:4px; }
   .table-scroll { overflow:visible; border:0; background:transparent; }
   table,thead,tbody,tr,th,td { display:block; min-width:0; }
   thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
@@ -172,8 +188,35 @@ footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px
         <dt>Posture</dt><dd>Hold posture; cash generation is durable but leverage and valuation limit immediate upside</dd>
         <dt>Business phase</dt><dd>5</dd>
         <dt>Next proof</dt><dd>Software durability, Consulting conversion, Cash and leverage</dd>
-        <dt>Valuation</dt><dd>Unavailable</dd>
+        <dt>Valuation</dt><dd>Decision-Usable · FCFF</dd>
       </dl></div>
+    </section>
+    <section id="scenarios">
+      <h2>12-month bear / base / bull</h2>
+      <div class="scenario-grid"><div class="scenario"><div class="case"><strong>Bear</strong><span class="price">$119.81</span></div><dl>
+          <dt>Vs current</dt><dd>-44.8%</dd><dt>Weight</dt><dd>25%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Downside case; operating disappointment or balance-sheet pressure requires a fresh thesis review.</dd>
+        </dl></div><div class="scenario current"><div class="case"><strong>Base</strong><span class="price">$210.18</span></div><dl>
+          <dt>Vs current</dt><dd>-3.2%</dd><dt>Weight</dt><dd>50%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Central underwrite; execution is adequate but the current price leaves little margin of safety.</dd>
+        </dl></div><div class="scenario"><div class="case"><strong>Bull</strong><span class="price">$324.63</span></div><dl>
+          <dt>Vs current</dt><dd>+49.5%</dd><dt>Weight</dt><dd>25%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Upside case; requires sustained execution and favorable long-duration assumptions.</dd>
+        </dl></div></div>
+      <div class="scenario-read"><span><strong>Current indicator:</strong> $217.07. Probability-weighted value: <strong>$216.20</strong>.</span><span><a href="https://www.nyse.com/quote/XNYS:IBM" rel="noreferrer">NYSE IBM quote</a> <span class="source-date">(2026-07-14)</span></span></div>
+      <p class="quality"><b>Scenario mechanics:</b> These are monitoring values from the validated FCFF scenario model, not price forecasts. They should be refreshed when the operating evidence, discount rate, terminal growth, net debt, or share count changes.</p>
+    </section>
+    <section id="valuation">
+      <h2>Valuation method and decision gate</h2>
+      <div class="scenario-grid">
+        <div class="scenario"><div class="case"><strong>DCF method</strong><span class="price">FCFF</span></div><dl>
+          <dt>Status</dt><dd>Decision-Usable</dd><dt>Scenario range</dt><dd>$119.81 to $324.63</dd><dt>Caveat</dt><dd>Base enterprise value is 74.2% terminal value, so discount-rate and terminal-growth sensitivity remain material.</dd>
+        </dl></div>
+        <div class="scenario current"><div class="case"><strong>Reverse DCF</strong><span class="price">5.37%</span></div><dl>
+          <dt>Driver</dt><dd>Implied FCFF Growth</dd><dt>Role</dt><dd>Market-expectation check</dd><dt>Current price</dt><dd>$217.07</dd>
+        </dl></div>
+        <div class="scenario"><div class="case"><strong>Decision gate</strong><span class="price">$216.20</span></div><dl>
+          <dt>Reference</dt><dd>Probability weighted</dd><dt>Base value</dt><dd>$210.18</dd><dt>Price vs base</dt><dd>-3.2%</dd>
+        </dl></div>
+      </div>
+      <div class="scenario-read"><span><strong>Conclusion:</strong> The dated price is above base value and approximately equal to probability-weighted value; require either a better margin of safety or stronger cash-flow evidence.</span><span><a href="https://www.nyse.com/quote/XNYS:IBM" rel="noreferrer">NYSE IBM quote</a> <span class="source-date">(2026-07-14)</span></span></div>
     </section>
     <div class="metrics"><div class="metric"><div class="label">Revenue</div><div class="value">$15.9B</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div><div class="metric"><div class="label">Software revenue growth</div><div class="value">11.3%</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div><div class="metric"><div class="label">Consulting revenue growth</div><div class="value">4%</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div><div class="metric"><div class="label">Gross margin</div><div class="value">56.2%</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div><div class="metric"><div class="label">Software gross margin</div><div class="value">82.8%</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div></div>
     <section id="scorecard">
@@ -280,7 +323,6 @@ footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px
   <h2>Thesis signals</h2>
   <div class="signal-grid"><div class="signal-group"><h3>Thesis pillars</h3><ul><li><strong>Software-led mix</strong><span>Software is the primary high-margin growth and valuation support pillar.</span></li><li><strong>Cash-generation durability</strong><span>Positive and growing free cash flow supports investment and the dividend.</span></li><li><strong>Balance-sheet discipline</strong><span>Debt service is covered, but balance-sheet flexibility remains the principal constraint.</span></li></ul></div><div class="signal-group"><h3>Catalysts</h3><ul><li><strong>Software growth execution</strong><span>Sustained double-digit Software growth would reinforce mix, margin and cash-flow durability.</span></li><li><strong>Productivity savings</strong><span>IBM targets a $5.5 billion productivity run-rate exiting 2026, which could support margin expansion and reinvestment.</span></li></ul></div><div class="signal-group"><h3>Risks</h3><ul><li><strong>Consulting growth quality</strong><span>Consulting grew 4.0% reported but only 0.9% at constant currency in Q1, making conversion and productivity key watch items.</span></li><li><strong>Leverage and liquidity</strong><span>Total debt of $66.361 billion and a sub-1.0 current ratio limit flexibility after acquisition spending.</span></li><li><strong>Infrastructure cycle</strong><span>Infrastructure growth benefits from the z17 product cycle and may normalize.</span></li></ul></div><div class="signal-group"><h3>Monitoring triggers</h3><ul><li><strong>Software durability</strong><span>Escalate if Software growth falls below double digits while margin remains below the prior-year level.</span></li><li><strong>Consulting conversion</strong><span>Track whether Consulting returns to mid-single-digit reported growth and improves constant-currency conversion.</span></li><li><strong>Cash and leverage</strong><span>Monitor FCF delivery, debt reduction and liquidity after acquisition spending.</span></li></ul></div></div>
 </section>
-    <section id="valuation"><h2>Valuation posture</h2><dl class="data-list"><div><dt>Status</dt><dd>unavailable</dd></div></dl></section>
     <section id="gaps">
   <h2>Evidence limits</h2>
   <div class="issue-grid"><div><h3>Conflicts</h3><ul class="issue-list"><li>None reported.</li></ul></div><div><h3>Gaps</h3><ul class="issue-list"><li><strong>Item</strong><span>not_public</span></li></ul></div></div>
