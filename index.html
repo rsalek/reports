@@ -10,13 +10,13 @@
     :root {
       --bg-dark: #0b1220;
       --bg-dark-2: #111b2e;
-      --bg-light: #f7fbff;
+      --bg-light: #f5f6f8;
       --card: #ffffff;
       --text: #0f172a;
       --text-soft: #475569;
       --text-invert: #e5eefc;
       --muted-invert: #a8b6ca;
-      --line: rgba(15, 23, 42, 0.08);
+      --line: #dfe3e8;
       --line-invert: rgba(148, 163, 184, 0.16);
       --blue: #2563eb;
       --blue-soft: #dbeafe;
@@ -24,9 +24,9 @@
       --green-soft: #dcfce7;
       --amber: #d97706;
       --amber-soft: #fef3c7;
-      --shadow: 0 18px 48px rgba(15, 23, 42, 0.10);
-      --radius: 22px;
-      --radius-sm: 14px;
+      --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --radius-sm: 10px;
       --max: 1180px;
     }
 
@@ -37,10 +37,7 @@
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 24%),
-        radial-gradient(circle at top right, rgba(22, 163, 74, 0.12), transparent 20%),
-        linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 34%, var(--bg-light) 34%, #ffffff 100%);
+      background: var(--bg-light);
       line-height: 1.55;
     }
 
@@ -50,8 +47,7 @@
       position: sticky;
       top: 0;
       z-index: 40;
-      backdrop-filter: blur(14px);
-      background: rgba(11, 18, 32, 0.78);
+      background: var(--bg-dark);
       border-bottom: 1px solid var(--line-invert);
     }
 
@@ -65,7 +61,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
-      padding: 16px 0;
+      padding: 13px 0;
     }
 
     .brand {
@@ -81,8 +77,8 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #60a5fa, #22c55e);
-      box-shadow: 0 0 0 6px rgba(96, 165, 250, 0.14);
+      background: #61b28a;
+      box-shadow: 0 0 0 5px rgba(97, 178, 138, 0.14);
     }
 
     .nav-links {
@@ -96,23 +92,23 @@
     .nav-links a:hover { color: var(--text-invert); }
 
     .hero {
-      padding: 76px 0 34px;
+      padding: 34px 0 22px;
       display: grid;
       grid-template-columns: 1.35fr 0.9fr;
-      gap: 24px;
+      gap: 16px;
       align-items: stretch;
     }
 
     .hero-main,
     .hero-side-card {
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--bg-dark);
       border: 1px solid var(--line-invert);
-      box-shadow: 0 28px 60px rgba(2, 8, 23, 0.24);
-      border-radius: calc(var(--radius) + 6px);
+      box-shadow: none;
+      border-radius: var(--radius);
     }
 
     .hero-main {
-      padding: 34px;
+      padding: 28px;
       color: var(--text-invert);
     }
 
@@ -122,7 +118,7 @@
       gap: 8px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.15);
+      background: #1a2b45;
       border: 1px solid rgba(96, 165, 250, 0.20);
       color: #bfdbfe;
       text-transform: uppercase;
@@ -133,7 +129,7 @@
 
     h1 {
       margin: 18px 0 14px;
-      font-size: clamp(2.3rem, 4vw, 4.35rem);
+      font-size: clamp(2.2rem, 3.6vw, 3.65rem);
       line-height: 1.02;
       letter-spacing: -0.04em;
     }
@@ -167,9 +163,9 @@
     .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      background: #2f6fba;
       color: #fff;
-      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.28);
+      box-shadow: none;
     }
 
     .btn-secondary {
@@ -184,7 +180,7 @@
     }
 
     .hero-side-card {
-      padding: 22px;
+      padding: 20px;
       color: var(--text-invert);
     }
 
@@ -198,18 +194,18 @@
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 10px;
     }
 
     .metric {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(148,163,184,0.14);
-      border-radius: 16px;
-      padding: 14px;
+      border-radius: var(--radius-sm);
+      padding: 12px;
     }
 
     .metric .value {
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       font-weight: 800;
       color: #fff;
       margin-bottom: 4px;
@@ -221,7 +217,7 @@
     }
 
     .section {
-      padding: 22px 0;
+      padding: 24px 0;
     }
 
     .section-head {
@@ -229,12 +225,12 @@
       justify-content: space-between;
       align-items: end;
       gap: 24px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .section-head h2 {
       margin: 0;
-      font-size: 1.9rem;
+      font-size: 1.65rem;
       letter-spacing: -0.03em;
     }
 
@@ -246,8 +242,8 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .card {
@@ -255,10 +251,10 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 24px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
     }
 
     .card-top {
@@ -288,7 +284,7 @@
 
     .card h3 {
       margin: 0;
-      font-size: 1.35rem;
+      font-size: 1.2rem;
       letter-spacing: -0.02em;
     }
 
@@ -311,7 +307,7 @@
     .summary {
       color: var(--text-soft);
       font-size: 0.98rem;
-      min-height: 92px;
+      min-height: 82px;
     }
 
     .card-actions {
@@ -350,7 +346,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 24px;
+      padding: 20px;
     }
 
     .panel h3 {
@@ -375,10 +371,11 @@
 
     @media (max-width: 980px) {
       .hero,
-      .overview,
-      .cards {
+      .overview {
         grid-template-columns: 1fr;
       }
+
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
       .summary { min-height: 0; }
     }
@@ -386,12 +383,16 @@
     @media (max-width: 720px) {
       .nav-inner { padding: 14px 0; }
       .nav-links { display: none; }
-      .hero { padding-top: 48px; }
+      .hero { padding-top: 28px; }
       .hero-main,
       .hero-side-card,
       .card,
       .panel { padding: 20px; }
       .metric-grid { grid-template-columns: 1fr 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+      .hero-actions .btn:first-child { grid-column: 1 / -1; }
+      .hero-actions .btn { min-height: 42px; padding: 0 10px; font-size: 0.86rem; }
       .section-head { align-items: start; flex-direction: column; }
       h1 { font-size: 2.4rem; }
     }
@@ -421,14 +422,13 @@
         <div class="eyebrow">Research index</div>
         <h1>Equity research, KPI dashboards, and a connected stock wiki</h1>
         <p>
-          A decision-focused library for moving from a full investment thesis to the metrics that can confirm or challenge it. Use the analysis guide to run the local workflow, the reports for deep company analysis, the KPI dashboards for current thresholds and catalysts, and the wiki to connect recurring risks, valuation frameworks, and research questions across companies.
+          A decision-focused library for moving from thesis to proof. Use the reports for deep company analysis, KPI dashboards for current thresholds and catalysts, and the wiki for cross-company research.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="help/">Run the analysis</a>
           <a class="btn btn-secondary" href="#reports">Browse reports</a>
           <a class="btn btn-secondary" href="#kpi">Open KPI dashboards</a>
           <a class="btn btn-secondary" href="wiki/">Open knowledge wiki</a>
-          <a class="btn btn-secondary" href="archive/index-war-crisis-2026-04-16.html">Open archived previous index</a>
         </div>
       </div>
 
@@ -453,12 +453,6 @@
               <div class="label">Companies covered</div>
             </div>
           </div>
-        </div>
-        <div class="hero-side-card" id="archive">
-          <h3>Archive</h3>
-          <p style="margin:0; color: var(--muted-invert);">
-            The original root index has been preserved and moved to the archive folder so the previous page remains available.
-          </p>
         </div>
       </div>
     </section>
@@ -774,7 +768,7 @@
       </div>
     </section>
 
-    <div class="footer">
+    <div class="footer" id="archive">
       Root index updated for the reports library. Previous root page archived at
       <a href="archive/index-war-crisis-2026-04-16.html">archive/index-war-crisis-2026-04-16.html</a>.
     </div>
