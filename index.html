@@ -27,8 +27,8 @@
       --amber: #d97706;
       --amber-soft: #fef3c7;
       --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
-      --radius: 14px;
-      --radius-sm: 10px;
+      --radius: 12px;
+      --radius-sm: 8px;
       --max: 1180px;
     }
 
@@ -94,11 +94,11 @@
     .nav-links a:hover { color: var(--text-invert); }
 
     .hero {
-      padding: 34px 0 22px;
+      padding: 24px 0 16px;
       display: grid;
       grid-template-columns: 1.35fr 0.9fr;
       gap: 16px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .hero-main,
@@ -110,7 +110,7 @@
     }
 
     .hero-main {
-      padding: 28px;
+      padding: 22px;
       color: var(--text-invert);
     }
 
@@ -130,8 +130,8 @@
     }
 
     h1 {
-      margin: 18px 0 14px;
-      font-size: clamp(2.2rem, 3.6vw, 3.65rem);
+      margin: 14px 0 12px;
+      font-size: clamp(2.05rem, 3.2vw, 3.2rem);
       line-height: 1.02;
       letter-spacing: -0.04em;
     }
@@ -140,23 +140,24 @@
       margin: 0;
       max-width: 62ch;
       color: var(--muted-invert);
-      font-size: 1.04rem;
+      font-size: 1rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
+      gap: 8px;
+      margin-top: 20px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 0 16px;
-      border-radius: 12px;
+      min-height: 42px;
+      padding: 0 13px;
+      border-radius: 9px;
+      font-size: 0.92rem;
       font-weight: 700;
       border: 1px solid transparent;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
@@ -178,17 +179,17 @@
 
     .hero-side {
       display: grid;
-      gap: 16px;
+      gap: 10px;
       align-content: start;
     }
 
     .hero-side-card {
-      padding: 20px;
+      padding: 16px;
       color: var(--text-invert);
     }
 
     .hero-side-card h3 {
-      margin: 0 0 14px;
+      margin: 0 0 10px;
       font-size: 1rem;
       color: #ffffff;
       letter-spacing: 0.01em;
@@ -204,7 +205,7 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(148,163,184,0.14);
       border-radius: var(--radius-sm);
-      padding: 12px;
+      padding: 10px;
     }
 
     .metric .value {
@@ -220,33 +221,33 @@
     }
 
     .section {
-      padding: 24px 0;
+      padding: 18px 0;
     }
 
     .section-head {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      gap: 24px;
-      margin-bottom: 14px;
+      gap: 16px;
+      margin-bottom: 10px;
     }
 
     .section-head h2 {
       margin: 0;
-      font-size: 1.65rem;
+      font-size: 1.5rem;
       letter-spacing: -0.03em;
     }
 
     .section-head p {
       margin: 0;
       color: var(--text-soft);
-      max-width: 65ch;
+      max-width: 72ch;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 12px;
     }
 
     .card {
@@ -254,7 +255,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -337,7 +338,7 @@
       justify-content: center;
       min-height: 42px;
       padding: 0 14px;
-      border-radius: 12px;
+      border-radius: 9px;
       font-weight: 700;
       border: 1px solid rgba(15, 23, 42, 0.10);
       background: #ffffff;
@@ -360,7 +361,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 20px;
+      padding: 16px;
     }
 
     .panel h3 {
@@ -370,6 +371,19 @@
 
     .panel p, .panel li {
       color: var(--text-soft);
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .panel li + li { margin-top: 7px; }
+
+    .section-link {
+      color: var(--blue);
+      font-weight: 700;
+      white-space: nowrap;
     }
 
     .footer {
@@ -397,18 +411,19 @@
     @media (max-width: 720px) {
       .nav-inner { padding: 14px 0; }
       .nav-links { display: none; }
-      .hero { padding-top: 28px; }
+      .hero { padding-top: 20px; }
       .hero-main,
       .hero-side-card,
       .card,
-      .panel { padding: 20px; }
+      .panel { padding: 16px; }
       .metric-grid { grid-template-columns: 1fr 1fr; }
       .cards { grid-template-columns: 1fr; }
-      .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+      .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-top: 16px; }
       .hero-actions .btn:first-child { grid-column: 1 / -1; }
-      .hero-actions .btn { min-height: 42px; padding: 0 10px; font-size: 0.86rem; }
+      .hero-actions .btn:last-child { grid-column: 1 / -1; }
+      .hero-actions .btn { min-height: 40px; padding: 0 8px; font-size: 0.82rem; }
       .section-head { align-items: start; flex-direction: column; }
-      h1 { font-size: 2.4rem; }
+      h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -436,13 +451,13 @@
         <div class="eyebrow">Research index</div>
         <h1>Equity research, KPI dashboards, and a connected stock wiki</h1>
         <p>
-          A decision-focused library for moving from thesis to proof. Use the reports for deep company analysis, KPI dashboards for current thresholds and catalysts, and the wiki for cross-company research.
+          A focused research index for moving from a company thesis to operating proof. Read the report, check the KPI signals, then use the wiki to compare recurring themes across stocks.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="help/">Open analysis workflow</a>
-          <a class="btn btn-secondary" href="#reports">Browse reports</a>
-          <a class="btn btn-secondary" href="#kpi">Open KPI dashboards</a>
-          <a class="btn btn-secondary" href="wiki/">Open knowledge wiki</a>
+          <a class="btn btn-primary" href="help/">Analysis workflow</a>
+          <a class="btn btn-secondary" href="#reports">Company reports</a>
+          <a class="btn btn-secondary" href="#kpi">KPI monitors</a>
+          <a class="btn btn-secondary" href="wiki/">Knowledge wiki</a>
         </div>
       </div>
 
@@ -482,8 +497,8 @@
     <section class="section" id="reports">
       <div class="section-head">
         <div>
-          <h2>Indexed reports</h2>
-          <p>Direct links to each report in the repository, with a short landing summary and key metadata extracted from the documents.</p>
+          <h2>Company reports</h2>
+          <p>Deep-dive research for each covered stock: thesis, business quality, moat, growth, valuation, risks, and action framework. <a class="section-link" href="help/">See how the reports are built&nbsp;→</a></p>
         </div>
       </div>
 
@@ -661,8 +676,8 @@
     <section class="section" id="kpi">
       <div class="section-head">
         <div>
-          <h2>KPI dashboards</h2>
-          <p>Decision-focused monitors that pair reported operating metrics with forward thresholds, scenario ranges, catalysts, and the evidence needed to revise the thesis.</p>
+          <h2>KPI monitors</h2>
+          <p>Current operating signals for the stocks covered here: baselines, forward thresholds, scenario ranges, catalysts, and next-proof checks. Each dashboard links to its thesis and source; <a class="section-link" href="wiki/">use the wiki to compare themes&nbsp;→</a></p>
         </div>
       </div>
 
@@ -760,31 +775,28 @@
     <section class="section" id="overview">
       <div class="section-head">
         <div>
-          <h2>Collection overview</h2>
-          <p>This collection combines a repeatable analysis workflow, full investment reports, KPI monitoring dashboards, and a connected knowledge wiki into one research layer for reviewing theses, valuation assumptions, risks, catalysts, and follow-up questions.</p>
+          <h2>How the library fits together</h2>
+          <p>Move from a company thesis to operating evidence and then to cross-company context without leaving the research index.</p>
         </div>
       </div>
 
       <div class="overview">
         <div class="panel">
-          <h3>What the collection contains</h3>
+          <h3>What is here</h3>
           <ul>
-            <li>A practical Equity Deep Dive guide covering local setup, source preparation, the 14-step prompt sequence, resumable runs, citations, and validation.</li>
-            <li>Full company reports covering executive summaries, business phase classification, moat analysis, growth drivers, valuation, risk, antifragility, and buy-plan modules.</li>
-            <li>KPI dashboards that turn new evidence into explicit thresholds, scenario ranges, thesis changes, and next-proof requirements.</li>
-            <li>Hyperlinked cards for each stock, including local repository reports and externally hosted reports where the source file is still in Drive.</li>
-            <li>An interactive wiki application for connecting recurring themes across reports, including AI disruption, platform economics, capital returns, valuation sensitivity, and behavioural decision checks.</li>
-            <li>Archive access for earlier standalone pages so previous analyses remain reachable without cluttering the main research index.</li>
+            <li>An analysis workflow guide for preparing sources, running or resuming Phase 0, and validating citations.</li>
+            <li>Company reports covering thesis, business quality, moat, growth, valuation, risks, and action framework.</li>
+            <li>KPI monitors covering baseline metrics, thresholds, catalysts, scenarios, and next-proof checks.</li>
+            <li>A connected wiki for recurring cross-company themes, plus an archive for earlier standalone pages.</li>
           </ul>
         </div>
         <div class="panel">
-          <h3>How to use the site</h3>
+          <h3>A practical reading order</h3>
           <ul>
-            <li>Start with the analysis guide when preparing a new ticker or resuming a local Phase 0 run.</li>
-            <li>Start with a report card to open the full company analysis and review the current thesis, rating, phase, and action framework.</li>
-            <li>Use a KPI dashboard for the current operating baseline, expectation bar, catalysts, and evidence-change log.</li>
-            <li>Use the wiki to move across companies by concept, such as moat quality, FCF yield, AI exposure, M&amp;A risk, or portfolio sizing discipline.</li>
-            <li>Return to the index when comparing reports side by side or checking which analyses are local HTML files versus linked external sources.</li>
+            <li>Start with the workflow guide for a new ticker or a local run in progress.</li>
+            <li>Open a company report to understand the current thesis, rating, phase, and action framework.</li>
+            <li>Open a KPI monitor to track operating proof, thresholds, catalysts, and thesis changes.</li>
+            <li>Use the wiki to compare recurring themes, then return here to move between stocks.</li>
           </ul>
         </div>
       </div>
