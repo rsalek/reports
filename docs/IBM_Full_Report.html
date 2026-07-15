@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A quality-gated public equity report on IBM, covering its software-led mix, enterprise AI opportunity, cash generation, leverage, valuation, catalysts, and evidence quality.">
+  <title>IBM — Software Momentum, Fair-Value Discipline</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --paper:#ffffff;
+      --canvas:#f4f5f4;
+      --ink:#1d211f;
+      --muted:#626a66;
+      --line:#d5dad7;
+      --soft:#edf1ef;
+      --brand:#3b725b;
+      --brand-dark:#28513f;
+      --brand-pale:#e4efe9;
+      --red:#913a36;
+      --green:#2f654e;
+      --max:1080px;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--canvas); font:15px/1.62 "Avenir Next",Avenir,"Helvetica Neue",sans-serif; }
+    a { color:var(--brand-dark); text-underline-offset:3px; }
+    a:hover { color:var(--brand); }
+    a:focus-visible,summary:focus-visible,.table-scroll:focus-visible { outline:2px solid var(--brand); outline-offset:3px; }
+    .topbar { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.97); border-bottom:1px solid var(--line); }
+    .topbar-inner { max-width:var(--max); min-height:56px; margin:0 auto; padding:9px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:12px; color:var(--ink); font-weight:700; text-decoration:none; }
+    .ticker { padding:4px 8px; color:#fff; background:var(--brand-dark); border-radius:5px; font-size:12px; letter-spacing:.03em; }
+    nav { display:flex; flex-wrap:wrap; gap:18px; font-size:12px; }
+    nav a { color:var(--muted); text-decoration:none; }
+    nav a:hover { color:var(--brand-dark); }
+    main { max-width:var(--max); margin:0 auto; padding:40px 24px 64px; overflow-x:hidden; }
+    header.report-header { padding:24px 0 34px; border-bottom:1px solid var(--line); }
+    .report-kicker { margin:0 0 8px; color:var(--brand-dark); font-size:13px; font-weight:700; }
+    h1 { max-width:860px; margin:0; font-size:clamp(32px,5vw,54px); line-height:1.08; letter-spacing:-.035em; }
+    .dek { max-width:780px; margin:18px 0 0; color:var(--muted); font-size:18px; line-height:1.55; }
+    .byline { margin:20px 0 0; color:var(--muted); font-size:12px; }
+    .decision-line { margin-top:28px; padding:18px 0; border-top:2px solid var(--brand); border-bottom:1px solid var(--line); display:grid; grid-template-columns:160px minmax(0,1fr); gap:22px; }
+    .decision-line span { color:var(--muted); font-size:12px; }
+    .decision-line strong { font-size:20px; line-height:1.35; }
+    .facts { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--line); }
+    .facts div { padding:18px 16px; border-right:1px solid var(--line); }
+    .facts div:first-child { padding-left:0; }
+    .facts div:last-child { border-right:0; }
+    .facts dt { color:var(--muted); font-size:11px; }
+    .facts dd { margin:3px 0 0; font-weight:700; }
+    section { padding:34px 0; border-bottom:1px solid var(--line); scroll-margin-top:72px; }
+    h2 { margin:0 0 16px; font-size:23px; line-height:1.25; letter-spacing:-.015em; }
+    h3 { margin:26px 0 8px; font-size:16px; }
+    p { max-width:840px; margin:0; }
+    p + p { margin-top:14px; }
+    ul,ol { max-width:840px; margin:12px 0 0; padding-left:22px; }
+    li + li { margin-top:8px; }
+    .lead { font-size:17px; line-height:1.62; }
+    .hinge { margin:22px 0 0; padding:16px 18px; border-left:3px solid var(--brand); background:var(--brand-pale); }
+    .hinge strong { display:block; margin-bottom:4px; }
+    .two-column { display:grid; grid-template-columns:1fr 1fr; gap:36px; }
+    .two-column > div { min-width:0; }
+    .plain-list { list-style:none; padding:0; }
+    .plain-list li { padding:11px 0; border-top:1px solid var(--line); }
+    .plain-list strong { display:block; }
+    .table-scroll { max-width:100%; margin-top:18px; overflow-x:auto; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    table { width:100%; min-width:680px; border-collapse:collapse; }
+    th { padding:10px 12px; color:var(--muted); background:var(--soft); font-size:11px; text-align:left; }
+    td { padding:13px 12px; border-top:1px solid var(--line); vertical-align:top; }
+    .number { text-align:right; white-space:nowrap; }
+    .negative { color:var(--red); font-weight:700; }
+    .positive { color:var(--green); font-weight:700; }
+    .quality { display:grid; grid-template-columns:repeat(3,1fr); margin-top:18px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .quality div { padding:16px; border-right:1px solid var(--line); }
+    .quality div:first-child { padding-left:0; }
+    .quality div:last-child { border-right:0; }
+    .quality strong { display:block; font-size:22px; }
+    .quality span { color:var(--muted); font-size:12px; }
+    .sources { list-style:none; padding:0; }
+    .sources li { padding:12px 0; border-top:1px solid var(--line); }
+    .sources a { font-weight:700; }
+    .source-note { display:block; color:var(--muted); font-size:12px; }
+    .disclosure { color:var(--muted); font-size:12px; }
+    footer { max-width:var(--max); margin:0 auto; padding:22px 24px 40px; color:var(--muted); font-size:12px; }
+    @media (max-width:760px) {
+      .topbar-inner { padding:9px 16px; }
+      .brand > span:last-child { display:none; }
+      nav { gap:12px; }
+      nav a:nth-child(n+3) { display:none; }
+      main { padding:28px 16px 48px; }
+      .facts { grid-template-columns:1fr 1fr; }
+      .facts div { padding:14px 12px; border-bottom:1px solid var(--line); }
+      .facts div:nth-child(2) { border-right:0; }
+      .facts div:nth-child(n+3) { border-bottom:0; }
+      .two-column { grid-template-columns:1fr; gap:10px; }
+      .quality { grid-template-columns:1fr; }
+      .quality div,.quality div:first-child { padding:12px 0; border-right:0; border-bottom:1px solid var(--line); }
+      .quality div:last-child { border-bottom:0; }
+      .decision-line { grid-template-columns:1fr; gap:5px; }
+    }
+    @media print {
+      body { background:#fff; }
+      .topbar { position:static; }
+      nav { display:none; }
+      main { max-width:none; padding:20px 0; }
+      section { break-inside:avoid; }
+      .table-scroll { overflow:visible; }
+      table { min-width:0; }
+      a { color:inherit; text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../"><span class="ticker">IBM</span><span>Equity Research Library</span></a>
+      <nav aria-label="Report sections">
+        <a href="#decision">Decision</a>
+        <a href="#valuation">Valuation</a>
+        <a href="#risks">Risks</a>
+        <a href="#monitoring">Monitoring</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <header class="report-header">
+      <p class="report-kicker">Quality-gated equity report · 15 July 2026</p>
+      <h1>IBM: Software Momentum, Fair-Value Discipline</h1>
+      <p class="dek">IBM's mix is improving as Software, Red Hat, automation and enterprise AI support growth and cash generation. The investment question is whether that progress can outrun Consulting softness, hardware-cycle normalization and leverage at a price that already assumes mid-single-digit cash-flow growth.</p>
+      <p class="byline">Public research edition · Operating evidence through Q1 2026 · Dated market snapshot through 14 July 2026</p>
+      <div class="decision-line">
+        <span>Research stance</span>
+        <strong>HOLD — a durable mature franchise, but the dated price is already close to the probability-weighted value.</strong>
+      </div>
+    </header>
+
+    <dl class="facts">
+      <div><dt>Business phase</dt><dd>Phase 5</dd></div>
+      <div><dt>Risk level</dt><dd>Moderate</dd></div>
+      <div><dt>Evidence confidence</dt><dd>Medium</dd></div>
+      <div><dt>Underwriting status</dt><dd>Decision-grade</dd></div>
+    </dl>
+
+    <section id="decision">
+      <h2>The decision in two paragraphs</h2>
+      <p class="lead">IBM is executing well enough to support a neutral stance. Q1 2026 revenue rose 9.5% to $15.9 billion, Software grew 11.3%, consolidated gross margin expanded to 56.2%, and company-defined free cash flow reached $2.2 billion. The operating mix is becoming more attractive as high-margin Software gains weight.<sup><a href="#source-1">1</a></sup><sup><a href="#source-3">3</a></sup></p>
+      <p class="lead">The valuation is less forgiving. The dated $217.07 market snapshot is above the $210.18 base FCFF value and almost equal to the $216.20 probability-weighted value. Consulting grew only 0.9% at constant currency, total debt was $66.4 billion, and 74% of base enterprise value comes from terminal value. Progress is real, but the margin of safety is not.<sup><a href="#source-1">1</a></sup></p>
+      <div class="hinge">
+        <strong>The decision hinge</strong>
+        Sustained double-digit Software growth, better Consulting conversion, maintained 2026 free-cash-flow guidance and visible deleveraging would improve the stance. A lower price near $190 would also create a more useful base-case margin, provided the operating thesis remains intact.
+      </div>
+    </section>
+
+    <section id="business">
+      <h2>A software-led platform with cyclical edges</h2>
+      <p>IBM combines Software, Consulting, Infrastructure and Financing. In Q1, Software generated $7.1 billion of revenue, Consulting $5.3 billion and Infrastructure $3.3 billion. Software's 82.8% gross margin gives its growth disproportionate economic importance; Consulting adds implementation reach but remains labor- and project-timing sensitive; Infrastructure benefits from mission-critical demand but follows product cycles.<sup><a href="#source-1">1</a></sup></p>
+      <p>The moat is narrow and stable. Deep integration into mainframe, middleware, data and regulated workflows creates meaningful switching costs. Yet hyperscalers, software specialists, global integrators and hardware vendors compete across every layer. IBM's installed base protects existing economics more reliably than it guarantees share gains in new workloads.</p>
+
+      <div class="two-column">
+        <div>
+          <h3>What supports the thesis</h3>
+          <ul class="plain-list">
+            <li><strong>Software-led mix</strong>Red Hat, automation, data and transaction processing support recurring, high-margin revenue.</li>
+            <li><strong>Enterprise distribution</strong>IBM can combine products, consulting expertise and regulated-industry credibility.</li>
+            <li><strong>Cash generation</strong>FY2025 company-defined free cash flow reached $14.7 billion.<sup><a href="#source-2">2</a></sup></li>
+            <li><strong>Capital returns</strong>The recurring dividend is supported by positive operating cash flow.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What limits the thesis</h3>
+          <ul class="plain-list">
+            <li><strong>Consulting conversion</strong>Constant-currency growth of 0.9% remains below the desired rate.</li>
+            <li><strong>Infrastructure cycle</strong>z17 demand is supportive but cannot be extrapolated indefinitely.</li>
+            <li><strong>Balance-sheet constraint</strong>$66.4 billion of debt and acquisition integration reduce flexibility.</li>
+            <li><strong>AI proof gap</strong>A large AI book of business must still convert into recurring revenue and cash.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="valuation">
+      <h2>Fair value, with a wide outcome range</h2>
+      <p>The model uses a five-year FCFF framework because IBM produces positive cash flow and carries material debt. The scenario outputs are research estimates rather than price forecasts. They use public operating inputs, an explicit net-debt bridge and analyst assumptions for discount rates, terminal growth and future cash flow.</p>
+      <div class="table-scroll" role="region" aria-label="Valuation scenarios" tabindex="0">
+        <table>
+          <thead><tr><th>Scenario</th><th>Five-year FCFF path</th><th class="number">WACC</th><th class="number">Terminal growth</th><th class="number">Value/share</th><th class="number">Weight</th></tr></thead>
+          <tbody>
+            <tr><td>Bear</td><td>$13.5B to $14.7B</td><td class="number">10.0%</td><td class="number">2.0%</td><td class="number negative">$119.81</td><td class="number">25%</td></tr>
+            <tr><td>Base</td><td>$15.7B to $18.5B</td><td class="number">9.0%</td><td class="number">2.5%</td><td class="number">$210.18</td><td class="number">50%</td></tr>
+            <tr><td>Bull</td><td>$16.2B to $20.8B</td><td class="number">8.0%</td><td class="number">3.0%</td><td class="number positive">$324.63</td><td class="number">25%</td></tr>
+            <tr><td><strong>Probability weighted</strong></td><td>Locked scenario weights</td><td class="number">—</td><td class="number">—</td><td class="number"><strong>$216.20</strong></td><td class="number">100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The reverse DCF implies roughly 5.37% annual FCFF growth for five years. That is achievable relative to management's expectation for approximately $1 billion of 2026 FCF growth, but it requires Software-led expansion and productivity to offset slower Consulting, financing costs and eventual hardware normalization.<sup><a href="#source-3">3</a></sup></p>
+      <p>Sensitivity is the central caveat. The same base cash-flow path ranges from about $163 per share at a 10% WACC and 2% terminal growth to about $285 at an 8% WACC and 3% terminal growth. The valuation supports patience rather than aggressive accumulation.</p>
+    </section>
+
+    <section id="risks">
+      <h2>Cash conversion must validate the narrative</h2>
+      <div class="two-column">
+        <div>
+          <h3>Catalysts</h3>
+          <ul>
+            <li>Software and Red Hat sustain double-digit growth.</li>
+            <li>Enterprise AI demand converts into recurring Software revenue.</li>
+            <li>Consulting growth and productivity improve together.</li>
+            <li>2026 free-cash-flow guidance is delivered or raised.</li>
+            <li>Debt declines as acquired assets contribute cash.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Falsifiers</h3>
+          <ul>
+            <li>Software growth decelerates for two consecutive quarters.</li>
+            <li>Free-cash-flow guidance falls while AI bookings remain strong.</li>
+            <li>Interest coverage moves below 5x.</li>
+            <li>Consulting remains weak as Infrastructure growth normalizes.</li>
+            <li>Acquisitions add leverage without visible cash-flow contribution.</li>
+          </ul>
+        </div>
+      </div>
+      <p>The downside mechanism is operational and financial: AI and Software demand fails to become recurring cash, Consulting conversion remains slow, the hardware cycle fades, and leverage absorbs capital. The bear case does not require IBM's franchise to disappear; it requires cash-flow expectations to reset.</p>
+    </section>
+
+    <section id="discipline">
+      <h2>Decision discipline</h2>
+      <p>A well-known franchise and a credible AI narrative are not substitutes for an entry margin. The relevant behavioral checks are generic and apply whether the reader owns the security or not:</p>
+      <ul>
+        <li><strong>Confirmation:</strong> test Software enthusiasm against Consulting conversion, leverage and the bear value.</li>
+        <li><strong>Overconfidence:</strong> do not treat the bull case's 8% WACC and 3% terminal growth as the default.</li>
+        <li><strong>Herding:</strong> AI attention does not prove recurring cash economics.</li>
+        <li><strong>Recency:</strong> a favorable quarter or hardware cycle should not become a permanent growth assumption.</li>
+        <li><strong>Fresh-capital test:</strong> judge IBM on forward value and evidence, independent of any reader's transaction history.</li>
+      </ul>
+    </section>
+
+    <section id="quality">
+      <h2>Evidence quality and counter-evidence</h2>
+      <p>The underlying 14-step analysis is grounded in IBM's FY2025 annual report, Q1 2026 filing and investor materials, with locked calculations and explicit evidence gaps. Filing-based operating results, balance-sheet facts and the business-phase classification are the strongest areas. Sentiment, ownership direction, peer comparisons and long-duration valuation remain less certain.</p>
+      <div class="quality" aria-label="Analysis confidence distribution">
+        <div><strong>0</strong><span>High-confidence modules</span></div>
+        <div><strong>12</strong><span>Medium-confidence modules</span></div>
+        <div><strong>2</strong><span>Low-confidence modules</span></div>
+      </div>
+      <h3>Counter-evidence that matters</h3>
+      <ul>
+        <li><strong>Growth mix:</strong> Consulting's weak constant-currency growth and the z17 cycle limit extrapolation of consolidated growth.</li>
+        <li><strong>Margin evidence:</strong> consolidated gross margin improved while Software gross margin declined 0.8 percentage point.</li>
+        <li><strong>Resilience:</strong> strong interest coverage coexists with sub-1.0 liquidity ratios and meaningful net debt.</li>
+        <li><strong>Valuation:</strong> the base case is below the dated price and is heavily dependent on terminal value.</li>
+      </ul>
+    </section>
+
+    <section id="monitoring">
+      <h2>What to monitor next</h2>
+      <div class="table-scroll" role="region" aria-label="Monitoring plan" tabindex="0">
+        <table>
+          <thead><tr><th>Evidence</th><th>Current reference</th><th>Constructive signal</th><th>Escalation signal</th></tr></thead>
+          <tbody>
+            <tr><td>Software revenue growth</td><td>11.3%</td><td>Sustained double digits</td><td>Two consecutive quarters below 10%</td></tr>
+            <tr><td>Software gross margin</td><td>82.8%</td><td>Stable or improving</td><td>Persistent compression without faster growth</td></tr>
+            <tr><td>Consulting growth</td><td>4.0% reported; 0.9% constant currency</td><td>Mid-single-digit conversion</td><td>Continued near-flat constant-currency growth</td></tr>
+            <tr><td>Company-defined FCF</td><td>$2.2B in Q1</td><td>2026 guidance maintained or raised</td><td>Full-year guidance reduced</td></tr>
+            <tr><td>Interest coverage</td><td>6.50x</td><td>Stable with deleveraging</td><td>Below 5x</td></tr>
+            <tr><td>Total debt</td><td>$66.4B</td><td>Visible reduction</td><td>Higher leverage without acquired cash flow</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h2>Public source register</h2>
+      <ol class="sources">
+        <li id="source-1"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000038/ibm-20260331.htm">IBM Form 10-Q for the quarter ended 31 March 2026</a><span class="source-note">Filed 23 April 2026 · revenue, segment results, margins, cash flow, balance sheet and risk disclosures.</span></li>
+        <li id="source-2"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231.htm">IBM Form 10-K for the year ended 31 December 2025</a><span class="source-note">Filed 24 February 2026 · business model, annual cash generation, workforce and principal risks.</span></li>
+        <li id="source-3"><a href="https://www.ibm.com/investor/events/earnings-1q26">IBM first-quarter 2026 earnings materials</a><span class="source-note">Published 22 April 2026 · management commentary, company-defined free cash flow and 2026 outlook.</span></li>
+        <li id="source-4"><a href="https://www.nyse.com/quote/XNYS:IBM">NYSE market activity for IBM</a><span class="source-note">Official exchange page for current market information; the research snapshot is dated 14 July 2026.</span></li>
+        <li id="source-5"><a href="https://www.ibm.com/investor">IBM Investor Relations</a><span class="source-note">Company filings, events, financial information and subsequent updates.</span></li>
+        <li id="source-6"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude">SEC filing history for IBM</a><span class="source-note">Primary-source filing index for subsequent updates.</span></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Evidence gaps</h2>
+      <ul>
+        <li>No live price is embedded; valuation comparisons use the dated 14 July 2026 snapshot.</li>
+        <li>No conventional consolidated GAAP operating-income subtotal, period-aligned NOPAT or average invested capital was available for a clean ROIC calculation.</li>
+        <li>Consolidated retention, churn, recurring-revenue percentage and independent market-share series are not disclosed.</li>
+        <li>Ownership direction, short interest, analyst-recommendation history and estimate-revision breadth remain incomplete in the public evidence set.</li>
+        <li>The valuation lacks a market-derived WACC decomposition, peer DCF and formal sum-of-parts cross-check.</li>
+        <li>No multi-year, peer-normalized productivity series isolates AI impact from mix, acquisitions or workforce actions.</li>
+      </ul>
+      <p class="disclosure">This public edition contains research analysis, not personalized investment advice. It excludes all personalized information, local source paths, licensed documents, and the private analysis appendix. Valuation outputs are scenario estimates, not guarantees.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="../">Return to the Equity Research Library</a> · <a href="../kpi/ibm-q1-2026.html">Open the IBM KPI dashboard</a> · Public edition generated from validated analysis-contract-v4 research.
+  </footer>
+</body>
+</html>
