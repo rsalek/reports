@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Public KPI dashboard for Planet Labs PBC">
+  <title>PL KPI Dashboard</title>
+  <style>:root {
+  --background:#f5f5f4;
+  --paper:#ffffff;
+  --ink:#1c1917;
+  --muted:#66635f;
+  --line:#d8d5d0;
+  --soft:#efede9;
+  --accent:#3b725b;
+  --accent-dark:#28513f;
+  --accent-soft:#e4efe9;
+  --warning:#8a640f;
+  --warning-soft:#f7efd9;
+  --negative:#9d3e37;
+  --negative-soft:#f7e9e7;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--background);
+  color:var(--ink);
+  font-family:"Avenir Next",Avenir,"Helvetica Neue",sans-serif;
+  font-size:14px;
+  line-height:1.5;
+}
+button { font:inherit; }
+a { color:var(--accent-dark); }
+a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.topbar {
+  position:sticky;
+  top:0;
+  z-index:4;
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:10px 28px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+.brand { display:flex; align-items:center; gap:12px; color:var(--ink); font-weight:650; text-decoration:none; }
+.ticker { padding:5px 8px; border-radius:5px; background:var(--accent-dark); color:#fff; font-size:12px; }
+nav { display:flex; flex-wrap:wrap; gap:14px; font-size:12px; }
+nav a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
+nav a:hover,nav a:focus-visible { color:var(--accent-dark); border-color:var(--accent); }
+.report-link { font-weight:650; }
+main { width:min(1180px,calc(100% - 56px)); margin:0 auto; }
+section { padding:26px 0; border-bottom:1px solid var(--line); scroll-margin-top:74px; }
+h1,h2,h3,p { margin-top:0; }
+h1 { margin-bottom:10px; font-size:28px; line-height:1.2; }
+h2 { margin-bottom:14px; font-size:18px; }
+h3 { margin-bottom:8px; font-size:14px; }
+.topbar-actions { display:flex; align-items:center; gap:10px; }
+.meta { color:var(--muted); font-size:12px; text-align:right; }
+.intro { display:grid; grid-template-columns:minmax(0,1fr) 390px; gap:36px; padding-top:34px; }
+.verdict { max-width:760px; margin-top:12px; color:var(--ink); font-size:16px; }
+.decision { border-left:3px solid var(--accent); padding:4px 0 4px 16px; }
+.decision dl { display:grid; grid-template-columns:98px 1fr; gap:8px 12px; margin:0; }
+.decision dt { color:var(--muted); }
+.decision dd { margin:0; font-weight:600; }
+.scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); background:var(--paper); }
+.scenario { padding:18px; border-right:1px solid var(--line); }
+.scenario:last-child { border-right:0; }
+.scenario.current { border-top:3px solid var(--accent); padding-top:15px; }
+.scenario .case { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:10px; }
+.scenario .case strong { font-size:17px; }
+.scenario .price { font-size:22px; font-weight:680; white-space:nowrap; }
+.scenario dl { display:grid; grid-template-columns:94px 1fr; gap:7px 10px; margin:0; }
+.scenario dt { color:var(--muted); }
+.scenario dd { margin:0; font-weight:500; }
+.scenario-read { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-top:12px; color:var(--muted); }
+.scenario-read strong { color:var(--ink); }
+.posture-list { display:grid; grid-template-columns:1fr 1fr; gap:0; margin:0; border-top:1px solid var(--line); }
+.posture-item { padding:10px 12px 10px 0; border-bottom:1px solid var(--line); }
+.posture-item dt { color:var(--muted); font-size:12px; }
+.posture-item dd { margin:3px 0 0; font-weight:650; overflow-wrap:anywhere; }
+.metrics { display:grid; grid-template-columns:repeat(5,1fr); border-bottom:1px solid var(--line); }
+.metric { min-width:0; padding:20px 18px; border-right:1px solid var(--line); }
+.metric:first-child { padding-left:0; }
+.metric:last-child { border-right:0; }
+.metric .label { margin-bottom:6px; color:var(--muted); font-size:12px; }
+.metric .value { font-size:22px; font-weight:680; white-space:nowrap; }
+.metric .detail { margin-top:3px; color:var(--muted); font-size:12px; }
+.toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.toolbar h2 { margin:0; }
+.filters { display:flex; flex-wrap:wrap; gap:6px; }
+.filter { min-height:38px; border:1px solid var(--line); border-radius:6px; padding:7px 11px; background:var(--paper); color:var(--muted); font-size:12px; cursor:pointer; }
+.filter.active { border-color:var(--accent-dark); background:var(--accent-dark); color:#fff; }
+.filter:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.table-scroll { overflow-x:auto; border:1px solid var(--line); background:var(--paper); }
+.table-scroll:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+table { width:100%; min-width:860px; border-collapse:collapse; }
+th { padding:10px 12px; border-bottom:1px solid var(--line); background:var(--soft); color:var(--muted); font-size:11px; font-weight:650; text-align:left; }
+td { padding:12px; border-bottom:1px solid var(--line); vertical-align:top; }
+tbody tr:last-child td { border-bottom:0; }
+tbody tr:hover { background:#f8faf7; }
+tbody tr[hidden] { display:none !important; }
+.table-detail,.source-date { display:block; margin-top:3px; color:var(--muted); font-size:11px; }
+.rank { width:48px; color:var(--muted); }
+.name { font-weight:650; }
+.status-text { display:inline-block; padding-left:8px; border-left:3px solid var(--muted); font-weight:650; }
+.status-positive { border-color:var(--accent); color:var(--accent-dark); }
+.status-warning { border-color:var(--warning); color:var(--warning); }
+.status-negative { border-color:var(--negative); color:var(--negative); }
+.status-neutral { color:var(--muted); }
+.empty-state { color:var(--muted); }
+.quality { max-width:920px; margin-top:12px; font-size:14px; line-height:1.58; }
+.quality b { color:var(--accent-dark); }
+.signal-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 30px; }
+.signal-group { padding:14px 0; border-top:1px solid var(--line); }
+.signal-group ul,.issue-list { margin:0; padding-left:20px; }
+.signal-group li + li,.issue-list li + li { margin-top:9px; }
+.signal-group li span,.issue-list li span { display:block; margin-top:2px; color:var(--muted); }
+.data-list { display:grid; grid-template-columns:repeat(3,1fr); margin:0; border-top:1px solid var(--line); }
+.data-list div { padding:12px 16px 12px 0; border-bottom:1px solid var(--line); }
+.data-list dt { color:var(--muted); font-size:12px; }
+.data-list dd { margin:3px 0 0; font-weight:650; overflow-wrap:anywhere; }
+.issue-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.issue-grid > div { border-top:2px solid var(--ink); padding-top:12px; }
+.source-list { columns:2; column-gap:36px; margin:0; padding-left:22px; }
+.source-list li { break-inside:avoid; padding:8px 0; border-bottom:1px solid var(--line); }
+.source-list li span { display:block; color:var(--muted); font-size:12px; }
+footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px; color:var(--muted); font-size:12px; }
+@media (max-width:800px) {
+  .intro { grid-template-columns:1fr; gap:20px; }
+  .scenario-grid { grid-template-columns:1fr; }
+  .scenario { border-right:0; border-bottom:1px solid var(--line); }
+  .scenario:last-child { border-bottom:0; }
+  .metrics { grid-template-columns:repeat(2,1fr); }
+  .metric { border-bottom:1px solid var(--line); }
+  .signal-grid,.issue-grid { grid-template-columns:1fr; }
+  .data-list { grid-template-columns:1fr 1fr; }
+  .source-list { columns:1; }
+}
+@media (max-width:560px) {
+  .topbar { align-items:flex-start; padding:10px 16px; }
+  .brand > span:last-child { display:none; }
+  .topbar .meta { display:none; }
+  .topbar-actions { flex-wrap:wrap; justify-content:flex-end; gap:8px; }
+  main,footer { width:calc(100% - 32px); }
+  section { padding:22px 0; }
+  h1 { font-size:23px; }
+  .metrics { grid-template-columns:1fr; }
+  .metric,.metric:first-child { padding:14px 0; border-right:0; }
+  .toolbar { align-items:flex-start; flex-direction:column; }
+  .scenario-read { align-items:flex-start; flex-direction:column; gap:4px; }
+  .table-scroll { overflow:visible; border:0; background:transparent; }
+  table,thead,tbody,tr,th,td { display:block; min-width:0; }
+  thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+  tbody { display:grid; gap:10px; }
+  tbody tr { border:1px solid var(--line); background:var(--paper); padding:8px 12px; }
+  td { display:grid; grid-template-columns:105px minmax(0,1fr); gap:10px; padding:7px 0; border-bottom:1px solid var(--line); }
+  td::before { content:attr(data-label); color:var(--muted); font-size:11px; font-weight:650; }
+  td:last-child { border-bottom:0; }
+  .rank { width:auto; }
+  .posture-list,.data-list { grid-template-columns:1fr; }
+}
+@media print {
+  body { background:#fff; }
+  .topbar { position:static; }
+  nav { display:none; }
+  main,footer { width:100%; }
+  .table-scroll { overflow:visible; }
+  table { min-width:0; font-size:10px; }
+  section { break-inside:avoid; }
+}
+:root { --accent:#009DB1; --accent-dark:#006A78; --accent-soft:#E5F6F8; }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview"><span class="ticker">PL</span><span>Planet Labs PBC KPI Monitor</span></a>
+    <div class="topbar-actions"><a class="report-link" href="../">Library</a><a class="report-link" href="../docs/PL_Full_Report.html">Full public report</a><div class="meta">Public baseline through 2026-07-16</div></div>
+  </header>
+  <main>
+    <section class="intro" id="overview">
+      <div>
+        <h1>Hypergrowth Earth-observation platform with accelerating sovereign demand and unusually strong contracted visibility</h1>
+        <p class="verdict">Speculative; growth and liquidity are strong, while dilution, capital intensity, and demanding execution constrain the security</p>
+      </div>
+      <div class="decision"><dl>
+        <dt>Posture</dt><dd>Speculative; growth and liquidity are strong, while dilution, capital intensity, and demanding execution constrain the security</dd>
+        <dt>Business phase</dt><dd>2</dd>
+        <dt>Next proof</dt><dd>Demand conversion, Operating conversion, Liquidity and dilution</dd>
+        <dt>Valuation</dt><dd>Preliminary Public Dcf · REVENUE-TO-FCFF</dd>
+      </dl></div>
+    </section>
+    <section id="scenarios">
+      <h2>12-month bear / base / bull</h2>
+      <div class="scenario-grid"><div class="scenario"><div class="case"><strong>Bear</strong><span class="price">$1.72</span></div><dl>
+          <dt>Vs current</dt><dd>-93.1%</dd><dt>Weight</dt><dd>35%</dd><dt>Method</dt><dd>REVENUE-TO-FCFF</dd><dt>Investor read</dt><dd>Downside case; operating disappointment or balance-sheet pressure requires a fresh thesis review.</dd>
+        </dl></div><div class="scenario current"><div class="case"><strong>Base</strong><span class="price">$7.56</span></div><dl>
+          <dt>Vs current</dt><dd>-69.7%</dd><dt>Weight</dt><dd>45%</dd><dt>Method</dt><dd>REVENUE-TO-FCFF</dd><dt>Investor read</dt><dd>Central underwrite; execution is adequate but the current price leaves little margin of safety.</dd>
+        </dl></div><div class="scenario"><div class="case"><strong>Bull</strong><span class="price">$20.00</span></div><dl>
+          <dt>Vs current</dt><dd>-19.7%</dd><dt>Weight</dt><dd>20%</dd><dt>Method</dt><dd>REVENUE-TO-FCFF</dd><dt>Investor read</dt><dd>Upside case; requires sustained execution and favorable long-duration assumptions.</dd>
+        </dl></div></div>
+      <div class="scenario-read"><span><strong>Current indicator:</strong> $24.90. Probability-weighted value: <strong>$8.00</strong>.</span><span><a href="https://api.nasdaq.com/api/quote/PL/historical?assetclass=stocks&amp;fromdate=2026-07-15&amp;todate=2026-07-17&amp;limit=10" rel="noreferrer">Nasdaq PL historical quote</a> <span class="source-date">(2026-07-15)</span></span></div>
+      <p class="quality"><b>Scenario mechanics:</b> These are monitoring values from the validated REVENUE-TO-FCFF scenario model, not price forecasts. They should be refreshed when the operating evidence, discount rate, terminal growth, net debt, or share count changes.</p>
+    </section>
+    <section id="valuation">
+      <h2>Valuation method and decision gate</h2>
+      <div class="scenario-grid">
+        <div class="scenario"><div class="case"><strong>DCF method</strong><span class="price">REVENUE-TO-FCFF</span></div><dl>
+          <dt>Status</dt><dd>Preliminary Public Dcf</dd><dt>Scenario range</dt><dd>$1.72 to $20.00</dd><dt>Caveat</dt><dd>Scenario values use the locked revenue-to-FCFF model and are highly sensitive to sustained growth, FCFF margin conversion, discount rate, terminal growth, and future dilution.</dd>
+        </dl></div>
+        <div class="scenario current"><div class="case"><strong>Reverse DCF</strong><span class="price">35.91%</span></div><dl>
+          <dt>Driver</dt><dd>Implied Revenue Growth</dd><dt>Role</dt><dd>Market-expectation check</dd><dt>Current price</dt><dd>$24.90</dd>
+        </dl></div>
+        <div class="scenario"><div class="case"><strong>Decision gate</strong><span class="price">$8.00</span></div><dl>
+          <dt>Reference</dt><dd>Probability weighted</dd><dt>Base value</dt><dd>$7.56</dd><dt>Price vs base</dt><dd>-69.7%</dd>
+        </dl></div>
+      </div>
+      <div class="scenario-read"><span><strong>Conclusion:</strong> The official price is above the bear, base, bull, and probability-weighted values; keep the monitoring position unchanged and require a price below $20 or materially stronger sustainable cash economics before improving the entry stance.</span><span><a href="https://api.nasdaq.com/api/quote/PL/historical?assetclass=stocks&amp;fromdate=2026-07-15&amp;todate=2026-07-17&amp;limit=10" rel="noreferrer">Nasdaq PL historical quote</a> <span class="source-date">(2026-07-15)</span></span></div>
+    </section>
+    <div class="metrics"><div class="metric"><div class="label">Revenue</div><div class="value">$94.2M</div><div class="detail">Q1 FY2027 · <a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></div></div><div class="metric"><div class="label">Revenue growth</div><div class="value">42%</div><div class="detail">Q1 FY2027 · <a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></div></div><div class="metric"><div class="label">Recurring ACV</div><div class="value">99%</div><div class="detail">2026-04-30 · <a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></div></div><div class="metric"><div class="label">Remaining performance obligations</div><div class="value">$816M</div><div class="detail">2026-04-30 · <a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></div></div><div class="metric"><div class="label">Backlog</div><div class="value">$906M</div><div class="detail">2026-04-30 · <a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></div></div></div>
+    <section id="scorecard">
+  <div class="toolbar"><h2>Ranked KPI scorecard</h2><div class="filters" aria-label="KPI groups">
+    <button class="filter active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter" type="button" data-filter="growth" aria-pressed="false">Growth</button><button class="filter" type="button" data-filter="profit" aria-pressed="false">Profitability</button><button class="filter" type="button" data-filter="capital" aria-pressed="false">Capital</button>
+  </div></div>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Ranked KPI scorecard">
+    <table>
+      <thead><tr><th>#</th><th>KPI</th><th>Baseline</th><th>Next threshold</th><th>Signal</th><th>Investor read</th><th>Source</th></tr></thead>
+      <tbody><tr data-group="growth">
+  <td class="rank" data-label="#">1</td>
+  <td class="name" data-label="KPI">Revenue<span class="table-detail">Q1 FY2027</span></td>
+  <td data-label="Baseline">$94.2M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">2</td>
+  <td class="name" data-label="KPI">Revenue growth<span class="table-detail">Q1 FY2027</span></td>
+  <td data-label="Baseline">42%</td>
+  <td data-label="Next threshold">At least 30%</td>
+  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
+  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">3</td>
+  <td class="name" data-label="KPI">Recurring ACV<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">99%</td>
+  <td data-label="Next threshold">Stay at or above 95%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
+  <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">4</td>
+  <td class="name" data-label="KPI">Remaining performance obligations<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">$816M</td>
+  <td data-label="Next threshold">Stay at or above $800M</td>
+  <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
+  <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">5</td>
+  <td class="name" data-label="KPI">Backlog<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">$906M</td>
+  <td data-label="Next threshold">Stay at or above $900M</td>
+  <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
+  <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">6</td>
+  <td class="name" data-label="KPI">Gross margin<span class="table-detail">Q1 FY2027</span></td>
+  <td data-label="Baseline">54%</td>
+  <td data-label="Next threshold">Stay at or above 52%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
+  <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">7</td>
+  <td class="name" data-label="KPI">Operating margin<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">-30.9%</td>
+  <td data-label="Next threshold">At least 0%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Below confirm</span></td>
+  <td data-label="Investor read">The latest result has not yet cleared the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs FY2026 10-K</a> <span class="source-date">(2026-03-18)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">8</td>
+  <td class="name" data-label="KPI">Free cash flow<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">$52.9M</td>
+  <td data-label="Next threshold">At least $0</td>
+  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
+  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs FY2026 10-K</a> <span class="source-date">(2026-03-18)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">9</td>
+  <td class="name" data-label="KPI">Cash and investments<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">$730.8M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">10</td>
+  <td class="name" data-label="KPI">Total debt<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">$447.6M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 10-Q</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">11</td>
+  <td class="name" data-label="KPI">Current ratio<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">2.81x</td>
+  <td data-label="Next threshold">Stay at or above 1.5x</td>
+  <td data-label="Signal"><span class="status-text status-positive">Above floor</span></td>
+  <td data-label="Investor read">The latest result remains on the safe side of the warning threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 10-Q</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">12</td>
+  <td class="name" data-label="KPI">FY revenue guidance floor<span class="table-detail">FY2027</span></td>
+  <td data-label="Baseline">$425M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">13</td>
+  <td class="name" data-label="KPI">FY revenue guidance ceiling<span class="table-detail">FY2027</span></td>
+  <td data-label="Baseline">$441M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span></td>
+</tr></tbody>
+    </table>
+  </div>
+  <p class="quality"><b>How to read the scorecard:</b> Signals compare the latest baseline with the stated decision threshold. “Monitor” means the public handoff has one valid baseline but no compatible prior observation; it is not a positive or negative call.</p>
+</section>
+    <section id="signals">
+  <h2>Thesis signals</h2>
+  <div class="signal-grid"><div class="signal-group"><h3>Thesis pillars</h3><ul><li><strong>Sovereign demand and visibility</strong><span>Accelerating revenue and a large contracted demand base support a multi-year growth runway.</span></li><li><strong>Recurring platform economics</strong><span>A 99% recurring ACV mix supports durability, while gross-margin direction remains a key quality check.</span></li><li><strong>Funding capacity and per-share discipline</strong><span>Liquidity funds expansion, but free-cash-flow conversion and dilution determine whether growth creates per-share value.</span></li></ul></div><div class="signal-group"><h3>Catalysts</h3><ul><li><strong>Sovereign backlog conversion</strong><span>Conversion of funded sovereign and defense contracts could sustain elevated revenue growth and improve visibility.</span></li><li><strong>Next-generation platform rollout</strong><span>Pelican, Owl, satellite services, and AI-enabled solutions could expand the value and scope of Planet&#x27;s data platform.</span></li></ul></div><div class="signal-group"><h3>Risks</h3><ul><li><strong>Backlog conversion and concentration</strong><span>Backlog includes cancelable and funding-dependent amounts, so reported visibility is not equivalent to unconditional revenue.</span></li><li><strong>Capital intensity and margin conversion</strong><span>Satellite-services mix and constellation investment can pressure gross margin, adjusted EBITDA, and free cash flow.</span></li><li><strong>Dilution and financing</strong><span>Convertible notes, stock compensation, and ATM capacity can dilute shareholders even when liquidity remains strong.</span></li></ul></div><div class="signal-group"><h3>Monitoring triggers</h3><ul><li><strong>Demand conversion</strong><span>Escalate if revenue growth drops below 30% while RPO falls below $800 million or backlog fails to remain near $900 million.</span></li><li><strong>Operating conversion</strong><span>Track whether growth converts to positive GAAP operating margin and durable free cash flow without gross margin falling below 52%.</span></li><li><strong>Liquidity and dilution</strong><span>Monitor liquidity, convert exposure, capital spending, and any use of the ATM facility.</span></li></ul></div></div>
+</section>
+    <section id="gaps">
+  <h2>Evidence limits</h2>
+  <div class="issue-grid"><div><h3>Conflicts</h3><ul class="issue-list"><li>None reported.</li></ul></div><div><h3>Gaps</h3><ul class="issue-list"><li>None reported.</li></ul></div></div>
+</section>
+    <section id="sources">
+  <h2>Public sources</h2>
+  <ol class="source-list"><li><a href="https://api.nasdaq.com/api/quote/PL/historical?assetclass=stocks&amp;fromdate=2026-07-15&amp;todate=2026-07-17&amp;limit=10" rel="noreferrer">Nasdaq PL historical quote</a> <span class="source-date">(2026-07-15)</span><span></span></li><li><a href="https://www.sec.gov/edgar/browse/?CIK=1836833&amp;owner=exclude" rel="noreferrer">Planet Labs Q1 FY2027 8-K</a> <span class="source-date">(2026-06-04)</span><span></span></li></ol>
+</section>
+  </main>
+  <footer>Generated from the validated public KPI handoff. No private portfolio data is included.</footer>
+  <script>
+    document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(item => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
+      const filter = button.dataset.filter;
+      document.querySelectorAll('tbody tr[data-group]').forEach(row => {
+        row.hidden = filter !== 'all' && row.dataset.group !== filter;
+      });
+    }));
+  </script>
+</body>
+</html>

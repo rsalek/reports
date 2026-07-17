@@ -46,6 +46,7 @@
         <a href="#prompt-sequence">Prompt sequence</a>
         <a href="#html-report">Private HTML report</a>
         <a href="#kpi-handoff">Public KPI handoff</a>
+        <a href="#public-report">Public report and site bundle</a>
         <a href="#outputs">Outputs and state</a>
         <a href="#evidence">Evidence rules</a>
         <a href="#troubleshooting">Troubleshooting</a>
@@ -80,8 +81,9 @@
               <strong>Open the Investment workspace.</strong> Work from the repository root that contains <code>app/</code>, <code>stocks/</code>, and <code>.agents/skills/</code>.
             </li>
             <li>
-              <strong>Create or initialize the ticker workspace.</strong> For new coverage, copy <code>stocks/_template/</code> to <code>stocks/&lt;TICKER&gt;/</code>, update its README, then run:
-              <pre><code>python3 -B -m app.source_intake &lt;TICKER&gt; initialize</code></pre>
+              <strong>Create the ticker workspace.</strong> Use the supported command; it copies the reviewed scaffold, initializes source state and a pending neutral report theme, then validates the folder contract:
+              <pre><code>python3 -B -m app.stock_workspace create &lt;TICKER&gt; \
+  --company "Company Name" --exchange "NASDAQ"</code></pre>
             </li>
             <li>
               <strong>Add source documents.</strong> Put them anywhere under <code>stocks/&lt;TICKER&gt;/sources/</code>. Keep the raw files unchanged.
@@ -104,7 +106,7 @@ Use $kpi-handoff for &lt;TICKER&gt;</code></pre>
           </ol>
 
           <div class="note">
-            <strong>What Codex handles:</strong> source inventory, extraction, visual-review tracking, fact and calculation locks, hybrid retrieval, sequential prompt execution, citations, resumable state, private report synthesis, public-safe KPI projection, deterministic rendering, and final validation.
+            <strong>What Codex handles:</strong> workspace validation, source inventory, extraction, visual-review tracking, fact and calculation locks, hybrid retrieval, sequential prompt execution, citations, resumable state, private report synthesis, public-safe KPI projection, deterministic rendering, and final validation.
           </div>
         </section>
 
@@ -330,6 +332,22 @@ python3 -B -m app.kpi_handoff &lt;TICKER&gt; promote [--run-id &lt;RUN&gt;]</cod
           </div>
         </section>
 
+        <section id="public-report">
+          <h2>Public report and site bundle</h2>
+          <p>The public full report is a separate artifact, not a copy of the personalized report. It requires a completed v4 analysis, a validated KPI handoff, and an official-source-verified company theme.</p>
+          <pre><code>python3 -B -m app.public_equity_report &lt;TICKER&gt; prepare [--run-id &lt;RUN&gt;]
+python3 -B -m app.public_equity_report &lt;TICKER&gt; status [--run-id &lt;RUN&gt;]
+python3 -B -m app.public_equity_report &lt;TICKER&gt; render [--run-id &lt;RUN&gt;]
+python3 -B -m app.public_equity_report &lt;TICKER&gt; validate [--run-id &lt;RUN&gt;]
+
+python3 -B -m app.site_publication &lt;TICKER&gt; prepare [--run-id &lt;RUN&gt;]
+python3 -B -m app.site_publication &lt;TICKER&gt; validate [--run-id &lt;RUN&gt;]</code></pre>
+          <p>The bundle fingerprints the public report, KPI dashboard, verified theme, card metadata, and exact website destinations. Applying it requires the explicit <code>--confirm-publication</code> flag; it updates the local website checkout and rebuilds <code>data/library.json</code>, but never commits or pushes.</p>
+          <div class="note warning">
+            Review the exact bundle and rendered pages first. Publication remains a separate approval: the tooling does not commit or push to GitHub automatically.
+          </div>
+        </section>
+
         <section id="outputs">
           <h2>Outputs and resumable state</h2>
           <pre><code>stocks/&lt;TICKER&gt;/outputs/phase0/&lt;run-id&gt;/
@@ -351,7 +369,11 @@ python3 -B -m app.kpi_handoff &lt;TICKER&gt; promote [--run-id &lt;RUN&gt;]</cod
 ├── &lt;TICKER&gt;_Full_Report.html       # private personalized report
 ├── report_manifest.json             # independent report fingerprints
 ├── kpi_handoff_public.json          # after $kpi-handoff build
-└── KPI_Dashboard_Preview.html       # after $kpi-handoff preview</code></pre>
+├── KPI_Dashboard_Preview.html       # after $kpi-handoff preview
+├── Public_Report_Synthesis.md       # curated public-only synthesis
+├── &lt;TICKER&gt;_Public_Report.html     # separate public report
+├── public_report_manifest.json
+└── publication_bundle.json          # exact hashes and site destinations</code></pre>
           <ul>
             <li><code>run_manifest.json</code> records the contract, status, detected phase, assumptions, prompt and source hashes, citations, web sources, timestamps, and failures.</li>
             <li><code>evidence_catalog.json</code> inventories the usable sources, images requiring inspection, and isolated source errors.</li>
@@ -412,6 +434,8 @@ Primary web: [Company filing](https://example.com/filing), published YYYY-MM-DD<
             <li>Keep files beneath <code>sources/</code> unchanged and outside the public site.</li>
             <li>Publish only permitted derived analysis and citations—never licensed documents, credentials, private paths, portfolio details, raw evidence, or a personalized full report.</li>
             <li>Public KPI projections may retain only allowlisted values backed by dated primary HTTPS sources; withheld items must remain explicit gaps.</li>
+            <li>Public reports use <code>Public_Report_Synthesis.md</code> and the public renderer; never copy the private <code>&lt;TICKER&gt;_Full_Report.html</code> into the website.</li>
+            <li>Verify <code>trackers/report_theme.json</code> against an official HTTPS source before creating a publication bundle.</li>
             <li>Review generated output for sensitive information before publication and run browser checks at desktop and 390px mobile widths.</li>
           </ul>
           <div class="note warning">

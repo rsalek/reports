@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "build:wiki": "node scripts/build-wiki.mjs"
+    "build:wiki": "node scripts/build-wiki.mjs",
+    "build:library": "node scripts/build-library.mjs",
+    "build": "npm run build:wiki && npm run build:library"
   },
   "devDependencies": {}
 }

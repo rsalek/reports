@@ -288,6 +288,7 @@
     .ticker.amber { color: var(--amber); background: var(--amber-soft); border-color: rgba(217,119,6,0.12); }
     .ticker.red { color: var(--red); background: var(--red-soft); border-color: rgba(180,35,24,0.16); }
     .ticker.asml { color:#10069F; background:#EFEEFF; border-color:rgba(16,6,159,0.14); }
+    .ticker.planet { color:#006A78; background:#E5F6F8; border-color:rgba(0,157,177,0.18); }
 
     .flow-list {
       margin: 0;
@@ -318,6 +319,12 @@
       color: var(--text-soft);
       font-size: 0.80rem;
       font-weight: 600;
+    }
+
+    .legacy-pill {
+      color: #785900;
+      background: #fff7df;
+      border-color: #ead486;
     }
 
     .summary {
@@ -467,19 +474,19 @@
           <h3>Library snapshot</h3>
           <div class="metric-grid">
             <div class="metric">
-              <div class="value">9</div>
+              <div class="value" data-library-metric="reports">11</div>
               <div class="label">Full reports</div>
             </div>
             <div class="metric">
-              <div class="value">5</div>
+              <div class="value" data-library-metric="kpis">7</div>
               <div class="label">KPI dashboards</div>
             </div>
             <div class="metric">
-              <div class="value">21</div>
+              <div class="value" data-library-metric="wiki">21</div>
               <div class="label">Wiki notes</div>
             </div>
             <div class="metric">
-              <div class="value">11</div>
+              <div class="value" data-library-metric="companies">12</div>
               <div class="label">Companies covered</div>
             </div>
           </div>
@@ -504,194 +511,84 @@
       </div>
 
       <div class="cards">
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker green">BMI</span>
-              <h3>Badger Meter</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-03-19</span>
-            <span class="pill">Phase 5</span>
-            <span class="pill">Rating: Buy</span>
-          </div>
-          <div class="summary">
-            A smart water infrastructure compounder with a narrow but stable moat, strong cash conversion, and a software-led margin expansion story anchored by municipal metering and AMI adoption.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/BMI_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/BMI_Full_Report.html">View source</a>
-          </div>
+        <!-- library:reports:start -->
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker green">BMI</span><h3>Badger Meter</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-03-19</span><span class="pill">Phase 5</span><span class="pill">Rating: Buy</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">A smart water infrastructure compounder with a narrow but stable moat, strong cash conversion, and a software-led margin expansion story anchored by municipal metering and AMI adoption.</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/BMI_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/BMI_Full_Report.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker green">MELI</span>
-              <h3>MercadoLibre</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-03-23</span>
-            <span class="pill">Phase 4</span>
-            <span class="pill">Rating: Strong Buy</span>
-          </div>
-          <div class="summary">
-            A Latin American commerce and fintech ecosystem with a wide moat built on network effects, logistics, and payments infrastructure, currently framed as a high-conviction platform-scale compounder.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/MELI_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/MELI_Full_Report.html">View source</a>
-          </div>
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker green">MELI</span><h3>MercadoLibre</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-03-23</span><span class="pill">Phase 4</span><span class="pill">Rating: Strong Buy</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">A Latin American commerce and fintech ecosystem with a wide moat built on network effects, logistics, and payments infrastructure, framed as a high-conviction platform-scale compounder.</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/MELI_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/MELI_Full_Report.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker green">PANW</span>
-              <h3>Palo Alto Networks</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-02-01</span>
-            <span class="pill">Phase 4</span>
-            <span class="pill">Rating: Buy</span>
-          </div>
-          <div class="summary">
-            A platformising cybersecurity leader with a wide moat, strong recurring revenue, and significant M&amp;A integration risk tied to CyberArk and Chronosphere.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/PANW_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/PANW_Full_Report.html">View source</a>
-          </div>
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker green">PANW</span><h3>Palo Alto Networks</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-02-01</span><span class="pill">Phase 4</span><span class="pill">Rating: Buy</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">A platformising cybersecurity leader with a wide moat, strong recurring revenue, and significant M&amp;A integration risk tied to CyberArk and Chronosphere.</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/PANW_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/PANW_Full_Report.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker green">UBER</span>
-              <h3>Uber Technologies</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-02-09</span>
-            <span class="pill">Phase 4</span>
-            <span class="pill">Rating: Buy</span>
-          </div>
-          <div class="summary">
-            A marketplace and super-app cash generator whose current investment case centres on operating leverage, Uber One retention, and the unresolved debate over AV disintermediation versus AV aggregation.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/UBER_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/UBER_Full_Report.html">View source</a>
-          </div>
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker green">UBER</span><h3>Uber Technologies</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-02-09</span><span class="pill">Phase 4</span><span class="pill">Rating: Buy</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">A marketplace and super-app cash generator centred on operating leverage, Uber One retention, and the debate over AV disintermediation versus aggregation.</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/UBER_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/UBER_Full_Report.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker green">ZS</span>
-              <h3>Zscaler</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-03-20</span>
-            <span class="pill">Phase 3</span>
-            <span class="pill">Rating: Strong Buy</span>
-          </div>
-          <div class="summary">
-            A zero-trust security leader positioned as a self-funding growth asset with strong free cash flow, high retention, and a market disconnect between operating quality and compressed valuation.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/ZS_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/ZS_Full_Report.html">View source</a>
-          </div>
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker green">ZS</span><h3>Zscaler</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-03-20</span><span class="pill">Phase 3</span><span class="pill">Rating: Strong Buy</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">A zero-trust security leader with strong free cash flow, high retention, and a valuation debate between operating quality and multiple compression.</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/ZS_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/ZS_Full_Report.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker green">NOW</span>
-              <h3>ServiceNow</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-04-12</span>
-            <span class="pill">Phase 5</span>
-            <span class="pill">Rating: Strong Buy</span>
-          </div>
-          <div class="summary">
-            ServiceNow workflow and automation report, positioned as a Phase 5 capital-return software leader with strong free cash flow, high retention, and a valuation framed as attractive despite AI disruption concerns.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/NOW_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/NOW_Full_Report.html">View source</a>
-          </div>
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker green">NOW</span><h3>ServiceNow</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-04-12</span><span class="pill">Phase 5</span><span class="pill">Rating: Strong Buy</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">A workflow and automation leader with strong free cash flow, high retention, and a valuation framed against AI disruption concerns.</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/NOW_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/NOW_Full_Report.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker red">PACB</span>
-              <h3>Pacific Biosciences</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-07-13</span>
-            <span class="pill">Phase 2</span>
-            <span class="pill">Rating: Sell / Avoid</span>
-          </div>
-          <div class="summary">
-            A quality-gated report on PacBio's product momentum, narrow technology moat, cash-burn trajectory, debt maturities, and the operating evidence required to change a defensive stance.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/PACB_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/PACB_Full_Report.html">View source</a>
-          </div>
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker red">PACB</span><h3>Pacific Biosciences</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-07-13</span><span class="pill">Phase 2</span><span class="pill">Rating: Sell / Avoid</span></div>
+          <div class="summary">A quality-gated report on product momentum, technology moat, cash burn, debt maturities, and the evidence required to change a defensive stance.</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/PACB_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/PACB_Full_Report.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker blue">IBM</span>
-              <h3>International Business Machines</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-07-15</span>
-            <span class="pill">Phase 5</span>
-            <span class="pill">Rating: Hold</span>
-          </div>
-          <div class="summary">
-            A quality-gated report on IBM's Software-led mix, enterprise AI opportunity, cash-generation durability, leverage, FCFF valuation, and the evidence required to move beyond a fair-value stance.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/IBM_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/IBM_Full_Report.html">View source</a>
-          </div>
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker blue">IBM</span><h3>International Business Machines Corporation</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-07-17</span><span class="pill">Phase 5</span><span class="pill">Rating: HOLD</span></div>
+          <div class="summary">IBM remains a Hold: Software growth, margins and cash generation are constructive, but at $217.07 the shares stood above the $210.18 base FCFF value and close to the $216.20 probability-weighted value. A better entry price or stronger sustainable FCFF is needed before improving the stance.</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/IBM_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/IBM_Full_Report.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker asml">ASML</span>
-              <h3>ASML Holding</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Generated 2026-07-16</span>
-            <span class="pill">Phase 4</span>
-            <span class="pill">Valuation discipline</span>
-          </div>
-          <div class="summary">
-            A quality-gated public report on ASML's EUV demand, installed-base economics, margin durability, cash conversion, FCFF scenarios, and the evidence required to justify the current premium valuation.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="docs/ASML_Full_Report.html">Open report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/ASML_Full_Report.html">View source</a>
-          </div>
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker blue">ASML</span><h3>ASML Holding N.V.</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-07-17</span><span class="pill">Phase 4</span><span class="pill">Rating: Buy framework / hold at current valuation</span></div>
+          <div class="summary">ASML remains an exceptional semiconductor-equipment franchise, but the security offers little margin of safety at the dated USD 1,775.64 price. The locked FCFF framework produces USD 479.68 bear, USD 1,295.03 base, and USD 1,858.81 bull monitoring values, with a USD 1,232.14 probability-weighted result. The operating thesis remains supportive; the entry stance remains disciplined because the official price is...</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/ASML_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/ASML_Full_Report.html">View source</a></div>
         </article>
+
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker blue">PL</span><h3>Planet Labs PBC</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-07-17</span><span class="pill">Phase 2</span><span class="pill">Rating: Conditional buy / watch</span></div>
+          <div class="summary">Planet Labs is delivering strong growth and contracted visibility, but the dated USD 24.90 price exceeds every locked valuation scenario. The revenue-to-FCFF framework produces USD 1.72 bear, USD 7.56 base, and USD 20.00 bull monitoring values, with a USD 8.00 probability-weighted result. The correct stance is conditional: retain the growth thesis on watch, but require a price below USD 20 or materially stronger...</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/PL_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/PL_Full_Report.html">View source</a></div>
+        </article>
+
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker red">FTAI</span><h3>FTAI Aviation Ltd.</h3></div></div>
+          <div class="meta"><span class="pill">Generated 2026-07-17</span><span class="pill">Phase 4</span><span class="pill">Rating: SELL / AVOID</span></div>
+          <div class="summary">FTAI is executing well, but the security offers insufficient margin of safety at USD 203.70. Q1 2026 Aerospace Products revenue increased 104% to USD 743.8 million, adjusted EBITDA increased 70% to USD 222.6 million, and module production reached 270. Those results support the operating thesis. The valuation thesis is less attractive: the locked revenue-to-FCFF framework produces USD 32.97 bear, USD 187.53 base...</div>
+          <div class="card-actions"><a class="link-btn primary" href="docs/FTAI_Full_Report.html">Open report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/docs/FTAI_Full_Report.html">View source</a></div>
+        </article>
+        <!-- library:reports:end -->
       </div>
     </section>
 
@@ -704,115 +601,56 @@
       </div>
 
       <div class="cards">
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker green">NOW</span>
-              <h3>ServiceNow KPI Monitor</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Q1 2026 baseline</span>
-            <span class="pill">Updated 2026-07-12</span>
-            <span class="pill">FCFF Base: $122.10</span>
-          </div>
-          <div class="summary">
-            Tracks cRPO, subscription growth, AI monetisation, large deals, margins, and valuation. Normalized external DCFs converge near $122-$125 versus a $107.71 snapshot; the next proof remains a clean Q2 organic bridge.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="kpi/servicenow-q1-2026.html">Open dashboard</a>
-            <a class="link-btn" href="kpi/servicenow-q1-2026-thesis.html">Read thesis</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/servicenow-q1-2026.html">View source</a>
-          </div>
+        <!-- library:kpis:start -->
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker green">NOW</span><h3>ServiceNow KPI Monitor</h3></div></div>
+          <div class="meta"><span class="pill">Q1 2026 baseline</span><span class="pill">Updated 2026-07-12</span><span class="pill">FCFF Base: $122.10</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">Tracks cRPO, subscription growth, AI monetisation, large deals, margins, valuation, and the next proof required from the Q2 organic bridge.</div>
+          <div class="card-actions"><a class="link-btn primary" href="kpi/servicenow-q1-2026.html">Open dashboard</a><a class="link-btn" href="kpi/servicenow-q1-2026-thesis.html">Read thesis</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/servicenow-q1-2026.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker blue">DXCM</span>
-              <h3>Dexcom KPI Monitor</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Q1 2026 baseline</span>
-            <span class="pill">Updated 2026-07-12</span>
-            <span class="pill">FCFF cross-check: $88-$95</span>
-          </div>
-          <div class="summary">
-            Tracks geographic growth, G7 conversion, access expansion, reliability, margins, consensus, and valuation. The $72-$86 market Base is triangulated against an $88-$95 FCFF cross-check; the next proof is U.S. reacceleration without giving back margin recovery.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="kpi/dexcom-q1-2026.html">Open dashboard</a>
-            <a class="link-btn" href="kpi/dexcom-q1-2026-thesis.html">Read thesis</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/dexcom-q1-2026.html">View source</a>
-          </div>
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker blue">DXCM</span><h3>Dexcom KPI Monitor</h3></div></div>
+          <div class="meta"><span class="pill">Q1 2026 baseline</span><span class="pill">Updated 2026-07-12</span><span class="pill">FCFF cross-check: $88-$95</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">Tracks geographic growth, G7 conversion, access expansion, reliability, margins, consensus, valuation, and the proof needed for U.S. reacceleration.</div>
+          <div class="card-actions"><a class="link-btn primary" href="kpi/dexcom-q1-2026.html">Open dashboard</a><a class="link-btn" href="kpi/dexcom-q1-2026-thesis.html">Read thesis</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/dexcom-q1-2026.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker red">PACB</span>
-              <h3>Pacific Biosciences KPI Monitor</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Q1 2026 baseline</span>
-            <span class="pill">Updated 2026-07-12</span>
-            <span class="pill">Base screen: $1.30-$1.90</span>
-          </div>
-          <div class="summary">
-            Tracks consumables growth, Revio pull-through, instrument placements, gross margin, cash burn, and financing risk. The current price sits inside the Base range; DCF remains inappropriate until PacBio demonstrates a funded route to positive cash flow.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="kpi/pacb-q1-2026.html">Open dashboard</a>
-            <a class="link-btn" href="kpi/pacb-q1-2026-thesis.html">Read thesis</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/pacb-q1-2026.html">View source</a>
-          </div>
+        <article class="card" data-format-status="legacy">
+          <div class="card-top"><div><span class="ticker red">PACB</span><h3>Pacific Biosciences KPI Monitor</h3></div></div>
+          <div class="meta"><span class="pill">Q1 2026 baseline</span><span class="pill">Updated 2026-07-12</span><span class="pill">Milestone range: $1.30-$1.90</span><span class="pill legacy-pill">Legacy format</span></div>
+          <div class="summary">Tracks consumables growth, Revio pull-through, placements, gross margin, cash burn, and financing risk. DCF remains inappropriate until a funded path to positive cash flow is visible.</div>
+          <div class="card-actions"><a class="link-btn primary" href="kpi/pacb-q1-2026.html">Open dashboard</a><a class="link-btn" href="kpi/pacb-q1-2026-thesis.html">Read thesis</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/pacb-q1-2026.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker blue">IBM</span>
-              <h3>IBM KPI Monitor</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Q1 2026 baseline</span>
-            <span class="pill">Updated 2026-07-15</span>
-            <span class="pill">Research stance: Hold</span>
-          </div>
-          <div class="summary">
-            Tracks Software and Consulting growth, segment margins, free cash flow, guidance, liquidity, debt, thesis thresholds, catalysts, and the evidence needed to confirm or break the Software-led mix thesis.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="kpi/ibm-q1-2026.html">Open dashboard</a>
-            <a class="link-btn" href="docs/IBM_Full_Report.html">Read report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/ibm-q1-2026.html">View source</a>
-          </div>
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker blue">IBM</span><h3>International Business Machines Corporation KPI Monitor</h3></div></div>
+          <div class="meta"><span class="pill">Baseline through 2026-07-15</span><span class="pill">Updated 2026-07-15</span><span class="pill">Valuation: FCFF</span></div>
+          <div class="summary">Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.</div>
+          <div class="card-actions"><a class="link-btn primary" href="kpi/ibm-latest.html">Open dashboard</a><a class="link-btn" href="docs/IBM_Full_Report.html">Read report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/ibm-latest.html">View source</a></div>
         </article>
 
-        <article class="card">
-          <div class="card-top">
-            <div>
-              <span class="ticker asml">ASML</span>
-              <h3>ASML KPI Monitor</h3>
-            </div>
-          </div>
-          <div class="meta">
-            <span class="pill">Q2 2026 baseline</span>
-            <span class="pill">Updated 2026-07-16</span>
-            <span class="pill">FCFF Base: $1,295.03</span>
-          </div>
-          <div class="summary">
-            Tracks systems, sales, installed-base revenue, gross margin, liquidity, cash conversion, and guidance. The 12-month Bear / Base / Bull values are $479.68 / $1,295.03 / $1,858.81, with the DCF method and decision gate shown directly below.
-          </div>
-          <div class="card-actions">
-            <a class="link-btn primary" href="kpi/asml-q2-2026.html">Open dashboard</a>
-            <a class="link-btn" href="docs/ASML_Full_Report.html">Read report</a>
-            <a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/asml-q2-2026.html">View source</a>
-          </div>
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker blue">ASML</span><h3>ASML Holding N.V. KPI Monitor</h3></div></div>
+          <div class="meta"><span class="pill">Baseline through 2026-07-15</span><span class="pill">Updated 2026-07-15</span><span class="pill">Valuation: FCFF</span></div>
+          <div class="summary">Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.</div>
+          <div class="card-actions"><a class="link-btn primary" href="kpi/asml-latest.html">Open dashboard</a><a class="link-btn" href="docs/ASML_Full_Report.html">Read report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/asml-latest.html">View source</a></div>
         </article>
+
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker blue">PL</span><h3>Planet Labs PBC KPI Monitor</h3></div></div>
+          <div class="meta"><span class="pill">Baseline through 2026-07-16</span><span class="pill">Updated 2026-07-16</span><span class="pill">Valuation: REVENUE-TO-FCFF</span></div>
+          <div class="summary">Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.</div>
+          <div class="card-actions"><a class="link-btn primary" href="kpi/pl-latest.html">Open dashboard</a><a class="link-btn" href="docs/PL_Full_Report.html">Read report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/pl-latest.html">View source</a></div>
+        </article>
+
+        <article class="card" data-format-status="current">
+          <div class="card-top"><div><span class="ticker red">FTAI</span><h3>FTAI Aviation Ltd. KPI Monitor</h3></div></div>
+          <div class="meta"><span class="pill">Baseline through 2026-07-16</span><span class="pill">Updated 2026-07-16</span><span class="pill">Valuation: REVENUE-TO-FCFF</span></div>
+          <div class="summary">Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.</div>
+          <div class="card-actions"><a class="link-btn primary" href="kpi/ftai-latest.html">Open dashboard</a><a class="link-btn" href="docs/FTAI_Full_Report.html">Read report</a><a class="link-btn" href="https://github.com/rsalek/reports/blob/main/kpi/ftai-latest.html">View source</a></div>
+        </article>
+        <!-- library:kpis:end -->
       </div>
     </section>
 

@@ -1,137 +1,136 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A quality-gated public equity report on ASML, covering lithography demand, installed-base economics, cash conversion, valuation scenarios, risks, and monitoring gates.">
-  <title>ASML Holding — Exceptional Franchise, Demanding Valuation</title>
-  <link rel="stylesheet" href="../kpi/assets/research-report.css">
-  <style>
-    :root { --brand:#10069F; --brand-dark:#0B0578; --brand-bg:#EFEEFF; --dark:#211C52; }
-    .scenario-table { width:100%; border-collapse:collapse; margin-top:16px; background:var(--paper); }
-    .scenario-table th,.scenario-table td { padding:12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
-    .scenario-table th { color:var(--muted); background:var(--soft); font-size:12px; }
-    .scenario-table .number { white-space:nowrap; text-align:right; font-weight:680; }
-    .public-note { margin-top:18px; padding:14px 16px; border-left:3px solid var(--brand); background:var(--brand-bg); }
-    .source-register { display:grid; gap:10px; padding:0; list-style:none; }
-    .source-register li { padding-top:10px; border-top:1px solid var(--line); }
-    .source-register a { color:var(--brand-dark); font-weight:650; }
-    @media (max-width:620px) { .scenario-table { font-size:12px; } .scenario-table th,.scenario-table td { padding:8px; } }
-  </style>
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="../"><span class="ticker">ASML</span><span>Equity Research Library</span></a>
-    <div class="topbar-actions"><a class="report-link" href="../">Library</a><a class="report-link" href="../kpi/asml-q2-2026.html">KPI dashboard</a><div class="meta">Public edition · 16 July 2026</div></div>
-  </header>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Public equity research report for ASML Holding N.V."><title>ASML Public Equity Report</title>
+<style>:root{--brand:#3b725b;--brand-dark:#28513f;--brand-bg:#e4efe9;--ink:#18201c;--muted:#5d6862;--line:#d8dedb;--paper:#fff;--bg:#f4f6f5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 "Avenir Next",Avenir,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--brand-dark)}a:focus-visible{outline:2px solid var(--brand);outline-offset:3px}.topbar{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:56px;padding:10px max(24px,calc((100vw - 1060px)/2));border-bottom:1px solid var(--line);background:rgba(255,255,255,.96)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;text-decoration:none}.brand span{padding:4px 8px;border-radius:5px;background:var(--brand-dark);color:#fff;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:12px}nav a{color:var(--muted);text-decoration:none}
+main,footer{width:min(1060px,calc(100% - 48px));margin:0 auto}.report-meta{display:flex;gap:10px;padding:30px 0 12px;color:var(--muted);font-size:12px}.report-meta span{padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}article{padding:24px 48px 52px;border:1px solid var(--line);background:var(--paper)}
+h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42px 0 14px;padding-top:8px;border-top:2px solid var(--ink);font-size:23px;line-height:1.25;scroll-margin-top:76px}h3{font-size:17px}p,li{max-width:820px}blockquote{margin:20px 0;padding:12px 18px;border-left:3px solid var(--brand);background:var(--brand-bg)}
+.table-scroll{overflow-x:auto;border:1px solid var(--line)}table{width:100%;min-width:680px;border-collapse:collapse}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--brand-bg);font-size:12px}footer{padding:22px 0 40px;color:var(--muted);font-size:12px}
+@media(max-width:720px){.topbar{align-items:flex-start;padding:10px 16px}nav{justify-content:flex-end}nav a:not(:last-child){display:none}main,footer{width:calc(100% - 28px)}article{padding:24px 20px 38px}h1{font-size:29px}h2{font-size:21px}.report-meta{overflow-x:auto;white-space:nowrap}}
+@media print{body{background:#fff}.topbar{position:static}nav{display:none}main,footer{width:100%}article{border:0;padding:0}.table-scroll{overflow:visible}table{min-width:0}}
 
-  <main class="narrative">
-    <div class="intro">
-      <div>
-        <h1>Exceptional lithography economics, demanding valuation</h1>
-        <p class="summary-line">ASML remains a Phase 4 technology compounder whose EUV position, installed-base service engine, and exposure to AI-related Logic and Memory investment support a high-quality operating thesis. The security thesis is more constrained: the official USD 1,775.64 reference price sits above the base and probability-weighted FCFF values and close to the bull case.</p>
-      </div>
-      <div class="decision"><dl>
-        <dt>Company thesis</dt><dd>Supportive</dd>
-        <dt>Security posture</dt><dd>Valuation discipline required</dd>
-        <dt>Business phase</dt><dd>4</dd>
-        <dt>Next proof</dt><dd>Q3 demand, margin, and cash conversion</dd>
-      </dl></div>
-    </div>
-
-    <section id="decision">
-      <h2>Decision snapshot</h2>
-      <p>Q2 2026 evidence strengthened the operating case. Quarterly sales rose to €9.326 billion from €8.767 billion in Q1, gross margin improved to 54% from 53%, new lithography-system shipments rose to 86 from 67, and installed-base management sales increased to €2.762 billion from €2.488 billion. Management's Q3 floor of €11 billion revenue and 55% gross margin creates a clear, near-term proof point.</p>
-      <p>The valuation gate does not clear as easily. The preliminary FCFF model produces a USD 1,295.03 base value and USD 1,232.14 probability-weighted value against the dated official USD 1,775.64 close. Even the USD 1,858.81 bull value offers limited headroom. The public research stance is therefore to require either a lower entry price or higher sustainable free cash flow before improving the security posture.</p>
-      <div class="public-note"><strong>Decision gate:</strong> operating quality is not the same as security value. The dashboard should be refreshed if ASML's cash-flow normalization, discount rate, terminal growth, net debt, share count, or currency translation changes materially.</div>
-    </section>
-
-    <section id="business">
-      <h2>Why the company thesis remains strong</h2>
-      <p>ASML occupies a critical position in advanced semiconductor manufacturing. AI-related investment increases demand for leading-edge Logic and Memory capacity, while the complexity of EUV systems, customer qualification, and the installed service network reinforce a durable competitive position. The Q2 acceleration in systems shipped and revenue is consistent with demand converting into deliveries rather than remaining only a long-duration narrative.</p>
-      <p>The installed-base business adds an important recurring component. Service and field-option sales grew 11.0% sequentially to €2.762 billion. That stream should expand as the active fleet grows and customers pursue productivity upgrades, reducing reliance on a single quarter's system shipment mix.</p>
-      <dl class="method">
-        <dt>Demand engine</dt><dd>AI-related Logic and Memory investment, advanced-node transitions, and customer capacity additions.</dd>
-        <dt>Recurring engine</dt><dd>Service, maintenance, upgrades, and field options across a growing installed base.</dd>
-        <dt>Economic proof</dt><dd>Q2 gross margin of 54%, with management guiding to at least 55% in Q3.</dd>
-        <dt>Execution test</dt><dd>Convert customer commitments and capacity expansion into on-time, high-quality low-NA EUV, High-NA EUV, and DUV deliveries.</dd>
-      </dl>
-    </section>
-
-    <section id="valuation">
-      <h2>12-month valuation and DCF gate</h2>
-      <p>The public valuation is a preliminary FCFF scenario model rather than a guaranteed price forecast. It uses 25% Bear, 50% Base, and 25% Bull weights. The wide range reflects the sensitivity of a long-duration semiconductor-equipment franchise to discount rates, terminal growth, normalized cash flow, balance-sheet inputs, and currency translation.</p>
-      <div class="table-scroll" role="region" aria-label="ASML valuation scenarios" tabindex="0">
-        <table class="scenario-table">
-          <thead><tr><th>Scenario</th><th>Investor frame</th><th class="number">12-month value</th><th class="number">Weight</th><th class="number">Vs current</th></tr></thead>
-          <tbody>
-            <tr><td>Bear</td><td>Operating disappointment, policy pressure, or balance-sheet normalization requires a fresh thesis review.</td><td class="number">$479.68</td><td class="number">25%</td><td class="number">-73.0%</td></tr>
-            <tr><td>Base</td><td>Central execution remains adequate, but the market price leaves little margin of safety.</td><td class="number">$1,295.03</td><td class="number">50%</td><td class="number">-27.1%</td></tr>
-            <tr><td>Bull</td><td>Sustained execution and favourable long-duration assumptions support the upper case.</td><td class="number">$1,858.81</td><td class="number">25%</td><td class="number">+4.7%</td></tr>
-            <tr><td><strong>Probability weighted</strong></td><td>Decision reference from the three locked scenarios.</td><td class="number"><strong>$1,232.14</strong></td><td class="number">100%</td><td class="number">-30.6%</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>The reverse DCF implies approximately 20.33% FCFF growth. That is a useful market-expectation check: the share price already requires a powerful and durable cash-flow path. The valuation method and decision gate appear directly below the scenario range in the linked KPI dashboard.</p>
-    </section>
-
-    <section id="evidence">
-      <h2>What the KPI evidence says</h2>
-      <ul>
-        <li><strong>Revenue:</strong> Q2 sales were €9.326 billion, up 6.4% sequentially, but still below the proposed €11 billion confirmation threshold that matches management's Q3 floor.</li>
-        <li><strong>Gross margin:</strong> Q2 reached 54%, up one percentage point sequentially. The next confirmation level is 55%.</li>
-        <li><strong>Systems:</strong> new lithography-system shipments rose to 86 from 67, supporting the demand-conversion thesis.</li>
-        <li><strong>Installed base:</strong> management sales rose to €2.762 billion, reinforcing the recurring service flywheel.</li>
-        <li><strong>Full-year guide:</strong> the public handoff records a 2026 revenue floor of €43 billion and gross-margin floor of 54%.</li>
-        <li><strong>Cash conversion:</strong> H1 operating cash flow was negative €482.5 million despite strong profitability, making working-capital release the main quality watch.</li>
-        <li><strong>Liquidity:</strong> the current ratio was 1.33, inventory was €11.740 billion, and total debt was €1.984 billion at the Q2 balance-sheet date.</li>
-      </ul>
-    </section>
-
-    <section id="risks">
-      <h2>Catalysts, risks, and falsifiers</h2>
-      <div class="split">
-        <div>
-          <h3>Constructive evidence</h3>
-          <ul>
-            <li>Q3 sales meet or exceed €11 billion and gross margin reaches at least 55%.</li>
-            <li>Low-NA EUV and DUV immersion capacity additions convert customer commitments into 2027-2028 deliveries.</li>
-            <li>Installed-base management sales continue to grow with fleet expansion and field upgrades.</li>
-            <li>H2 working-capital release restores positive operating cash flow while preserving net-cash strength.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Escalation evidence</h3>
-          <ul>
-            <li>Export restrictions or geopolitical policy limit system or service access despite strong end demand.</li>
-            <li>Gross margin falls below the full-year floor without a clearly temporary mix or ramp explanation.</li>
-            <li>Working-capital absorption persists and inventory rises without matching delivery conversion.</li>
-            <li>Capacity or High-NA/low-NA ramps miss customer throughput, timing, or quality requirements.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="monitoring">
-      <h2>Monitoring plan</h2>
-      <dl class="method">
-        <dt>Demand conversion</dt><dd>Track quarterly sales, systems shipped, and whether guidance remains consistent with the raised full-year trajectory.</dd>
-        <dt>Margin durability</dt><dd>Escalate if gross margin falls below 54% without a temporary, well-evidenced mix explanation.</dd>
-        <dt>Cash conversion</dt><dd>Require positive H2 working-capital conversion while maintaining balance-sheet strength.</dd>
-        <dt>Installed base</dt><dd>Track sequential service and field-option growth as evidence of fleet monetization.</dd>
-        <dt>Valuation</dt><dd>Re-run FCFF scenarios after material changes in operating evidence, discount rates, terminal growth, net debt, shares, or currency.</dd>
-      </dl>
-    </section>
-
-    <section id="sources">
-      <h2>Public source register</h2>
-      <ol class="source-register">
-        <li><a href="https://www.asml.com/en/investors/financial-results/q2-2026">ASML Q2 2026 financial results</a><br><span class="meta">Published 15 July 2026 · operating results, guidance, system volumes, margins, cash flow, and balance sheet.</span></li>
-        <li><a href="https://api.nasdaq.com/api/quote/ASML/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10">Nasdaq ASML historical quote</a><br><span class="meta">Official USD 1,775.64 close dated 14 July 2026 used by the public valuation.</span></li>
-        <li><a href="../kpi/asml-q2-2026.html">ASML public KPI dashboard</a><br><span class="meta">Validated public handoff with 18 observations, thresholds, scenario valuation, and monitoring triggers.</span></li>
-      </ol>
-      <p class="public-note">This public edition contains research analysis, not personalized investment advice. It intentionally excludes private portfolio information, local source paths, licensed documents, and the private 14-step appendix. Valuation outputs are preliminary scenario estimates, not guarantees.</p>
-    </section>
-  </main>
-</body>
-</html>
+:root { --brand:#10069F; --brand-bg:#EFEEFF; --brand-dark:#0B0578; }</style></head><body>
+<header class="topbar"><a class="brand" href="#decision-snapshot"><span>ASML</span>ASML Holding N.V.</a><nav><a href="#decision-snapshot">Decision Snapshot</a><a href="#operating-kpi-baseline">Operating KPI Baseline</a><a href="#valuation-and-scenarios">Valuation and Scenarios</a><a href="#public-sources">Public Sources</a><a href="../">Library</a></nav></header>
+<main><div class="report-meta"><span>Public report</span><span>2026-07-17</span><span>Q2 2026 results dated 2026-07-15; official market-price record dated 2026-07-14</span></div><article><h1>ASML Public Equity Report</h1>
+<ul>
+<li><strong>Company:</strong> ASML Holding N.V.</li>
+<li><strong>Ticker:</strong> ASML</li>
+<li><strong>Exchange:</strong> Nasdaq</li>
+<li><strong>Report Date:</strong> 2026-07-17</li>
+<li><strong>Data Cutoff:</strong> Q2 2026 results dated 2026-07-15; official market-price record dated 2026-07-14</li>
+<li><strong>Current Price:</strong> USD 1,775.64 as of 2026-07-14</li>
+<li><strong>Evidence Confidence:</strong> MEDIUM</li>
+<li><strong>Research Stance:</strong> Buy framework / hold at current valuation</li>
+</ul>
+<h2 id="decision-snapshot">Decision Snapshot</h2>
+<p>ASML remains an exceptional semiconductor-equipment franchise, but the security offers little margin of safety at the dated USD 1,775.64 price. The locked FCFF framework produces USD 479.68 bear, USD 1,295.03 base, and USD 1,858.81 bull monitoring values, with a USD 1,232.14 probability-weighted result. The operating thesis remains supportive; the entry stance remains disciplined because the official price is above both base and probability-weighted value and close to the bull case. The operating baseline comes from <a href="https://www.asml.com/en/investors/financial-results/q2-2026">ASML's Q2 2026 financial results</a>, dated 2026-07-15, and the price reference comes from the <a href="https://api.nasdaq.com/api/quote/ASML/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10">Nasdaq ASML historical record</a>, dated 2026-07-14.</p>
+<h2 id="company-and-business-overview">Company and Business Overview</h2>
+<p>ASML supplies lithography systems, software, upgrades, and installed-base services used in advanced semiconductor production. Its moat comes from the integrated performance of optics, light sources, mechatronics, computational lithography, metrology, field service, and customer process knowledge. EUV and High-NA leadership make ASML a critical production bottleneck, while the installed base creates recurring service and field-option economics.</p>
+<p>The model is highly profitable but not capital-light. System delivery, customer acceptance, supplier capacity, inventory, and fab schedules can move revenue and cash between periods. Customer concentration and export controls therefore remain material even when end demand is strong.</p>
+<h2 id="thesis-and-variant-view">Thesis and Variant View</h2>
+<p>The thesis has three pillars: durable EUV leadership, expanding installed-base monetization, and rising lithography intensity from AI-related logic and memory investment. Q2 results supported all three: quarterly sales increased to EUR 9.33 billion, new-system shipments rose to 86, and installed-base management sales reached EUR 2.92 billion. <a href="https://www.asml.com/en/investors/financial-results/q2-2026">ASML's Q2 release</a> also raised the FY2026 sales floor to EUR 43 billion.</p>
+<p>The variant question is not whether AI demand exists; that is already visible. The question is whether ASML can convert demand into sustainable free cash flow quickly enough to justify the current price. The reverse DCF requires approximately 20.3% annual FCFF growth over five years, so the market already assumes a demanding execution path.</p>
+<h2 id="business-quality-and-moat">Business Quality and Moat</h2>
+<p>ASML's technology and service ecosystem supports a strong moat, pricing power, and high returns. Q2 gross margin improved to 54%, while the full-year guidance floor is 54% and the Q3 floor is 55%. The balance sheet remains sound, with a 1.33 current ratio and debt just below EUR 2.0 billion.</p>
+<p>The main quality watch is cash conversion. H1 operating cash flow was negative EUR 482.5 million while inventory reached EUR 11.74 billion. This may reflect working-capital and customer-acceptance timing, but persistent divergence between profit and cash would weaken the underwriting.</p>
+<h2 id="operating-kpi-baseline">Operating KPI Baseline</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>KPI</th>
+<th style="text-align: right;">Current baseline</th>
+<th style="text-align: right;">Decision threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q2 revenue</td>
+<td style="text-align: right;">EUR 9.33B</td>
+<td style="text-align: right;">Confirm at or above EUR 11B in Q3</td>
+</tr>
+<tr>
+<td>New lithography systems</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">Maintain delivery momentum</td>
+</tr>
+<tr>
+<td>Q2 gross margin</td>
+<td style="text-align: right;">54%</td>
+<td style="text-align: right;">Watch below 54%; confirm at or above 55%</td>
+</tr>
+<tr>
+<td>Installed-base sales</td>
+<td style="text-align: right;">EUR 2.92B</td>
+<td style="text-align: right;">Sustain sequential growth</td>
+</tr>
+<tr>
+<td>FY2026 revenue guidance floor</td>
+<td style="text-align: right;">EUR 43B</td>
+<td style="text-align: right;">Warning below EUR 43B</td>
+</tr>
+<tr>
+<td>H1 operating cash flow</td>
+<td style="text-align: right;">EUR (0.48)B</td>
+<td style="text-align: right;">Require H2 conversion above zero</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td style="text-align: right;">EUR 11.74B</td>
+<td style="text-align: right;">Review if it continues to outgrow delivery</td>
+</tr>
+<tr>
+<td>Current ratio</td>
+<td style="text-align: right;">1.33x</td>
+<td style="text-align: right;">Thesis break below 1.0x</td>
+</tr>
+</tbody>
+</table></div>
+<p>All operating figures use <a href="https://www.asml.com/en/investors/financial-results/q2-2026">ASML's Q2 2026 public results</a>, dated 2026-07-15.</p>
+<h2 id="growth-drivers">Growth Drivers</h2>
+<p>The principal drivers are AI-related leading-edge capacity, EUV layer growth, High-NA qualification, installed-base service expansion, and planned low-NA EUV and DUV immersion capacity additions for 2027–2028. Near-term proof requires Q3 sales at or above EUR 11 billion, gross margin at or above 55%, and visible H2 working-capital normalization.</p>
+<h2 id="valuation-and-scenarios">Valuation and Scenarios</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th style="text-align: right;">Monitoring value</th>
+<th style="text-align: right;">Read-through versus USD 1,775.64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bear</td>
+<td style="text-align: right;">USD 479.68</td>
+<td style="text-align: right;">Significant duration and execution downside</td>
+</tr>
+<tr>
+<td>Base</td>
+<td style="text-align: right;">USD 1,295.03</td>
+<td style="text-align: right;">Current price remains materially above base value</td>
+</tr>
+<tr>
+<td>Bull</td>
+<td style="text-align: right;">USD 1,858.81</td>
+<td style="text-align: right;">Limited upside despite strong execution assumptions</td>
+</tr>
+<tr>
+<td>Probability weighted</td>
+<td style="text-align: right;">USD 1,232.14</td>
+<td style="text-align: right;">Insufficient entry margin</td>
+</tr>
+</tbody>
+</table></div>
+<p>The valuation uses a preliminary FCFF method. It is highly sensitive to cash-flow normalization, discount rate, terminal growth, and currency translation. The reverse-DCF implication is approximately 20.3% annual FCFF growth for five years. These are monitoring values, not price forecasts. The price comparison uses the <a href="https://api.nasdaq.com/api/quote/ASML/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10">official Nasdaq record</a>, dated 2026-07-14.</p>
+<h2 id="risks-catalysts-and-falsifiers">Risks, Catalysts, and Falsifiers</h2>
+<p>Key risks are structural export restrictions, customer-capex delays, supplier or capacity constraints, High-NA qualification setbacks, working-capital absorption, and valuation compression. Catalysts are delivery against the raised FY2026 range, Q3 margin execution, H2 cash conversion, and successful EUV capacity expansion.</p>
+<p>The thesis requires re-underwriting if FY2026 guidance falls below EUR 43 billion, gross margin falls below 53% without a temporary mix explanation, operating cash flow fails to recover in H2, export rules structurally reduce addressable demand, or ASML loses EUV/High-NA roadmap leadership.</p>
+<h2 id="monitoring-plan">Monitoring Plan</h2>
+<p>Review quarterly revenue, system shipments, installed-base sales, gross margin, operating cash flow, inventory, liquidity, and guidance. Review immediately on material export-control changes, customer qualification delays, or a High-NA execution setback. A lower price is an entry signal only while the operating thesis remains intact.</p>
+<h2 id="public-sources">Public Sources</h2>
+<ul>
+<li><a href="https://www.asml.com/en/investors/financial-results/q2-2026">ASML Q2 2026 financial results</a>, published 2026-07-15.</li>
+<li><a href="https://api.nasdaq.com/api/quote/ASML/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10">Nasdaq ASML historical price record</a>, market record dated 2026-07-14.</li>
+</ul></article></main>
+<footer>Public research only. Portfolio context, private files, and licensed-source excerpts are excluded.</footer></body></html>
