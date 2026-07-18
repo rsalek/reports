@@ -90,6 +90,19 @@
       "ticker": "FTAI",
       "url": "kpi/ftai-latest.html",
       "valuation": "Valuation: REVENUE-TO-FCFF"
+    },
+    {
+      "baseline": "Baseline through 2026-07-18",
+      "company": "GitLab Inc. KPI Monitor",
+      "date": "2026-07-18",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/GTLB_Full_Report.html",
+      "stance": "HOLD / WATCH FOR A BETTER ENTRY",
+      "summary": "Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.",
+      "ticker": "GTLB",
+      "url": "kpi/gtlb-latest.html",
+      "valuation": "Valuation: FCFF"
     }
   ],
   "reports": [
@@ -202,6 +215,16 @@
       "summary": "FTAI is executing well, but the security offers insufficient margin of safety at USD 203.70. Q1 2026 Aerospace Products revenue increased 104% to USD 743.8 million, adjusted EBITDA increased 70% to USD 222.6 million, and module production reached 270. Those results support the operating thesis. The valuation thesis is less attractive: the locked revenue-to-FCFF framework produces USD 32.97 bear, USD 187.53 base...",
       "ticker": "FTAI",
       "url": "docs/FTAI_Full_Report.html"
+    },
+    {
+      "company": "GitLab Inc.",
+      "date": "2026-07-18",
+      "format_status": "current",
+      "phase": "Phase 3",
+      "stance": "HOLD / WATCH FOR A BETTER ENTRY",
+      "summary": "GitLab is a high-quality recurring software business with strong enterprise expansion, ample liquidity, no period-aligned debt, and positive free cash flow. The security is less compelling than the company: at USD 32.72, the shares trade above the USD 28.05 base-case FCFF value and USD 26.82 probability-weighted value. The public research stance is HOLD / WATCH, with no new-buy signal at the current price. The...",
+      "ticker": "GTLB",
+      "url": "docs/GTLB_Full_Report.html"
     }
   ],
   "wiki_notes": 21

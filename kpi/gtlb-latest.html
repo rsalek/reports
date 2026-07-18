@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Public KPI dashboard for GitLab Inc.">
+  <title>GTLB KPI Dashboard</title>
+  <style>:root {
+  --background:#f5f5f4;
+  --paper:#ffffff;
+  --ink:#1c1917;
+  --muted:#66635f;
+  --line:#d8d5d0;
+  --soft:#efede9;
+  --accent:#3b725b;
+  --accent-dark:#28513f;
+  --accent-soft:#e4efe9;
+  --warning:#8a640f;
+  --warning-soft:#f7efd9;
+  --negative:#9d3e37;
+  --negative-soft:#f7e9e7;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--background);
+  color:var(--ink);
+  font-family:"Avenir Next",Avenir,"Helvetica Neue",sans-serif;
+  font-size:14px;
+  line-height:1.5;
+}
+button { font:inherit; }
+a { color:var(--accent-dark); }
+a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.topbar {
+  position:sticky;
+  top:0;
+  z-index:4;
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:10px 28px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+.brand { display:flex; align-items:center; gap:12px; color:var(--ink); font-weight:650; text-decoration:none; }
+.ticker { padding:5px 8px; border-radius:5px; background:var(--accent-dark); color:#fff; font-size:12px; }
+nav { display:flex; flex-wrap:wrap; gap:14px; font-size:12px; }
+nav a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
+nav a:hover,nav a:focus-visible { color:var(--accent-dark); border-color:var(--accent); }
+.report-link { font-weight:650; }
+main { width:min(1180px,calc(100% - 56px)); margin:0 auto; }
+section { padding:26px 0; border-bottom:1px solid var(--line); scroll-margin-top:74px; }
+h1,h2,h3,p { margin-top:0; }
+h1 { margin-bottom:10px; font-size:28px; line-height:1.2; }
+h2 { margin-bottom:14px; font-size:18px; }
+h3 { margin-bottom:8px; font-size:14px; }
+.topbar-actions { display:flex; align-items:center; gap:10px; }
+.meta { color:var(--muted); font-size:12px; text-align:right; }
+.intro { display:grid; grid-template-columns:minmax(0,1fr) 390px; gap:36px; padding-top:34px; }
+.verdict { max-width:760px; margin-top:12px; color:var(--ink); font-size:16px; }
+.decision { border-left:3px solid var(--accent); padding:4px 0 4px 16px; }
+.decision dl { display:grid; grid-template-columns:98px 1fr; gap:8px 12px; margin:0; }
+.decision dt { color:var(--muted); }
+.decision dd { margin:0; font-weight:600; }
+.scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); background:var(--paper); }
+.scenario { padding:18px; border-right:1px solid var(--line); }
+.scenario:last-child { border-right:0; }
+.scenario.current { border-top:3px solid var(--accent); padding-top:15px; }
+.scenario .case { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:10px; }
+.scenario .case strong { font-size:17px; }
+.scenario .price { font-size:22px; font-weight:680; white-space:nowrap; }
+.scenario dl { display:grid; grid-template-columns:94px 1fr; gap:7px 10px; margin:0; }
+.scenario dt { color:var(--muted); }
+.scenario dd { margin:0; font-weight:500; }
+.scenario-read { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-top:12px; color:var(--muted); }
+.scenario-read strong { color:var(--ink); }
+.posture-list { display:grid; grid-template-columns:1fr 1fr; gap:0; margin:0; border-top:1px solid var(--line); }
+.posture-item { padding:10px 12px 10px 0; border-bottom:1px solid var(--line); }
+.posture-item dt { color:var(--muted); font-size:12px; }
+.posture-item dd { margin:3px 0 0; font-weight:650; overflow-wrap:anywhere; }
+.metrics { display:grid; grid-template-columns:repeat(5,1fr); border-bottom:1px solid var(--line); }
+.metric { min-width:0; padding:20px 18px; border-right:1px solid var(--line); }
+.metric:first-child { padding-left:0; }
+.metric:last-child { border-right:0; }
+.metric .label { margin-bottom:6px; color:var(--muted); font-size:12px; }
+.metric .value { font-size:22px; font-weight:680; white-space:nowrap; }
+.metric .detail { margin-top:3px; color:var(--muted); font-size:12px; }
+.toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.toolbar h2 { margin:0; }
+.filters { display:flex; flex-wrap:wrap; gap:6px; }
+.filter { min-height:38px; border:1px solid var(--line); border-radius:6px; padding:7px 11px; background:var(--paper); color:var(--muted); font-size:12px; cursor:pointer; }
+.filter.active { border-color:var(--accent-dark); background:var(--accent-dark); color:#fff; }
+.filter:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.table-scroll { overflow-x:auto; border:1px solid var(--line); background:var(--paper); }
+.table-scroll:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+table { width:100%; min-width:860px; border-collapse:collapse; }
+th { padding:10px 12px; border-bottom:1px solid var(--line); background:var(--soft); color:var(--muted); font-size:11px; font-weight:650; text-align:left; }
+td { padding:12px; border-bottom:1px solid var(--line); vertical-align:top; }
+tbody tr:last-child td { border-bottom:0; }
+tbody tr:hover { background:#f8faf7; }
+tbody tr[hidden] { display:none !important; }
+.table-detail,.source-date { display:block; margin-top:3px; color:var(--muted); font-size:11px; }
+.rank { width:48px; color:var(--muted); }
+.name { font-weight:650; }
+.status-text { display:inline-block; padding-left:8px; border-left:3px solid var(--muted); font-weight:650; }
+.status-positive { border-color:var(--accent); color:var(--accent-dark); }
+.status-warning { border-color:var(--warning); color:var(--warning); }
+.status-negative { border-color:var(--negative); color:var(--negative); }
+.status-neutral { color:var(--muted); }
+.empty-state { color:var(--muted); }
+.quality { max-width:920px; margin-top:12px; font-size:14px; line-height:1.58; }
+.quality b { color:var(--accent-dark); }
+.signal-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 30px; }
+.signal-group { padding:14px 0; border-top:1px solid var(--line); }
+.signal-group ul,.issue-list { margin:0; padding-left:20px; }
+.signal-group li + li,.issue-list li + li { margin-top:9px; }
+.signal-group li span,.issue-list li span { display:block; margin-top:2px; color:var(--muted); }
+.data-list { display:grid; grid-template-columns:repeat(3,1fr); margin:0; border-top:1px solid var(--line); }
+.data-list div { padding:12px 16px 12px 0; border-bottom:1px solid var(--line); }
+.data-list dt { color:var(--muted); font-size:12px; }
+.data-list dd { margin:3px 0 0; font-weight:650; overflow-wrap:anywhere; }
+.issue-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.issue-grid > div { border-top:2px solid var(--ink); padding-top:12px; }
+.source-list { columns:2; column-gap:36px; margin:0; padding-left:22px; }
+.source-list li { break-inside:avoid; padding:8px 0; border-bottom:1px solid var(--line); }
+.source-list li span { display:block; color:var(--muted); font-size:12px; }
+footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px; color:var(--muted); font-size:12px; }
+@media (max-width:800px) {
+  .intro { grid-template-columns:1fr; gap:20px; }
+  .scenario-grid { grid-template-columns:1fr; }
+  .scenario { border-right:0; border-bottom:1px solid var(--line); }
+  .scenario:last-child { border-bottom:0; }
+  .metrics { grid-template-columns:repeat(2,1fr); }
+  .metric { border-bottom:1px solid var(--line); }
+  .signal-grid,.issue-grid { grid-template-columns:1fr; }
+  .data-list { grid-template-columns:1fr 1fr; }
+  .source-list { columns:1; }
+}
+@media (max-width:560px) {
+  .topbar { align-items:flex-start; padding:10px 16px; }
+  .brand > span:last-child { display:none; }
+  .topbar .meta { display:none; }
+  .topbar-actions { flex-wrap:wrap; justify-content:flex-end; gap:8px; }
+  main,footer { width:calc(100% - 32px); }
+  section { padding:22px 0; }
+  h1 { font-size:23px; }
+  .metrics { grid-template-columns:1fr; }
+  .metric,.metric:first-child { padding:14px 0; border-right:0; }
+  .toolbar { align-items:flex-start; flex-direction:column; }
+  .scenario-read { align-items:flex-start; flex-direction:column; gap:4px; }
+  .table-scroll { overflow:visible; border:0; background:transparent; }
+  table,thead,tbody,tr,th,td { display:block; min-width:0; }
+  thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+  tbody { display:grid; gap:10px; }
+  tbody tr { border:1px solid var(--line); background:var(--paper); padding:8px 12px; }
+  td { display:grid; grid-template-columns:105px minmax(0,1fr); gap:10px; padding:7px 0; border-bottom:1px solid var(--line); }
+  td::before { content:attr(data-label); color:var(--muted); font-size:11px; font-weight:650; }
+  td:last-child { border-bottom:0; }
+  .rank { width:auto; }
+  .posture-list,.data-list { grid-template-columns:1fr; }
+}
+@media print {
+  body { background:#fff; }
+  .topbar { position:static; }
+  nav { display:none; }
+  main,footer { width:100%; }
+  .table-scroll { overflow:visible; }
+  table { min-width:0; font-size:10px; }
+  section { break-inside:avoid; }
+}
+:root { --accent:#7759C2; --accent-dark:#2F2A6B; --accent-soft:#F3EEFC; }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview"><span class="ticker">GTLB</span><span>GitLab Inc. KPI Monitor</span></a>
+    <div class="topbar-actions"><a class="report-link" href="../">Library</a><div class="meta">Public baseline through 2026-07-18</div></div>
+  </header>
+  <main>
+    <section class="intro" id="overview">
+      <div>
+        <h1>High-gross-margin DevSecOps platform sustaining low-twenties growth with positive free cash flow</h1>
+        <p class="verdict">Execution remains solid, but the market price embeds a stronger cash-flow path than the base valuation case</p>
+      </div>
+      <div class="decision"><dl>
+        <dt>Posture</dt><dd>Execution remains solid, but the market price embeds a stronger cash-flow path than the base valuation case</dd>
+        <dt>Business phase</dt><dd>3</dd>
+        <dt>Next proof</dt><dd>Growth durability, Large-customer momentum, Cash and profitability conversion</dd>
+        <dt>Valuation</dt><dd>Preliminary Public Dcf · FCFF</dd>
+      </dl></div>
+    </section>
+    <section id="scenarios">
+      <h2>12-month bear / base / bull</h2>
+      <div class="scenario-grid"><div class="scenario"><div class="case"><strong>Bear</strong><span class="price">$16.04</span></div><dl>
+          <dt>Vs current</dt><dd>-51.0%</dd><dt>Weight</dt><dd>35%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Downside case; operating disappointment or balance-sheet pressure requires a fresh thesis review.</dd>
+        </dl></div><div class="scenario current"><div class="case"><strong>Base</strong><span class="price">$28.05</span></div><dl>
+          <dt>Vs current</dt><dd>-14.3%</dd><dt>Weight</dt><dd>45%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Central underwrite; execution is adequate but the current price leaves little margin of safety.</dd>
+        </dl></div><div class="scenario"><div class="case"><strong>Bull</strong><span class="price">$42.91</span></div><dl>
+          <dt>Vs current</dt><dd>+31.1%</dd><dt>Weight</dt><dd>20%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Upside case; requires sustained execution and favorable long-duration assumptions.</dd>
+        </dl></div></div>
+      <div class="scenario-read"><span><strong>Current indicator:</strong> $32.72. Probability-weighted value: <strong>$26.82</strong>.</span><span><a href="https://api.nasdaq.com/api/quote/GTLB/historical?assetclass=stocks&amp;fromdate=2026-07-16&amp;todate=2026-07-18&amp;limit=10" rel="noreferrer">Nasdaq GTLB historical quote</a> <span class="source-date">(2026-07-17)</span></span></div>
+      <p class="quality"><b>Scenario mechanics:</b> These are monitoring values from the validated FCFF scenario model, not price forecasts. They should be refreshed when the operating evidence, discount rate, terminal growth, net debt, or share count changes.</p>
+    </section>
+    <section id="valuation">
+      <h2>Valuation method and decision gate</h2>
+      <div class="scenario-grid">
+        <div class="scenario"><div class="case"><strong>DCF method</strong><span class="price">FCFF</span></div><dl>
+          <dt>Status</dt><dd>Preliminary Public Dcf</dd><dt>Scenario range</dt><dd>$16.04 to $42.91</dd><dt>Caveat</dt><dd>The locked FCFF cases span $16.04 to $42.91 per share. The base case is $28.05, and the reverse DCF requires approximately 13.5% long-run FCFF growth, making terminal execution material.</dd>
+        </dl></div>
+        <div class="scenario current"><div class="case"><strong>Reverse DCF</strong><span class="price">13.49%</span></div><dl>
+          <dt>Driver</dt><dd>Implied FCFF Growth</dd><dt>Role</dt><dd>Market-expectation check</dd><dt>Current price</dt><dd>$32.72</dd>
+        </dl></div>
+        <div class="scenario"><div class="case"><strong>Decision gate</strong><span class="price">$26.82</span></div><dl>
+          <dt>Reference</dt><dd>Probability weighted</dd><dt>Base value</dt><dd>$28.05</dd><dt>Price vs base</dt><dd>-14.3%</dd>
+        </dl></div>
+      </div>
+      <div class="scenario-read"><span><strong>Conclusion:</strong> At $32.72, GTLB traded above the $28.05 base case and $26.82 probability-weighted value. A more attractive setup requires either a lower price or evidence that retention, enterprise expansion and GAAP profitability are moving toward the bull path.</span><span><a href="https://api.nasdaq.com/api/quote/GTLB/historical?assetclass=stocks&amp;fromdate=2026-07-16&amp;todate=2026-07-18&amp;limit=10" rel="noreferrer">Nasdaq GTLB historical quote</a> <span class="source-date">(2026-07-17)</span></span></div>
+    </section>
+    <div class="metrics"><div class="metric"><div class="label">Revenue growth</div><div class="value">23%</div><div class="detail">Q1 FY2027 · <a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span></div></div><div class="metric"><div class="label">Dollar-based net retention</div><div class="value">117%</div><div class="detail">2026-04-30 · <a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span></div></div><div class="metric"><div class="label">Customers above $100K ARR</div><div class="value">1519</div><div class="detail">2026-04-30 · <a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span></div></div><div class="metric"><div class="label">Revenue</div><div class="value">$955.2M</div><div class="detail">FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span></div></div><div class="metric"><div class="label">Gross margin</div><div class="value">87.4%</div><div class="detail">FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span></div></div></div>
+    <section id="scorecard">
+  <div class="toolbar"><h2>Ranked KPI scorecard</h2><div class="filters" aria-label="KPI groups">
+    <button class="filter active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter" type="button" data-filter="growth" aria-pressed="false">Growth</button><button class="filter" type="button" data-filter="profit" aria-pressed="false">Profitability</button><button class="filter" type="button" data-filter="capital" aria-pressed="false">Capital</button>
+  </div></div>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Ranked KPI scorecard">
+    <table>
+      <thead><tr><th>#</th><th>KPI</th><th>Baseline</th><th>Next threshold</th><th>Signal</th><th>Investor read</th><th>Source</th></tr></thead>
+      <tbody><tr data-group="growth">
+  <td class="rank" data-label="#">1</td>
+  <td class="name" data-label="KPI">Revenue growth<span class="table-detail">Q1 FY2027</span></td>
+  <td data-label="Baseline">23%</td>
+  <td data-label="Next threshold">Stay at or above 20%</td>
+  <td data-label="Signal"><span class="status-text status-positive">Above floor</span></td>
+  <td data-label="Investor read">The latest result remains on the safe side of the warning threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">2</td>
+  <td class="name" data-label="KPI">Dollar-based net retention<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">117%</td>
+  <td data-label="Next threshold">Stay at or above 115%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
+  <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">3</td>
+  <td class="name" data-label="KPI">Customers above $100K ARR<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">1519</td>
+  <td data-label="Next threshold">At least 1600</td>
+  <td data-label="Signal"><span class="status-text status-warning">Below confirm</span></td>
+  <td data-label="Investor read">The latest result has not yet cleared the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">4</td>
+  <td class="name" data-label="KPI">Revenue<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">$955.2M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">5</td>
+  <td class="name" data-label="KPI">Gross margin<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">87.4%</td>
+  <td data-label="Next threshold">Stay at or above 84%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
+  <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">6</td>
+  <td class="name" data-label="KPI">Operating margin<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">-7.38%</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">7</td>
+  <td class="name" data-label="KPI">Free cash flow<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">$222M</td>
+  <td data-label="Next threshold">Stay at or above $180M</td>
+  <td data-label="Signal"><span class="status-text status-positive">Above floor</span></td>
+  <td data-label="Investor read">The latest result remains on the safe side of the warning threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">8</td>
+  <td class="name" data-label="KPI">Operating cash flow<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">$232.9M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">9</td>
+  <td class="name" data-label="KPI">Cash and equivalents<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">$335.4M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">10</td>
+  <td class="name" data-label="KPI">Current ratio<span class="table-detail">2026-04-30</span></td>
+  <td data-label="Baseline">2.55x</td>
+  <td data-label="Next threshold">Stay at or above 1.5x</td>
+  <td data-label="Signal"><span class="status-text status-positive">Above floor</span></td>
+  <td data-label="Investor read">The latest result remains on the safe side of the warning threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">11</td>
+  <td class="name" data-label="KPI">Diluted share count<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">166.8M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span></td>
+</tr></tbody>
+    </table>
+  </div>
+  <p class="quality"><b>How to read the scorecard:</b> Signals compare the latest baseline with the stated decision threshold. “Monitor” means the public handoff has one valid baseline but no compatible prior observation; it is not a positive or negative call.</p>
+</section>
+    <section id="signals">
+  <h2>Thesis signals</h2>
+  <div class="signal-grid"><div class="signal-group"><h3>Thesis pillars</h3><ul><li><strong>Durable platform growth</strong><span>Low-twenties revenue growth, 117% retention and continued expansion of the large-customer cohort support the platform thesis.</span></li><li><strong>High-margin cash generation</strong><span>An 87.4% FY2026 gross margin and $222.0 million of free cash flow provide capacity to fund product investment.</span></li><li><strong>GAAP profitability conversion</strong><span>Cash generation is established, but the FY2026 GAAP operating margin remained negative and requires continued monitoring.</span></li></ul></div><div class="signal-group"><h3>Catalysts</h3><ul><li><strong>Enterprise expansion</strong><span>Continued high-teens growth in customers above $100,000 ARR would improve growth durability and operating leverage.</span></li><li><strong>GAAP margin inflection</strong><span>Sustained revenue growth with tighter operating expense growth could convert the high gross margin into positive GAAP operating income.</span></li></ul></div><div class="signal-group"><h3>Risks</h3><ul><li><strong>Retention moderation</strong><span>Dollar-based net retention of 117% remains healthy but is below earlier levels, increasing dependence on new-customer and seat growth.</span></li><li><strong>Valuation execution risk</strong><span>The $32.72 market price exceeds the locked base intrinsic value and probability-weighted value, leaving limited room for execution misses.</span></li><li><strong>Equity dilution</strong><span>Share-based compensation and changes in diluted share count can offset gains in enterprise value on a per-share basis.</span></li></ul></div><div class="signal-group"><h3>Monitoring triggers</h3><ul><li><strong>Growth durability</strong><span>Escalate if revenue growth drops below 20% or net retention falls below 115%.</span></li><li><strong>Large-customer momentum</strong><span>Track whether the $100,000-plus ARR cohort reaches 1,600 while sustaining double-digit year-over-year growth.</span></li><li><strong>Cash and profitability conversion</strong><span>Monitor free cash flow, GAAP operating margin, liquidity and diluted shares together for evidence of durable per-share economics.</span></li></ul></div></div>
+</section>
+    <section id="gaps">
+  <h2>Evidence limits</h2>
+  <div class="issue-grid"><div><h3>Conflicts</h3><ul class="issue-list"><li>None reported.</li></ul></div><div><h3>Gaps</h3><ul class="issue-list"><li>None reported.</li></ul></div></div>
+</section>
+    <section id="sources">
+  <h2>Public sources</h2>
+  <ol class="source-list"><li><a href="https://api.nasdaq.com/api/quote/GTLB/historical?assetclass=stocks&amp;fromdate=2026-07-16&amp;todate=2026-07-18&amp;limit=10" rel="noreferrer">Nasdaq GTLB historical quote</a> <span class="source-date">(2026-07-17)</span><span></span></li><li><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039805/gtlb-20260601.htm" rel="noreferrer">GitLab Q1 FY2027 results</a> <span class="source-date">(2026-06-02)</span><span></span></li><li><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026039793/gtlb-20260430.htm" rel="noreferrer">GitLab Q1 FY2027 Form 10-Q</a> <span class="source-date">(2026-06-02)</span><span></span></li><li><a href="https://www.sec.gov/Archives/edgar/data/1653482/000162828026018731/gtlb-20260131.htm" rel="noreferrer">GitLab FY2026 Form 10-K</a> <span class="source-date">(2026-03-17)</span><span></span></li></ol>
+</section>
+  </main>
+  <footer>Generated from the validated public KPI handoff. No private portfolio data is included.</footer>
+  <script>
+    document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(item => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
+      const filter = button.dataset.filter;
+      document.querySelectorAll('tbody tr[data-group]').forEach(row => {
+        row.hidden = filter !== 'all' && row.dataset.group !== filter;
+      });
+    }));
+  </script>
+</body>
+</html>
