@@ -116,6 +116,17 @@
       "ticker": "CBRS",
       "url": "kpi/cbrs-latest.html",
       "valuation": "Valuation: unavailable"
+    },
+    {
+      "baseline": "Baseline through 2026-03-31",
+      "company": "Grab Holdings Limited KPI Monitor",
+      "date": "2026-03-31",
+      "format_status": "current",
+      "stance": "WATCH / MONITOR",
+      "summary": "Tracks On-Demand scale, adjusted operating leverage, cash conversion, Financial Services lending exposure, and the proof required for a durable self-funding transition.",
+      "ticker": "GRAB",
+      "url": "kpi/grab-latest.html",
+      "valuation": "Valuation: unavailable"
     }
   ],
   "reports": [
