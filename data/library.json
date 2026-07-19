@@ -103,6 +103,19 @@
       "ticker": "GTLB",
       "url": "kpi/gtlb-latest.html",
       "valuation": "Valuation: FCFF"
+    },
+    {
+      "baseline": "Baseline through 2026-06-23",
+      "company": "Cerebras Systems Inc. KPI Monitor",
+      "date": "2026-06-23",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/CBRS_Full_Report.html",
+      "stance": "WATCH / WAIT FOR OPERATING PROOF",
+      "summary": "Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.",
+      "ticker": "CBRS",
+      "url": "kpi/cbrs-latest.html",
+      "valuation": "Valuation: unavailable"
     }
   ],
   "reports": [
@@ -225,6 +238,16 @@
       "summary": "GitLab is a high-quality recurring software business with strong enterprise expansion, ample liquidity, no period-aligned debt, and positive free cash flow. The security is less compelling than the company: at USD 32.72, the shares trade above the USD 28.05 base-case FCFF value and USD 26.82 probability-weighted value. The public research stance is HOLD / WATCH, with no new-buy signal at the current price. The...",
       "ticker": "GTLB",
       "url": "docs/GTLB_Full_Report.html"
+    },
+    {
+      "company": "Cerebras Systems Inc.",
+      "date": "2026-07-19",
+      "format_status": "current",
+      "phase": "Phase 2",
+      "stance": "WATCH / WAIT FOR OPERATING PROOF",
+      "summary": "Cerebras is an unusually fast-growing AI-infrastructure company with differentiated wafer-scale compute and substantial capacity investment. The public evidence supports demand and product relevance, but it does not yet establish durable per-share economics. Q1 FY2026 revenue was USD 193.4 million and GAAP operating margin was negative 7.8%; free cash flow was negative USD 119.6 million as capacity investment ran...",
+      "ticker": "CBRS",
+      "url": "docs/CBRS_Full_Report.html"
     }
   ],
   "wiki_notes": 21
