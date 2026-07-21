@@ -24,6 +24,9 @@ const state = {
   transform: { x: 0, y: 0, scale: 1 },
   width: 900,
   height: 650,
+  animationFrame: null,
+  simulationAlpha: 0,
+  draggingNodeId: null,
 };
 
 const els = {
@@ -142,6 +145,7 @@ function renderSearch() {
     state.searchMatches.clear();
     els.searchResults.replaceChildren();
     updateGraphState();
+    reheatSimulation(.45);
     return;
   }
 
@@ -156,6 +160,7 @@ function renderSearch() {
       `).join("")
     : '<p class="status-text">No matching research notes.</p>';
   updateGraphState();
+  reheatSimulation(.45);
 }
 
 function buildIndexes() {
@@ -257,54 +262,96 @@ function initializePositions(nodes) {
   hubPages.forEach((node) => { node.vx = 0; node.vy = 0; });
 }
 
-function simulateLayout(nodes, edges) {
+function visibleSimulationNodes() {
+  return state.graphNodes.filter((node) => state.visibleGroups.has(node.group));
+}
+
+function stopSimulation() {
+  if (state.animationFrame) cancelAnimationFrame(state.animationFrame);
+  state.animationFrame = null;
+  state.simulationAlpha = 0;
+}
+
+function applySimulationStep(alpha) {
+  const nodes = visibleSimulationNodes();
   const nodeMap = new Map(nodes.map((node) => [node.id, node]));
-  for (let step = 0; step < 210; step += 1) {
-    const alpha = 1 - step / 210;
-    for (let i = 0; i < nodes.length; i += 1) {
-      for (let j = i + 1; j < nodes.length; j += 1) {
-        const a = nodes[i];
-        const b = nodes[j];
-        let dx = b.x - a.x;
-        let dy = b.y - a.y;
-        const distance2 = Math.max(dx * dx + dy * dy, 50);
-        const distance = Math.sqrt(distance2);
-        const force = Math.min(2.2, 650 / distance2) * alpha;
-        dx /= distance;
-        dy /= distance;
-        a.vx -= dx * force;
-        a.vy -= dy * force;
-        b.vx += dx * force;
-        b.vy += dy * force;
-      }
+  const selectedNeighbors = new Set([state.selectedId]);
+  (state.adjacency.get(state.selectedId) || []).forEach(({ neighbor }) => selectedNeighbors.add(neighbor));
+
+  for (let i = 0; i < nodes.length; i += 1) {
+    for (let j = i + 1; j < nodes.length; j += 1) {
+      const a = nodes[i];
+      const b = nodes[j];
+      let dx = b.x - a.x;
+      let dy = b.y - a.y;
+      const distance2 = Math.max(dx * dx + dy * dy, 70);
+      const distance = Math.sqrt(distance2);
+      const force = Math.min(2.6, 880 / distance2) * alpha;
+      dx /= distance;
+      dy /= distance;
+      a.vx -= dx * force;
+      a.vy -= dy * force;
+      b.vx += dx * force;
+      b.vy += dy * force;
     }
-
-    edges.forEach((edge) => {
-      const source = nodeMap.get(edge.source);
-      const target = nodeMap.get(edge.target);
-      if (!source || !target) return;
-      const dx = target.x - source.x;
-      const dy = target.y - source.y;
-      const distance = Math.max(1, Math.sqrt(dx * dx + dy * dy));
-      const desired = source.ticker && source.ticker === target.ticker ? 68 : 118;
-      const force = (distance - desired) * .0016 * alpha;
-      source.vx += (dx / distance) * force;
-      source.vy += (dy / distance) * force;
-      target.vx -= (dx / distance) * force;
-      target.vy -= (dy / distance) * force;
-    });
-
-    nodes.forEach((node) => {
-      node.vx += (node.anchorX - node.x) * .0045 * alpha;
-      node.vy += (node.anchorY - node.y) * .0045 * alpha;
-      node.vx *= .82;
-      node.vy *= .82;
-      node.x += node.vx;
-      node.y += node.vy;
-      node.x = Math.max(44, Math.min(state.width - 44, node.x));
-      node.y = Math.max(44, Math.min(state.height - 44, node.y));
-    });
   }
+
+  state.graphEdges.forEach((edge) => {
+    const source = nodeMap.get(edge.source);
+    const target = nodeMap.get(edge.target);
+    if (!source || !target) return;
+    const dx = target.x - source.x;
+    const dy = target.y - source.y;
+    const distance = Math.max(1, Math.sqrt(dx * dx + dy * dy));
+    const sameTicker = source.ticker && source.ticker === target.ticker;
+    const desired = sameTicker ? 78 : 132;
+    const force = (distance - desired) * .0022 * alpha;
+    source.vx += (dx / distance) * force;
+    source.vy += (dy / distance) * force;
+    target.vx -= (dx / distance) * force;
+    target.vy -= (dy / distance) * force;
+  });
+
+  nodes.forEach((node) => {
+    if (node.id === state.draggingNodeId) return;
+    const inFocus = state.selectedId && selectedNeighbors.has(node.id);
+    const anchorWeight = inFocus ? .002 : .0045;
+    node.vx += (node.anchorX - node.x) * anchorWeight * alpha;
+    node.vy += (node.anchorY - node.y) * anchorWeight * alpha;
+    if (inFocus) {
+      node.vx += (state.width / 2 - node.x) * .00055 * alpha;
+      node.vy += (state.height / 2 - node.y) * .00055 * alpha;
+    }
+    node.vx *= .84;
+    node.vy *= .84;
+    node.x += node.vx;
+    node.y += node.vy;
+    node.x = Math.max(44, Math.min(state.width - 44, node.x));
+    node.y = Math.max(44, Math.min(state.height - 44, node.y));
+  });
+}
+
+function runSimulation() {
+  if (!state.simulationAlpha) return;
+  applySimulationStep(state.simulationAlpha);
+  renderPositions();
+  state.simulationAlpha *= .984;
+  if (state.simulationAlpha > .018) {
+    state.animationFrame = requestAnimationFrame(runSimulation);
+  } else {
+    state.animationFrame = null;
+    state.simulationAlpha = 0;
+  }
+}
+
+function reheatSimulation(alpha = .7) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    for (let step = 0; step < 24; step += 1) applySimulationStep(.35);
+    renderPositions();
+    return;
+  }
+  state.simulationAlpha = Math.max(state.simulationAlpha, alpha);
+  if (!state.animationFrame) state.animationFrame = requestAnimationFrame(runSimulation);
 }
 
 function nodeRadius(node) {
@@ -315,11 +362,11 @@ function nodeRadius(node) {
 }
 
 function renderGraph() {
+  stopSimulation();
   graphSize();
   state.graphNodes = state.pages.map((page) => ({ ...page, vx: 0, vy: 0 }));
   state.graphEdges = state.graph.edges.map((edge) => ({ ...edge }));
   initializePositions(state.graphNodes);
-  simulateLayout(state.graphNodes, state.graphEdges);
 
   els.edgeLayer.replaceChildren();
   els.nodeLayer.replaceChildren();
@@ -383,6 +430,7 @@ function renderGraph() {
   renderPositions();
   updateGraphState();
   applyTransform();
+  reheatSimulation(1);
 }
 
 function renderPositions() {
@@ -502,6 +550,7 @@ function selectPage(id, updateHash = true, center = false) {
   addToTrail(id);
   renderSearch();
   updateGraphState();
+  reheatSimulation(.45);
   if (center) centerNode(id);
   if (updateHash && location.hash !== routeFor(id)) history.replaceState(null, "", routeFor(id));
 }
@@ -573,6 +622,7 @@ function tracePath() {
     selectPage(to, true, true);
   }
   updateGraphState();
+  reheatSimulation(.7);
 }
 
 function clearDiscoveryState() {
@@ -631,6 +681,7 @@ function installNodeDrag(element, node) {
   element.addEventListener("pointerdown", (event) => {
     event.stopPropagation();
     drag = { x: event.clientX, y: event.clientY, nx: node.x, ny: node.y, moved: false };
+    state.draggingNodeId = node.id;
     element.setPointerCapture(event.pointerId);
   });
   element.addEventListener("pointermove", (event) => {
@@ -646,6 +697,12 @@ function installNodeDrag(element, node) {
   });
   element.addEventListener("pointerup", () => {
     node.wasDragged = Boolean(drag?.moved);
+    if (node.wasDragged) {
+      node.anchorX = node.x;
+      node.anchorY = node.y;
+      reheatSimulation(.75);
+    }
+    state.draggingNodeId = null;
     drag = null;
   });
 }
@@ -702,6 +759,7 @@ function bindEvents() {
     if (input.checked) state.visibleGroups.add(input.value);
     else state.visibleGroups.delete(input.value);
     updateGraphState();
+    reheatSimulation(.9);
   });
   els.findPath.addEventListener("click", tracePath);
   els.swapPath.addEventListener("click", () => {
