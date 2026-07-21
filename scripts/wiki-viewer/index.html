@@ -4,93 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stock Knowledge Wiki | rsalek/reports</title>
-  <meta name="description" content="Interactive stock research wiki generated from the private LLM-wiki knowledge vault.">
+  <meta name="description" content="Explore connected stock research, theses, source notes, and cross-stock comparisons.">
   <link rel="icon" href="../favicon.ico">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="../">
-        <span class="brand-dot"></span>
-        <span>
-          <strong>Stock Knowledge Wiki</strong>
-          <small>rsalek/reports</small>
-        </span>
-      </a>
-      <nav class="top-links" aria-label="Site navigation">
-        <a href="../">Reports</a>
-        <a href="https://github.com/rsalek/reports">GitHub</a>
-      </nav>
-    </header>
+  <a class="skip-link" href="#graphPanel">Skip to knowledge graph</a>
+  <main class="app-shell">
+    <aside class="sidebar" aria-label="Knowledge discovery controls">
+      <header class="brand-block">
+        <a class="brand" href="../" aria-label="Return to reports">
+          <span class="brand-mark" aria-hidden="true">KW</span>
+          <span>
+            <strong>Stock Knowledge Wiki</strong>
+            <span>rsalek/reports</span>
+          </span>
+        </a>
+      </header>
 
-    <main class="wiki-layout">
-      <aside class="sidebar" aria-label="Wiki controls">
-        <section class="control-block">
-          <div class="section-label">Knowledge Map</div>
-          <h1>Published stock research wiki</h1>
-          <p class="lede">Compiled from the maintained Markdown wiki. Raw source files stay private.</p>
-        </section>
-
-        <section class="stats-grid" aria-label="Wiki statistics">
-          <div><strong id="stat-pages">0</strong><span>Pages</span></div>
-          <div><strong id="stat-links">0</strong><span>Links</span></div>
-          <div><strong id="stat-stocks">0</strong><span>Stocks</span></div>
-          <div><strong id="stat-updated">--</strong><span>Updated</span></div>
-        </section>
-
-        <section class="control-block">
-          <label class="field-label" for="searchInput">Search</label>
-          <input id="searchInput" class="search-input" type="search" placeholder="Ticker, company, topic, source..." autocomplete="off">
-        </section>
-
-        <section class="control-block">
-          <div class="field-label">Filter</div>
-          <div id="groupFilters" class="filter-list"></div>
-        </section>
-
-        <section class="control-block page-results">
-          <div class="field-label">Pages</div>
-          <div id="pageList" class="page-list"></div>
-        </section>
-      </aside>
-
-      <section class="graph-panel" aria-label="Wiki graph">
-        <div class="graph-toolbar">
-          <div>
-            <div class="section-label">Graph</div>
-            <strong id="focusLabel">All notes</strong>
-          </div>
-          <button id="resetButton" type="button">Reset</button>
+      <section class="control-block search-block">
+        <label for="searchInput">Search the research</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="Ticker, company, risk, moat…" autocomplete="off">
+          <button id="clearSearch" class="icon-button" type="button" aria-label="Clear search" title="Clear search">×</button>
         </div>
-        <svg id="graphSvg" role="img" aria-label="Interactive wiki link graph"></svg>
+        <div id="searchResults" class="search-results" aria-live="polite"></div>
       </section>
 
-      <article class="reader" aria-label="Selected wiki note">
-        <header class="reader-head">
-          <div>
-            <div class="section-label" id="readerGroup">Select a note</div>
-            <h2 id="readerTitle">Open a page from the graph or list</h2>
-          </div>
-          <div id="readerTicker" class="ticker-chip" hidden></div>
-        </header>
-        <div id="readerMeta" class="reader-meta"></div>
-        <div id="readerBody" class="reader-body empty-state">
-          Search or click a node to read the compiled wiki note here.
+      <fieldset class="control-block filter-list">
+        <legend>Show note types</legend>
+        <div id="groupFilters"></div>
+      </fieldset>
+
+      <section class="control-block path-controls">
+        <div class="control-heading">
+          <span>Trace a connection</span>
+          <button id="swapPath" class="text-button" type="button">Swap</button>
         </div>
-        <footer class="link-drawer">
-          <section>
-            <h3>Outbound Links</h3>
-            <div id="outboundLinks" class="link-list muted">None yet.</div>
-          </section>
-          <section>
-            <h3>Backlinks</h3>
-            <div id="backlinks" class="link-list muted">None yet.</div>
-          </section>
-        </footer>
+        <label class="sr-only" for="pathFrom">Path from</label>
+        <select id="pathFrom" aria-label="Path from"></select>
+        <label class="sr-only" for="pathTo">Path to</label>
+        <select id="pathTo" aria-label="Path to"></select>
+        <button id="findPath" class="primary-button" type="button">Trace connection</button>
+        <p id="pathStatus" class="status-text" aria-live="polite">Choose two notes to reveal the shortest link between them.</p>
+        <div id="pathExamples" class="path-examples" aria-label="Suggested connections"></div>
+      </section>
+
+      <footer class="sidebar-footer">
+        <span id="graphStats">Loading wiki…</span>
+        <button id="resetButton" class="text-button" type="button">Reset all</button>
+      </footer>
+    </aside>
+
+    <section id="graphPanel" class="graph-panel" aria-label="Stock research knowledge graph" tabindex="-1">
+      <header class="graph-toolbar">
+        <div>
+          <h1>Stock research knowledge graph</h1>
+          <p id="focusLabel">All published notes</p>
+        </div>
+        <div class="graph-actions" aria-label="Graph controls">
+          <button id="zoomOut" class="tool-button" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+          <button id="zoomReset" class="tool-button zoom-level" type="button" aria-label="Reset zoom" title="Reset zoom">100%</button>
+          <button id="zoomIn" class="tool-button" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+        </div>
+      </header>
+
+      <div class="canvas-wrap">
+        <svg id="graphSvg" role="img" aria-label="Interactive network of stock hubs, theses, sources, and comparisons">
+          <g id="graphViewport">
+            <g id="edgeLayer"></g>
+            <g id="nodeLayer"></g>
+          </g>
+        </svg>
+        <div id="graphEmpty" class="graph-empty" hidden>No notes match the current search and filters.</div>
+        <div class="graph-key">Drag nodes · scroll to zoom · click to read</div>
+      </div>
+
+      <section class="research-trail" aria-labelledby="trailTitle">
+        <div class="trail-heading">
+          <h2 id="trailTitle">Research trail</h2>
+          <span id="trailStatus">Recently opened notes appear here</span>
+        </div>
+        <div id="trailItems" class="trail-items"></div>
+      </section>
+    </section>
+
+    <aside class="reader" aria-label="Selected wiki note">
+      <header class="reader-head">
+        <div>
+          <div id="readerGroup" class="reader-type">Wiki index</div>
+          <h2 id="readerTitle">Stock Knowledge Wiki</h2>
+        </div>
+        <div id="readerTicker" class="ticker" hidden></div>
+      </header>
+      <div id="readerMeta" class="reader-meta"></div>
+      <article id="readerBody" class="reader-body">
+        <p class="reader-placeholder">Choose a node, search result, or path step to inspect its research.</p>
       </article>
-    </main>
-  </div>
+      <footer class="connections">
+        <div class="connection-tabs" role="tablist" aria-label="Note connections">
+          <button id="outboundTab" class="connection-tab active" type="button" role="tab" aria-selected="true" data-panel="outboundLinks">Outbound <span id="outboundCount">0</span></button>
+          <button id="backlinkTab" class="connection-tab" type="button" role="tab" aria-selected="false" data-panel="backlinks">Backlinks <span id="backlinkCount">0</span></button>
+        </div>
+        <div id="outboundLinks" class="link-list" role="tabpanel"></div>
+        <div id="backlinks" class="link-list" role="tabpanel" hidden></div>
+      </footer>
+    </aside>
+  </main>
   <script src="assets/app.js" defer></script>
 </body>
 </html>
