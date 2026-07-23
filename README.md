@@ -3,11 +3,6 @@
 Public equity research reports, KPI dashboards, a generated stock knowledge wiki, and the operating guide for the local Equity Deep Dive workflow.
 
 - [Live reports library](https://rsalek.github.io/reports/)
-- [IBM public report](https://rsalek.github.io/reports/docs/IBM_Full_Report.html)
-- [IBM KPI dashboard](https://rsalek.github.io/reports/kpi/ibm-q1-2026.html)
-- [ASML public report](https://rsalek.github.io/reports/docs/ASML_Full_Report.html)
-- [ASML KPI dashboard](https://rsalek.github.io/reports/kpi/asml-q2-2026.html)
-- [Pacific Biosciences public report](https://rsalek.github.io/reports/docs/PACB_Full_Report.html)
 - [Analysis workflow guide](https://rsalek.github.io/reports/help/)
 - [KPI dashboards](https://rsalek.github.io/reports/#kpi)
 - [Stock knowledge wiki](https://rsalek.github.io/reports/wiki/)
