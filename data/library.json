@@ -127,6 +127,19 @@
       "ticker": "GRAB",
       "url": "kpi/grab-latest.html",
       "valuation": "Valuation: unavailable"
+    },
+    {
+      "baseline": "Baseline through 2026-05-05",
+      "company": "Carlsmed, Inc. KPI Monitor",
+      "date": "2026-05-05",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/CARL_Full_Report.html",
+      "stance": "WATCH \u2014 WAIT FOR OPERATING LEVERAGE",
+      "summary": "Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.",
+      "ticker": "CARL",
+      "url": "kpi/carl-latest.html",
+      "valuation": "Valuation: unavailable"
     }
   ],
   "reports": [
@@ -259,6 +272,16 @@
       "summary": "Cerebras is an unusually fast-growing AI-infrastructure company with differentiated wafer-scale compute and substantial capacity investment. The public evidence supports demand and product relevance, but it does not yet establish durable per-share economics. Q1 FY2026 revenue was USD 193.4 million and GAAP operating margin was negative 7.8%; free cash flow was negative USD 119.6 million as capacity investment ran...",
       "ticker": "CBRS",
       "url": "docs/CBRS_Full_Report.html"
+    },
+    {
+      "company": "Carlsmed, Inc.",
+      "date": "2026-07-23",
+      "format_status": "current",
+      "phase": "Phase 1",
+      "stance": "WATCH \u2014 WAIT FOR OPERATING LEVERAGE",
+      "summary": "Carlsmed is showing strong product-level economics and commercial momentum, but it has not yet shown that growth can produce corporate operating leverage before cash consumption creates financing pressure. Q1 2026 revenue was USD 16.116 million, gross margin was 77.1%, operating margin was negative 57.6%, and free cash flow was negative USD 13.213 million. Carlsmed Q1 2026 earnings release Carlsmed Q1 2026 Form 10-Q",
+      "ticker": "CARL",
+      "url": "docs/CARL_Full_Report.html"
     }
   ],
   "wiki_notes": 21
