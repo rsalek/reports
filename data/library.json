@@ -1,17 +1,17 @@
 {
   "kpis": [
     {
-      "baseline": "Q1 2026 baseline",
-      "company": "ServiceNow KPI Monitor",
-      "date": "2026-07-12",
-      "format_status": "legacy",
-      "related_label": "Read thesis",
-      "related_url": "kpi/servicenow-q1-2026-thesis.html",
-      "stance": "Strong Buy",
-      "summary": "Tracks cRPO, subscription growth, AI monetisation, large deals, margins, valuation, and the next proof required from the Q2 organic bridge.",
+      "baseline": "Baseline through 2026-06-30",
+      "company": "ServiceNow, Inc. KPI Monitor",
+      "date": "2026-06-30",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/NOW_Full_Report.html",
+      "stance": "Monitoring stance; informational research only, not an investment recommendation",
+      "summary": "Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.",
       "ticker": "NOW",
-      "url": "kpi/servicenow-q1-2026.html",
-      "valuation": "FCFF Base: $122.10"
+      "url": "kpi/now-latest.html",
+      "valuation": "Valuation: unavailable"
     },
     {
       "baseline": "Q1 2026 baseline",
@@ -194,12 +194,12 @@
       "url": "docs/ZS_Full_Report.html"
     },
     {
-      "company": "ServiceNow",
-      "date": "2026-04-12",
-      "format_status": "legacy",
+      "company": "ServiceNow, Inc.",
+      "date": "2026-07-23",
+      "format_status": "current",
       "phase": "Phase 5",
-      "stance": "Strong Buy",
-      "summary": "A workflow and automation leader with strong free cash flow, high retention, and a valuation framed against AI disruption concerns.",
+      "stance": "Monitoring stance; informational research only, not an investment recommendation",
+      "summary": "ServiceNow's July 22, 2026 results showed continued demand momentum: Q2 subscription revenue was USD 3.877 billion, constant-currency cRPO growth was 21.5%, and the number of customers above USD 5 million in ACV reached 658. The central public research question is whether those demand signals convert into sustained margin and cash-flow evidence in the next few quarters. ServiceNow Q2 2026 results",
       "ticker": "NOW",
       "url": "docs/NOW_Full_Report.html"
     },

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Public KPI dashboard for ServiceNow, Inc.">
+  <title>NOW KPI Dashboard</title>
+  <style>:root {
+  --background:#f5f5f4;
+  --paper:#ffffff;
+  --ink:#1c1917;
+  --muted:#66635f;
+  --line:#d8d5d0;
+  --soft:#efede9;
+  --accent:#3b725b;
+  --accent-dark:#28513f;
+  --accent-soft:#e4efe9;
+  --warning:#8a640f;
+  --warning-soft:#f7efd9;
+  --negative:#9d3e37;
+  --negative-soft:#f7e9e7;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--background);
+  color:var(--ink);
+  font-family:"Avenir Next",Avenir,"Helvetica Neue",sans-serif;
+  font-size:14px;
+  line-height:1.5;
+}
+button { font:inherit; }
+a { color:var(--accent-dark); }
+a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.topbar {
+  position:sticky;
+  top:0;
+  z-index:4;
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:10px 28px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+.brand { display:flex; align-items:center; gap:12px; color:var(--ink); font-weight:650; text-decoration:none; }
+.ticker { padding:5px 8px; border-radius:5px; background:var(--accent-dark); color:#fff; font-size:12px; }
+nav { display:flex; flex-wrap:wrap; gap:14px; font-size:12px; }
+nav a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
+nav a:hover,nav a:focus-visible { color:var(--accent-dark); border-color:var(--accent); }
+.report-link { font-weight:650; }
+main { width:min(1180px,calc(100% - 56px)); margin:0 auto; }
+section { padding:26px 0; border-bottom:1px solid var(--line); scroll-margin-top:74px; }
+h1,h2,h3,p { margin-top:0; }
+h1 { margin-bottom:10px; font-size:28px; line-height:1.2; }
+h2 { margin-bottom:14px; font-size:18px; }
+h3 { margin-bottom:8px; font-size:14px; }
+.topbar-actions { display:flex; align-items:center; gap:10px; }
+.meta { color:var(--muted); font-size:12px; text-align:right; }
+.intro { display:grid; grid-template-columns:minmax(0,1fr) 390px; gap:36px; padding-top:34px; }
+.verdict { max-width:760px; margin-top:12px; color:var(--ink); font-size:16px; }
+.decision { border-left:3px solid var(--accent); padding:4px 0 4px 16px; }
+.decision dl { display:grid; grid-template-columns:98px 1fr; gap:8px 12px; margin:0; }
+.decision dt { color:var(--muted); }
+.decision dd { margin:0; font-weight:600; }
+.scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); background:var(--paper); }
+.scenario { padding:18px; border-right:1px solid var(--line); }
+.scenario:last-child { border-right:0; }
+.scenario.current { border-top:3px solid var(--accent); padding-top:15px; }
+.scenario .case { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:10px; }
+.scenario .case strong { font-size:17px; }
+.scenario .price { font-size:22px; font-weight:680; white-space:nowrap; }
+.scenario dl { display:grid; grid-template-columns:94px 1fr; gap:7px 10px; margin:0; }
+.scenario dt { color:var(--muted); }
+.scenario dd { margin:0; font-weight:500; }
+.scenario-read { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-top:12px; color:var(--muted); }
+.scenario-read strong { color:var(--ink); }
+.posture-list { display:grid; grid-template-columns:1fr 1fr; gap:0; margin:0; border-top:1px solid var(--line); }
+.posture-item { padding:10px 12px 10px 0; border-bottom:1px solid var(--line); }
+.posture-item dt { color:var(--muted); font-size:12px; }
+.posture-item dd { margin:3px 0 0; font-weight:650; overflow-wrap:anywhere; }
+.metrics { display:grid; grid-template-columns:repeat(5,1fr); border-bottom:1px solid var(--line); }
+.metric { min-width:0; padding:20px 18px; border-right:1px solid var(--line); }
+.metric:first-child { padding-left:0; }
+.metric:last-child { border-right:0; }
+.metric .label { margin-bottom:6px; color:var(--muted); font-size:12px; }
+.metric .value { font-size:22px; font-weight:680; white-space:nowrap; }
+.metric .detail { margin-top:3px; color:var(--muted); font-size:12px; }
+.toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.toolbar h2 { margin:0; }
+.filters { display:flex; flex-wrap:wrap; gap:6px; }
+.filter { min-height:38px; border:1px solid var(--line); border-radius:6px; padding:7px 11px; background:var(--paper); color:var(--muted); font-size:12px; cursor:pointer; }
+.filter.active { border-color:var(--accent-dark); background:var(--accent-dark); color:#fff; }
+.filter:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.table-scroll { overflow-x:auto; border:1px solid var(--line); background:var(--paper); }
+.table-scroll:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+table { width:100%; min-width:860px; border-collapse:collapse; }
+th { padding:10px 12px; border-bottom:1px solid var(--line); background:var(--soft); color:var(--muted); font-size:11px; font-weight:650; text-align:left; }
+td { padding:12px; border-bottom:1px solid var(--line); vertical-align:top; }
+tbody tr:last-child td { border-bottom:0; }
+tbody tr:hover { background:#f8faf7; }
+tbody tr[hidden] { display:none !important; }
+.table-detail,.source-date { display:block; margin-top:3px; color:var(--muted); font-size:11px; }
+.rank { width:48px; color:var(--muted); }
+.name { font-weight:650; }
+.status-text { display:inline-block; padding-left:8px; border-left:3px solid var(--muted); font-weight:650; }
+.status-positive { border-color:var(--accent); color:var(--accent-dark); }
+.status-warning { border-color:var(--warning); color:var(--warning); }
+.status-negative { border-color:var(--negative); color:var(--negative); }
+.status-neutral { color:var(--muted); }
+.empty-state { color:var(--muted); }
+.quality { max-width:920px; margin-top:12px; font-size:14px; line-height:1.58; }
+.quality b { color:var(--accent-dark); }
+.signal-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 30px; }
+.signal-group { padding:14px 0; border-top:1px solid var(--line); }
+.signal-group ul,.issue-list { margin:0; padding-left:20px; }
+.signal-group li + li,.issue-list li + li { margin-top:9px; }
+.signal-group li span,.issue-list li span { display:block; margin-top:2px; color:var(--muted); }
+.data-list { display:grid; grid-template-columns:repeat(3,1fr); margin:0; border-top:1px solid var(--line); }
+.data-list div { padding:12px 16px 12px 0; border-bottom:1px solid var(--line); }
+.data-list dt { color:var(--muted); font-size:12px; }
+.data-list dd { margin:3px 0 0; font-weight:650; overflow-wrap:anywhere; }
+.issue-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.issue-grid > div { border-top:2px solid var(--ink); padding-top:12px; }
+.source-list { columns:2; column-gap:36px; margin:0; padding-left:22px; }
+.source-list li { break-inside:avoid; padding:8px 0; border-bottom:1px solid var(--line); }
+.source-list li span { display:block; color:var(--muted); font-size:12px; }
+footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px; color:var(--muted); font-size:12px; }
+@media (max-width:800px) {
+  .intro { grid-template-columns:1fr; gap:20px; }
+  .scenario-grid { grid-template-columns:1fr; }
+  .scenario { border-right:0; border-bottom:1px solid var(--line); }
+  .scenario:last-child { border-bottom:0; }
+  .metrics { grid-template-columns:repeat(2,1fr); }
+  .metric { border-bottom:1px solid var(--line); }
+  .signal-grid,.issue-grid { grid-template-columns:1fr; }
+  .data-list { grid-template-columns:1fr 1fr; }
+  .source-list { columns:1; }
+}
+@media (max-width:560px) {
+  .topbar { align-items:flex-start; padding:10px 16px; }
+  .brand > span:last-child { display:none; }
+  .topbar .meta { display:none; }
+  .topbar-actions { flex-wrap:wrap; justify-content:flex-end; gap:8px; }
+  main,footer { width:calc(100% - 32px); }
+  section { padding:22px 0; }
+  h1 { font-size:23px; }
+  .metrics { grid-template-columns:1fr; }
+  .metric,.metric:first-child { padding:14px 0; border-right:0; }
+  .toolbar { align-items:flex-start; flex-direction:column; }
+  .scenario-read { align-items:flex-start; flex-direction:column; gap:4px; }
+  .table-scroll { overflow:visible; border:0; background:transparent; }
+  table,thead,tbody,tr,th,td { display:block; min-width:0; }
+  thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+  tbody { display:grid; gap:10px; }
+  tbody tr { border:1px solid var(--line); background:var(--paper); padding:8px 12px; }
+  td { display:grid; grid-template-columns:105px minmax(0,1fr); gap:10px; padding:7px 0; border-bottom:1px solid var(--line); }
+  td::before { content:attr(data-label); color:var(--muted); font-size:11px; font-weight:650; }
+  td:last-child { border-bottom:0; }
+  .rank { width:auto; }
+  .posture-list,.data-list { grid-template-columns:1fr; }
+}
+@media print {
+  body { background:#fff; }
+  .topbar { position:static; }
+  nav { display:none; }
+  main,footer { width:100%; }
+  .table-scroll { overflow:visible; }
+  table { min-width:0; font-size:10px; }
+  section { break-inside:avoid; }
+}
+:root { --accent:#3B725B; --accent-dark:#28513F; --accent-soft:#E4EFE9; }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview"><span class="ticker">NOW</span><span>ServiceNow, Inc. KPI Monitor</span></a>
+    <div class="topbar-actions"><a class="report-link" href="../">Library</a><div class="meta">Public baseline through 2026-06-30</div></div>
+  </header>
+  <main>
+    <section class="intro" id="overview">
+      <div>
+        <h1>Q2 execution strengthened: subscription revenue, constant-currency cRPO, and the large-customer cohort all increased from Q1. Free-cash-flow margin was seasonally lower and remains the cash-conversion watchpoint.</h1>
+        <p class="verdict">The platform and customer-expansion signals are constructive, but acquisition integration and AI delivery costs require continued evidence of cash-margin recovery.</p>
+      </div>
+      <div class="decision"><dl>
+        <dt>Posture</dt><dd>The platform and customer-expansion signals are constructive, but acquisition integration and AI delivery costs require continued evidence of cash-margin recovery.</dd>
+        <dt>Business phase</dt><dd>5</dd>
+        <dt>Next proof</dt><dd>Demand durability, Margin and cash conversion</dd>
+        <dt>Valuation</dt><dd>Unavailable</dd>
+      </dl></div>
+    </section>
+    
+    
+    <div class="metrics"><div class="metric"><div class="label">Subscription revenue</div><div class="value">$3.7B</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span></div></div><div class="metric"><div class="label">Subscription revenue</div><div class="value">$3.9B</div><div class="detail">Q2 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm" rel="noreferrer">ServiceNow Q2 2026 results</a> <span class="source-date">(2026-07-22)</span></div></div><div class="metric"><div class="label">cRPO growth (constant currency)</div><div class="value">21%</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span></div></div><div class="metric"><div class="label">cRPO growth (constant currency)</div><div class="value">21.5%</div><div class="detail">Q2 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm" rel="noreferrer">ServiceNow Q2 2026 results</a> <span class="source-date">(2026-07-22)</span></div></div><div class="metric"><div class="label">Customers above USD 5m ACV</div><div class="value">630</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span></div></div></div>
+    <section id="scorecard">
+  <div class="toolbar"><h2>Ranked KPI scorecard</h2><div class="filters" aria-label="KPI groups">
+    <button class="filter active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter" type="button" data-filter="growth" aria-pressed="false">Growth</button><button class="filter" type="button" data-filter="profit" aria-pressed="false">Profitability</button><button class="filter" type="button" data-filter="capital" aria-pressed="false">Capital</button>
+  </div></div>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Ranked KPI scorecard">
+    <table>
+      <thead><tr><th>#</th><th>KPI</th><th>Baseline</th><th>Next threshold</th><th>Signal</th><th>Investor read</th><th>Source</th></tr></thead>
+      <tbody><tr data-group="growth">
+  <td class="rank" data-label="#">1</td>
+  <td class="name" data-label="KPI">Subscription revenue<span class="table-detail">Q1 FY2026</span></td>
+  <td data-label="Baseline">$3.7B</td>
+  <td data-label="Next threshold">At least $4B</td>
+  <td data-label="Signal"><span class="status-text status-warning">Below confirm</span></td>
+  <td data-label="Investor read">The latest result has not yet cleared the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">2</td>
+  <td class="name" data-label="KPI">Subscription revenue<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$3.9B</td>
+  <td data-label="Next threshold">At least $4B</td>
+  <td data-label="Signal"><span class="status-text status-warning">Below confirm</span></td>
+  <td data-label="Investor read">The latest result has not yet cleared the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm" rel="noreferrer">ServiceNow Q2 2026 results</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">3</td>
+  <td class="name" data-label="KPI">cRPO growth (constant currency)<span class="table-detail">Q1 FY2026</span></td>
+  <td data-label="Baseline">21%</td>
+  <td data-label="Next threshold">At least 20%</td>
+  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
+  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">4</td>
+  <td class="name" data-label="KPI">cRPO growth (constant currency)<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">21.5%</td>
+  <td data-label="Next threshold">At least 20%</td>
+  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
+  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm" rel="noreferrer">ServiceNow Q2 2026 results</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">5</td>
+  <td class="name" data-label="KPI">Customers above USD 5m ACV<span class="table-detail">Q1 FY2026</span></td>
+  <td data-label="Baseline">630</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">6</td>
+  <td class="name" data-label="KPI">Customers above USD 5m ACV<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">658</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">Compare at the next update.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm" rel="noreferrer">ServiceNow Q2 2026 results</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">7</td>
+  <td class="name" data-label="KPI">Non-GAAP operating margin<span class="table-detail">Q1 FY2026</span></td>
+  <td data-label="Baseline">32%</td>
+  <td data-label="Next threshold">At least 31%</td>
+  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
+  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">8</td>
+  <td class="name" data-label="KPI">Non-GAAP operating margin<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">29.5%</td>
+  <td data-label="Next threshold">At least 31%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Below confirm</span></td>
+  <td data-label="Investor read">The latest result has not yet cleared the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm" rel="noreferrer">ServiceNow Q2 2026 results</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">9</td>
+  <td class="name" data-label="KPI">Non-GAAP free cash flow margin<span class="table-detail">Q1 FY2026</span></td>
+  <td data-label="Baseline">44%</td>
+  <td data-label="Next threshold">At least 35%</td>
+  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
+  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">10</td>
+  <td class="name" data-label="KPI">Non-GAAP free cash flow margin<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">16%</td>
+  <td data-label="Next threshold">At least 35%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Below confirm</span></td>
+  <td data-label="Investor read">The latest result has not yet cleared the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm" rel="noreferrer">ServiceNow Q2 2026 results</a> <span class="source-date">(2026-07-22)</span></td>
+</tr></tbody>
+    </table>
+  </div>
+  <p class="quality"><b>How to read the scorecard:</b> Signals compare the latest baseline with the stated decision threshold. “Monitor” means the public handoff has one valid baseline but no compatible prior observation; it is not a positive or negative call.</p>
+</section>
+    <section id="signals">
+  <h2>Thesis signals</h2>
+  <div class="signal-grid"><div class="signal-group"><h3>Thesis pillars</h3><ul><li><strong>Demand and backlog</strong><span>Subscription revenue rose from Q1 and constant-currency cRPO accelerated modestly to 21.5% in Q2.</span></li><li><strong>Enterprise expansion</strong><span>Customers above USD 5 million ACV increased from 630 at March 31 to 658 at June 30.</span></li><li><strong>Cash-conversion discipline</strong><span>Q2 free-cash-flow margin was lower than Q1; future margin recovery is the key confirmation test alongside growth.</span></li></ul></div><div class="signal-group"><h3>Catalysts</h3><ul><li><strong>AI monetization scale</strong><span>ServiceNow AI crossed USD 1 billion in annual contract value in Q2; later results need to show conversion into durable revenue and cash flow.</span></li><li><strong>Large-customer expansion</strong><span>Further net additions to the USD 5 million-plus ACV cohort would support cross-sell and platform adoption.</span></li></ul></div><div class="signal-group"><h3>Risks</h3><ul><li><strong>Cash-margin compression</strong><span>The Q2 free-cash-flow margin was 16%, below the Q1 seasonal level, so growth must be assessed with cash conversion rather than revenue alone.</span></li><li><strong>Acquisition and delivery costs</strong><span>Management disclosed acquisition-related margin headwinds; integration and AI delivery costs remain monitoring risks.</span></li></ul></div><div class="signal-group"><h3>Monitoring triggers</h3><ul><li><strong>Demand durability</strong><span>Review subscription revenue and constant-currency cRPO together after each quarterly release.</span></li><li><strong>Margin and cash conversion</strong><span>Review non-GAAP operating margin and free-cash-flow margin together; do not infer durable cash conversion from a single quarter.</span></li></ul></div></div>
+</section>
+    <section id="gaps">
+  <h2>Evidence limits</h2>
+  <div class="issue-grid"><div><h3>Conflicts</h3><ul class="issue-list"><li>None reported.</li></ul></div><div><h3>Gaps</h3><ul class="issue-list"><li>None reported.</li></ul></div></div>
+</section>
+    <section id="sources">
+  <h2>Public sources</h2>
+  <ol class="source-list"><li><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/now-20260722.htm" rel="noreferrer">ServiceNow Q2 2026 results</a> <span class="source-date">(2026-07-22)</span><span></span></li><li><a href="https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/now-20260417.htm" rel="noreferrer">ServiceNow Q1 2026 results</a> <span class="source-date">(2026-04-22)</span><span></span></li></ol>
+</section>
+  </main>
+  <footer>Generated from the validated public KPI handoff. No private portfolio data is included.</footer>
+  <script>
+    document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(item => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
+      const filter = button.dataset.filter;
+      document.querySelectorAll('tbody tr[data-group]').forEach(row => {
+        row.hidden = filter !== 'all' && row.dataset.group !== filter;
+      });
+    }));
+  </script>
+</body>
+</html>
