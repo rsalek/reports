@@ -140,6 +140,19 @@
       "ticker": "CARL",
       "url": "kpi/carl-latest.html",
       "valuation": "Valuation: unavailable"
+    },
+    {
+      "baseline": "Baseline through 2026-07-24",
+      "company": "Five9, Inc. KPI Monitor",
+      "date": "2026-07-24",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/FIVN_Full_Report.html",
+      "stance": "Watchlist; avoid a price-based conclusion until valuation inputs are public-primary and operating momentum is reconfirmed",
+      "summary": "Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.",
+      "ticker": "FIVN",
+      "url": "kpi/fivn-latest.html",
+      "valuation": "Valuation: unavailable"
     }
   ],
   "reports": [
@@ -292,6 +305,16 @@
       "summary": "Dexcom entered 2026 with double-digit growth and a sharp margin recovery. The constructive case depends on broader Type 2 access, G7 15-Day adoption, international expansion, and manufacturing improvement producing visible patient conversion and durable cash economics. The central question is whether U.S. growth can reaccelerate while reliability work and continued reinvestment preserve the Q1 margin gains.",
       "ticker": "DXCM",
       "url": "docs/DXCM_Full_Report.html"
+    },
+    {
+      "company": "Five9, Inc.",
+      "date": "2026-07-24",
+      "format_status": "current",
+      "phase": "Phase 5",
+      "stance": "Watchlist; avoid a price-based conclusion until valuation inputs are public-primary and operating momentum is reconfirmed",
+      "summary": "Five9 entered 2026 with improving reported economics: Q1 revenue was USD 305.319 million, GAAP gross margin was 55.85%, GAAP operating margin was 6.06%, and free cash flow was USD 49.441 million. Management also reported 13% subscription-revenue growth and adjusted EBITDA of USD 74.5 million. These results support a company-level thesis of subscription-led growth with emerging operating leverage. Five9 Q1 2026...",
+      "ticker": "FIVN",
+      "url": "docs/FIVN_Full_Report.html"
     }
   ],
   "wiki_notes": 21
