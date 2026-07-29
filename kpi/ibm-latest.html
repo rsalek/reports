@@ -54,7 +54,7 @@ nav a:hover,nav a:focus-visible { color:var(--accent-dark); border-color:var(--a
 .report-link { font-weight:650; }
 main { width:min(1180px,calc(100% - 56px)); margin:0 auto; }
 section { padding:26px 0; border-bottom:1px solid var(--line); scroll-margin-top:74px; }
-h1,h2,h3,p { margin-top:0; }
+h1,h2,h3,p { margin-top:0; overflow-wrap:anywhere; }
 h1 { margin-bottom:10px; font-size:28px; line-height:1.2; }
 h2 { margin-bottom:14px; font-size:18px; }
 h3 { margin-bottom:8px; font-size:14px; }
@@ -159,6 +159,8 @@ footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px
   tbody tr { border:1px solid var(--line); background:var(--paper); padding:8px 12px; }
   td { display:grid; grid-template-columns:105px minmax(0,1fr); gap:10px; padding:7px 0; border-bottom:1px solid var(--line); }
   td::before { content:attr(data-label); color:var(--muted); font-size:11px; font-weight:650; }
+  td[colspan] { grid-template-columns:1fr; }
+  td[colspan]::before { content:none; }
   td:last-child { border-bottom:0; }
   .rank { width:auto; }
   .posture-list,.data-list { grid-template-columns:1fr; }
@@ -178,49 +180,49 @@ footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px
 <body>
   <header class="topbar">
     <a class="brand" href="#overview"><span class="ticker">IBM</span><span>International Business Machines Corporation KPI Monitor</span></a>
-    <div class="topbar-actions"><a class="report-link" href="../">Library</a><div class="meta">Public baseline through 2026-07-15</div></div>
+    <div class="topbar-actions"><a class="report-link" href="../">Library</a><div class="meta">Public baseline through 2026-07-29</div></div>
   </header>
   <main>
     <section class="intro" id="overview">
       <div>
-        <h1>Mature capital-return platform with Software-led growth and improving gross-profit mix</h1>
-        <p class="verdict">Hold posture; cash generation is durable but leverage and valuation limit immediate upside</p>
+        <h1>Mature capital-return platform with recurring Software and durable cash generation, offset by slower Q2 growth and constrained balance-sheet flexibility.</h1>
+        <p class="verdict">HOLD: the dated market price is near probability-weighted value, while the Q2 guidance reduction and FRAGILE resilience result block an automatic allocation increase.</p>
       </div>
       <div class="decision"><dl>
-        <dt>Posture</dt><dd>Hold posture; cash generation is durable but leverage and valuation limit immediate upside</dd>
+        <dt>Posture</dt><dd>HOLD: the dated market price is near probability-weighted value, while the Q2 guidance reduction and FRAGILE resilience result block an automatic allocation increase.</dd>
         <dt>Business phase</dt><dd>5</dd>
-        <dt>Next proof</dt><dd>Software durability, Consulting conversion, Cash and leverage</dd>
+        <dt>Next proof</dt><dd>Software and Consulting conversion, Cash and guidance durability, Debt, liquidity and goodwill</dd>
         <dt>Valuation</dt><dd>Preliminary Public Dcf · FCFF</dd>
       </dl></div>
     </section>
     <section id="scenarios">
       <h2>12-month bear / base / bull</h2>
-      <div class="scenario-grid"><div class="scenario"><div class="case"><strong>Bear</strong><span class="price">$119.81</span></div><dl>
-          <dt>Vs current</dt><dd>-44.8%</dd><dt>Weight</dt><dd>25%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Downside case; operating disappointment or balance-sheet pressure requires a fresh thesis review.</dd>
-        </dl></div><div class="scenario current"><div class="case"><strong>Base</strong><span class="price">$210.18</span></div><dl>
-          <dt>Vs current</dt><dd>-3.2%</dd><dt>Weight</dt><dd>50%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Central underwrite; execution is adequate but the current price leaves little margin of safety.</dd>
-        </dl></div><div class="scenario"><div class="case"><strong>Bull</strong><span class="price">$324.63</span></div><dl>
-          <dt>Vs current</dt><dd>+49.5%</dd><dt>Weight</dt><dd>25%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Upside case; requires sustained execution and favorable long-duration assumptions.</dd>
+      <div class="scenario-grid"><div class="scenario"><div class="case"><strong>Bear</strong><span class="price">$120.42</span></div><dl>
+          <dt>Vs current</dt><dd>-44.5%</dd><dt>Weight</dt><dd>25%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Downside case; operating disappointment or balance-sheet pressure requires a fresh thesis review.</dd>
+        </dl></div><div class="scenario current"><div class="case"><strong>Base</strong><span class="price">$210.68</span></div><dl>
+          <dt>Vs current</dt><dd>-2.9%</dd><dt>Weight</dt><dd>50%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Central underwrite; execution is adequate but the current price leaves little margin of safety.</dd>
+        </dl></div><div class="scenario"><div class="case"><strong>Bull</strong><span class="price">$324.98</span></div><dl>
+          <dt>Vs current</dt><dd>+49.7%</dd><dt>Weight</dt><dd>25%</dd><dt>Method</dt><dd>FCFF</dd><dt>Investor read</dt><dd>Upside case; requires sustained execution and favorable long-duration assumptions.</dd>
         </dl></div></div>
-      <div class="scenario-read"><span><strong>Current indicator:</strong> $217.07. Probability-weighted value: <strong>$216.20</strong>.</span><span><a href="https://api.nasdaq.com/api/quote/IBM/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10" rel="noreferrer">Nasdaq IBM historical quote</a> <span class="source-date">(2026-07-14)</span></span></div>
+      <div class="scenario-read"><span><strong>Current indicator:</strong> $217.07. Probability-weighted value: <strong>$216.69</strong>.</span><span><a href="https://api.nasdaq.com/api/quote/IBM/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10" rel="noreferrer">Nasdaq IBM historical quote</a> <span class="source-date">(2026-07-14)</span></span></div>
       <p class="quality"><b>Scenario mechanics:</b> These are monitoring values from the validated FCFF scenario model, not price forecasts. They should be refreshed when the operating evidence, discount rate, terminal growth, net debt, or share count changes.</p>
     </section>
     <section id="valuation">
       <h2>Valuation method and decision gate</h2>
       <div class="scenario-grid">
         <div class="scenario"><div class="case"><strong>DCF method</strong><span class="price">FCFF</span></div><dl>
-          <dt>Status</dt><dd>Preliminary Public Dcf</dd><dt>Scenario range</dt><dd>$119.81 to $324.63</dd><dt>Caveat</dt><dd>The locked FCFF model spans $119.81 to $324.63 per share, with the 9% WACC and 2.5% terminal-growth base at $210.18. The wider sensitivity grid spans approximately $163 to $285, so terminal assumptions remain material.</dd>
+          <dt>Status</dt><dd>Preliminary Public Dcf</dd><dt>Scenario range</dt><dd>$120.42 to $324.98</dd><dt>Caveat</dt><dd>The locked FCFF model spans USD 120.42 to USD 324.98 per share. Terminal value is 74.17% of base enterprise value, so discount-rate and terminal-growth assumptions remain material.</dd>
         </dl></div>
-        <div class="scenario current"><div class="case"><strong>Reverse DCF</strong><span class="price">5.37%</span></div><dl>
+        <div class="scenario current"><div class="case"><strong>Reverse DCF</strong><span class="price">5.33%</span></div><dl>
           <dt>Driver</dt><dd>Implied FCFF Growth</dd><dt>Role</dt><dd>Market-expectation check</dd><dt>Current price</dt><dd>$217.07</dd>
         </dl></div>
-        <div class="scenario"><div class="case"><strong>Decision gate</strong><span class="price">$216.20</span></div><dl>
-          <dt>Reference</dt><dd>Probability weighted</dd><dt>Base value</dt><dd>$210.18</dd><dt>Price vs base</dt><dd>-3.2%</dd>
+        <div class="scenario"><div class="case"><strong>Decision gate</strong><span class="price">$216.69</span></div><dl>
+          <dt>Reference</dt><dd>Probability weighted</dd><dt>Base value</dt><dd>$210.68</dd><dt>Price vs base</dt><dd>-2.9%</dd>
         </dl></div>
       </div>
-      <div class="scenario-read"><span><strong>Conclusion:</strong> At $217.07, IBM traded close to the $216.20 probability-weighted value and above the $210.18 base value. Require either a lower entry price or evidence that sustainable FCFF is moving toward the bull path before improving the stance.</span><span><a href="https://api.nasdaq.com/api/quote/IBM/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10" rel="noreferrer">Nasdaq IBM historical quote</a> <span class="source-date">(2026-07-14)</span></span></div>
+      <div class="scenario-read"><span><strong>Conclusion:</strong> At USD 217.07, IBM traded near the USD 216.69 probability-weighted value and above the USD 210.68 base value. Require a larger margin of safety or evidence that durable FCFF is moving toward the bull path before improving the stance.</span><span><a href="https://api.nasdaq.com/api/quote/IBM/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10" rel="noreferrer">Nasdaq IBM historical quote</a> <span class="source-date">(2026-07-14)</span></span></div>
     </section>
-    <div class="metrics"><div class="metric"><div class="label">Revenue</div><div class="value">$15.9B</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div><div class="metric"><div class="label">Software revenue</div><div class="value">$7.1B</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div><div class="metric"><div class="label">Software revenue growth</div><div class="value">11.3%</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div><div class="metric"><div class="label">Consulting revenue</div><div class="value">$5.3B</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div><div class="metric"><div class="label">Consulting revenue growth</div><div class="value">4%</div><div class="detail">Q1 FY2026 · <a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></div></div></div>
+    <div class="metrics"><div class="metric"><div class="label">Revenue</div><div class="value">$17.2B</div><div class="detail">Q2 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></div></div><div class="metric"><div class="label">Software revenue</div><div class="value">$7.8B</div><div class="detail">Q2 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></div></div><div class="metric"><div class="label">Software revenue growth</div><div class="value">5.1%</div><div class="detail">Q2 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></div></div><div class="metric"><div class="label">Consulting revenue</div><div class="value">$5.3B</div><div class="detail">Q2 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></div></div><div class="metric"><div class="label">Consulting revenue growth</div><div class="value">0.2%</div><div class="detail">Q2 FY2026 · <a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></div></div></div>
     <section id="scorecard">
   <div class="toolbar"><h2>Ranked KPI scorecard</h2><div class="filters" aria-label="KPI groups">
     <button class="filter active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter" type="button" data-filter="growth" aria-pressed="false">Growth</button><button class="filter" type="button" data-filter="profit" aria-pressed="false">Profitability</button><button class="filter" type="button" data-filter="capital" aria-pressed="false">Capital</button>
@@ -230,140 +232,193 @@ footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px
       <thead><tr><th>#</th><th>KPI</th><th>Baseline</th><th>Next threshold</th><th>Signal</th><th>Investor read</th><th>Source</th></tr></thead>
       <tbody><tr data-group="growth">
   <td class="rank" data-label="#">1</td>
-  <td class="name" data-label="KPI">Revenue<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">$15.9B</td>
+  <td class="name" data-label="KPI">Revenue<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$17.2B</td>
   <td data-label="Next threshold">Next comparable update</td>
   <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
   <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
 </tr><tr data-group="growth">
   <td class="rank" data-label="#">2</td>
-  <td class="name" data-label="KPI">Software revenue<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">$7.1B</td>
+  <td class="name" data-label="KPI">Software revenue<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$7.8B</td>
   <td data-label="Next threshold">Next comparable update</td>
   <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
   <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></td>
 </tr><tr data-group="growth">
   <td class="rank" data-label="#">3</td>
-  <td class="name" data-label="KPI">Software revenue growth<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">11.3%</td>
-  <td data-label="Next threshold">At least 10%</td>
-  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
-  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td class="name" data-label="KPI">Software revenue growth<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">5.1%</td>
+  <td data-label="Next threshold">Stay at or above 8%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Watch</span></td>
+  <td data-label="Investor read">The latest result has crossed the warning threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></td>
 </tr><tr data-group="growth">
   <td class="rank" data-label="#">4</td>
-  <td class="name" data-label="KPI">Consulting revenue<span class="table-detail">Q1 FY2026</span></td>
+  <td class="name" data-label="KPI">Consulting revenue<span class="table-detail">Q2 FY2026</span></td>
   <td data-label="Baseline">$5.3B</td>
   <td data-label="Next threshold">Next comparable update</td>
   <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
   <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></td>
 </tr><tr data-group="growth">
   <td class="rank" data-label="#">5</td>
-  <td class="name" data-label="KPI">Consulting revenue growth<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">4%</td>
+  <td class="name" data-label="KPI">Consulting revenue growth<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">0.2%</td>
   <td data-label="Next threshold">Stay at or above 4%</td>
-  <td data-label="Signal"><span class="status-text status-warning">At threshold</span></td>
-  <td data-label="Investor read">The KPI is exactly at the decision boundary; the next update matters.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Signal"><span class="status-text status-warning">Watch</span></td>
+  <td data-label="Investor read">The latest result has crossed the warning threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
 </tr><tr data-group="growth">
   <td class="rank" data-label="#">6</td>
-  <td class="name" data-label="KPI">Infrastructure revenue<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">$3.3B</td>
+  <td class="name" data-label="KPI">Infrastructure revenue<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$3.8B</td>
   <td data-label="Next threshold">Next comparable update</td>
   <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
   <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
-</tr><tr data-group="profit">
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></td>
+</tr><tr data-group="growth">
   <td class="rank" data-label="#">7</td>
-  <td class="name" data-label="KPI">Gross margin<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">56.2%</td>
+  <td class="name" data-label="KPI">Infrastructure revenue decline<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">7.4%</td>
+  <td data-label="Next threshold">Stay at or below 0%</td>
+  <td data-label="Signal"><span class="status-text status-warning">Watch</span></td>
+  <td data-label="Investor read">The latest result has crossed the warning threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">8</td>
+  <td class="name" data-label="KPI">Gross profit<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$9.9B</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="profit">
+  <td class="rank" data-label="#">9</td>
+  <td class="name" data-label="KPI">Gross margin<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">57.7%</td>
   <td data-label="Next threshold">Stay at or above 55%</td>
   <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
   <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
-</tr><tr data-group="profit">
-  <td class="rank" data-label="#">8</td>
-  <td class="name" data-label="KPI">Software gross margin<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">82.8%</td>
-  <td data-label="Next threshold">Next comparable update</td>
-  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
-  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
 </tr><tr data-group="capital">
-  <td class="rank" data-label="#">9</td>
-  <td class="name" data-label="KPI">Company free cash flow<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">$2.2B</td>
-  <td data-label="Next threshold">At least $2.2B</td>
-  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
-  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
-  <td data-label="Source"><a href="https://www.ibm.com/investor/events/earnings-1q26" rel="noreferrer">IBM 1Q26 earnings materials</a> <span class="source-date">(2026-04-22)</span></td>
-</tr><tr data-group="growth">
   <td class="rank" data-label="#">10</td>
-  <td class="name" data-label="KPI">Revenue growth guidance<span class="table-detail">FY2026</span></td>
-  <td data-label="Baseline">5%</td>
+  <td class="name" data-label="KPI">Company free cash flow<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$2.5B</td>
   <td data-label="Next threshold">Next comparable update</td>
   <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
   <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.ibm.com/investor/events/earnings-1q26" rel="noreferrer">IBM 1Q26 earnings materials</a> <span class="source-date">(2026-04-22)</span></td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
 </tr><tr data-group="growth">
   <td class="rank" data-label="#">11</td>
+  <td class="name" data-label="KPI">Revenue growth guidance<span class="table-detail">FY2026</span></td>
+  <td data-label="Baseline">4%</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.ibm.com/investor/events/earnings-2q26" rel="noreferrer">IBM Q2 2026 earnings materials</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="growth">
+  <td class="rank" data-label="#">12</td>
   <td class="name" data-label="KPI">FCF growth guidance<span class="table-detail">FY2026</span></td>
   <td data-label="Baseline">$1B</td>
-  <td data-label="Next threshold">Next comparable update</td>
-  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
-  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.ibm.com/investor/events/earnings-1q26" rel="noreferrer">IBM 1Q26 earnings materials</a> <span class="source-date">(2026-04-22)</span></td>
-</tr><tr data-group="capital">
-  <td class="rank" data-label="#">12</td>
-  <td class="name" data-label="KPI">Operating cash flow<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">$5.2B</td>
-  <td data-label="Next threshold">Next comparable update</td>
-  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
-  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Next threshold">At least $1B</td>
+  <td data-label="Signal"><span class="status-text status-positive">Confirmed</span></td>
+  <td data-label="Investor read">The latest result clears the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
 </tr><tr data-group="capital">
   <td class="rank" data-label="#">13</td>
-  <td class="name" data-label="KPI">Cash and equivalents<span class="table-detail">2026-03-31</span></td>
-  <td data-label="Baseline">$10.8B</td>
+  <td class="name" data-label="KPI">Operating cash flow<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$2.6B</td>
   <td data-label="Next threshold">Next comparable update</td>
   <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
   <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
 </tr><tr data-group="capital">
   <td class="rank" data-label="#">14</td>
-  <td class="name" data-label="KPI">Total debt<span class="table-detail">2026-03-31</span></td>
-  <td data-label="Baseline">$66.4B</td>
-  <td data-label="Next threshold">Stay at or below $70B</td>
-  <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
-  <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
-</tr><tr data-group="capital">
-  <td class="rank" data-label="#">15</td>
-  <td class="name" data-label="KPI">Diluted share count<span class="table-detail">Q1 FY2026</span></td>
-  <td data-label="Baseline">952.1M</td>
+  <td class="name" data-label="KPI">Capital expenditures<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$229M</td>
   <td data-label="Next threshold">Next comparable update</td>
   <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
   <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">15</td>
+  <td class="name" data-label="KPI">Simple free cash flow<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">$2.4B</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
 </tr><tr data-group="capital">
   <td class="rank" data-label="#">16</td>
-  <td class="name" data-label="KPI">Current ratio<span class="table-detail">2026-03-31</span></td>
-  <td data-label="Baseline">0.8x</td>
-  <td data-label="Next threshold">Stay at or above 0.75x</td>
+  <td class="name" data-label="KPI">Cash and equivalents<span class="table-detail">2026-06-30</span></td>
+  <td data-label="Baseline">$7.2B</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">17</td>
+  <td class="name" data-label="KPI">Total debt<span class="table-detail">2026-06-30</span></td>
+  <td data-label="Baseline">$62B</td>
+  <td data-label="Next threshold">Stay at or below $66.4B</td>
   <td data-label="Signal"><span class="status-text status-warning">Near threshold</span></td>
   <td data-label="Investor read">The KPI is still on the safe side, but close enough that the next update matters.</td>
-  <td data-label="Source"><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span></td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">18</td>
+  <td class="name" data-label="KPI">Net debt<span class="table-detail">2026-06-30</span></td>
+  <td data-label="Baseline">$54.8B</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">19</td>
+  <td class="name" data-label="KPI">Goodwill<span class="table-detail">2026-06-30</span></td>
+  <td data-label="Baseline">$74.6B</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">20</td>
+  <td class="name" data-label="KPI">Diluted share count<span class="table-detail">Q2 FY2026</span></td>
+  <td data-label="Baseline">953.3M</td>
+  <td data-label="Next threshold">Next comparable update</td>
+  <td data-label="Signal"><span class="status-text status-neutral">Monitor</span></td>
+  <td data-label="Investor read">No comparable prior observation is in the public handoff; judge the next update against this baseline.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
+</tr><tr data-group="capital">
+  <td class="rank" data-label="#">21</td>
+  <td class="name" data-label="KPI">Current ratio<span class="table-detail">2026-06-30</span></td>
+  <td data-label="Baseline">0.79x</td>
+  <td data-label="Next threshold">At least 1x</td>
+  <td data-label="Signal"><span class="status-text status-warning">Below confirm</span></td>
+  <td data-label="Investor read">The latest result has not yet cleared the confirmation threshold.</td>
+  <td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span></td>
 </tr></tbody>
     </table>
   </div>
   <p class="quality"><b>How to read the scorecard:</b> Signals compare the latest baseline with the stated decision threshold. “Monitor” means the public handoff has one valid baseline but no compatible prior observation; it is not a positive or negative call.</p>
 </section>
+    
+    <section id="quarterly-trajectory">
+  <h2>Quarterly KPI trajectory</h2>
+  <p class="quality"><b>Coverage:</b> 0 publishable observations across a
+  12-quarter snapshot; 576 withheld or unavailable observation-periods.
+  <b>Acquisition status:</b> not public.</p>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Quarterly KPI trajectory">
+    <table>
+      <thead><tr><th>KPI</th><th>Period</th><th>Value</th><th>Basis</th><th>Source</th></tr></thead>
+      <tbody><tr><td colspan="5" data-label="Trajectory status" class="empty-state">No public-primary longitudinal observations; private or unavailable values remain explicit gaps.</td></tr></tbody>
+    </table>
+  </div>
+</section>
     <section id="signals">
   <h2>Thesis signals</h2>
-  <div class="signal-grid"><div class="signal-group"><h3>Thesis pillars</h3><ul><li><strong>Software-led mix</strong><span>Software is the primary high-margin growth and valuation support pillar.</span></li><li><strong>Cash-generation durability</strong><span>Positive and growing free cash flow supports investment and the dividend.</span></li><li><strong>Balance-sheet discipline</strong><span>Debt service is covered, but balance-sheet flexibility remains the principal constraint.</span></li></ul></div><div class="signal-group"><h3>Catalysts</h3><ul><li><strong>Software growth execution</strong><span>Sustained double-digit Software growth would reinforce mix, margin and cash-flow durability.</span></li><li><strong>Productivity savings</strong><span>IBM targets a $5.5 billion productivity run-rate exiting 2026, which could support margin expansion and reinvestment.</span></li></ul></div><div class="signal-group"><h3>Risks</h3><ul><li><strong>Consulting growth quality</strong><span>Consulting grew 4.0% reported but only 0.9% at constant currency in Q1, making conversion and productivity key watch items.</span></li><li><strong>Leverage and liquidity</strong><span>Total debt of $66.361 billion and a sub-1.0 current ratio limit flexibility after acquisition spending.</span></li><li><strong>Infrastructure cycle</strong><span>Infrastructure growth benefits from the z17 product cycle and may normalize.</span></li></ul></div><div class="signal-group"><h3>Monitoring triggers</h3><ul><li><strong>Software durability</strong><span>Escalate if Software growth falls below double digits while margin remains below the prior-year level.</span></li><li><strong>Consulting conversion</strong><span>Track whether Consulting returns to mid-single-digit reported growth and improves constant-currency conversion.</span></li><li><strong>Cash and leverage</strong><span>Monitor FCF delivery, debt reduction and liquidity after acquisition spending.</span></li></ul></div></div>
+  <div class="signal-grid"><div class="signal-group"><h3>Thesis pillars</h3><ul><li><strong>Recurring Software must reaccelerate</strong><span>Software is the main high-margin growth pillar, but Q2 growth of 5.1% makes reacceleration the next confirmation test.</span></li><li><strong>Cash generation must remain durable</strong><span>Q2 company-defined free cash flow and intact full-year growth guidance partially offset the lower revenue outlook.</span></li><li><strong>Balance-sheet discipline is the constraint</strong><span>Debt declined from Q1, but liquidity, net leverage and goodwill keep resilience in the FRAGILE band.</span></li></ul></div><div class="signal-group"><h3>Catalysts</h3><ul><li><strong>Software growth reaccelerates</strong><span>A return toward double-digit Software growth with stable recurring-revenue economics would strengthen the mix, margin and cash-flow thesis.</span></li><li><strong>Cash delivery survives the lower revenue range</strong><span>Maintaining about USD 1 billion of year-over-year full-year free-cash-flow growth despite 4%-5% revenue guidance would demonstrate operating leverage.</span></li></ul></div><div class="signal-group"><h3>Risks</h3><ul><li><strong>Software growth slowed</strong><span>Q2 Software revenue grew 5.1% reported, below the double-digit confirmation threshold, while transactional buying shifted late in the quarter.</span></li><li><strong>Leverage and liquidity constrain optionality</strong><span>USD 61.985 billion of debt, a 0.791 current ratio and material goodwill leave less room for execution or acquisition disappointment.</span></li><li><strong>Infrastructure cycle weakened</strong><span>Q2 Infrastructure revenue fell 7.4% as IBM Z declined against the prior-year launch, despite strength in distributed infrastructure.</span></li></ul></div><div class="signal-group"><h3>Monitoring triggers</h3><ul><li><strong>Software and Consulting conversion</strong><span>Escalate if Software growth falls below 5% or Consulting remains below 4%; confirm only with Software at or above 10% and Consulting at or above 5%.</span></li><li><strong>Cash and guidance durability</strong><span>Escalate if company-defined free cash flow or the expectation for about USD 1 billion of full-year growth is reduced.</span></li><li><strong>Debt, liquidity and goodwill</strong><span>Escalate if debt rises above USD 66.361 billion, the current ratio falls below 0.75, or interest coverage falls below 5x.</span></li></ul></div></div>
 </section>
     <section id="gaps">
   <h2>Evidence limits</h2>
@@ -371,7 +426,7 @@ footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px
 </section>
     <section id="sources">
   <h2>Public sources</h2>
-  <ol class="source-list"><li><a href="https://api.nasdaq.com/api/quote/IBM/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10" rel="noreferrer">Nasdaq IBM historical quote</a> <span class="source-date">(2026-07-14)</span><span></span></li><li><a href="https://www.sec.gov/edgar/browse/?CIK=51143&amp;owner=exclude" rel="noreferrer">IBM SEC filings</a> <span class="source-date">(2026-04-23)</span><span></span></li><li><a href="https://www.ibm.com/investor/events/earnings-1q26" rel="noreferrer">IBM 1Q26 earnings materials</a> <span class="source-date">(2026-04-22)</span><span></span></li></ol>
+  <ol class="source-list"><li><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000078/ibm-20260630.htm" rel="noreferrer">IBM Q2 2026 Form 10-Q</a> <span class="source-date">(2026-07-23)</span><span></span></li><li><a href="https://www.sec.gov/Archives/edgar/data/51143/000005114326000077/ibm-20260722xex991.htm" rel="noreferrer">IBM Q2 2026 earnings release</a> <span class="source-date">(2026-07-22)</span><span></span></li><li><a href="https://www.ibm.com/investor/events/earnings-2q26" rel="noreferrer">IBM Q2 2026 earnings materials</a> <span class="source-date">(2026-07-22)</span><span></span></li><li><a href="https://api.nasdaq.com/api/quote/IBM/historical?assetclass=stocks&amp;fromdate=2026-07-13&amp;todate=2026-07-15&amp;limit=10" rel="noreferrer">Nasdaq IBM historical quote</a> <span class="source-date">(2026-07-14)</span><span></span></li></ol>
 </section>
   </main>
   <footer>Generated from the validated public KPI handoff. No private portfolio data is included.</footer>
