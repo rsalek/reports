@@ -40,17 +40,17 @@
       "valuation": "Milestone range: $1.30-$1.90"
     },
     {
-      "baseline": "Baseline through 2026-07-15",
-      "company": "International Business Machines Corporation KPI Monitor",
-      "date": "2026-07-15",
+      "baseline": "Baseline through 2026-07-23",
+      "company": "IBM KPI Monitor",
+      "date": "2026-07-23",
       "format_status": "current",
       "related_label": "Read report",
       "related_url": "docs/IBM_Full_Report.html",
       "stance": "HOLD",
-      "summary": "Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.",
+      "summary": "Tracks seasonality-aware KPI trends, public thresholds, monitoring triggers and evidence gaps.",
       "ticker": "IBM",
       "url": "kpi/ibm-latest.html",
-      "valuation": "Valuation: FCFF"
+      "valuation": "Intrinsic scenarios only"
     },
     {
       "baseline": "Baseline through 2026-07-15",
@@ -214,12 +214,12 @@
       "url": "docs/PACB_Full_Report.html"
     },
     {
-      "company": "International Business Machines Corporation",
-      "date": "2026-07-17",
+      "company": "IBM",
+      "date": "2026-07-30",
       "format_status": "current",
-      "phase": "Phase 5",
       "stance": "HOLD",
-      "summary": "IBM remains a Hold: Software growth, margins and cash generation are constructive, but at $217.07 the shares stood above the $210.18 base FCFF value and close to the $216.20 probability-weighted value. A better entry price or stronger sustainable FCFF is needed before improving the stance.",
+      "summary": "Decision-first operating research with intrinsic scenarios; market-price comparisons are on demand only.",
+      "thesis_url": "thesis/ibm-latest.html",
       "ticker": "IBM",
       "url": "docs/IBM_Full_Report.html"
     },
