@@ -14,17 +14,17 @@
       "valuation": "Valuation: unavailable"
     },
     {
-      "baseline": "Q1 2026 baseline",
-      "company": "Dexcom KPI Monitor",
-      "date": "2026-07-12",
-      "format_status": "legacy",
-      "related_label": "Read thesis",
-      "related_url": "kpi/dexcom-q1-2026-thesis.html",
-      "stance": "Hold / Watch",
-      "summary": "Tracks geographic growth, G7 conversion, access expansion, reliability, margins, consensus, valuation, and the proof needed for U.S. reacceleration.",
+      "baseline": "Baseline through 2026-07-30",
+      "company": "Dexcom, Inc. KPI Monitor",
+      "date": "2026-07-30",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/DXCM_Full_Report.html",
+      "stance": "HOLD",
+      "summary": "Tracks seasonality-aware KPI trends, public thresholds, monitoring triggers and evidence gaps.",
       "ticker": "DXCM",
-      "url": "kpi/dexcom-q1-2026.html",
-      "valuation": "FCFF cross-check: $88-$95"
+      "url": "kpi/dxcm-latest.html",
+      "valuation": "Intrinsic scenarios only"
     },
     {
       "baseline": "Q1 2026 baseline",
@@ -298,11 +298,11 @@
     },
     {
       "company": "Dexcom, Inc.",
-      "date": "2026-07-24",
+      "date": "2026-07-31",
       "format_status": "current",
-      "phase": "Public update",
-      "stance": "WATCH \u2014 WAIT FOR U.S. CONVERSION PROOF",
-      "summary": "Dexcom entered 2026 with double-digit growth and a sharp margin recovery. The constructive case depends on broader Type 2 access, G7 15-Day adoption, international expansion, and manufacturing improvement producing visible patient conversion and durable cash economics. The central question is whether U.S. growth can reaccelerate while reliability work and continued reinvestment preserve the Q1 margin gains.",
+      "stance": "HOLD",
+      "summary": "Decision-first operating research with intrinsic scenarios; market-price comparisons are on demand only.",
+      "thesis_url": "thesis/dxcm-latest.html",
       "ticker": "DXCM",
       "url": "docs/DXCM_Full_Report.html"
     },
