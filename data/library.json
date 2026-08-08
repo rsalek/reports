@@ -79,17 +79,17 @@
       "valuation": "Valuation: REVENUE-TO-FCFF"
     },
     {
-      "baseline": "Baseline through 2026-07-16",
+      "baseline": "Baseline through 2026-07-31",
       "company": "FTAI Aviation Ltd. KPI Monitor",
-      "date": "2026-07-16",
+      "date": "2026-07-31",
       "format_status": "current",
       "related_label": "Read report",
       "related_url": "docs/FTAI_Full_Report.html",
-      "stance": "SELL / AVOID",
-      "summary": "Tracks the ranked operating baseline, forward thresholds, valuation scenarios, catalysts, risks, and the next evidence required to revise the thesis.",
+      "stance": "SELL/AVOID",
+      "summary": "Tracks seasonality-aware KPI trends, public thresholds, monitoring triggers and evidence gaps.",
       "ticker": "FTAI",
       "url": "kpi/ftai-latest.html",
-      "valuation": "Valuation: REVENUE-TO-FCFF"
+      "valuation": "Intrinsic scenarios only"
     },
     {
       "baseline": "Baseline through 2026-07-18",
@@ -258,11 +258,12 @@
     },
     {
       "company": "FTAI Aviation Ltd.",
-      "date": "2026-07-17",
+      "date": "2026-08-08",
       "format_status": "current",
       "phase": "Phase 4",
-      "stance": "SELL / AVOID",
-      "summary": "FTAI is executing well, but the security offers insufficient margin of safety at USD 203.70. Q1 2026 Aerospace Products revenue increased 104% to USD 743.8 million, adjusted EBITDA increased 70% to USD 222.6 million, and module production reached 270. Those results support the operating thesis. The valuation thesis is less attractive: the locked revenue-to-FCFF framework produces USD 32.97 bear, USD 187.53 base...",
+      "stance": "SELL/AVOID",
+      "summary": "Decision-first operating research with intrinsic scenarios; market-price comparisons are on demand only.",
+      "thesis_url": "thesis/ftai-latest.html",
       "ticker": "FTAI",
       "url": "docs/FTAI_Full_Report.html"
     },

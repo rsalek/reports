@@ -5,67 +5,60 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 "Avenir Next",Avenir,"Helvetica Neue",Arial,sans-serif}
 a{color:var(--brand-dark)}a:focus-visible{outline:2px solid var(--brand);outline-offset:3px}.topbar{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:56px;padding:10px max(24px,calc((100vw - 1060px)/2));border-bottom:1px solid var(--line);background:rgba(255,255,255,.96)}
 .brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;text-decoration:none}.brand span{flex:0 0 auto;padding:4px 8px;border-radius:5px;background:var(--brand-dark);color:#fff;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:12px}nav a{color:var(--muted);text-decoration:none}
-main,footer{width:min(1060px,calc(100% - 48px));margin:0 auto}.report-meta{display:flex;gap:10px;padding:30px 0 12px;color:var(--muted);font-size:12px}.report-meta span{padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}article{padding:24px 48px 52px;border:1px solid var(--line);background:var(--paper)}
+main,footer{width:min(1060px,calc(100% - 48px));margin:0 auto}.report-meta{display:flex;gap:10px;padding:30px 0 12px;color:var(--muted);font-size:12px}.report-meta:focus-visible{outline:2px solid var(--brand);outline-offset:2px}.report-meta span{padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}article{padding:24px 48px 52px;border:1px solid var(--line);background:var(--paper)}
 h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42px 0 14px;padding-top:8px;border-top:2px solid var(--ink);font-size:23px;line-height:1.25;scroll-margin-top:76px}h3{font-size:17px}p,li{max-width:820px}blockquote{margin:20px 0;padding:12px 18px;border-left:3px solid var(--brand);background:var(--brand-bg)}
 .table-scroll{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}table{width:100%;min-width:680px;border-collapse:collapse}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--brand-bg);font-size:12px}footer{padding:22px 0 40px;color:var(--muted);font-size:12px}
 @media(max-width:720px){.topbar{align-items:flex-start;padding:10px 16px}nav{justify-content:flex-end}nav a:not(:last-child){display:none}main,footer{width:calc(100% - 28px)}article{padding:24px 20px 38px}h1{font-size:29px}h2{font-size:21px}.report-meta{overflow-x:auto;white-space:nowrap}}
 @media print{body{background:#fff}.topbar{position:static}nav{display:none}main,footer{width:100%}article{border:0;padding:0}.table-scroll{overflow:visible}table{min-width:0}}
 
-:root { --brand:#0B6F8C; --brand-bg:#E5F4F8; --brand-dark:#072E40; }</style></head><body>
-<header class="topbar"><a class="brand" href="#decision-snapshot"><span>FTAI</span>FTAI Aviation Ltd.</a><nav><a href="#decision-snapshot">Decision Snapshot</a><a href="#operating-kpi-baseline">Operating KPI Baseline</a><a href="#valuation-and-scenarios">Valuation and Scenarios</a><a href="#public-sources">Public Sources</a><a href="../">Library</a></nav></header>
-<main><div class="report-meta"><span>Public report</span><span>2026-07-17</span><span>2026-07-16</span></div><article><h1>FTAI Aviation Ltd. Public Equity Report</h1>
+:root { --brand:#B9470F; --brand-bg:#FFF2E8; --brand-dark:#072E40; }article p,article li,article a{overflow-wrap:anywhere;word-break:break-word}</style></head><body>
+<header class="topbar"><a class="brand" href="#decision-snapshot"><span>FTAI</span>FTAI Aviation Ltd.</a><nav><a href="#decision-snapshot">Decision Snapshot</a><a href="#operating-kpi-baseline">Operating KPI Baseline</a><a href="#valuation-and-scenarios">Valuation and Scenarios</a><a href="#public-sources">Public Sources</a><a href="../index.html">Public package</a></nav></header>
+<main><div class="report-meta" tabindex="0" aria-label="Report metadata"><span>Public report</span><span>2026-08-08</span><span>2026-07-31</span></div><article><h1>FTAI Aviation Ltd. Public Equity Report</h1>
 <ul>
 <li><strong>Company:</strong> FTAI Aviation Ltd.</li>
 <li><strong>Ticker:</strong> FTAI</li>
 <li><strong>Exchange:</strong> NASDAQ</li>
-<li><strong>Report Date:</strong> 2026-07-17</li>
-<li><strong>Data Cutoff:</strong> 2026-07-16</li>
-<li><strong>Current Price:</strong> USD 203.70 as of 2026-07-16</li>
+<li><strong>Report Date:</strong> 2026-08-08</li>
+<li><strong>Data Cutoff:</strong> 2026-07-31</li>
+
 <li><strong>Evidence Confidence:</strong> MEDIUM</li>
-<li><strong>Research Stance:</strong> SELL / AVOID</li>
+<li><strong>Research Stance:</strong> SELL/AVOID pending cash-conversion and margin proof</li>
 </ul>
 <h2 id="decision-snapshot">Decision Snapshot</h2>
-<p>FTAI is executing well, but the security offers insufficient margin of safety at USD 203.70. Q1 2026 Aerospace Products revenue increased 104% to USD 743.8 million, adjusted EBITDA increased 70% to USD 222.6 million, and module production reached 270. Those results support the operating thesis. The valuation thesis is less attractive: the locked revenue-to-FCFF framework produces USD 32.97 bear, USD 187.53 base, and USD 545.60 bull monitoring values, with a USD 205.05 probability-weighted value. <a href="https://ir.ftaiaviation.com/news-releases/news-release-details/ftai-aviation-ltd-reports-first-quarter-2026-results-increases">FTAI Q1 2026 results, 2026-04-29</a> <a href="https://api.nasdaq.com/api/quote/FTAI/historical?assetclass=stocks&amp;fromdate=2026-07-15&amp;todate=2026-07-17&amp;limit=10">Nasdaq price record, 2026-07-16</a></p>
+<p>FTAI’s FY2026 Q2 evidence shows strong operating scale but weaker economic conversion. Revenue reached $953.1 million, up 40.9% year over year, while gross margin fell to 33.3%, operating margin was 20.4%, and discrete-quarter free cash flow remained negative $122.6 million. <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a></p>
+<p>The public research stance is <strong>SELL/AVOID</strong>. The decision hinge is positive discrete-quarter free cash flow together with gross-margin stabilization above 35%; revenue growth alone does not clear the underwriting gate.</p>
 <div class="table-scroll" tabindex="0"><table>
 <thead>
 <tr>
 <th>Decision question</th>
-<th>Accepted public reading</th>
+<th style="text-align: right;">Accepted public reading</th>
 <th>Investment implication</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Is operating execution supporting the company thesis?</td>
-<td>Yes. Aerospace Products revenue grew 104%, adjusted EBITDA grew 70%, and module production reached 270 in Q1 2026.</td>
-<td>The operating thesis remains supported.</td>
+<td>Is operating scale established?</td>
+<td style="text-align: right;">Yes; Q2 revenue was $953.1m</td>
+<td>Scale is necessary but not sufficient</td>
 </tr>
 <tr>
-<td>Is module scale on track?</td>
-<td>Q1 production was consistent with the initial quarterly pace required for the 1,050-module 2026 target.</td>
-<td>Retain the target as the central execution gate.</td>
+<td>Is margin conversion proven?</td>
+<td style="text-align: right;">No; gross margin was 33.3%</td>
+<td>Keep a cautious stance</td>
 </tr>
 <tr>
-<td>Has earnings quality been proven?</td>
-<td>Adjusted free cash flow was positive, but GAAP cash conversion after inventory and recurring capital requirements remains the key unresolved issue.</td>
-<td>Do not treat non-GAAP growth alone as proof of durable value creation.</td>
-</tr>
-<tr>
-<td>Does the dated market price provide a margin of safety?</td>
-<td>USD 203.70 is above the USD 187.53 base monitoring value and close to the USD 205.05 probability-weighted value.</td>
-<td>Maintain <strong>SELL / AVOID</strong> until price resets materially or cash conversion and balance-sheet quality improve.</td>
+<td>Is cash conversion proven?</td>
+<td style="text-align: right;">No; Q2 free cash flow was negative $122.6m</td>
+<td>Do not underwrite a purchase</td>
 </tr>
 </tbody>
 </table></div>
 <h2 id="company-and-business-overview">Company and Business Overview</h2>
-<p>FTAI owns and maintains commercial jet engines, concentrating on Maintenance, Repair, and Exchange for the CFM56 and V2500 installed base. Its Aerospace Products platform combines module exchange, proprietary repair processes, parts procurement, and customer relationships; the Aviation Leasing segment supplies assets and can facilitate engine acquisition. This model seeks to turn a large installed base of mature engines into recurring aftermarket demand and stable cash generation. <a href="https://ir.ftaiaviation.com/">FTAI corporate overview, accessed 2026-07-17</a></p>
-<p>The company is best viewed as a Phase 4 operating-leverage platform: demand and product-market fit are established, Aerospace Products is scaling quickly, and management is extending the model through Strategic Capital and the pre-revenue FTAI Power initiative. The investment debate is no longer whether the platform can grow, but whether growth can translate into durable GAAP cash generation while leverage and working capital remain controlled.</p>
+<p>FTAI operates an aviation platform centered on engines, modules, parts, and related operating activities. The key economic question is whether the platform’s growing revenue base can produce durable margins and free cash flow after capital needs. The company is assessed as Phase 4: established operating scale with the investment debate focused on quality, durability, and conversion rather than product-market discovery. <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a></p>
 <h2 id="thesis-and-variant-view">Thesis and Variant View</h2>
-<p>The positive thesis rests on MRE adoption, module scale, and the economics of a proprietary aftermarket platform. Management reported 270 modules in Q1 against a 1,050-module 2026 target and estimated approximately 12% aftermarket share. If production scales without margin erosion, FTAI can deepen customer relevance and compound Aerospace Products earnings faster than the mature engine market. <a href="https://ir.ftaiaviation.com/news-releases/news-release-details/ftai-aviation-ltd-reports-first-quarter-2026-results-increases">FTAI Q1 2026 results, 2026-04-29</a></p>
-<p>The variant view is that operating momentum is real but the market price already capitalizes many years of exceptional execution. The reverse-DCF monitoring result implies roughly 21.96% annual revenue growth for ten years. That hurdle leaves limited room for a slower module ramp, weaker cash conversion, lower terminal margins, or a higher cost of capital. The research stance separates a supportive company thesis from an unattractive security setup at the dated price.</p>
+<p>The constructive thesis is that a larger aviation installed base and higher engine, module, and parts activity can compound operating earnings. The counter-view is that Q2’s revenue growth came with substantial year-over-year margin compression and negative free cash flow. The variant view is therefore that reported scale is real but economically incomplete until profit and cash conversion improve.</p>
 <h2 id="business-quality-and-moat">Business Quality and Moat</h2>
-<p>FTAI's moat is built from engine-module inventory, specialized repair and exchange capabilities, regulatory certification, supply-chain access, and relationships across airlines, lessors, and maintenance providers. The Module Factory can reduce turnaround time and offer flexible alternatives to full-shop visits, while scale can improve parts sourcing and asset utilization. These advantages are reinforced by the large CFM56 and V2500 installed base and the operational cost of aircraft downtime.</p>
-<p>The moat is narrow rather than absolute. It depends on continued access to serviceable material, disciplined inventory economics, regulatory performance, and consistent execution across repair sites. Customers retain alternatives, engine families eventually mature, and aggressive growth can absorb cash before economic returns are proven. The quality assessment therefore remains positive on the operating platform but conditional on cash conversion.</p>
+<p>The current filing supports evidence of scale and specialized aviation activity, but it does not by itself prove a durable moat or pricing power. Moat confidence would strengthen if gross and operating margins stabilize while revenue grows and free cash flow turns positive. It would weaken if cost of sales continues to absorb most incremental revenue or if cash needs rise with scale. <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a></p>
 <h2 id="operating-kpi-baseline">Operating KPI Baseline</h2>
 <div class="table-scroll" tabindex="0"><table>
 <thead>
@@ -78,90 +71,47 @@ h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42p
 </thead>
 <tbody>
 <tr>
-<td>Module production</td>
-<td style="text-align: right;">270</td>
-<td>Q1 2026</td>
-<td>Stay on the quarterly pace required for the 1,050-module annual target</td>
+<td>Revenue</td>
+<td style="text-align: right;">$953.1m</td>
+<td>FY2026 Q2</td>
+<td>Confirm at or above $900m</td>
 </tr>
 <tr>
-<td>Module target</td>
-<td style="text-align: right;">1,050</td>
-<td>FY2026 target</td>
-<td>Treat a sustained pace shortfall as a thesis warning</td>
+<td>Gross margin</td>
+<td style="text-align: right;">33.3%</td>
+<td>FY2026 Q2</td>
+<td>Warning below 35%</td>
 </tr>
 <tr>
-<td>Aerospace Products revenue</td>
-<td style="text-align: right;">USD 743.8m</td>
-<td>Q1 2026</td>
-<td>Growth should persist without margin deterioration</td>
+<td>Operating margin</td>
+<td style="text-align: right;">20.4%</td>
+<td>FY2026 Q2</td>
+<td>Warning below 20%</td>
 </tr>
 <tr>
-<td>Aerospace Products adjusted EBITDA</td>
-<td style="text-align: right;">USD 222.6m</td>
-<td>Q1 2026</td>
-<td>Scale with revenue and cash conversion</td>
-</tr>
-<tr>
-<td>Aerospace Products adjusted EBITDA margin</td>
-<td style="text-align: right;">30%</td>
-<td>Q1 2026</td>
-<td>Warning below 27%</td>
-</tr>
-<tr>
-<td>MRE contract revenue</td>
-<td style="text-align: right;">USD 221.2m</td>
-<td>Q1 2026</td>
-<td>Adoption should expand without weaker unit economics</td>
-</tr>
-<tr>
-<td>Estimated aftermarket share</td>
-<td style="text-align: right;">Approximately 12%</td>
-<td>Q1 2026 management estimate</td>
-<td>Share should rise without margin deterioration</td>
-</tr>
-<tr>
-<td>Consolidated adjusted EBITDA</td>
-<td style="text-align: right;">USD 326m</td>
-<td>Q1 2026</td>
-<td>Reconcile the non-GAAP measure with GAAP cash generation</td>
-</tr>
-<tr>
-<td>Adjusted free cash flow</td>
-<td style="text-align: right;">USD 158m</td>
-<td>Q1 2026</td>
-<td>Reconcile toward positive GAAP operating cash flow</td>
-</tr>
-<tr>
-<td>Revolver capacity after April expansion</td>
-<td style="text-align: right;">USD 2.025bn</td>
-<td>2026-04-24</td>
-<td>Preserve liquidity while funding growth and asset activity</td>
+<td>Free cash flow</td>
+<td style="text-align: right;">($122.6m)</td>
+<td>FY2026 Q2 discrete</td>
+<td>Confirm above $0</td>
 </tr>
 <tr>
 <td>Total debt</td>
-<td style="text-align: right;">USD 3.449bn</td>
-<td>FY2025</td>
-<td>Warning above USD 3.6bn without stronger cash economics</td>
-</tr>
-<tr>
-<td>Inventory</td>
-<td style="text-align: right;">USD 1.194bn</td>
-<td>FY2025</td>
-<td>Warning above USD 1.5bn without stronger cash conversion</td>
+<td style="text-align: right;">$3.50bn</td>
+<td>2026-06-30 instant</td>
+<td>Warning above $3.5bn</td>
 </tr>
 </tbody>
 </table></div>
-<p>Operating data are from the <a href="https://ir.ftaiaviation.com/news-releases/news-release-details/ftai-aviation-ltd-reports-first-quarter-2026-results-increases">Q1 2026 results, dated 2026-04-29</a>. FY2025 debt and inventory are from the <a href="https://www.sec.gov/Archives/edgar/data/1590364/000162828026012940/ftai-20251231.htm">2025 Form 10-K, filed 2026-02-27</a>. Adjusted measures are management-defined and should be evaluated alongside GAAP results. The monitoring gates are research thresholds, not company guidance.</p>
+<p>These are analyst research thresholds, not company guidance. The baselines are sourced from the <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a>.</p>
 <h2 id="growth-drivers">Growth Drivers</h2>
 <ul>
-<li><strong>Module throughput:</strong> Sustained production at or above the pace required for 1,050 modules in 2026 would support MRE share gains, Aerospace Products revenue, and asset turns.</li>
-<li><strong>MRE adoption:</strong> Broader adoption across the CFM56 and V2500 aftermarket can expand the approximately 12% management-estimated share baseline.</li>
-<li><strong>Strategic Capital:</strong> Recurring servicing and co-investment economics can add value if transactions remain disciplined.</li>
-<li><strong>FTAI Power:</strong> A credible first Mod-1 delivery could establish a second platform, but the initiative was pre-revenue at the data cutoff and its first delivery was targeted for Q4 2026.</li>
+<li><strong>Engine, module, and parts activity:</strong> The filing attributes increased revenue and cost of sales primarily to operating components and higher engine, module, and parts sales.</li>
+<li><strong>Operating leverage:</strong> The proof case requires gross profit and operating income to grow faster than or in line with revenue without sacrificing cash conversion.</li>
+<li><strong>Capital and working-capital discipline:</strong> Positive free cash flow is required to show that growth is not being purchased with persistent cash outflow.</li>
 </ul>
-<p>These drivers are grounded in the <a href="https://ir.ftaiaviation.com/news-releases/news-release-details/ftai-aviation-ltd-reports-first-quarter-2026-results-increases">Q1 2026 results, dated 2026-04-29</a>. Growth quality matters as much as growth rate: the decisive proof is whether revenue and module scale produce positive GAAP operating cash flow after inventory investment, asset activity, interest, and recurring capital requirements.</p>
+<p>The growth case strengthens only when scale, stable margins, and positive cash conversion occur together.</p>
 <h2 id="valuation-and-scenarios">Valuation and Scenarios</h2>
-<p>The preliminary public framework translates revenue into FCFF across three long-duration scenarios. These are monitoring values, not price forecasts. The probability weights are 35% downside, 45% base execution, and 20% upside proof, producing a USD 205.05 probability-weighted value, 0.7% above the dated price.</p>
+
 <div class="table-scroll" tabindex="0"><table>
 <thead>
 <tr>
@@ -173,22 +123,21 @@ h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42p
 <tbody>
 <tr>
 <td>Downside</td>
-<td>Module production falls below required pace, margin falls below the 27% warning level, or cash conversion and leverage deteriorate.</td>
-<td>The USD 32.97 bear monitoring value is 83.8% below the dated price.</td>
+<td>Growth slows and terminal free-cash-flow margin reaches only 17%</td>
+<td>Operating value is materially impaired</td>
 </tr>
 <tr>
-<td>Base execution</td>
-<td>Module scale progresses, current economics broadly persist, and cash conversion improves gradually.</td>
-<td>The USD 187.53 base monitoring value is 7.9% below the USD 203.70 dated price.</td>
+<td>Proof case</td>
+<td>Scale converts to a 24% terminal free-cash-flow margin</td>
+<td>Base operating economics become plausible</td>
 </tr>
 <tr>
 <td>Upside proof</td>
-<td>Exceptional long-duration growth, margin durability, cash conversion, and balance-sheet execution are sustained.</td>
-<td>The USD 545.60 bull monitoring value is 167.8% above the dated price and requires demanding execution; the reverse DCF implies approximately 21.96% annual revenue growth for ten years.</td>
+<td>Strong growth and a 31% terminal free-cash-flow margin are sustained</td>
+<td>High-end value requires exceptional conversion</td>
 </tr>
 </tbody>
 </table></div>
-<p>The wide range reflects sensitivity to long-run revenue growth, FCFF margin, discount rate, and terminal assumptions. The decision gate remains strict: require positive GAAP cash conversion and lower leverage, or a material valuation reset, before improving the stance. Current-price evidence is the <a href="https://api.nasdaq.com/api/quote/FTAI/historical?assetclass=stocks&amp;fromdate=2026-07-15&amp;todate=2026-07-17&amp;limit=10">Nasdaq historical quote for 2026-07-16</a>.</p>
 <h2 id="risks-catalysts-and-falsifiers">Risks, Catalysts, and Falsifiers</h2>
 <div class="table-scroll" tabindex="0"><table>
 <thead>
@@ -200,49 +149,162 @@ h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42p
 </thead>
 <tbody>
 <tr>
+<td>Margin compression</td>
+<td>Mix and cost of sales absorb incremental revenue</td>
+<td>Gross and operating margins</td>
+</tr>
+<tr>
 <td>Cash conversion</td>
-<td>Inventory and asset activity can absorb cash even when adjusted earnings rise.</td>
-<td>GAAP operating cash flow, adjusted free cash flow reconciliation, and inventory turns</td>
+<td>Capital and working-capital needs consume accounting earnings</td>
+<td>Discrete-quarter and trailing free cash flow</td>
 </tr>
 <tr>
-<td>Leverage and refinancing</td>
-<td>Debt increases interest and refinancing sensitivity while the platform scales.</td>
-<td>Total debt, revolver utilization, interest expense, and maturity actions</td>
+<td>Leverage</td>
+<td>Debt reduces financial flexibility</td>
+<td>Debt, cash, and interest burden</td>
 </tr>
 <tr>
-<td>Inventory discipline</td>
-<td>Inventory can support module availability but weaken returns if growth or turns disappoint.</td>
-<td>Inventory balance, module throughput, asset sales, and cash conversion</td>
-</tr>
-<tr>
-<td>Multi-platform execution</td>
-<td>Management is simultaneously scaling modules, Strategic Capital, international repair capacity, and FTAI Power.</td>
-<td>Delivery milestones, margin stability, capital deployment, and disclosed delays</td>
-</tr>
-<tr>
-<td>Aviation cyclicality</td>
-<td>Excess aircraft or engine supply could pressure lease rates and asset values.</td>
-<td>Utilization, lease rates, asset values, airline demand, and supply commentary</td>
+<td>Positive catalyst</td>
+<td>Scale begins converting into cash</td>
+<td>Two positive free-cash-flow quarters</td>
 </tr>
 </tbody>
 </table></div>
-<p>The <a href="https://www.sec.gov/Archives/edgar/data/1590364/000162828026012940/ftai-20251231.htm">FTAI 2025 Form 10-K, filed 2026-02-27</a> provides the primary risk baseline. Positive catalysts are production at or above the 1,050-module pace, MRE share gains without margin compression, improving GAAP cash generation, disciplined Strategic Capital deployment, and a credible first FTAI Power delivery. The thesis would weaken if module production falls below required pace, Aerospace Products adjusted EBITDA margin falls below 27%, adjusted free cash flow turns negative, inventory exceeds USD 1.5 billion without stronger cash conversion, or debt rises above USD 3.6 billion without a matching improvement in cash economics.</p>
+<p>The principal falsifier for the cautious stance is two successive quarters of positive free cash flow with gross margin above 35% and operating margin above 20%.</p>
 <h2 id="monitoring-plan">Monitoring Plan</h2>
-<p>Quarterly updates should answer four linked questions:</p>
-<ol>
-<li>Is module production still on pace for the 2026 target, and is MRE share rising?</li>
-<li>Are Aerospace Products revenue, adjusted EBITDA, and margin scaling together?</li>
-<li>Is adjusted free cash flow reconciling toward positive GAAP operating cash flow as inventory matures?</li>
-<li>Are debt and liquidity improving relative to the earnings base?</li>
-</ol>
-<p>The next major scheduled evidence event at the data cutoff was the Q2 2026 earnings release and conference call on 2026-07-30, as listed on the <a href="https://ir.ftaiaviation.com/">official investor-relations calendar</a>. Between earnings, monitor material financing, asset-sale, securitization, and Strategic Capital announcements through the <a href="https://ir.ftaiaviation.com/financial-information/sec-filings">company's SEC filings page</a>.</p>
+<p>Refresh after each 10-Q, 10-K, and earnings release. First, verify revenue and gross-profit conversion. Second, preserve discrete-quarter versus year-to-date cash-flow semantics. Third, treat debt, cash, current assets, and current liabilities as instant balance-sheet snapshots. Fourth, reassess diluted shares and any capital-allocation changes. The stance improves only when the accepted cash and margin gates are met with dated company-primary evidence.</p>
 <h2 id="public-sources">Public Sources</h2>
 <ul>
-<li><a href="https://ir.ftaiaviation.com/">FTAI Aviation investor relations and corporate overview</a> — accessed 2026-07-17; supports the business overview and public event calendar.</li>
-<li><a href="https://ir.ftaiaviation.com/news-releases/news-release-details/ftai-aviation-ltd-reports-first-quarter-2026-results-increases">FTAI Q1 2026 results and operating materials</a> — dated 2026-04-29; supports the operating baseline, targets, and growth drivers.</li>
-<li><a href="https://www.sec.gov/Archives/edgar/data/1590364/000162828026012940/ftai-20251231.htm">FTAI 2025 Form 10-K</a> — filed 2026-02-27; supports debt, inventory, business, and risk evidence.</li>
-<li><a href="https://ir.ftaiaviation.com/financial-information/sec-filings">FTAI SEC filings index</a> — accessed 2026-07-17; provides the primary filing trail for ongoing monitoring.</li>
-<li><a href="https://api.nasdaq.com/api/quote/FTAI/historical?assetclass=stocks&amp;fromdate=2026-07-15&amp;todate=2026-07-17&amp;limit=10">Nasdaq FTAI historical quote</a> — price as of 2026-07-16; supports the dated market-price comparison.</li>
+<li><a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q — filed 2026-07-31</a>: financial statements, quarterly KPI baselines, operating drivers, liquidity, debt, and cash-flow evidence.</li>
 </ul>
-<p>This report uses public evidence only. It excludes personal holdings information, non-public research materials, and restricted source content. Valuation outputs are scenario-based monitoring values and should be refreshed when new filings or operating updates become available. It is provided for informational purposes.</p></article></main>
-<footer>Public research only. Portfolio context, private files, and licensed-source excerpts are excluded.</footer></body></html>
+<p>This public report uses redistributable company-primary evidence and deterministic internal calculations. It excludes private portfolio details, licensed research, proprietary market data, and local source paths. It is for informational research purposes and is not investment advice.</p>
+<h2 id="quarterly-kpi-trajectory">Quarterly KPI Trajectory</h2>
+<p>FY2026 Q2 revenue was $953.1 million, up 14.7% sequentially and 40.9% year over year, with trailing-four-quarter revenue of $3.11 billion (<code>Revenue — FY2026Q2 — USD 953.08 million</code>). Gross margin deteriorated to 33.3%, down 360 basis points sequentially and 1,210 basis points year over year (<code>Gross margin — FY2026Q2 — 0.33 ratio</code>). Operating margin was 20.4%, down 7 basis points sequentially and 1,069 basis points year over year (<code>Operating margin — FY2026Q2 — 0.20 ratio</code>). Free cash flow improved sequentially but remained negative $122.6 million; trailing-four-quarter free cash flow was negative $480.4 million (<code>Free cash flow — FY2026Q2 — USD -122.60 million</code>). <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a></p>
+<h2 id="earnings-driver-bridge">Earnings Driver Bridge</h2>
+<p>The deterministic earnings bridge is not public because every input and driver does not have dated redistributable primary-source lineage. The public report therefore preserves the public handoff gap and does not expose a waterfall, residual, or private bridge detail.</p>
+<h2 id="acquisition-effects">Acquisition Effects</h2>
+<p>The public handoff contains no publishable acquisition-effect record. This is treated as an evidence gap, not an active or zero effect; no recurring contribution, one-off cost, purchase accounting, financing, tax, or synergy effect is quantified or inferred.</p>
+<h2 id="management-explanations-and-persistence">Management Explanations and Persistence</h2>
+<p>Management’s filing explanation attributes the revenue increase and higher cost of sales to operating revenue components and higher engine, module, and parts sales (<code>Management driver — FY2026Q2 — unknown: Management attributed the year-over-year revenue increase to operating revenue components and attributed the accompanying cost-of-sales increase primarily to higher engine, module, and parts sales; this explains the revenue and cost/margin movement without licensed sources.</code>). The persistence classification remains unknown because individual contributions were not quantified. EPS, capital expenditure, and cash-flow movements remain unexplained residuals rather than management-attributed drivers.</p>
+<h2>Expectations and Material Q&amp;A</h2>
+<p>No redistributable pre-release expectations (<code>KEXP</code> evidence gap) or material public Q&amp;A records (<code>KQA</code> evidence gap) are locked for FY2026 Q2. No beat/miss or call-answer narrative is inferred, and non-public context is withheld.</p>
+<h2 id="management-language-changes">Management Language Changes</h2>
+<p>No dated public-primary management-language change record is locked (<code>KLANG</code> evidence gap). The report therefore makes no claim that confidence, guidance tone, risk emphasis, or timing language strengthened or weakened.</p><section class="intrinsic-static" id="intrinsic-valuation-scenarios"><h2>Intrinsic Valuation Scenarios</h2><div class="table-scroll" tabindex="0"><table><thead><tr><th>Scenario</th><th>Intrinsic value per share</th><th>WACC</th><th>Terminal growth</th><th>Five-year FCFF forecast</th></tr></thead><tbody><tr><td>Bear</td><td>USD 31.25</td><td>14.0%</td><td>2.0%</td><td></td></tr><tr><td>Base</td><td>USD 185.34</td><td>12.0%</td><td>2.5%</td><td></td></tr><tr><td>Bull</td><td>USD 545.16</td><td>10.0%</td><td>3.0%</td><td></td></tr></tbody></table></div><p class="quality">Current market price, price-based upside or downside, and reverse DCF are intentionally excluded from static reports. They are calculated only for an explicitly requested decision refresh using a public price with an exact timestamp.</p></section><section class="embedded-thesis" id="narrative-investment-thesis"><div class="thesis-document"><h1>Narrative Investment Thesis — FTAI Aviation Ltd.</h1>
+<ul>
+<li><strong>Ticker:</strong> FTAI</li>
+<li><strong>As of:</strong> 2026-07-31</li>
+<li><strong>Recommendation:</strong> SELL/AVOID</li>
+</ul>
+<h2>Decision Hinge</h2>
+<p>The stance improves only when positive discrete-quarter free cash flow is accompanied by gross-margin stabilization above 35%; revenue growth by itself is insufficient.</p>
+<h2>Company Thesis</h2>
+<p>FTAI can create durable value by scaling its aviation engine, module, and parts platform across a growing installed base, provided incremental revenue converts into gross profit, operating income, and cash.</p>
+<h2>Security Thesis and Intrinsic Framing</h2>
+<p>The security thesis remains conditional on durable margins, cash conversion, balance-sheet resilience, and the retained intrinsic scenario assumptions.</p>
+<p><strong>Market-data policy:</strong> Current market price, price-based upside or downside, and reverse DCF are intentionally excluded from static reports. They are calculated only for an explicitly requested decision refresh using a public price with an exact timestamp.</p>
+<p><strong>Variant perception:</strong> The differentiated view is that headline growth is real but economically incomplete: the investment case turns on whether engine, module, and parts growth can reverse margin compression and produce repeatable free cash flow.</p>
+<h2>Falsifiable Thesis Pillars</h2>
+<h3>1. Operating scale is established</h3>
+<p>FY2026 Q2 revenue of $953.1 million and 40.9% year-over-year growth demonstrate substantial operating scale, but scale must still convert into economics.</p>
+<ul>
+<li><strong>Tracked KPIs:</strong> Revenue, Gross profit, Operating income / EBIT</li>
+<li><strong>Decision thresholds:</strong> Revenue confirm threshold — &gt;= USD 900 million</li>
+<li><strong>Falsifier:</strong> Revenue falls below $900 million without a clearly temporary, company-evidenced cause.</li>
+<li><strong>Confidence:</strong> high</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</li>
+</ul>
+<h3>2. Margin quality is the first proof gate</h3>
+<p>Gross margin of 33.3% and operating margin of 20.4% show that Q2 revenue growth did not translate proportionally into profit growth.</p>
+<ul>
+<li><strong>Tracked KPIs:</strong> Gross margin, Operating margin</li>
+<li><strong>Decision thresholds:</strong> Gross margin warning threshold — &lt; 0.35 ratio, Operating margin warning threshold — &lt; 0.2 ratio</li>
+<li><strong>Falsifier:</strong> Gross margin sustainably exceeds 35% and operating margin remains above 20% while revenue continues to grow.</li>
+<li><strong>Confidence:</strong> high</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</li>
+</ul>
+<h3>3. Cash conversion is the decisive confirmation gate</h3>
+<p>Discrete-quarter free cash flow remained negative and trailing-four-quarter free cash flow was negative $480.4 million, limiting confidence in earnings quality.</p>
+<ul>
+<li><strong>Tracked KPIs:</strong> Free cash flow, Operating cash flow, Capital expenditures</li>
+<li><strong>Decision thresholds:</strong> Free cash flow confirm threshold — &gt; USD 0</li>
+<li><strong>Falsifier:</strong> Two successive quarters of positive discrete-quarter free cash flow demonstrate repeatable conversion.</li>
+<li><strong>Confidence:</strong> high</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</li>
+</ul>
+<h3>4. Liquidity is adequate but leverage constrains flexibility</h3>
+<p>Current liquidity is ample on snapshot measures, but $3.50 billion of debt and weak cash conversion support a cautious security posture.</p>
+<ul>
+<li><strong>Tracked KPIs:</strong> Total debt, Cash and equivalents, Current Assets, Current Liabilities, Diluted weighted-average shares</li>
+<li><strong>Decision thresholds:</strong> Total debt warning threshold — &gt; USD 3.5 billion</li>
+<li><strong>Falsifier:</strong> Debt declines while positive free cash flow is sustained without material dilution.</li>
+<li><strong>Confidence:</strong> medium</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</li>
+</ul>
+<h2>Catalysts</h2>
+<ul>
+<li>
+<p><strong>Positive cash conversion:</strong> Sustained positive discrete-quarter free cash flow would improve earnings quality and reduce the present soft block. — <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</p>
+</li>
+<li>
+<p><strong>Margin stabilization:</strong> Gross margin above 35% and operating margin above 20% while revenue grows would support durable operating leverage. — <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</p>
+</li>
+</ul>
+<h2>Risks and Counter-Evidence</h2>
+<ul>
+<li>
+<p><strong>Margin compression:</strong> Mix and cost-of-sales pressure could keep profit growth below revenue growth. — <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</p>
+</li>
+<li>
+<p><strong>Cash conversion and leverage:</strong> Negative free cash flow alongside substantial debt can reduce strategic flexibility. — <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</p>
+</li>
+</ul>
+<h2>Valuation Read-Through</h2>
+<p>Intrinsic FCFF scenarios are retained as static analytical outputs:</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th style="text-align: right;">Intrinsic value per share</th>
+<th style="text-align: right;">WACC</th>
+<th style="text-align: right;">Terminal growth</th>
+<th>Five-year FCFF forecast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bear</td>
+<td style="text-align: right;">USD 31.25</td>
+<td style="text-align: right;">14.0%</td>
+<td style="text-align: right;">2.0%</td>
+<td></td>
+</tr>
+<tr>
+<td>Base</td>
+<td style="text-align: right;">USD 185.34</td>
+<td style="text-align: right;">12.0%</td>
+<td style="text-align: right;">2.5%</td>
+<td></td>
+</tr>
+<tr>
+<td>Bull</td>
+<td style="text-align: right;">USD 545.16</td>
+<td style="text-align: right;">10.0%</td>
+<td style="text-align: right;">3.0%</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>The base case uses net debt of USD 3.2B and 104.0 million diluted shares; terminal value contributes 56.8% of enterprise value. These are analyst-derived intrinsic scenarios, not market-price forecasts.</p>
+<p>Current market price, price-based upside or downside, and reverse DCF are intentionally excluded from static reports. They are calculated only for an explicitly requested decision refresh using a public price with an exact timestamp.</p>
+<h2>Acquisitions, Management, and Language</h2>
+<p>No FY2026 Q2 acquisition contribution was isolated in the locked model. The correct conclusion is an evidence gap, not a zero effect; no purchase accounting, financing, synergy, or recurring contribution is inferred.</p>
+<p>The filing attributes revenue and cost growth to operating components and higher engine, module, and parts sales. No locked management-language change or public call-Q&amp;A record is available, so confidence, guidance tone, and persistence beyond the filing are not inferred.</p>
+<h2>Change Since the Previous View</h2>
+<p>This portfolio-context recovery preserves the accepted FY2023 Q3 to FY2026 Q2 operating evidence and corrects the private decision path for the confirmed holding. Scale is evidenced, while margin conversion and free cash flow remain the decisive unresolved conditions.</p>
+<h2>Monitoring and Falsification</h2>
+<p>Review every 10-Q, 10-K, and earnings release. Preserve discrete-quarter versus year-to-date cash-flow semantics and instant balance-sheet semantics. Reassess revenue, gross and operating margins, free cash flow, debt, cash, and diluted shares against the accepted gates.</p>
+<h2>Source Register</h2>
+<ul>
+<li><strong>SRC-Q2-10Q:</strong> <a href="https://www.sec.gov/edgar/browse/?CIK=1590364&amp;owner=exclude&amp;action=getcompany&amp;type=10-Q">FTAI Aviation Q2 2026 Form 10-Q</a> (as of 2026-07-31)</li>
+</ul></div></section></article></main>
+<footer>Public research only. Non-public inputs and licensed-source excerpts are excluded.</footer></body></html>
