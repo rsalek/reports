@@ -153,6 +153,19 @@
       "ticker": "FIVN",
       "url": "kpi/fivn-latest.html",
       "valuation": "Valuation: unavailable"
+    },
+    {
+      "baseline": "Baseline through 2026-07-17",
+      "company": "Netflix, Inc. KPI Monitor",
+      "date": "2026-07-17",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/NFLX_Full_Report.html",
+      "stance": "HOLD",
+      "summary": "Tracks seasonality-aware KPI trends, public thresholds, monitoring triggers and evidence gaps.",
+      "ticker": "NFLX",
+      "url": "kpi/nflx-latest.html",
+      "valuation": "Intrinsic scenarios only"
     }
   ],
   "reports": [
@@ -316,6 +329,17 @@
       "summary": "Five9 entered 2026 with improving reported economics: Q1 revenue was USD 305.319 million, GAAP gross margin was 55.85%, GAAP operating margin was 6.06%, and free cash flow was USD 49.441 million. Management also reported 13% subscription-revenue growth and adjusted EBITDA of USD 74.5 million. These results support a company-level thesis of subscription-led growth with emerging operating leverage. Five9 Q1 2026...",
       "ticker": "FIVN",
       "url": "docs/FIVN_Full_Report.html"
+    },
+    {
+      "company": "Netflix, Inc.",
+      "date": "2026-08-14",
+      "format_status": "current",
+      "phase": "Phase 5",
+      "stance": "HOLD",
+      "summary": "Decision-first operating research with intrinsic scenarios; market-price comparisons are on demand only.",
+      "thesis_url": "thesis/nflx-latest.html",
+      "ticker": "NFLX",
+      "url": "docs/NFLX_Full_Report.html"
     }
   ],
   "wiki_notes": 21
