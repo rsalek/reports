@@ -166,6 +166,19 @@
       "ticker": "NFLX",
       "url": "kpi/nflx-latest.html",
       "valuation": "Intrinsic scenarios only"
+    },
+    {
+      "baseline": "Baseline through 2026-06-29",
+      "company": "AeroVironment, Inc. KPI Monitor",
+      "date": "2026-06-29",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/AVAV_Full_Report.html",
+      "stance": "SELL/AVOID",
+      "summary": "Tracks seasonality-aware KPI trends, public thresholds, monitoring triggers and evidence gaps.",
+      "ticker": "AVAV",
+      "url": "kpi/avav-latest.html",
+      "valuation": "Intrinsic scenarios only"
     }
   ],
   "reports": [
@@ -340,6 +353,17 @@
       "thesis_url": "thesis/nflx-latest.html",
       "ticker": "NFLX",
       "url": "docs/NFLX_Full_Report.html"
+    },
+    {
+      "company": "AeroVironment, Inc.",
+      "date": "2026-08-21",
+      "format_status": "current",
+      "phase": "Phase 1",
+      "stance": "SELL/AVOID",
+      "summary": "Decision-first operating research with intrinsic scenarios; market-price comparisons are on demand only.",
+      "thesis_url": "thesis/avav-latest.html",
+      "ticker": "AVAV",
+      "url": "docs/AVAV_Full_Report.html"
     }
   ],
   "wiki_notes": 21
