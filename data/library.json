@@ -179,6 +179,19 @@
       "ticker": "AVAV",
       "url": "kpi/avav-latest.html",
       "valuation": "Intrinsic scenarios only"
+    },
+    {
+      "baseline": "Baseline through 2026-08-12",
+      "company": "On Holding AG KPI Monitor",
+      "date": "2026-08-12",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/ONON_Full_Report.html",
+      "stance": "HOLD",
+      "summary": "Tracks seasonality-aware KPI trends, public thresholds, monitoring triggers and evidence gaps.",
+      "ticker": "ONON",
+      "url": "kpi/onon-latest.html",
+      "valuation": "Intrinsic scenarios only"
     }
   ],
   "reports": [
@@ -364,6 +377,17 @@
       "thesis_url": "thesis/avav-latest.html",
       "ticker": "AVAV",
       "url": "docs/AVAV_Full_Report.html"
+    },
+    {
+      "company": "On Holding AG",
+      "date": "2026-08-23",
+      "format_status": "current",
+      "phase": "Phase 4",
+      "stance": "HOLD",
+      "summary": "Decision-first operating research with intrinsic scenarios; market-price comparisons are on demand only.",
+      "thesis_url": "thesis/onon-latest.html",
+      "ticker": "ONON",
+      "url": "docs/ONON_Full_Report.html"
     }
   ],
   "wiki_notes": 21
