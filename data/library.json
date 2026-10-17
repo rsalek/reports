@@ -192,6 +192,19 @@
       "ticker": "ONON",
       "url": "kpi/onon-latest.html",
       "valuation": "Intrinsic scenarios only"
+    },
+    {
+      "baseline": "Baseline through 2026-10-17",
+      "company": "NIKE, Inc. KPI Monitor",
+      "date": "2026-10-17",
+      "format_status": "current",
+      "related_label": "Read report",
+      "related_url": "docs/NKE_Full_Report.html",
+      "stance": "NO_BUY",
+      "summary": "Tracks seasonality-aware KPI trends, public thresholds, monitoring triggers and evidence gaps.",
+      "ticker": "NKE",
+      "url": "kpi/nke-latest.html",
+      "valuation": "Intrinsic scenarios only"
     }
   ],
   "reports": [
@@ -388,6 +401,17 @@
       "thesis_url": "thesis/onon-latest.html",
       "ticker": "ONON",
       "url": "docs/ONON_Full_Report.html"
+    },
+    {
+      "company": "NIKE, Inc.",
+      "date": "2026-10-17",
+      "format_status": "current",
+      "phase": "Phase 6",
+      "stance": "NO_BUY",
+      "summary": "Decision-first operating research with intrinsic scenarios; market-price comparisons are on demand only.",
+      "thesis_url": "thesis/nke-latest.html",
+      "ticker": "NKE",
+      "url": "docs/NKE_Full_Report.html"
     }
   ],
   "wiki_notes": 21
