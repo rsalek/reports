@@ -209,6 +209,16 @@
   ],
   "reports": [
     {
+      "company": "El Niño commodity monitor",
+      "date": "2026-11-11",
+      "format_status": "current",
+      "phase": "Weekly commodity monitor",
+      "stance": "Watch / wait for physical proof",
+      "summary": "Palm and robusta buffers strengthened while Southern African maize risk rose. Includes ETF/ETC recommendation implications added on 13 November using the 11 November evidence cutoff.",
+      "ticker": "ENSO",
+      "url": "docs/el-nino-commodity-monitor-2026-11-11.html"
+    },
+    {
       "company": "Badger Meter",
       "date": "2026-03-19",
       "format_status": "legacy",
