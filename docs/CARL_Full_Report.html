@@ -1,32 +1,107 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Public equity research report for Carlsmed, Inc."><title>CARL Public Equity Report</title>
+<meta name="description" content="Public equity research report for Carlsmed, Inc."><title>Carlsmed, Inc. Public Equity Report</title>
 <style>:root{--brand:#3b725b;--brand-dark:#28513f;--brand-bg:#e4efe9;--ink:#18201c;--muted:#5d6862;--line:#d8dedb;--paper:#fff;--bg:#f4f6f5}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 "Avenir Next",Avenir,"Helvetica Neue",Arial,sans-serif}
 a{color:var(--brand-dark)}a:focus-visible{outline:2px solid var(--brand);outline-offset:3px}.topbar{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:56px;padding:10px max(24px,calc((100vw - 1060px)/2));border-bottom:1px solid var(--line);background:rgba(255,255,255,.96)}
-.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;text-decoration:none}.brand span{padding:4px 8px;border-radius:5px;background:var(--brand-dark);color:#fff;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:12px}nav a{color:var(--muted);text-decoration:none}
-main,footer{width:min(1060px,calc(100% - 48px));margin:0 auto}.report-meta{display:flex;gap:10px;padding:30px 0 12px;color:var(--muted);font-size:12px}.report-meta span{padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}article{padding:24px 48px 52px;border:1px solid var(--line);background:var(--paper)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;text-decoration:none}.brand span{flex:0 0 auto;padding:4px 8px;border-radius:5px;background:var(--brand-dark);color:#fff;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:12px}nav a{color:var(--muted);text-decoration:none}
+main,footer{width:min(1060px,calc(100% - 48px));margin:0 auto}.report-meta{display:flex;gap:10px;padding:30px 0 12px;color:var(--muted);font-size:12px}.report-meta:focus-visible{outline:2px solid var(--brand);outline-offset:2px}.report-meta span{padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}article{padding:24px 48px 52px;border:1px solid var(--line);background:var(--paper)}
 h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42px 0 14px;padding-top:8px;border-top:2px solid var(--ink);font-size:23px;line-height:1.25;scroll-margin-top:76px}h3{font-size:17px}p,li{max-width:820px}blockquote{margin:20px 0;padding:12px 18px;border-left:3px solid var(--brand);background:var(--brand-bg)}
-.table-scroll{overflow-x:auto;border:1px solid var(--line)}table{width:100%;min-width:680px;border-collapse:collapse}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--brand-bg);font-size:12px}footer{padding:22px 0 40px;color:var(--muted);font-size:12px}
+.table-scroll{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line)}table{width:100%;min-width:680px;border-collapse:collapse}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--brand-bg);font-size:12px}footer{padding:22px 0 40px;color:var(--muted);font-size:12px}
 @media(max-width:720px){.topbar{align-items:flex-start;padding:10px 16px}nav{justify-content:flex-end}nav a:not(:last-child){display:none}main,footer{width:calc(100% - 28px)}article{padding:24px 20px 38px}h1{font-size:29px}h2{font-size:21px}.report-meta{overflow-x:auto;white-space:nowrap}}
 @media print{body{background:#fff}.topbar{position:static}nav{display:none}main,footer{width:100%}article{border:0;padding:0}.table-scroll{overflow:visible}table{min-width:0}}
 
-:root { --brand:#0F74A9; --brand-bg:#E8F5FA; --brand-dark:#054768; }</style></head><body>
-<header class="topbar"><a class="brand" href="#decision-snapshot"><span>CARL</span>Carlsmed, Inc.</a><nav><a href="#decision-snapshot">Decision Snapshot</a><a href="#operating-kpi-baseline">Operating KPI Baseline</a><a href="#valuation-and-scenarios">Valuation and Scenarios</a><a href="#public-sources">Public Sources</a><a href="../">Library</a></nav></header>
-<main><div class="report-meta"><span>Public report</span><span>2026-07-23</span><span>Reported financials and operating evidence through 2026-Q1; public evidence through 2026-05-05</span></div><article><h1>Carlsmed, Inc. Public Equity Report</h1>
+:root { --brand:#0F74A9; --brand-bg:#E8F5FA; --brand-dark:#054768; }article p,article li,article a{overflow-wrap:anywhere;word-break:break-word}</style><style id="revision-print-pagination">
+.source-list { min-width:0; }
+.source-item { min-width:0; max-width:100%; }
+.source-item a { overflow-wrap:anywhere; word-break:break-word; }
+@media print {
+  h1, h2, h3 { break-after:avoid; page-break-after:avoid; }
+  h2 + p { break-after:avoid; page-break-after:avoid; }
+  .table-scroll, .report-body, .step-body, .thesis-document {
+    overflow:visible;
+  }
+  table {
+    min-width:0 !important;
+    width:100% !important;
+    table-layout:fixed;
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+  .thesis-document table, #intrinsic-valuation-scenarios table, .embedded-thesis table {
+    table-layout:fixed;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .source-list { display:block; }
+  .source-item, .source-item a {
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .step-appendix details { content-visibility:visible; }
+  .step-appendix details::details-content {
+    display:block !important;
+    content-visibility:visible !important;
+  }
+  .step-appendix details:not([open]) > :not(summary) { display:block !important; }
+  thead { display:table-header-group; }
+  thead, tr { break-inside:avoid; page-break-inside:avoid; }
+  th, td { overflow-wrap:anywhere; word-break:break-word; white-space:normal; }
+  .continuity-comparisons table, .continuity-comparisons thead,
+  .continuity-comparisons tbody { display:block; }
+  .continuity-comparisons tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  #quarterly-trajectory table, #quarterly-trajectory tbody, #quarterly-trajectory tr {
+    display:block;
+  }
+  #quarterly-trajectory thead { display:none; }
+  #quarterly-trajectory tbody tr {
+    border:1px solid var(--line);
+    padding:8px 12px;
+    margin-bottom:10px;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  #quarterly-trajectory td {
+    display:grid;
+    grid-template-columns:10em minmax(0,1fr);
+    gap:10px;
+    padding:7px 0;
+    border-bottom:1px solid var(--line);
+  }
+  #quarterly-trajectory td::before {
+    content:attr(data-label);
+    color:var(--muted);
+    font-weight:650;
+  }
+  #quarterly-trajectory td[colspan] { grid-template-columns:1fr; }
+  #quarterly-trajectory td[colspan]::before { content:none; }
+  #quarterly-trajectory td:last-child { border-bottom:0; }
+}
+</style>
+</head><body>
+<header class="topbar"><a class="brand" href="#decision-snapshot"><span>CARL</span>Carlsmed, Inc.</a><nav><a href="#decision-snapshot">Decision Snapshot</a><a href="#operating-kpi-baseline">Operating KPI Baseline</a><a href="#valuation-and-scenarios">Valuation and Scenarios</a><a href="#public-sources">Public Sources</a><a href="../index.html">Public package</a></nav></header>
+<main><div class="report-meta" tabindex="0" aria-label="Report metadata"><span>Public report</span><span>2026-11-14</span><span>Reported quarter ended 2026-09-30; accepted evidence through 2026-11-13.</span></div><article><h1>Carlsmed, Inc. Public Equity Report</h1>
 <ul>
 <li><strong>Company:</strong> Carlsmed, Inc.</li>
 <li><strong>Ticker:</strong> CARL</li>
-<li><strong>Exchange:</strong> Nasdaq Global Select Market</li>
-<li><strong>Report Date:</strong> 2026-07-23</li>
-<li><strong>Data Cutoff:</strong> Reported financials and operating evidence through 2026-Q1; public evidence through 2026-05-05</li>
-<li><strong>Current Price:</strong> Unavailable — no dated official-exchange verification in the public evidence set</li>
+<li><strong>Exchange:</strong> NASDAQ</li>
+<li><strong>Report Date:</strong> 2026-11-14</li>
+<li><strong>Data Cutoff:</strong> Reported quarter ended 2026-09-30; accepted evidence through 2026-11-13.</li>
+
 <li><strong>Evidence Confidence:</strong> MEDIUM</li>
-<li><strong>Research Stance:</strong> WATCH — WAIT FOR OPERATING LEVERAGE</li>
+<li><strong>Research Stance:</strong> BUY under the accepted research policy; LOW conviction, HIGH risk / SOFT BLOCK. Not an entry or sizing instruction.</li>
 </ul>
 <h2 id="decision-snapshot">Decision Snapshot</h2>
-<p>Carlsmed is showing strong product-level economics and commercial momentum, but it has not yet shown that growth can produce corporate operating leverage before cash consumption creates financing pressure. Q1 2026 revenue was USD 16.116 million, gross margin was 77.1%, operating margin was negative 57.6%, and free cash flow was negative USD 13.213 million. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000010/carl-20260505.htm">Carlsmed Q1 2026 earnings release</a> <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Carlsmed Q1 2026 Form 10-Q</a></p>
-<p>The stance is <strong>WATCH — WAIT FOR OPERATING LEVERAGE</strong>. The decision hinge is whether revenue growth and high gross margin begin to narrow operating losses and cash burn over successive quarterly updates. The company case is promising; the public stock case is incomplete because the accepted evidence does not contain a dated official-exchange price anchor.</p>
+<p>Can durable adoption and dependable delivery produce corporate cash generation before financing and dilution weaken the equity economics? Carlsmed has commercial momentum and attractive device contribution. Corporate conversion remains unproven. The accepted policy recommendation is BUY, but conviction is LOW and risk is HIGH / SOFT BLOCK. The label does not establish a current entry signal or permission to commit capital.</p>
+<p>Q3 revenue was USD21.554m versus USD13.074m a year earlier. Gross profit rose, while the GAAP operating loss widened to USD12.701m from USD9.035m. Those facts support the product opportunity and the conversion constraint at the same time. <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Q3 results, 10 November 2026</a>.</p>
 <div class="table-scroll" tabindex="0"><table>
 <thead>
 <tr>
@@ -37,44 +112,36 @@ h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42p
 </thead>
 <tbody>
 <tr>
-<td>Is commercial adoption translating into reported scale?</td>
-<td style="text-align: right;">Q1 2026 revenue of USD 16.116M</td>
-<td>Yes, at the revenue line</td>
+<td>Is commercial scale growing?</td>
+<td style="text-align: right;">Q3 revenue USD21.55m</td>
+<td>Yes, but growth is not proof of durable cash economics.</td>
 </tr>
 <tr>
-<td>Is scale producing attractive product economics?</td>
-<td style="text-align: right;">77.1% gross margin; -57.6% operating margin</td>
-<td>Product margin is strong; corporate leverage is unproven</td>
+<td>Is device contribution attractive?</td>
+<td style="text-align: right;">Q3 gross margin 77.32%</td>
+<td>Yes, before substantial selling and development expense.</td>
 </tr>
 <tr>
-<td>Is growth self-funding?</td>
-<td style="text-align: right;">Free cash flow of -USD 13.213M</td>
-<td>No; cash conversion remains the central constraint</td>
+<td>Is the corporate transition complete?</td>
+<td style="text-align: right;">Q3 GAAP operating loss USD12.70m</td>
+<td>No. Require sustained conversion evidence.</td>
 </tr>
 <tr>
-<td>Is near-term liquidity adequate?</td>
-<td style="text-align: right;">USD 73.016M cash; 11.9x current ratio</td>
-<td>Supportive, but not evidence of self-funding</td>
-</tr>
-<tr>
-<td>Is a price-based entry case supportable?</td>
-<td style="text-align: right;">Public valuation input unavailable</td>
-<td>No public entry signal is issued</td>
+<td>Does the public case establish a safe entry?</td>
+<td style="text-align: right;">No static market comparison or public numerical intrinsic value</td>
+<td>Retain conditional research tests, not a price-based instruction.</td>
 </tr>
 </tbody>
 </table></div>
 <h2 id="company-and-business-overview">Company and Business Overview</h2>
-<p>Carlsmed develops personalized spine-surgery solutions. Its aprevo workflow combines digital surgical planning with patient-specific interbody devices. The model is procedure-linked and asset-light relative to an owned manufacturing network, with third-party manufacturing supporting fulfillment. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a></p>
-<p>The operating proposition is straightforward: train more surgeons, support repeat use with predictable delivery, expand the product portfolio, and convert procedure growth into revenue while maintaining high gross margin. The risk is that commercialization, research, regulatory work, and infrastructure spending continue to grow faster than revenue.</p>
-<p>Carlsmed remains a Phase 1 commercial medical-technology company. Its platform has early adoption evidence, but the active-surgeon cohort, repeat-use rate, procedure economics, and long-term cash conversion are not yet disclosed with enough consistency for mature-company underwriting.</p>
+<p>Carlsmed supplies personalized spine-surgery implant systems supported by digital planning and external manufacturing. Hospitals and ambulatory surgical centers buy procedure-linked devices. Planning software does not turn the business into contracted subscription revenue. Revenue recognition follows surgical use, and sales-agent costs sit below gross profit. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">2025 Form 10-K, 25 February 2026</a>, <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Q3 Form 10-Q, 10 November 2026</a>.</p>
+<p>The accepted Phase 1 classification reflects expanding absolute GAAP losses despite commercial growth. It does not mean the product is pre-revenue. The investment question is whether contribution survives selling, development, software investment, working capital and compensation costs.</p>
 <h2 id="thesis-and-variant-view">Thesis and Variant View</h2>
-<p>The potential variant view is that the market may underappreciate how shorter fulfillment time and a still-small trained-surgeon base can support adoption. Delivery lead time was six business days at March 2026, while 253 surgeons had been trained and had performed at least one aprevo procedure by year-end 2025. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Carlsmed Q1 2026 Form 10-Q</a> <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a></p>
-<p>That is an operating thesis, not yet a proven stock mispricing. Without a publicly verified current price in the locked evidence set, this report cannot state what is already discounted, calculate public upside or downside, or support a target price. The correct interpretation is conditional: operating progress could create a favorable stock setup, but price-dependent conclusions require a fresh official market anchor.</p>
-<p>The thesis strengthens if revenue remains durable, gross margin stays above 70%, lead time remains at or below six business days, and operating margin and free cash flow improve. It weakens if adoption requires continuing increases in operating spending without better cash conversion.</p>
+<p>The constructive hypothesis is that a useful personalized workflow wins repeat procedures and spreads commercial and development costs across a larger base. The counter-view is that the business continues to require cash and financing faster than sales produce usable corporate returns. Retention, repeat utilization, dependable delivery and the funding bridge must test the thesis.</p>
+<p>Compared with the July review's Q1 baseline, Q3 sales and product contribution are stronger, but the corporate conversion test remains unresolved. Older delivery and surgeon observations remain dated. Stronger commercial scale does not justify carrying forward a provisional moat conclusion without evidence of durability. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Q1 Form 10-Q, 5 May 2026</a>, <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Q3 Form 10-Q, 10 November 2026</a>.</p>
 <h2 id="business-quality-and-moat">Business Quality and Moat</h2>
-<p>Carlsmed has a potentially widening but still provisional moat. Patient-specific planning, proprietary design data, clinical evidence, workflow integration, and intellectual property can increase differentiation. These elements may help surgeon adoption and make the platform more useful with scale. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a></p>
-<p>The strongest evidence of business quality is the combination of 77.1% gross margin and improving fulfillment. The strongest evidence against a durable moat is the lack of controlled public data on surgeon retention, repeat procedure use, pricing, procedure-level contribution margin, and competitive win rates. Large incumbent spine companies also have the resources to develop competing planning and implant workflows.</p>
-<p>The current evidence supports a narrow, improving differentiation assessment rather than a durable pricing-power conclusion.</p>
+<p>The coordinated planning, patient-specific device and manufacturing workflow is a differentiation mechanism. A durable moat is not demonstrated. Patents, user growth and product utility do not by themselves establish retention, pricing power, independently proven clinical superiority or persistent excess returns. Outsourced production limits owned-factory needs while leaving capacity, quality and delivery dependence. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">2025 Form 10-K, 25 February 2026</a>.</p>
+<p>The case strengthens with comparable retained-use and procedure-economics evidence. It weakens if continued expansion requires spending and financing that prevent a credible path to corporate cash generation. Product/task AI descriptions are not independent evidence of company-wide labor productivity.</p>
 <h2 id="operating-kpi-baseline">Operating KPI Baseline</h2>
 <div class="table-scroll" tabindex="0"><table>
 <thead>
@@ -88,73 +155,72 @@ h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42p
 <tbody>
 <tr>
 <td>Revenue</td>
-<td style="text-align: right;">USD 16.116M</td>
-<td>Q1 2026</td>
-<td>Warning below the Q1 baseline or on weaker guidance</td>
+<td style="text-align: right;">USD21.554m</td>
+<td>Q3 2026</td>
+<td>Proposed sequential-contraction review alert below this baseline; not a seasonal forecast.</td>
 </tr>
 <tr>
 <td>Gross margin</td>
-<td style="text-align: right;">77.1%</td>
-<td>Q1 2026</td>
-<td>Warning below 70%</td>
+<td style="text-align: right;">77.32%</td>
+<td>Q3 2026</td>
+<td>Proposed warning below70%.</td>
 </tr>
 <tr>
-<td>Operating margin</td>
-<td style="text-align: right;">-57.6%</td>
-<td>Q1 2026</td>
-<td>Confirmation at or above -50%</td>
+<td>GAAP operating income</td>
+<td style="text-align: right;">USD-12.70m</td>
+<td>Q3 2026</td>
+<td>Seek narrowing absolute losses and eventual breakeven.</td>
 </tr>
 <tr>
-<td>Free cash flow</td>
-<td style="text-align: right;">-USD 13.213M</td>
-<td>Q1 2026</td>
-<td>Require clear progression toward zero</td>
+<td>GAAP operating margin</td>
+<td style="text-align: right;">-58.93%</td>
+<td>Q3 2026</td>
+<td>Proposed progress test at or above-50%; still loss-making.</td>
+</tr>
+<tr>
+<td>Common-attributable income</td>
+<td style="text-align: right;">USD-12.24m</td>
+<td>Q3 2026</td>
+<td>Review with GAAP expense and adjustment definitions.</td>
+</tr>
+<tr>
+<td>Adjusted EBITDA</td>
+<td style="text-align: right;">USD-7.27m</td>
+<td>Q3 2026</td>
+<td>Separate company-defined milestone; not cash breakeven.</td>
 </tr>
 <tr>
 <td>Cash and equivalents</td>
-<td style="text-align: right;">USD 73.016M</td>
-<td>2026-03-31</td>
-<td>Track alongside cash use and financing needs</td>
+<td style="text-align: right;">USD35.945m</td>
+<td>2026-09-30</td>
+<td>Review investments, debt and financing separately.</td>
 </tr>
 <tr>
-<td>Total debt</td>
-<td style="text-align: right;">USD 15.364M</td>
-<td>2026-03-31</td>
-<td>Track alongside liquidity</td>
+<td>Numerical delivery time</td>
+<td style="text-align: right;">Current observation unavailable</td>
+<td>Q3 2026</td>
+<td>Do not roll forward earlier six-business-day observations.</td>
 </tr>
 <tr>
-<td>Current ratio</td>
-<td style="text-align: right;">11.9x</td>
-<td>2026-03-31</td>
-<td>Thesis break below 1.5x</td>
-</tr>
-<tr>
-<td>Delivery lead time</td>
-<td style="text-align: right;">6 business days</td>
-<td>2026-03-31</td>
-<td>Warning above 6 business days</td>
-</tr>
-<tr>
-<td>Trained surgeons</td>
-<td style="text-align: right;">253</td>
-<td>2025-12-31</td>
-<td>Require growth with evidence of repeat use</td>
+<td>Absolute trained surgeons</td>
+<td style="text-align: right;">Current observation unavailable</td>
+<td>Q3 2026</td>
+<td>Keep253 at December2025 dated; seek current retained utilization.</td>
 </tr>
 </tbody>
 </table></div>
-<p>Financial baselines are supported by the <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000010/carl-20260505.htm">Q1 2026 earnings release</a> and <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Q1 2026 Form 10-Q</a>. The trained-surgeon baseline is supported by the <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">2025 Form 10-K</a>. The thresholds are proposed research gates, not company guidance.</p>
+<p>The financial baseline comes from the <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">10 November 2026 results</a>. The operating disclosure boundaries come from the <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">current 10-Q</a> and <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">2025 10-K</a>. Monitoring gates are analyst proposals, not company guidance, covenants, calibrated failure probabilities or automatic trading rules. Unverified public cash-flow operands are withheld rather than substituted from private data.</p>
 <h2 id="growth-drivers">Growth Drivers</h2>
 <ul>
-<li><strong>Surgeon adoption:</strong> expanding the trained and active surgeon base increases the opportunity for procedure growth. The next evidence should distinguish training from repeat clinical use.</li>
-<li><strong>Fulfillment reliability:</strong> six-business-day delivery can make personalized devices more compatible with hospital scheduling. Maintaining this level while volume grows would support scalability.</li>
-<li><strong>Product expansion:</strong> the first full commercial quarter for aprevo Cervical and the planned corra patient-specific fixation launch provide additional ways to deepen surgeon use. These are company-reported commercial milestones and remain execution-dependent. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000010/carl-20260505.htm">Carlsmed Q1 2026 earnings release</a></li>
-<li><strong>Clinical evidence:</strong> stronger outcome data can support adoption, but clinical differentiation must translate into repeat use and durable economics.</li>
-<li><strong>Operating leverage:</strong> revenue growth becomes economically valuable only if operating expense and cash use grow more slowly than revenue.</li>
+<li>Surgeon adoption can expand procedure demand; trained users are not automatically active, retained or repeat users.</li>
+<li>Broader personalized products can deepen use. The October lumbar bilateral-system launch is a company-reported milestone, not proof of future product returns.</li>
+<li>October reimbursement implementation creates a prospective access opportunity. It followed Q3 and cannot explain already reported September-quarter sales.</li>
+<li>Operating leverage becomes economically meaningful when sales growth leaves more corporate cash after full commercial, development and reinvestment costs.</li>
 </ul>
-<p>The growth case strengthens when adoption and revenue expansion coincide with stable gross margin, faster fulfillment, improving operating margin, and lower cash burn. Growth without those companion signals would add scale without proving economic quality.</p>
+<p>Product and reimbursement milestones are described in the <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">10 November 2026 release</a>. Require adoption, dependable fulfillment and improving corporate conversion together; a higher revenue outlook alone does not clear the funding test.</p>
 <h2 id="valuation-and-scenarios">Valuation and Scenarios</h2>
-<p>A public price-based valuation is <strong>unavailable</strong> in this report. The accepted public evidence does not include an official-exchange price with an as-of timestamp, so no private market snapshot has been used to support enterprise value, per-share scenarios, upside, downside, or a target price.</p>
-<p>The report therefore uses operating scenarios only:</p>
+<p>A revenue-to-FCFF transition can frame conditional economics, but current negative cash generation and unproven mature returns make numerical precision misleading. Public numerical intrinsic scenarios are withheld because their load-bearing forecast anchors are not independently redistributable primary evidence. No private forecasts are relabeled public. This is a disclosure limit, not a claim that no internal model exists.</p>
+<p>Static publications retain no share-price comparison, price-derived return or reverse DCF. Any future market comparison needs a separate decision refresh. Public operating cases remain useful without inventing a substitute target price.</p>
 <div class="table-scroll" tabindex="0"><table>
 <thead>
 <tr>
@@ -166,22 +232,21 @@ h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42p
 <tbody>
 <tr>
 <td>Downside</td>
-<td>Revenue falls below the Q1 baseline or guidance weakens, gross margin drops below 70%, delivery rises above six business days, or cash burn worsens</td>
-<td>Re-underwrite adoption quality, financing risk, and dilution exposure</td>
+<td>Adoption or delivery weakens while spending and financing needs persist</td>
+<td>Reassess durability, funding access and dilution; a modeled bear case is not a distress floor.</td>
 </tr>
 <tr>
 <td>Proof case</td>
-<td>Revenue remains durable, operating margin reaches at least -50%, and free cash flow trends materially toward zero</td>
-<td>Evidence that product economics are beginning to convert into corporate leverage</td>
+<td>Revenue and device contribution produce sustained narrowing of GAAP losses and compatible cash consumption</td>
+<td>Evidence that commercial scale is beginning to convert into corporate economics.</td>
 </tr>
 <tr>
 <td>Upside proof</td>
-<td>Gross margin remains above 70%, delivery stays at or below six business days as repeat surgeon use expands, and free cash flow turns positive</td>
-<td>Supports a fresh valuation review once official market inputs are verified</td>
+<td>Durable retained use and reliable delivery support positive corporate cash generation after reinvestment</td>
+<td>Supports a fresh valuation review with updated operating, funding and equity-claim evidence.</td>
 </tr>
 </tbody>
 </table></div>
-<p>Because the current market anchor is missing, this report makes no claim about what is priced in, margin of safety, or a public entry level. The next action is to wait for operating proof and verified public valuation inputs.</p>
 <h2 id="risks-catalysts-and-falsifiers">Risks, Catalysts, and Falsifiers</h2>
 <div class="table-scroll" tabindex="0"><table>
 <thead>
@@ -193,43 +258,173 @@ h1{max-width:760px;margin:0 0 18px;font-size:38px;line-height:1.15}h2{margin:42p
 </thead>
 <tbody>
 <tr>
-<td>Cash burn and dilution</td>
-<td>Continued negative free cash flow could require financing before breakeven</td>
-<td>Free cash flow, cash balance, financing terms, diluted share count</td>
+<td>Conversion</td>
+<td>Device contribution may be absorbed by commercialization and development</td>
+<td>Comparable revenue, GAAP expenses, cash conversion and residual explanations.</td>
 </tr>
 <tr>
-<td>Commercial scaling</td>
-<td>Revenue growth may not produce leverage if commercialization and infrastructure spending rise as quickly</td>
-<td>Revenue, operating margin, operating expense, guidance</td>
+<td>Funding and dilution</td>
+<td>Financing before cash breakeven can weaken existing equity economics</td>
+<td>Liquidity components, debt terms, payments, covenants and new claims.</td>
 </tr>
 <tr>
-<td>Fulfillment dependence</td>
-<td>Third-party manufacturing can constrain delivery, procedure scheduling, and margin</td>
-<td>Lead time, supplier disclosures, gross margin</td>
+<td>Delivery and quality</td>
+<td>External manufacturing must fit patient-specific surgical schedules</td>
+<td>Verified material interruption, quality event or delivery failure.</td>
 </tr>
 <tr>
-<td>Platform concentration</td>
-<td>The commercial case depends heavily on the aprevo family and adjacent launches</td>
-<td>Procedure mix, repeat use, cervical adoption, product milestones</td>
+<td>Access and competition</td>
+<td>Coverage or competing workflows may constrain adoption and realization</td>
+<td>Retained utilization, verified reimbursement changes and competitive evidence.</td>
 </tr>
 <tr>
-<td>Competitive and clinical response</td>
-<td>Larger spine companies or weaker clinical evidence could reduce adoption or pricing durability</td>
-<td>Competitive wins, reimbursement, clinical outcomes, surgeon retention</td>
+<td>Profitability definitions</td>
+<td>Adjustment exclusions can make reported progress look stronger than recurring cash economics</td>
+<td>GAAP reconciliation, transition/legal items and capitalized development costs.</td>
 </tr>
 </tbody>
 </table></div>
-<p>Positive catalysts are two consecutive quarters of narrower operating losses and improving cash burn, lead time holding at or below six business days as volume rises, repeat-use disclosure, broader active-surgeon adoption, and successful product expansion. The thesis is falsified if revenue grows without operating-loss improvement, free cash flow deteriorates from the Q1 2026 baseline, delivery remains above six business days, financing becomes necessary before credible operating leverage, or clinical and regulatory evidence weakens the platform case.</p>
-<p>The public risk and operating evidence is grounded in the <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Q1 2026 Form 10-Q</a> and <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">2025 Form 10-K</a>.</p>
+<p>Positive catalysts are sustained corporate conversion, reliable fulfillment during growth and evidence of retained use. The principal falsifier is expansion that never leaves adequate corporate cash, especially if a setback forces financing that damages the equity bridge. A risk disclosure or missing numerical answer is not proof that an adverse event occurred. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Current 10-Q</a>, <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">2025 10-K</a>.</p>
 <h2 id="monitoring-plan">Monitoring Plan</h2>
-<p>At each quarterly filing, bridge revenue growth to gross margin, operating margin, operating cash flow, capital expenditure, and free cash flow. Review delivery lead time, trained and active surgeons, repeat use, cash, debt, the current ratio, and diluted share count at the same cadence. Treat a financing, material equity update, reimbursement change, clinical setback, or sustained fulfillment disruption as an immediate review event.</p>
-<p>The stance changes only when operating leverage and cash conversion improve. Confirmation requires durable revenue, gross margin at or above 70%, operating margin moving toward at least negative 50%, delivery at or below six business days, and clear progress in free cash flow. Revenue growth, surgeon training, or launch activity alone are insufficient. A price-based valuation should be refreshed only after those operating questions are updated and an official-exchange price is available.</p>
+<p>At each quarterly filing, ask whether sales and device gross profit are narrowing absolute GAAP losses and comparable cash consumption. Reconcile working capital, software capitalization and adjustment definitions before accepting a conversion claim. Check current retained utilization, delivery, liquidity, financing and equity claims. Treat verified material quality, access, financing or reporting events as immediate review triggers. Analyst thresholds prompt review; a missing current operating observation is neither a pass nor a zero.</p>
 <h2 id="public-sources">Public Sources</h2>
 <ul>
-<li><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000010/carl-20260505.htm">Carlsmed Q1 2026 earnings release filed on Form 8-K</a>, published 2026-05-05; Q1 revenue, margins, liquidity, debt, and product milestones.</li>
-<li><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Carlsmed Q1 2026 Form 10-Q</a>, filed 2026-05-05; financial statements, cash flow, risks, and delivery lead time.</li>
-<li><a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a>, filed 2026-02-25; business model, competitive position, operating risks, intellectual property, and trained-surgeon baseline.</li>
+<li><a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Carlsmed Q3 2026 results</a>, 10 November 2026. Financial results, reconciliation, guidance and reported business milestones.</li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Carlsmed Q3 2026 Form 10-Q</a>, filed10 November 2026. Current accounting, financing, product and operating disclosure.</li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000016/carl-20260630.htm">Carlsmed Q2 2026 Form 10-Q</a>, filed5 August 2026. Comparable prior-quarter evidence and dated delivery description.</li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Carlsmed Q1 2026 Form 10-Q</a>, filed5 May 2026. Earlier operating and financial baseline.</li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a>, filed25 February 2026. Business model, annual and historical financial evidence, workforce, operating risks and dated surgeon counts.</li>
 </ul>
-<p>No unresolved factual conflicts were identified among the selected public facts. Evidence confidence remains MEDIUM because price verification, repeat-use cohorts, active-surgeon retention, procedure economics, and multi-period cash-conversion evidence are incomplete.</p>
-<p>This report is public research for informational purposes. It excludes personal holdings, private files, and licensed-source excerpts. It is not individualized investment advice.</p></article></main>
-<footer>Public research only. Portfolio context, private files, and licensed-source excerpts are excluded.</footer></body></html>
+<p>This is informational public research, not individualized investment advice. Personal holdings, private paths and restricted-source content are excluded. Evidence confidence is MEDIUM for accounting and LOW for unproven long-term cash economics. Public evidence limitations remain explicit rather than treated as neutral scores.</p>
+<h2 id="quarterly-kpi-trajectory">Quarterly KPI Trajectory</h2>
+<p>Comparable quarterly observations are carried forward from the reviewed history. Quarter-on-quarter and year-on-year changes use the same period, accounting basis and units. Nine-month totals and adjusted measures are separate. Missing or withheld comparisons remain explicit.</p><div class="table-scroll continuity-comparisons" tabindex="0" role="region" aria-label="Reviewed quarterly KPI comparisons"><table><thead><tr><th>KPI</th><th>Period</th><th>Current</th><th>QoQ</th><th>YoY</th><th>Source</th></tr></thead><tbody><tr><td data-label="KPI">Revenue</td><td data-label="Period">Q3 FY2026</td><td data-label="Current">$21.6M</td><td data-label="QoQ">+13.80 %</td><td data-label="YoY">+64.86 %</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Official source</a></td></tr><tr><td data-label="KPI">Gross profit</td><td data-label="Period">Q3 FY2026</td><td data-label="Current">$16.7M</td><td data-label="QoQ">+14.60 %</td><td data-label="YoY">+67.88 %</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Official source</a></td></tr><tr><td data-label="KPI">Gross margin</td><td data-label="Period">Q3 FY2026</td><td data-label="Current">77.3%</td><td data-label="QoQ">+53.81 bps</td><td data-label="YoY">+138.81 bps</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Official source</a></td></tr><tr><td data-label="KPI">Operating income / EBIT</td><td data-label="Period">Q3 FY2026</td><td data-label="Current">$-12.7M</td><td data-label="QoQ">-15.09 %</td><td data-label="YoY">-40.58 %</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Official source</a></td></tr><tr><td data-label="KPI">Operating margin</td><td data-label="Period">Q3 FY2026</td><td data-label="Current">-58.9%</td><td data-label="QoQ">-65.82 bps</td><td data-label="YoY">+1018.02 bps</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Official source</a></td></tr><tr><td data-label="KPI">Net income attributable to common</td><td data-label="Period">Q3 FY2026</td><td data-label="Current">$-12.2M</td><td data-label="QoQ">-16.51 %</td><td data-label="YoY">-43.62 %</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Official source</a></td></tr><tr><td data-label="KPI">Diluted weighted-average shares</td><td data-label="Period">Q3 FY2026</td><td data-label="Current">27.3M</td><td data-label="QoQ">+0.41 %</td><td data-label="YoY">+29.51 %</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Official source</a></td></tr><tr><td data-label="KPI">Adjusted EBITDA</td><td data-label="Period">Q3 FY2026</td><td data-label="Current">$-7.3M</td><td data-label="QoQ">+15.82 %</td><td data-label="YoY">+11.88 %</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000025/carl-ex99_1.htm">Official source</a></td></tr><tr><td data-label="KPI">Lead Time Business Days</td><td data-label="Period">Q2 FY2026</td><td data-label="Current">6</td><td data-label="QoQ">+0.00 %</td><td data-label="YoY">Unavailable</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000016/carl-20260630.htm">Official source</a></td></tr><tr><td data-label="KPI">Trained Surgeon Users</td><td data-label="Period">Q4 FY2025</td><td data-label="Current">253</td><td data-label="QoQ">Unavailable</td><td data-label="YoY">+66.45 %</td><td data-label="Source"><a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Official source</a></td></tr></tbody></table></div>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Compatible financial series</th>
+<th style="text-align: right;">Q3 2026</th>
+<th style="text-align: right;">Q2 2026</th>
+<th style="text-align: right;">Q3 2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revenue</td>
+<td style="text-align: right;">USD21.554m</td>
+<td style="text-align: right;">USD18.940m</td>
+<td style="text-align: right;">USD13.074m</td>
+</tr>
+<tr>
+<td>Gross margin</td>
+<td style="text-align: right;">77.32%</td>
+<td style="text-align: right;">76.78%</td>
+<td style="text-align: right;">75.93%</td>
+</tr>
+<tr>
+<td>GAAP operating income</td>
+<td style="text-align: right;">USD-12.70m</td>
+<td style="text-align: right;">USD-11.04m</td>
+<td style="text-align: right;">USD-9.04m</td>
+</tr>
+<tr>
+<td>Adjusted EBITDA</td>
+<td style="text-align: right;">USD-7.27m</td>
+<td style="text-align: right;">USD-8.64m</td>
+<td style="text-align: right;">USD-8.25m</td>
+</tr>
+</tbody>
+</table></div>
+<p>These observations use the <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Q3</a> and <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000016/carl-20260630.htm">Q2</a> filings and the company's corresponding public reconciliations. Base-handoff public trajectory records are unavailable until the reviewed continuity provenance is applied to the package projection. The dashboard's reviewed machine comparisons retain exact periods and values. No YTD flow is relabeled a discrete quarter.</p>
+<h2 id="earnings-driver-bridge">Earnings Driver Bridge</h2>
+<p>Use a driver table, not a causal earnings waterfall. The accepted model does not reach90% quantified driver coverage. Public financial changes establish that revenue and gross profit rose while GAAP absolute losses widened; they do not isolate the causes. Restricted or unverified driver contributions and residuals are withheld. The public adjusted EBITDA reconciliation is a separate overlay and cannot establish cash improvement. <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Q3 financial results and reconciliation, 10 November 2026</a>.</p>
+<h2 id="acquisition-effects">Acquisition Effects</h2>
+<p>Acquisition effects remain an evidence gap. No acquired revenue, integration benefit or synergy amount supports the public thesis. The internal acquisition-status record is not promoted into public numerical authority. Transition/legal adjustments and software investment are separate issues, not an invented acquisition explanation. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Q3 Form 10-Q, 10 November 2026</a>.</p>
+<h2 id="management-explanations-and-persistence">Management Explanations and Persistence</h2>
+<p>Management describes commercial and product progress; the release separately reports current transition and legal adjustments. Persistence of excluded costs remains unknown. Analyst interpretation requires cash conversion rather than assuming that a favorable adjusted result is structural savings. Detailed private call attributions are withheld from this public projection. <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">10 November 2026 release</a>.</p>
+<h2>Expectations and Material Q&amp;A</h2>
+<p>No strict-clock public expectations or redistributed call Q&amp;A are admitted here. Public company guidance is separate from analyst consensus. The release raises FY2026 revenue guidance to USD78m–USD80m from USD74m–USD78m, a forward-looking company expectation rather than achieved sales. Restricted consensus and call context remain withheld. <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Guidance dated10 November 2026</a>.</p>
+<h2 id="management-language-changes">Management Language Changes</h2>
+<p>The current filing's delivery description is qualitative rather than a fresh business-day count. Earlier numerical observations remain dated and must not be interpreted as proof of unchanged current reliability. The current release explicitly strengthens annual revenue guidance and identifies October reimbursement implementation after the reported quarter. Detailed internal language-signal records are withheld; the public statements are linked to their own dated sources. <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000016/carl-20260630.htm">Q2 Form 10-Q</a>, <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Q3 Form 10-Q</a>, <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">10 November release</a>.</p><section class="embedded-thesis" id="narrative-investment-thesis"><div class="thesis-document"><h1>Narrative Investment Thesis — Carlsmed, Inc.</h1>
+<ul>
+<li><strong>Ticker:</strong> CARL</li>
+<li><strong>As of:</strong> 2026-11-13</li>
+<li><strong>Recommendation:</strong> BUY</li>
+</ul>
+<h2>Decision Hinge</h2>
+<p>Can durable adoption and dependable delivery produce corporate cash generation before financing and dilution weaken the equity economics?</p>
+<h2>Company Thesis</h2>
+<p>Carlsmed sells procedure-dependent personalized spinal implant systems enabled by planning software. Commercial growth and attractive device contribution support the product case. The company must convert that contribution into cash after selling, development, software investment, working capital and compensation. It is not a subscription-software business and no durable moat or independently proven clinical superiority is assumed.</p>
+<h2>Security Thesis and Intrinsic Framing</h2>
+<p>The unchanged research scoring policy returns BUY, with LOW conviction and HIGH risk / SOFT BLOCK. It is a speculative research classification, not a calibrated return probability, current entry signal or permission to commit capital. Evidence of corporate conversion remains the deciding constraint.</p>
+<p><strong>Market-data policy:</strong> Current market price, price-based upside or downside, and reverse DCF are intentionally excluded from static reports. They are calculated only for an explicitly requested decision refresh using a public price with an exact timestamp.</p>
+<p><strong>Variant perception:</strong> The opportunity is that a useful personalized workflow and growing procedure adoption eventually spread commercial and development costs across a larger base. The counter-view is that growth never leaves adequate corporate cash or requires financing that consumes the benefit. Current device contribution is evidence for the product case, not proof of the eventual per-share outcome.</p>
+<h2>Falsifiable Thesis Pillars</h2>
+<h3>1. Commercial growth must become corporate cash</h3>
+<p>Sales growth and device contribution support a commercial opportunity, but corporate loss and cash trajectories must improve. A high product margin is not self-funding.</p>
+<ul>
+<li><strong>Tracked KPIs:</strong> Revenue, Gross margin, Operating income / EBIT, Calculated software-inclusive free cash flow</li>
+<li><strong>Decision thresholds:</strong> Gross margin warning threshold — &lt; 70.00%</li>
+<li><strong>Falsifier:</strong> Repeated deterioration in comparable software-inclusive cash consumption during growth, without a credible reconciliation and funded conversion plan, weakens the pillar. Adjusted exclusions do not clear it.</li>
+<li><strong>Confidence:</strong> MEDIUM</li>
+<li><strong>Evidence:</strong> <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Carlsmed Q3 2026 results and full-year guidance</a> (as of 2026-11-10)</li>
+</ul>
+<h3>2. Reliable fulfillment must sustain durable adoption</h3>
+<p>The personalized workflow needs dependable delivery and repeat clinical use. Historical delivery and trained-user observations remain dated, not evidence of current retention or unchanged lead time.</p>
+<ul>
+<li><strong>Tracked KPIs:</strong> Lead Time Business Days, Trained Surgeon Users, Revenue</li>
+<li><strong>Decision thresholds:</strong> Lead Time Business Days warning threshold — &gt; 6 days</li>
+<li><strong>Falsifier:</strong> A verified material fulfillment, quality or access failure, or evidence that training does not support retained utilization, weakens this pillar. A missing disclosure alone does not prove failure.</li>
+<li><strong>Confidence:</strong> LOW</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Carlsmed Q1 2026 Form 10-Q</a> (as of 2026-05-05); <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a> (as of 2026-02-25); <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Carlsmed Q3 2026 results and full-year guidance</a> (as of 2026-11-10)</li>
+</ul>
+<h3>3. Liquidity must fund the conversion period</h3>
+<p>Cash and financing flexibility buy time to prove operating conversion. They do not establish a funded path or protect the value of existing equity from new claims.</p>
+<ul>
+<li><strong>Tracked KPIs:</strong> Cash and equivalents, Total debt, Calculated current ratio, Diluted weighted-average shares</li>
+<li><strong>Decision thresholds:</strong> None</li>
+<li><strong>Falsifier:</strong> Funding impairment, covenant restrictions or substantial unmodeled dilution that invalidates the per-share bridge requires reassessment. Undrawn debt is not received cash.</li>
+<li><strong>Confidence:</strong> MEDIUM</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Carlsmed Q3 2026 Form 10-Q</a> (as of 2026-11-10)</li>
+</ul>
+<h2>Catalysts</h2>
+<ul>
+<li>
+<p><strong>Commercial growth converts into corporate cash:</strong> The next two quarterly updates can test whether growing sales and device gross profit produce narrower GAAP losses and comparable cash consumption. Adjusted EBITDA alone does not establish conversion. — <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Carlsmed Q3 2026 results and full-year guidance</a> (as of 2026-11-10)</p>
+</li>
+<li>
+<p><strong>Product expansion and delivery evidence:</strong> Broader products and October reimbursement implementation create prospective access opportunities. Seek retained utilization and dependable fulfillment. Implementation after September cannot explain already reported Q3 growth. — <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Carlsmed Q3 2026 results and full-year guidance</a> (as of 2026-11-10); <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a> (as of 2026-02-25)</p>
+</li>
+</ul>
+<h2>Risks and Counter-Evidence</h2>
+<ul>
+<li>
+<p><strong>Device contribution may not become corporate cash:</strong> Selling, development, software investment, working capital and compensation can absorb the device contribution. Widening absolute GAAP losses contradict a completed self-funding transition. — <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Carlsmed Q3 2026 results and full-year guidance</a> (as of 2026-11-10)</p>
+</li>
+<li>
+<p><strong>Funding and dilution can weaken per-share economics:</strong> Operating burn before sustained cash generation can require new financing. Scheduled payments, terms and new equity claims matter even when the balance sheet provides time. — <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Carlsmed Q3 2026 Form 10-Q</a> (as of 2026-11-10)</p>
+</li>
+<li>
+<p><strong>Delivery, access and adoption durability:</strong> Patient-specific devices depend on timely external manufacture, procedural access and reliable execution. Competitive differentiation does not prove retention or durable excess returns. — <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a> (as of 2026-02-25)</p>
+</li>
+<li>
+<p><strong>Adjusted profitability can obscure recurring economics:</strong> Narrower adjusted EBITDA is not narrower GAAP loss or lower cash burn. Excluded transition/legal charges are not proven permanently nonrecurring; capitalized software remains an economic cash cost. — <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Carlsmed Q3 2026 results and full-year guidance</a> (as of 2026-11-10)</p>
+</li>
+</ul>
+<h2>Valuation Read-Through</h2>
+<p>A revenue-to-FCFF transition is a conditional operating model, not demonstrated future cash economics. The accepted internal scenarios are WEAK / LOW confidence, terminal-dependent and not a funded liquidity plan or a distress floor. Public numerical scenarios are withheld because their load-bearing forecast anchors are not independently redistributable primary evidence. Public operating cases test conversion, fulfillment and funding without inventing a substitute intrinsic value or current-price comparison.</p>
+<h2>Acquisitions, Management, and Language</h2>
+<p>Acquisition effects remain an evidence gap. No acquired revenue, integration saving or synergy supports the thesis. This is not an assertion of zero acquisitions or a complete organic-growth bridge.</p>
+<p>Keep source-dated management explanations separate from causal proof. The current disclosure moves from numeric to qualitative delivery language; that proves neither deterioration nor stability. Raised annual revenue guidance and narrower adjusted EBITDA do not establish GAAP or cash breakeven. Product/task AI mechanisms do not establish enterprise productivity gains.</p>
+<h2>Change Since the Previous View</h2>
+<p>Prior view: The July review used Q1 2026 and required growth to become corporate operating leverage, dependable delivery and adequate liquidity. The earlier public stance awaited conversion proof. New evidence: Q3 2026 revenue and gross profit increased, but absolute GAAP operating and common losses widened and cash consumption persists. The current filing no longer provides numerical delivery time or an absolute trained-user count. Raised guidance and narrower adjusted EBITDA do not establish self-funding. Revised view: Retain commercial conversion, fulfillment and funding tests. Weaken the earlier provisional moat interpretation because retention economics and durable excess returns are not demonstrated. Preserve dated operating samples without advancing them to Q3. March manufacturing-time wording and June approval-to-hospital-delivery wording are not treated as a measured improvement or proof of unchanged current reliability. Earlier unverified secondary operating figures are not numerical authority in this review. Decision effect: The accepted research policy is now BUY with LOW conviction and HIGH risk / SOFT BLOCK. No current entry, automatic capital commitment or price-comparison claim follows. Reassess corporate conversion, funding and new equity claims before a separate capital decision.</p>
+<h2>Monitoring and Falsification</h2>
+<p>At each release review compatible quarterly revenue, gross margin, GAAP operating results and software-inclusive cash flow, plus current delivery, retained utilization, liquidity, financing and equity claims. Proposed monitoring alerts include gross margin below70%, operating margin progress to minus50%, GAAP operating breakeven, delivery above the historical six-business-day reference and current ratio below1.5. They prompt review, not automatic trading or a confirmed thesis failure. Missing current disclosure is not a threshold pass or a zero.</p>
+<h2>Source Register</h2>
+<ul>
+<li><strong>SRC-ANNUAL:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1794546/000119312526071551/carl-20251231.htm">Carlsmed 2025 Form 10-K</a> (as of 2026-02-25)</li>
+<li><strong>SRC-Q1:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000011/carl-20260331.htm">Carlsmed Q1 2026 Form 10-Q</a> (as of 2026-05-05)</li>
+<li><strong>SRC-Q3:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000026/carl-20260930.htm">Carlsmed Q3 2026 Form 10-Q</a> (as of 2026-11-10)</li>
+<li><strong>SRC-Q3-RELEASE:</strong> <a href="https://investors.carlsmed.com/news-releases/news-release-details/carlsmedr-reports-third-quarter-2026-financial-results-and">Carlsmed Q3 2026 results and full-year guidance</a> (as of 2026-11-10)</li>
+<li><strong>continuity-f1e00ac0138f:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1794546/000179454626000016/carl-20260630.htm">Quarterly primary evidence (2026-08-05)</a> (as of 2026-08-05)</li>
+</ul></div></section></article><section id="canonical-investment-view" class="canonical-investment-view"><details><summary>Investment view and falsification</summary><p data-narrative-field="recommendation"><strong>Recommendation:</strong> BUY</p><p data-narrative-field="decision_hinge"><strong>Decision hinge:</strong> Can durable adoption and dependable delivery produce corporate cash generation before financing and dilution weaken the equity economics?</p><p data-narrative-field="company_posture"><strong>Company posture:</strong> Phase 1 personalized surgical-device company. Commercial growth and attractive device gross margin are established, but corporate cash conversion, retained-user economics and self-funding remain unproven.</p><p data-narrative-field="security_posture"><strong>Security posture:</strong> Speculative BUY under the accepted research scoring policy, with HIGH risk, SOFT BLOCK and LOW conviction. This policy label is not a current-price comparison, a position-sizing rule or an instruction to commit capital.</p><p data-narrative-field="company_thesis"><strong>Company thesis:</strong> Carlsmed sells procedure-dependent personalized spinal implant systems enabled by planning software. Commercial growth and attractive device contribution support the product case. The company must convert that contribution into cash after selling, development, software investment, working capital and compensation. It is not a subscription-software business and no durable moat or independently proven clinical superiority is assumed.</p><p data-narrative-field="security_thesis"><strong>Security thesis:</strong> The unchanged research scoring policy returns BUY, with LOW conviction and HIGH risk / SOFT BLOCK. It is a speculative research classification, not a calibrated return probability, current entry signal or permission to commit capital. Evidence of corporate conversion remains the deciding constraint.</p><div data-narrative-field="pillars"><h3>Thesis pillars</h3><p><strong>Commercial growth must become corporate cash:</strong> Sales growth and device contribution support a commercial opportunity, but corporate loss and cash trajectories must improve. A high product margin is not self-funding.</p><p>Falsifier: Repeated deterioration in comparable software-inclusive cash consumption during growth, without a credible reconciliation and funded conversion plan, weakens the pillar. Adjusted exclusions do not clear it.. Confidence: MEDIUM.</p><p>Tracked KPIs: Revenue, Gross margin, Operating income / EBIT, Calculated software-inclusive free cash flow.</p><p>Decision thresholds: Gross margin warning threshold — &lt; 70.00%.</p><p>Evidence: Carlsmed Q3 2026 results and full-year guidance.</p><p><strong>Reliable fulfillment must sustain durable adoption:</strong> The personalized workflow needs dependable delivery and repeat clinical use. Historical delivery and trained-user observations remain dated, not evidence of current retention or unchanged lead time.</p><p>Falsifier: A verified material fulfillment, quality or access failure, or evidence that training does not support retained utilization, weakens this pillar. A missing disclosure alone does not prove failure.. Confidence: LOW.</p><p>Tracked KPIs: Lead Time Business Days, Trained Surgeon Users, Revenue.</p><p>Decision thresholds: Lead Time Business Days warning threshold — &gt; 6 days.</p><p>Evidence: Carlsmed Q1 2026 Form 10-Q; Carlsmed 2025 Form 10-K; Carlsmed Q3 2026 results and full-year guidance.</p><p><strong>Liquidity must fund the conversion period:</strong> Cash and financing flexibility buy time to prove operating conversion. They do not establish a funded path or protect the value of existing equity from new claims.</p><p>Falsifier: Funding impairment, covenant restrictions or substantial unmodeled dilution that invalidates the per-share bridge requires reassessment. Undrawn debt is not received cash.. Confidence: MEDIUM.</p><p>Tracked KPIs: Cash and equivalents, Total debt, Calculated current ratio, Diluted weighted-average shares.</p><p>Decision thresholds: None.</p><p>Evidence: Carlsmed Q3 2026 Form 10-Q.</p></div><div data-narrative-field="catalysts"><h3>Catalysts</h3><p><strong>Commercial growth converts into corporate cash:</strong> The next two quarterly updates can test whether growing sales and device gross profit produce narrower GAAP losses and comparable cash consumption. Adjusted EBITDA alone does not establish conversion.</p><p>Evidence: Carlsmed Q3 2026 results and full-year guidance.</p><p><strong>Product expansion and delivery evidence:</strong> Broader products and October reimbursement implementation create prospective access opportunities. Seek retained utilization and dependable fulfillment. Implementation after September cannot explain already reported Q3 growth.</p><p>Evidence: Carlsmed Q3 2026 results and full-year guidance; Carlsmed 2025 Form 10-K.</p></div><div data-narrative-field="risks"><h3>Risks</h3><p><strong>Device contribution may not become corporate cash:</strong> Selling, development, software investment, working capital and compensation can absorb the device contribution. Widening absolute GAAP losses contradict a completed self-funding transition.</p><p>Evidence: Carlsmed Q3 2026 results and full-year guidance.</p><p><strong>Funding and dilution can weaken per-share economics:</strong> Operating burn before sustained cash generation can require new financing. Scheduled payments, terms and new equity claims matter even when the balance sheet provides time.</p><p>Evidence: Carlsmed Q3 2026 Form 10-Q.</p><p><strong>Delivery, access and adoption durability:</strong> Patient-specific devices depend on timely external manufacture, procedural access and reliable execution. Competitive differentiation does not prove retention or durable excess returns.</p><p>Evidence: Carlsmed 2025 Form 10-K.</p><p><strong>Adjusted profitability can obscure recurring economics:</strong> Narrower adjusted EBITDA is not narrower GAAP loss or lower cash burn. Excluded transition/legal charges are not proven permanently nonrecurring; capitalized software remains an economic cash cost.</p><p>Evidence: Carlsmed Q3 2026 results and full-year guidance.</p></div><div data-narrative-field="monitoring"><h3>Monitoring</h3><p>At each release review compatible quarterly revenue, gross margin, GAAP operating results and software-inclusive cash flow, plus current delivery, retained utilization, liquidity, financing and equity claims. Proposed monitoring alerts include gross margin below70%, operating margin progress to minus50%, GAAP operating breakeven, delivery above the historical six-business-day reference and current ratio below1.5. They prompt review, not automatic trading or a confirmed thesis failure. Missing current disclosure is not a threshold pass or a zero.</p><p>Growth-to-cash conversion: Compare compatible quarterly revenue, device gross margin, GAAP operating loss and software-inclusive cash flow. Review sequential revenue contraction or cash burn worse than the Q3 2026 reference without assuming seasonality or working-capital timing explains it.</p><p>Current reliability and adoption disclosure: Seek current numerical delivery time and absolute trained, active and retained surgeon measures with definitions. Historical six-day delivery and 253 trained users must not be rolled forward. A verified material delivery or quality interruption requires review even without a numerical threshold crossing.</p><p>Financing and equity-claim review: Review cash and investment components, funded debt, covenants, scheduled payments and new equity claims. Undrawn capacity is not received cash. A changed financing or dilution bridge requires valuation review; a healthy current ratio alone does not prove survival through breakeven.</p><p>Profitability definitions and causal evidence: Keep GAAP losses, adjusted EBITDA exclusions, capitalized software and operating cash separate. Review changed definitions, material reporting failures and unquantified residuals. AI workflow commentary cannot establish company-wide productivity or justify a valuation premium.</p></div><div data-narrative-field="thresholds"><h3>Decision thresholds</h3><p>metric key gross_margin; operator &lt;; value 0.7; unit ratio; basis gaap; scope consolidated; approval status proposed</p><p>metric key lead_time_business_days; operator &gt;; value 6; unit days; basis operational; scope consolidated; approval status proposed</p><p>metric key revenue; operator &lt;; value 21554000; unit currency; currency USD; basis gaap; scope consolidated; approval status proposed</p><p>metric key operating_margin; operator &gt;=; value -0.5; unit ratio; basis gaap; scope consolidated; approval status proposed</p><p>metric key adjusted_ebitda; operator &gt;=; value 0; unit currency; currency USD; basis non_gaap; scope consolidated; approval status proposed</p><p>metric key operating_income; operator &gt;=; value 0; unit currency; currency USD; basis gaap; scope consolidated; approval status proposed</p><p>metric key current_ratio; operator &lt;; value 1.5; unit multiple; basis gaap; scope consolidated; approval status proposed</p><p>metric key trained_surgeon_users; operator &gt;; value 253; unit count; basis operational; scope consolidated; approval status proposed</p></div><div data-narrative-field="valuation"><h3>Valuation posture</h3><p>Dashboard valuation: unavailable</p><p>Investment framing: The unchanged research scoring policy returns BUY, with LOW conviction and HIGH risk / SOFT BLOCK. It is a speculative research classification, not a calibrated return probability, current entry signal or permission to commit capital. Evidence of corporate conversion remains the deciding constraint.</p><p>Current-price comparisons require a separate decision refresh.</p></div><div data-narrative-field="change_since_previous"><h3>Since the previous review</h3><p>Prior view: The July review used Q1 2026 and required growth to become corporate operating leverage, dependable delivery and adequate liquidity. The earlier public stance awaited conversion proof. New evidence: Q3 2026 revenue and gross profit increased, but absolute GAAP operating and common losses widened and cash consumption persists. The current filing no longer provides numerical delivery time or an absolute trained-user count. Raised guidance and narrower adjusted EBITDA do not establish self-funding. Revised view: Retain commercial conversion, fulfillment and funding tests. Weaken the earlier provisional moat interpretation because retention economics and durable excess returns are not demonstrated. Preserve dated operating samples without advancing them to Q3. March manufacturing-time wording and June approval-to-hospital-delivery wording are not treated as a measured improvement or proof of unchanged current reliability. Earlier unverified secondary operating figures are not numerical authority in this review. Decision effect: The accepted research policy is now BUY with LOW conviction and HIGH risk / SOFT BLOCK. No current entry, automatic capital commitment or price-comparison claim follows. Reassess corporate conversion, funding and new equity claims before a separate capital decision.</p></div></details></section></main>
+<footer>Public research only. Non-public inputs and licensed-source excerpts are excluded.</footer></body></html>
