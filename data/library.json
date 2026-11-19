@@ -155,9 +155,9 @@
       "valuation": "Valuation: unavailable"
     },
     {
-      "baseline": "Baseline through 2026-07-17",
+      "baseline": "Baseline through 2026-11-19",
       "company": "Netflix, Inc. KPI Monitor",
-      "date": "2026-07-17",
+      "date": "2026-11-19",
       "format_status": "current",
       "related_label": "Read report",
       "related_url": "docs/NFLX_Full_Report.html",
@@ -209,7 +209,7 @@
   ],
   "reports": [
     {
-      "company": "El Niño commodity monitor",
+      "company": "El Ni\u00f1o commodity monitor",
       "date": "2026-11-11",
       "format_status": "current",
       "phase": "Weekly commodity monitor",
@@ -382,7 +382,7 @@
     },
     {
       "company": "Netflix, Inc.",
-      "date": "2026-08-14",
+      "date": "2026-11-19",
       "format_status": "current",
       "phase": "Phase 5",
       "stance": "HOLD",

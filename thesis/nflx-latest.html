@@ -90,133 +90,178 @@ body {
   body { background: #fff; }
   .thesis-document { max-width: none; padding: 0; }
   .thesis-document .table-scroll { overflow: visible; }
-  .thesis-document table { min-width: 0; }
+  .thesis-document table { min-width: 0; table-layout: fixed; }
+  .thesis-document tr { break-inside: avoid; }
+  .thesis-document th,
+  .thesis-document td {
+    overflow-wrap: anywhere;
+    padding: .4rem;
+    word-break: break-word;
+  }
   a { color: inherit !important; text-decoration: none; }
 }
 
-:root { --brand:#E50914; --brand-bg:#FDECEE; --brand-dark:#B20710; }</style></head><body>
+:root { --brand:#E50914; --brand-bg:#FDECEE; --brand-dark:#B20710; }</style><style id="revision-print-pagination">
+.source-list { min-width:0; }
+.source-item { min-width:0; max-width:100%; }
+.source-item a { overflow-wrap:anywhere; word-break:break-word; }
+@media print {
+  h1, h2, h3 { break-after:avoid; page-break-after:avoid; }
+  h2 + p { break-after:avoid; page-break-after:avoid; }
+  .table-scroll, .report-body, .step-body, .thesis-document {
+    overflow:visible;
+  }
+  table {
+    min-width:0 !important;
+    width:100% !important;
+    table-layout:fixed;
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+  .thesis-document table, #intrinsic-valuation-scenarios table, .embedded-thesis table {
+    table-layout:fixed;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .source-list { display:block; }
+  .source-item, .source-item a {
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .step-appendix details { content-visibility:visible; }
+  .step-appendix details::details-content {
+    display:block !important;
+    content-visibility:visible !important;
+  }
+  .step-appendix details:not([open]) > :not(summary) { display:block !important; }
+  thead { display:table-header-group; }
+  thead, tr { break-inside:avoid; page-break-inside:avoid; }
+  th, td { overflow-wrap:anywhere; word-break:break-word; white-space:normal; }
+  .continuity-comparisons table, .continuity-comparisons thead,
+  .continuity-comparisons tbody { display:block; }
+  .continuity-comparisons tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  #quarterly-trajectory table, #quarterly-trajectory tbody, #quarterly-trajectory tr {
+    display:block;
+  }
+  #quarterly-trajectory thead { display:none; }
+  #quarterly-trajectory tbody tr {
+    border:1px solid var(--line);
+    padding:8px 12px;
+    margin-bottom:10px;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  #quarterly-trajectory td {
+    display:grid;
+    grid-template-columns:10em minmax(0,1fr);
+    gap:10px;
+    padding:7px 0;
+    border-bottom:1px solid var(--line);
+  }
+  #quarterly-trajectory td::before {
+    content:attr(data-label);
+    color:var(--muted);
+    font-weight:650;
+  }
+  #quarterly-trajectory td[colspan] { grid-template-columns:1fr; }
+  #quarterly-trajectory td[colspan]::before { content:none; }
+  #quarterly-trajectory td:last-child { border-bottom:0; }
+}
+</style>
+</head><body>
 <header class="thesis-topbar"><a href="../index.html">Public package</a><span>NFLX narrative thesis</span></header>
 <main class="thesis-document"><h1>Narrative Investment Thesis — Netflix, Inc.</h1>
 <ul>
 <li><strong>Ticker:</strong> NFLX</li>
-<li><strong>As of:</strong> 2026-07-17</li>
+<li><strong>As of:</strong> 2026-11-19</li>
 <li><strong>Recommendation:</strong> HOLD</li>
 </ul>
 <h2>Decision Hinge</h2>
-<p>Netflix must convert durable double-digit revenue growth and high operating margins into consistently stronger free cash flow without weakening balance-sheet flexibility. Until that proof or a more favourable intrinsic-value setup appears, the correct action is to watch rather than initiate.</p>
+<p>The global subscription business remains profitable. The accepted legacy HARD BLOCK continues on the reviewed Q3 overlap of executed insider sales and issuer share repurchases. Recurring cash quality and ad execution remain the operating tests.</p>
 <h2>Company Thesis</h2>
-<p>Netflix is a scaled global entertainment platform with durable distribution, product discovery, pricing and content-funding advantages. Its Phase 5 economics support compounding, but fixed content commitments and strategic expansion make cash conversion the central underwriting test.</p>
+<p>Global distribution offers recurring revenue, pricing flexibility and a growing advertising surface. Easy cancellation, competition for attention and content commitments constrain durability.</p>
 <h2>Security Thesis and Intrinsic Framing</h2>
-<p>The security thesis is more cautious than the company thesis. The accepted FCFF scenarios require strong execution and carry high terminal-value sensitivity, so business quality alone does not create sufficient valuation support for a new position.</p>
+<p>HOLD under the accepted legacy framework. Review executed sales and issuer share repurchases with their timing and plan context. The later sales warrant monitoring while evidence of November issuer execution remains incomplete.</p>
 <p><strong>Market-data policy:</strong> Current market price, price-based upside or downside, and reverse DCF are intentionally excluded from static reports. They are calculated only for an explicitly requested decision refresh using a public price with an exact timestamp.</p>
-<p><strong>Variant perception:</strong> The differentiated view is not that Netflix lacks a moat; it is that the market may capitalise its quality faster than cash conversion and strategic execution can safely validate.</p>
+<p><strong>Variant perception:</strong> The Q3 margin and cash figures look stronger than Q2. Expense timing and unusual cash items limit inference about recurring performance. Better ad delivery could strengthen the case if it becomes measurable cash generation.</p>
 <h2>Falsifiable Thesis Pillars</h2>
-<h3>1. Global scale compounds revenue</h3>
-<p>Pricing, engagement, advertising and global distribution sustain revenue above the quarterly warning gate while funding the content slate.</p>
+<h3>1. Scale must sustain monetization</h3>
+<p>Q3 revenue rose from Q2 and year over year. Pricing and retention support monetization. Advertising must show durable delivery and incremental cash.</p>
 <ul>
 <li><strong>Tracked KPIs:</strong> Revenue</li>
-<li><strong>Decision thresholds:</strong> Revenue warning threshold — &lt; USD 12 billion</li>
-<li><strong>Falsifier:</strong> Quarterly revenue falls below $12.0 billion without a clearly temporary timing explanation, or growth decelerates while content commitments remain fixed.</li>
+<li><strong>Decision thresholds:</strong> Revenue confirm threshold — &gt;= USD 12 billion, Revenue warning threshold — &lt; USD 12 billion</li>
+<li><strong>Falsifier:</strong> Quarterly revenue below USD12bn triggers review; repeated demand weakness or inability to monetize engagement weakens the pillar.</li>
 <li><strong>Confidence:</strong> MEDIUM</li>
-<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm">Netflix Q3 2026 shareholder letter</a> (as of 2026-10-20); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
 </ul>
-<h3>2. Operating leverage remains intact</h3>
-<p>Netflix sustains operating margin at or above 30% while continuing to invest in content, advertising and product capabilities.</p>
+<h3>2. Margins must survive timing effects</h3>
+<p>Operating leverage holds on the accepted Q3 evidence. Expense timing and the prior-year Brazil charge limit extrapolation.</p>
 <ul>
-<li><strong>Tracked KPIs:</strong> Operating margin</li>
-<li><strong>Decision thresholds:</strong> Operating margin confirm threshold — &gt;= 0.3 ratio, Operating margin break threshold — &lt; 0.27 ratio</li>
-<li><strong>Falsifier:</strong> Operating margin falls below 27% on a sustained basis or margin compression is accompanied by weaker revenue growth.</li>
+<li><strong>Tracked KPIs:</strong> Operating margin, Operating income / EBIT</li>
+<li><strong>Decision thresholds:</strong> Operating margin break threshold — &lt; 27.00%, Operating margin confirm threshold — &gt;= 30.00%</li>
+<li><strong>Falsifier:</strong> Quarterly operating margin below 27% triggers thesis-break review. At least 30% supports confirmation.</li>
 <li><strong>Confidence:</strong> MEDIUM</li>
-<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm">Netflix Q3 2026 shareholder letter</a> (as of 2026-10-20); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
 </ul>
-<h3>3. Cash conversion catches up with earnings</h3>
-<p>Free cash flow recovers from quarterly volatility and supports reinvestment and capital returns without dependence on rising leverage.</p>
+<h3>3. Cash must fund the content cycle</h3>
+<p>Q3 issuer FCF recovered. The exceptional termination receipt and unusual Brazil payment complicate recurring cash interpretation.</p>
 <ul>
-<li><strong>Tracked KPIs:</strong> Free cash flow, Operating cash flow</li>
-<li><strong>Decision thresholds:</strong> Free cash flow warning threshold — &lt; USD 1.5 billion, Free cash flow break threshold — &lt; USD 1 billion</li>
-<li><strong>Falsifier:</strong> Quarterly FCF falls below $1.0 billion or remains below $1.5 billion while reported earnings continue to expand.</li>
-<li><strong>Confidence:</strong> MEDIUM-LOW</li>
-<li><strong>Evidence:</strong> <a href="https://s22.q4cdn.com/959853165/files/doc_financials/2026/q2/FINAL-Q2-26-Shareholder-Letter.pdf">Netflix Q2 2026 Shareholder Letter</a> (as of 2026-07-16); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
+<li><strong>Tracked KPIs:</strong> Free cash flow, Operating cash flow, Capital expenditures</li>
+<li><strong>Decision thresholds:</strong> Free cash flow break threshold — &lt; USD 1 billion, Free cash flow confirm threshold — &gt;= USD 1.5 billion, Free cash flow warning threshold — &lt; USD 1.5 billion</li>
+<li><strong>Falsifier:</strong> Quarterly issuer free cash flow belowUSD1.5bn triggers warning review; belowUSD1bn triggers thesis-break review. Persistent funding pressure after unusual items weakens durability.</li>
+<li><strong>Confidence:</strong> MEDIUM</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm">Netflix FY2025 Form 10-K</a> (as of 2026-01-23); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
 </ul>
-<h3>4. Strategic expansion preserves per-share resilience</h3>
-<p>Content investment and acquisition activity do not push debt above the warning gate or reverse the decline in diluted shares.</p>
+<h3>4. Capital allocation must preserve flexibility</h3>
+<p>Notes maturities, repurchases, award dilution and fixed content obligations compete for funding. Reviewed August transactions continue to satisfy the accepted legacy overlap rule.</p>
 <ul>
-<li><strong>Tracked KPIs:</strong> Total debt, Diluted weighted-average shares</li>
+<li><strong>Tracked KPIs:</strong> Total debt, Cash and equivalents, Diluted weighted-average shares</li>
 <li><strong>Decision thresholds:</strong> Total debt warning threshold — &gt; USD 16 billion</li>
-<li><strong>Falsifier:</strong> Total debt rises above $16.0 billion without corresponding cash-flow improvement, or dilution offsets operating compounding.</li>
-<li><strong>Confidence:</strong> MEDIUM-LOW</li>
-<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
+<li><strong>Falsifier:</strong> Notes carrying debt aboveUSD16bn triggers warning review. A new cash-funding or refinancing shortfall, or unresolved share-basis conflict, reopens the evidence and valuation boundary.</li>
+<li><strong>Confidence:</strong> MEDIUM</li>
+<li><strong>Evidence:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm">Netflix FY2025 Form 10-K</a> (as of 2026-01-23); <a href="https://data.sec.gov/submissions/CIK0001065280.json">SEC Netflix filing index, reviewed 2 November 2026</a> (as of 2026-11-02)</li>
 </ul>
 <h2>Catalysts</h2>
 <ul>
-<li>
-<p><strong>Advertising and pricing execution:</strong> Faster monetisation with stable engagement can sustain revenue growth and operating leverage. — <a href="https://s22.q4cdn.com/959853165/files/doc_financials/2026/q2/FINAL-Q2-26-Shareholder-Letter.pdf">Netflix Q2 2026 Shareholder Letter</a> (as of 2026-07-16)</p>
-</li>
-<li>
-<p><strong>Cash conversion recovery:</strong> Sequential FCF recovery would reduce the main gap between earnings quality and valuation support. — <a href="https://s22.q4cdn.com/959853165/files/doc_financials/2026/q2/FINAL-Q2-26-Shareholder-Letter.pdf">Netflix Q2 2026 Shareholder Letter</a> (as of 2026-07-16)</p>
-</li>
+<li><strong>Advertising execution and the next results:</strong> Delivery against the revised advertising outlook and subsequent recurring margin/cash results can test the monetization thesis. Announced ambitions and prospective savings remain forecasts. — <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm">Netflix Q3 2026 shareholder letter</a> (as of 2026-10-20); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21)</li>
 </ul>
 <h2>Risks and Counter-Evidence</h2>
 <ul>
 <li>
-<p><strong>Fixed content commitments:</strong> Long-duration, largely fixed commitments can limit rapid adjustment when demand or content performance disappoints. — <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/nflx-20241231.htm">Netflix 2024 Annual Report</a> (as of 2025-01-27)</p>
+<p><strong>Security policy gate:</strong> Reviewed Q3 executed sales and issuer repurchases keep the accepted legacy rule in force. Unverified November issuer executions leave the later overlap unresolved. — <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000247/wk-form4_1786049108.xml">Peters executed August sales</a> (as of 2026-08-06); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000234/wk-form4_1785878104.xml">Sarandos executed August sales</a> (as of 2026-08-04)</p>
 </li>
 <li>
-<p><strong>Unquantified acquisition effects:</strong> The locked model has no attributable acquired revenue, integration-cost or realised-synergy evidence for the latest quarter. — <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</p>
+<p><strong>Recurring cash and content commitments:</strong> Reported cash can overstate recurring capacity when unusual receipts are included. Content commitments restrict rapid cost adjustment; title-level returns remain unavailable. — <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm">Netflix FY2025 Form 10-K</a> (as of 2026-01-23); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21)</p>
 </li>
 <li>
-<p><strong>Valuation sensitivity:</strong> The intrinsic FCFF range is terminal-value sensitive; the static package therefore presents assumptions and scenario dispersion without a market-price comparison. — <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17); <a href="https://s22.q4cdn.com/959853165/files/doc_financials/2026/q2/FINAL-Q2-26-Shareholder-Letter.pdf">Netflix Q2 2026 Shareholder Letter</a> (as of 2026-07-16)</p>
+<p><strong>Evidence limits and changing definitions:</strong> Member and ARPU attribution, normalized cash taxes and quantified AI savings remain unresolved. Historical factor scores are not comparable across the changed coverage and definitions. — <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm">Netflix Q3 2026 shareholder letter</a> (as of 2026-10-20); <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21)</p>
 </li>
 </ul>
 <h2>Valuation Read-Through</h2>
-<p>Intrinsic FCFF scenarios are retained as static analytical outputs:</p>
-<div class="table-scroll" tabindex="0"><table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th style="text-align: right;">Intrinsic value per share</th>
-<th style="text-align: right;">WACC</th>
-<th style="text-align: right;">Terminal growth</th>
-<th>Five-year FCFF forecast</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bear</td>
-<td style="text-align: right;">USD 26.04</td>
-<td style="text-align: right;">10.0%</td>
-<td style="text-align: right;">2.5%</td>
-<td>USD 8.5B, USD 8.8B, USD 9B, USD 9.2B, USD 9.4B</td>
-</tr>
-<tr>
-<td>Base</td>
-<td style="text-align: right;">USD 45.73</td>
-<td style="text-align: right;">9.0%</td>
-<td style="text-align: right;">3.0%</td>
-<td>USD 10B, USD 10.8B, USD 11.7B, USD 12.6B, USD 13.5B</td>
-</tr>
-<tr>
-<td>Bull</td>
-<td style="text-align: right;">USD 72.31</td>
-<td style="text-align: right;">8.0%</td>
-<td style="text-align: right;">3.5%</td>
-<td>USD 10.7B, USD 12B, USD 13.4B, USD 14.8B, USD 16.2B</td>
-</tr>
-</tbody>
-</table></div>
-<p>The base case uses net debt of USD 5.2B and 4,163.9 million diluted shares; terminal value contributes 77.0% of enterprise value. These are analyst-derived intrinsic scenarios, not market-price forecasts.</p>
-<p>Current market price, price-based upside or downside, and reverse DCF are intentionally excluded from static reports. They are calculated only for an explicitly requested decision refresh using a public price with an exact timestamp.</p>
+<p>The internal FCFF uses a common required return, content cash reinvestment, ordinary capex, terminal returns and modeled dilution. Public disclosure of numerical scenarios is constrained by the forecast provenance. Watch sustainable operating margins and funding needs.</p>
 <h2>Acquisitions, Management, and Language</h2>
-<p>The latest locked acquisition record is an evidence gap: attributable revenue, integration costs, financing effects and realised synergies are unavailable. Strategic optionality is therefore not underwritten as quantified value creation.</p>
-<p>Management commentary supports continued product, advertising and generative-AI investment, but the locked model contains no validated language-change series and no measured internal AI productivity attribution. Confidence remains separate from promotional narrative.</p>
+<p>The Warner Bros. Discovery agreement was terminated in February. The receipt is a one-off. The completed March acquisition lacks a separate verified revenue or synergy bridge and should be assessed independently of the terminated deal.</p>
+<p>Management describes membership, pricing and advertising contributions. Timing effects and ad delivery risks qualify the forward margin view. AI deployment examples provide workflow evidence with limited financial attribution.</p>
 <h2>Change Since the Previous View</h2>
-<p>This is the first accepted NFLX package baseline for run 20260813T214929Z. No prior accepted KPI handoff exists for deterministic change comparison.</p>
+<p>Prior view: The August Q2 2026 review focused on monetization, cash funding and operating leverage. The 6 November Q3 review retained those pillars and applied the legacy risk rule to executed insider sales alongside issuer repurchases. New evidence: From Q2 to Q3, revenue rose from USD 12.56bn to USD 12.87bn, operating margin from 33.38% to 34.63%, and quarterly issuer FCF from USD 1.52bn to USD 2.88bn. The November review adds executed insider sales with no new quarterly actuals or verified November issuer repurchase executions. Revised view: Retain the scale, margin, recurring cash and capital allocation pillars. Expense timing, the Brazil item and the termination receipt qualify recurring performance. Advertising delivery and more representative cash conversion remain the next proof points. Decision effect: HOLD under the accepted legacy HARD BLOCK. Monitor the next issuer actuals and complete transaction evidence before reassessing the decision.</p>
 <h2>Monitoring and Falsification</h2>
-<p>Review revenue, operating margin, FCF, diluted shares and debt after every quarterly filing. Confirm the thesis if margin stays at or above 30% and FCF recovers; warn on revenue below $12.0 billion, FCF below $1.5 billion or debt above $16.0 billion; break on margin below 27% or FCF below $1.0 billion.</p>
+<p>Proposed analyst rules for compatible periods: review revenue below USD 12bn, quarterly issuer FCF below USD 1.5bn or notes carrying debt above USD 16bn. Margin at least 30% supports confirmation. Below 27% margin or USD 1bn FCF requires thesis-break review. Q4 margin guidance near 26% is prospective. Reconcile future insider filings with executed issuer repurchases and verify ad monetization against cash.</p>
 <h2>Source Register</h2>
 <ul>
-<li><strong>SRC-10K-2024:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/nflx-20241231.htm">Netflix 2024 Annual Report</a> (as of 2025-01-27)</li>
-<li><strong>SRC-IR-Q2-2026:</strong> <a href="https://s22.q4cdn.com/959853165/files/doc_financials/2026/q2/FINAL-Q2-26-Shareholder-Letter.pdf">Netflix Q2 2026 Shareholder Letter</a> (as of 2026-07-16)</li>
-<li><strong>SRC-SEC-Q2-2026:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
-</ul></main>
+<li><strong>annual:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm">Netflix FY2025 Form 10-K</a> (as of 2026-01-23)</li>
+<li><strong>petersaug:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000247/wk-form4_1786049108.xml">Peters executed August sales</a> (as of 2026-08-06)</li>
+<li><strong>q2filing:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000212/nflx-20260630.htm">Netflix Q2 2026 Form 10-Q</a> (as of 2026-07-17)</li>
+<li><strong>q3filing:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm">Netflix Q3 2026 Form 10-Q</a> (as of 2026-10-21)</li>
+<li><strong>q3letter:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm">Netflix Q3 2026 shareholder letter</a> (as of 2026-10-20)</li>
+<li><strong>sarandosaug:</strong> <a href="https://www.sec.gov/Archives/edgar/data/1065280/000106528026000234/wk-form4_1785878104.xml">Sarandos executed August sales</a> (as of 2026-08-04)</li>
+<li><strong>secindex:</strong> <a href="https://data.sec.gov/submissions/CIK0001065280.json">SEC Netflix filing index, reviewed 2 November 2026</a> (as of 2026-11-02)</li>
+</ul><section id="canonical-investment-view" class="canonical-investment-view"><details><summary>Investment view and falsification</summary><p data-narrative-field="recommendation"><strong>Recommendation:</strong> HOLD</p><p data-narrative-field="decision_hinge"><strong>Decision hinge:</strong> The global subscription business remains profitable. The accepted legacy HARD BLOCK continues on the reviewed Q3 overlap of executed insider sales and issuer share repurchases. Recurring cash quality and ad execution remain the operating tests.</p><p data-narrative-field="company_posture"><strong>Company posture:</strong> Profitable global entertainment service with growing revenue and timing-sensitive operating leverage.</p><p data-narrative-field="security_posture"><strong>Security posture:</strong> HOLD. The accepted legacy HARD BLOCK continues, subject to a future source-backed review.</p><p data-narrative-field="company_thesis"><strong>Company thesis:</strong> Global distribution offers recurring revenue, pricing flexibility and a growing advertising surface. Easy cancellation, competition for attention and content commitments constrain durability.</p><p data-narrative-field="security_thesis"><strong>Security thesis:</strong> HOLD under the accepted legacy framework. Review executed sales and issuer share repurchases with their timing and plan context. The later sales warrant monitoring while evidence of November issuer execution remains incomplete.</p><div data-narrative-field="pillars"><h3>Thesis pillars</h3><p><strong>Scale must sustain monetization:</strong> Q3 revenue rose from Q2 and year over year. Pricing and retention support monetization. Advertising must show durable delivery and incremental cash.</p><p>Falsifier: Quarterly revenue below USD12bn triggers review; repeated demand weakness or inability to monetize engagement weakens the pillar.. Confidence: MEDIUM.</p><p>Tracked KPIs: Revenue.</p><p>Decision thresholds: Revenue confirm threshold — &gt;= USD 12 billion, Revenue warning threshold — &lt; USD 12 billion.</p><p>Evidence: Netflix Q3 2026 Form 10-Q; Netflix Q3 2026 shareholder letter; Netflix Q2 2026 Form 10-Q.</p><p><strong>Margins must survive timing effects:</strong> Operating leverage holds on the accepted Q3 evidence. Expense timing and the prior-year Brazil charge limit extrapolation.</p><p>Falsifier: Quarterly operating margin below 27% triggers thesis-break review. At least 30% supports confirmation.. Confidence: MEDIUM.</p><p>Tracked KPIs: Operating margin, Operating income / EBIT.</p><p>Decision thresholds: Operating margin break threshold — &lt; 27.00%, Operating margin confirm threshold — &gt;= 30.00%.</p><p>Evidence: Netflix Q3 2026 Form 10-Q; Netflix Q3 2026 shareholder letter; Netflix Q2 2026 Form 10-Q.</p><p><strong>Cash must fund the content cycle:</strong> Q3 issuer FCF recovered. The exceptional termination receipt and unusual Brazil payment complicate recurring cash interpretation.</p><p>Falsifier: Quarterly issuer free cash flow belowUSD1.5bn triggers warning review; belowUSD1bn triggers thesis-break review. Persistent funding pressure after unusual items weakens durability.. Confidence: MEDIUM.</p><p>Tracked KPIs: Free cash flow, Operating cash flow, Capital expenditures.</p><p>Decision thresholds: Free cash flow break threshold — &lt; USD 1 billion, Free cash flow confirm threshold — &gt;= USD 1.5 billion, Free cash flow warning threshold — &lt; USD 1.5 billion.</p><p>Evidence: Netflix Q3 2026 Form 10-Q; Netflix FY2025 Form 10-K; Netflix Q2 2026 Form 10-Q.</p><p><strong>Capital allocation must preserve flexibility:</strong> Notes maturities, repurchases, award dilution and fixed content obligations compete for funding. Reviewed August transactions continue to satisfy the accepted legacy overlap rule.</p><p>Falsifier: Notes carrying debt aboveUSD16bn triggers warning review. A new cash-funding or refinancing shortfall, or unresolved share-basis conflict, reopens the evidence and valuation boundary.. Confidence: MEDIUM.</p><p>Tracked KPIs: Total debt, Cash and equivalents, Diluted weighted-average shares.</p><p>Decision thresholds: Total debt warning threshold — &gt; USD 16 billion.</p><p>Evidence: Netflix Q3 2026 Form 10-Q; Netflix FY2025 Form 10-K; SEC Netflix filing index, reviewed 2 November 2026.</p></div><div data-narrative-field="catalysts"><h3>Catalysts</h3><p><strong>Advertising execution and the next results:</strong> Delivery against the revised advertising outlook and subsequent recurring margin/cash results can test the monetization thesis. Announced ambitions and prospective savings remain forecasts.</p><p>Evidence: Netflix Q3 2026 shareholder letter; Netflix Q3 2026 Form 10-Q.</p></div><div data-narrative-field="risks"><h3>Risks</h3><p><strong>Security policy gate:</strong> Reviewed Q3 executed sales and issuer repurchases keep the accepted legacy rule in force. Unverified November issuer executions leave the later overlap unresolved.</p><p>Evidence: Netflix Q3 2026 Form 10-Q; Peters executed August sales; Sarandos executed August sales.</p><p><strong>Recurring cash and content commitments:</strong> Reported cash can overstate recurring capacity when unusual receipts are included. Content commitments restrict rapid cost adjustment; title-level returns remain unavailable.</p><p>Evidence: Netflix FY2025 Form 10-K; Netflix Q3 2026 Form 10-Q.</p><p><strong>Evidence limits and changing definitions:</strong> Member and ARPU attribution, normalized cash taxes and quantified AI savings remain unresolved. Historical factor scores are not comparable across the changed coverage and definitions.</p><p>Evidence: Netflix Q3 2026 shareholder letter; Netflix Q3 2026 Form 10-Q.</p></div><div data-narrative-field="monitoring"><h3>Monitoring</h3><p>Proposed analyst rules for compatible periods: review revenue below USD 12bn, quarterly issuer FCF below USD 1.5bn or notes carrying debt above USD 16bn. Margin at least 30% supports confirmation. Below 27% margin or USD 1bn FCF requires thesis-break review. Q4 margin guidance near 26% is prospective. Reconcile future insider filings with executed issuer repurchases and verify ad monetization against cash.</p><p>Retained quarterly operating thresholds: Carry the accepted revenue, margin, issuer free-cash-flow and notes-debt rules forward. Separate discrete quarters from YTD and TTM; apply the proposed thresholds with seasonal and cash-normalization context.</p><p>Reassess the security gate from executed transactions: Reconcile executed sales, issuer repurchases and amendments by date. Separate awards, exercises, and tax withholding from open-market sales.</p><p>Reopen the earliest affected evidence boundary: A restatement, material acquisition, share-basis conflict or changed operating definition requires evidence/profile refresh before locking revised facts or valuation. Gross content spending is not interchangeable with physical capex or the DCF combined net-investment schedule.</p></div><div data-narrative-field="thresholds"><h3>Decision thresholds</h3><p>metric key revenue; operator &gt;=; value 12000000000; unit currency; currency USD; basis gaap; scope consolidated; approval status proposed</p><p>metric key revenue; operator &lt;; value 12000000000; unit currency; currency USD; basis gaap; scope consolidated; approval status proposed</p><p>metric key free_cash_flow; operator &lt;; value 1000000000; unit currency; currency USD; basis non_gaap; scope consolidated; approval status proposed</p><p>metric key free_cash_flow; operator &gt;=; value 1500000000; unit currency; currency USD; basis non_gaap; scope consolidated; approval status proposed</p><p>metric key free_cash_flow; operator &lt;; value 1500000000; unit currency; currency USD; basis non_gaap; scope consolidated; approval status proposed</p><p>metric key operating_margin; operator &lt;; value 0.27; unit ratio; basis gaap; scope consolidated; approval status proposed</p><p>metric key operating_margin; operator &gt;=; value 0.3; unit ratio; basis gaap; scope consolidated; approval status proposed</p><p>metric key total_debt; operator &gt;; value 16000000000; unit currency; currency USD; basis gaap; scope consolidated; approval status proposed</p></div><div data-narrative-field="valuation"><h3>Valuation posture</h3><p>Dashboard valuation: unavailable</p><p>Investment framing: HOLD under the accepted legacy framework. Review executed sales and issuer share repurchases with their timing and plan context. The later sales warrant monitoring while evidence of November issuer execution remains incomplete.</p><p>Current-price comparisons require a separate decision refresh.</p></div><div data-narrative-field="change_since_previous"><h3>Since the previous review</h3><p>Prior view: The August Q2 2026 review focused on monetization, cash funding and operating leverage. The 6 November Q3 review retained those pillars and applied the legacy risk rule to executed insider sales alongside issuer repurchases. New evidence: From Q2 to Q3, revenue rose from USD 12.56bn to USD 12.87bn, operating margin from 33.38% to 34.63%, and quarterly issuer FCF from USD 1.52bn to USD 2.88bn. The November review adds executed insider sales with no new quarterly actuals or verified November issuer repurchase executions. Revised view: Retain the scale, margin, recurring cash and capital allocation pillars. Expense timing, the Brazil item and the termination receipt qualify recurring performance. Advertising delivery and more representative cash conversion remain the next proof points. Decision effect: HOLD under the accepted legacy HARD BLOCK. Monitor the next issuer actuals and complete transaction evidence before reassessing the decision.</p></div></details></section></main>
 <footer class="thesis-document">Public research only. Non-public inputs and licensed-source detail are excluded.</footer></body></html>
