@@ -184,10 +184,21 @@ footer { width:min(1180px,calc(100% - 56px)); margin:0 auto; padding:22px 0 40px
 }
 :root { --accent:#39785A; --accent-dark:#244F3B; --accent-soft:#E7F1EB; }
 </style>
+    <style>
+      .bv-home { display: inline-flex; align-items: center; flex: 0 0 auto; line-height: 0; text-decoration: none; }
+      .bv-home img { display: block; height: 22px; width: auto; }
+      .bv-home-cluster { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    </style>
+    <link rel="icon" href="/assets/brand/biotechvision-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/brand/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="shortcut icon" href="/assets/brand/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon-180.png" sizes="180x180">
+    <link rel="manifest" href="/assets/brand/site.webmanifest">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#overview"><span class="ticker">DXCM</span><span>Dexcom, Inc. KPI Monitor</span></a>
+  <header class="topbar"><div class="bv-home-cluster"><a class="bv-home" href="https://biotechvision.co.uk/"><img src="/assets/brand/biotechvision-wordmark.svg" alt="BiotechVision" height="22"></a>
+    <a class="brand" href="#overview"><span class="ticker">DXCM</span><span>Dexcom, Inc. KPI Monitor</span></a></div>
     <div class="topbar-actions"><a class="report-link" href="../index.html">Public package</a><div class="meta">Public baseline through 2026-07-30</div></div>
   </header>
   <main>
