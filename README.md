@@ -2,10 +2,10 @@
 
 Public equity research reports, KPI dashboards, a generated stock knowledge wiki, and the operating guide for the local Equity Deep Dive workflow.
 
-- [Live reports library](https://rsalek.github.io/reports/)
-- [Analysis workflow guide](https://rsalek.github.io/reports/help/)
-- [KPI dashboards](https://rsalek.github.io/reports/#kpi)
-- [Stock knowledge wiki](https://rsalek.github.io/reports/wiki/)
+- [Live reports library](https://biotechvision.co.uk/reports/)
+- [Analysis workflow guide](https://biotechvision.co.uk/reports/help/)
+- [KPI dashboards](https://biotechvision.co.uk/reports/#kpi)
+- [Stock knowledge wiki](https://biotechvision.co.uk/reports/wiki/)
 
 ## Repository map
 
