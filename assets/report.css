@@ -180,3 +180,11 @@
 .bv-research-document h1 { margin-block: 0 16px; }
 .bv-research-document section { border-top: 1px solid var(--bv-line); margin-top: 30px; }
 .bv-research-document a { color: var(--bv-accent); text-underline-offset: .2em; }
+
+@media screen and (max-width: 700px) {
+  html[data-bv-report="research"] .table-wrap { overflow-wrap: anywhere; }
+  html[data-bv-report="research"] .table-wrap :is(.status, .tag) {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
