@@ -81,3 +81,5 @@ for (const item of allItems.filter((entry) => entry.format_status === "legacy"))
   if (item.related_url && !item.related_url.startsWith("http")) labelLegacyPage(item.related_url);
 }
 console.log(`Built ${data.reports.length} reports and ${data.kpis.length} KPI cards from data/library.json`);
+
+await import("./style-reports.mjs");

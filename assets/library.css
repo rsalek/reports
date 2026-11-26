@@ -81,3 +81,4 @@ p { margin: 0; }
 }
 .skip { position: fixed; z-index: 2; top: 12px; left: 12px; padding: 8px 12px; background: white; transform: translateY(-200%); }
 .skip:focus { transform: translateY(0); }
+.research-note { border-top: 1px solid var(--line); color: var(--muted); margin-top: 18px; padding-top: 14px; }

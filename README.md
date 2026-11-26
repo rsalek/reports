@@ -99,3 +99,7 @@ When adding a new public artifact:
 - Do not publish raw source folders, credentials, tokens, private absolute paths, or internal-only notes.
 - Keep the private Markdown wiki source outside this repository; publish only the generated, redacted output.
 - Treat published analysis as research material, not personalized investment advice.
+
+## Public report styling
+
+Follow the [BiotechVision public report design](STYLE.md) for reports, monitors and theses. `node scripts/build-library.mjs` generates the library and applies the shared design. GitHub Pages runs the same build automatically on `main` before deploying.

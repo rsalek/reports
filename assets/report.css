@@ -143,3 +143,40 @@
   html[data-bv-report="company"] .topbar > nav > a { display: block; flex-shrink: 0; }
   html[data-bv-report="dashboard"] .scenario-grid > * { min-width: 0; overflow-wrap: anywhere; }
 }
+
+.bv-home { display: inline-flex; align-items: center; flex: 0 0 auto; text-decoration: none; }
+.bv-home-cluster { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+@media screen {
+  html[data-bv-report="research"] {
+    --teal: var(--bv-accent);
+    --teal-soft: var(--bv-soft);
+    --line-dark: var(--bv-line);
+  }
+  html[data-bv-report="research"] .topbar :is(a, .brand) { color: var(--bv-ink); }
+  html[data-bv-report="research"] h1 {
+    font: 600 clamp(34px, 5.3vw, 67px)/1.06 var(--bv-font);
+    letter-spacing: -.035em;
+    text-wrap: pretty;
+  }
+  html[data-bv-report="research"] h2 { font: 600 clamp(25px, 3vw, 38px)/1.14 var(--bv-font); }
+  html[data-bv-report="research"] :is(.region, .calendar-card, .prob-card, .action-card, .phase) {
+    border-radius: 2px;
+    box-shadow: none;
+  }
+  html[data-bv-report="research"] > body > .bv-report-back,
+  html[data-bv-report="monitor"] > body > .bv-report-back {
+    width: min(1180px, 100% - 40px);
+    margin-inline: auto;
+  }
+}
+
+.bv-research-document {
+  width: min(960px, 100% - 40px);
+  margin-inline: auto;
+  padding-block: 32px 64px;
+  font: 400 18px/1.6 var(--bv-font);
+}
+.bv-research-document h1 { margin-block: 0 16px; }
+.bv-research-document section { border-top: 1px solid var(--bv-line); margin-top: 30px; }
+.bv-research-document a { color: var(--bv-accent); text-underline-offset: .2em; }
