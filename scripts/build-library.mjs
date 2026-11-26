@@ -68,8 +68,11 @@ for (const item of allItems) {
 }
 
 let index = fs.readFileSync(indexPath, "utf8");
-index = replaceBlock(index, "reports", data.reports.map((item) => card(item, "report")).join("\n\n"));
+const currentReports = data.reports.filter((item) => item.format_status === "current");
+const legacyReports = data.reports.filter((item) => item.format_status === "legacy");
+index = replaceBlock(index, "reports", currentReports.map((item) => card(item, "report")).join("\n\n"));
 index = replaceBlock(index, "kpis", data.kpis.map((item) => card(item, "kpi")).join("\n\n"));
+index = replaceBlock(index, "legacy-reports", legacyReports.map((item) => card(item, "report")).join("\n\n"));
 index = index.replace(/(<dd class="value" data-library-metric="reports">)\d+(<\/dd>)/, `$1${data.reports.length}$2`);
 index = index.replace(/(<dd class="value" data-library-metric="kpis">)\d+(<\/dd>)/, `$1${data.kpis.length}$2`);
 index = index.replace(/(<dd class="value" data-library-metric="wiki">)\d+(<\/dd>)/, `$1${data.wiki_notes}$2`);
