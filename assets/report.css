@@ -1,0 +1,145 @@
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bv-ink: #231f28;
+  --bv-muted: #574e5d;
+  --bv-paper: #fcfbfa;
+  --bv-soft: #f1edf1;
+  --bv-line: #dcd4dd;
+  --bv-accent: #6d3654;
+  --bv-deep: #2d2231;
+  --bv-font: Barlow, "Avenir Next", sans-serif;
+}
+
+@media screen {
+  html[data-bv-report] {
+    --ink: var(--bv-ink);
+    --muted: var(--bv-muted);
+    --line: var(--bv-line);
+    --paper: white;
+    --bg: var(--bv-paper);
+    --background: var(--bv-paper);
+    --canvas: var(--bv-paper);
+    --soft: var(--bv-soft);
+    --brand: var(--bv-accent);
+    --brand-dark: var(--bv-deep);
+    --brand-bg: var(--bv-soft);
+    --accent: var(--bv-accent);
+    --accent-dark: var(--bv-deep);
+    --accent-soft: var(--bv-soft);
+    --berry: var(--bv-accent);
+    --berry-dark: var(--bv-deep);
+    --berry-pale: var(--bv-soft);
+  }
+  html[data-bv-report]:not([data-bv-report="archive"]) body {
+    font-family: var(--bv-font);
+    background: var(--bv-paper);
+    color: var(--bv-ink);
+  }
+  html[data-bv-report] :focus-visible { outline: 2px solid #ae6287; outline-offset: 3px; }
+  html[data-bv-report] :is(.topbar, .thesis-topbar, .report-nav) {
+    background: #fff;
+    border-bottom: 1px solid var(--bv-line);
+    box-shadow: none;
+  }
+  html[data-bv-report="company"] main > article > h1,
+  html[data-bv-report="company"] main > h1,
+  html[data-bv-report="company"] .report-header h1,
+  html[data-bv-report="dashboard"] .intro h1,
+  html[data-bv-report="thesis"] .thesis-document > h1,
+  html[data-bv-report="thesis"] .narrative > h1 {
+    color: var(--bv-ink);
+    font: 600 clamp(30px, 4.4vw, 58px)/1.06 var(--bv-font);
+    letter-spacing: -.035em;
+    text-wrap: pretty;
+  }
+  html[data-bv-report="company"] main > article > h2,
+  html[data-bv-report="company"] main > h2,
+  html[data-bv-report="dashboard"] section > h2,
+  html[data-bv-report="thesis"] :is(.thesis-document, .narrative) > h2 {
+    color: var(--bv-ink);
+    font-weight: 600;
+    letter-spacing: -.025em;
+  }
+  html[data-bv-report="company"] main > h2,
+  html[data-bv-report="company"] article > h2 { border-top: 1px solid var(--bv-line); padding-top: 15px; }
+  html[data-bv-report="company"] .report-meta { margin-bottom: 14px; }
+  html[data-bv-report="company"] :is(.decision-strip, .scorecard, .table-scroll),
+  html[data-bv-report="dashboard"] :is(.panel, .card, .table-scroll, .chart-card),
+  html[data-bv-report="monitor"] :is(.metric, .panel, .table-wrap, .chart, .callout) {
+    border-radius: 2px;
+    box-shadow: none;
+  }
+  html[data-bv-report="monitor"] {
+    --paper: var(--bv-paper);
+    --card: #fff;
+    --shadow: none;
+  }
+  html[data-bv-report="monitor"] .hero {
+    background: var(--bv-deep);
+    border-radius: 0;
+    box-shadow: none;
+  }
+  html[data-bv-report="monitor"] .hero::after { content: none; }
+  html[data-bv-report="monitor"] .hero h1 { font: 600 clamp(36px, 5vw, 68px)/1.02 var(--bv-font); }
+  html[data-bv-report="monitor"] .hero :is(.kicker, .lede) { color: #f0e5ee; }
+  html[data-bv-report="monitor"] .hero .call { border-radius: 2px; }
+  html[data-bv-report="monitor"] h2 { font: 600 clamp(26px, 3vw, 38px)/1.1 var(--bv-font); }
+  html[data-bv-report="monitor"] .bv-report-back { margin-bottom: 16px; }
+  .bv-report-back { display: flex; gap: 12px; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--bv-line); padding-block: 10px; }
+  .bv-report-back a, .bv-report-back a:visited { color: var(--bv-accent); }
+  .bv-report-back a:first-child { font-weight: 700; }
+  html[data-bv-report="legacy"] :is(.cover, .module-head, .module-card, .summary-box) { border-radius: 2px; box-shadow: none; }
+  html[data-bv-report="legacy"] .cover { color: white; background: var(--bv-deep); }
+  html[data-bv-report="legacy"] .cover h1 { color: white; }
+  html[data-bv-report="legacy"] h2 { color: var(--bv-ink); background: var(--bv-soft); border-color: var(--bv-accent); border-radius: 0; }
+  html[data-bv-report="legacy"] :is(.section-title, body > h1) { color: var(--bv-ink); border-color: var(--bv-line); }
+  html[data-bv-report="legacy"] :is(.table-wrap, .table-scroll) { max-width: 100%; overflow-x: auto; }
+  html[data-bv-report="legacy"] :is(body, .container) { overflow-wrap: anywhere; }
+  html[data-bv-report="archive"] body { color: var(--bv-ink); background: var(--bv-paper); }
+  html[data-bv-report="archive"] body > nav:first-child { background: var(--bv-deep); box-shadow: none; }
+  html[data-bv-report="archive"] :is(.glass-card, .stat-card) { border-radius: 2px; box-shadow: none; }
+}
+
+@media print {
+  .bv-report-back { display: none; }
+}
+
+.bv-report-wordmark {
+  color: var(--bv-ink);
+  font: 700 21px/1.1 var(--bv-font);
+  letter-spacing: -.055em;
+  white-space: nowrap;
+}
+.bv-report-wordmark > span { color: var(--bv-accent); }
+@media screen and (max-width: 720px) {
+  html[data-bv-report="company"] .report-meta { white-space: normal; flex-wrap: wrap; }
+  html[data-bv-report="company"] article { overflow-wrap: anywhere; }
+  html[data-bv-report="company"] .topbar:has(> nav) { display: block; position: static; }
+  html[data-bv-report="company"] .topbar > nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: 8px;
+    padding-bottom: 4px;
+  }
+  html[data-bv-report="company"] .topbar > nav > a { display: block; flex-shrink: 0; }
+  html[data-bv-report="dashboard"] .scenario-grid > * { min-width: 0; overflow-wrap: anywhere; }
+}

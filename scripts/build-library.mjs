@@ -70,10 +70,10 @@ for (const item of allItems) {
 let index = fs.readFileSync(indexPath, "utf8");
 index = replaceBlock(index, "reports", data.reports.map((item) => card(item, "report")).join("\n\n"));
 index = replaceBlock(index, "kpis", data.kpis.map((item) => card(item, "kpi")).join("\n\n"));
-index = index.replace(/(<div class="value" data-library-metric="reports">)\d+(<\/div>)/, `$1${data.reports.length}$2`);
-index = index.replace(/(<div class="value" data-library-metric="kpis">)\d+(<\/div>)/, `$1${data.kpis.length}$2`);
-index = index.replace(/(<div class="value" data-library-metric="wiki">)\d+(<\/div>)/, `$1${data.wiki_notes}$2`);
-index = index.replace(/(<div class="value" data-library-metric="companies">)\d+(<\/div>)/, `$1${new Set(allItems.map((item) => item.ticker)).size}$2`);
+index = index.replace(/(<dd class="value" data-library-metric="reports">)\d+(<\/dd>)/, `$1${data.reports.length}$2`);
+index = index.replace(/(<dd class="value" data-library-metric="kpis">)\d+(<\/dd>)/, `$1${data.kpis.length}$2`);
+index = index.replace(/(<dd class="value" data-library-metric="wiki">)\d+(<\/dd>)/, `$1${data.wiki_notes}$2`);
+index = index.replace(/(<dd class="value" data-library-metric="companies">)\d+(<\/dd>)/, `$1${new Set(allItems.map((item) => item.ticker)).size}$2`);
 fs.writeFileSync(indexPath, index);
 
 for (const item of allItems.filter((entry) => entry.format_status === "legacy")) {

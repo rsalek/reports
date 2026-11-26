@@ -1,14 +1,33 @@
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
-  --navy: #0b1220;
-  --navy-2: #172033;
+  --navy: #2d2231;
+  --navy-2: #382a3c;
   --surface: #ffffff;
-  --surface-soft: #f6f8fb;
-  --text: #172033;
-  --muted: #566176;
-  --line: #d9dee7;
-  --line-dark: #313b4e;
-  --link: #1d4f91;
-  --link-hover: #163e72;
+  --surface-soft: #f1edf1;
+  --text: #382a3c;
+  --muted: #574e5d;
+  --line: #dcd4dd;
+  --line-dark: #594959;
+  --link: #6d3654;
+  --link-hover: #4f263e;
   --warning: #8a4b08;
   --warning-bg: #fff8eb;
   --max: 1180px;
@@ -25,7 +44,7 @@ body {
   margin: 0;
   color: var(--text);
   background: var(--surface);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Barlow, "Avenir Next", sans-serif;
   font-size: 16px;
   line-height: 1.65;
 }
@@ -54,7 +73,7 @@ a:hover { color: var(--link-hover); }
   position: sticky;
   top: 0;
   z-index: 20;
-  color: #e8edf5;
+  color: #f4eaf2;
   background: var(--navy);
   border-bottom: 1px solid var(--line-dark);
 }
@@ -150,7 +169,7 @@ h3 {
   min-height: 42px;
   align-items: center;
   padding: 0 14px;
-  border-radius: 8px;
+  border-radius: 2px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -237,10 +256,10 @@ pre {
   margin: 12px 0 18px;
   overflow-x: auto;
   padding: 16px;
-  color: #e8edf5;
+  color: #f4eaf2;
   background: var(--navy);
   border: 1px solid var(--line-dark);
-  border-radius: 8px;
+  border-radius: 2px;
   line-height: 1.55;
 }
 
@@ -381,3 +400,12 @@ tr:last-child td { border-bottom: 0; }
   .guide { max-width: none; }
   .guide section { break-inside: avoid; }
 }
+
+.bv-report-wordmark {
+  color: white;
+  font: 700 22px/1.1 Barlow, "Avenir Next", sans-serif;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+}
+.bv-report-wordmark > span { color: #eab8d3; }
+:not(pre) > code { overflow-wrap: anywhere; }

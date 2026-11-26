@@ -1,13 +1,32 @@
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: Barlow;
+  src: url("/assets/fonts/barlow-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
-  --page: #f3f4f2;
+  --page: #f1edf1;
   --surface: #ffffff;
-  --surface-soft: #f7f8f6;
-  --ink: #202522;
-  --ink-soft: #59615c;
-  --line: #d9ddd9;
-  --line-strong: #bec6c0;
-  --focus: #236b62;
+  --surface-soft: #fcfbfa;
+  --ink: #231f28;
+  --ink-soft: #574e5d;
+  --line: #dcd4dd;
+  --line-strong: #baadbd;
+  --focus: #6d3654;
   --hub: #3f6072;
   --topic: #39766d;
   --source: #a56a24;
@@ -27,7 +46,7 @@ body {
   overflow: hidden;
   background: var(--page);
   color: var(--ink);
-  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Barlow, "Avenir Next", sans-serif;
   font-size: 14px;
 }
 
@@ -806,3 +825,12 @@ header.brand-block .bv-home-cluster {
   align-items: flex-start;
   gap: 10px;
 }
+
+.brand-block .bv-home-cluster { flex-wrap: wrap; gap: 8px; }
+.bv-report-wordmark {
+  color: var(--ink);
+  font: 700 20px/1.15 Barlow, "Avenir Next", sans-serif;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+}
+.bv-report-wordmark > span { color: var(--focus); }

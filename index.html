@@ -3,441 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equity Research Library | Reports, KPI Dashboards &amp; Wiki</title>
+  <title>Reports Library | BiotechVision</title>
   <meta name="description" content="A decision-focused equity research library combining full company reports, KPI monitoring dashboards, a connected stock knowledge wiki, and a practical local-analysis guide.">
-<style>
-    :root {
-      --bg-dark: #0b1220;
-      --bg-dark-2: #111b2e;
-      --bg-light: #f5f6f8;
-      --card: #ffffff;
-      --text: #0f172a;
-      --text-soft: #475569;
-      --text-invert: #e5eefc;
-      --muted-invert: #a8b6ca;
-      --line: #dfe3e8;
-      --line-invert: rgba(148, 163, 184, 0.16);
-      --blue: #2563eb;
-      --blue-soft: #dbeafe;
-      --green: #166534;
-      --green-soft: #dcfce7;
-      --red: #b42318;
-      --red-soft: #fee2e2;
-      --amber: #d97706;
-      --amber-soft: #fef3c7;
-      --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
-      --radius: 12px;
-      --radius-sm: 8px;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: var(--bg-light);
-      line-height: 1.55;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: var(--bg-dark);
-      border-bottom: 1px solid var(--line-invert);
-    }
-
-    .nav-inner, .shell {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding: 13px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text-invert);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .brand-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #61b28a;
-      box-shadow: 0 0 0 5px rgba(97, 178, 138, 0.14);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: var(--muted-invert);
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover { color: var(--text-invert); }
-
-    .hero {
-      padding: 24px 0 16px;
-      display: grid;
-      grid-template-columns: 1.35fr 0.9fr;
-      gap: 16px;
-      align-items: start;
-    }
-
-    .hero-main,
-    .hero-side-card {
-      background: var(--bg-dark);
-      border: 1px solid var(--line-invert);
-      box-shadow: none;
-      border-radius: var(--radius);
-    }
-
-    .hero-main {
-      padding: 22px;
-      color: var(--text-invert);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #1a2b45;
-      border: 1px solid rgba(96, 165, 250, 0.20);
-      color: #bfdbfe;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-
-    h1 {
-      margin: 14px 0 12px;
-      font-size: clamp(2.05rem, 3.2vw, 3.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-    }
-
-    .hero-main p {
-      margin: 0;
-      max-width: 62ch;
-      color: var(--muted-invert);
-      font-size: 1rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 13px;
-      border-radius: 9px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-primary {
-      background: #2f6fba;
-      color: #fff;
-      box-shadow: none;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: var(--text-invert);
-      border-color: rgba(148,163,184,0.22);
-    }
-
-    .hero-side {
-      display: grid;
-      gap: 10px;
-      align-content: start;
-    }
-
-    .hero-side-card {
-      padding: 16px;
-      color: var(--text-invert);
-    }
-
-    .hero-side-card h3 {
-      margin: 0 0 10px;
-      font-size: 1rem;
-      color: #ffffff;
-      letter-spacing: 0.01em;
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .metric {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(148,163,184,0.14);
-      border-radius: var(--radius-sm);
-      padding: 10px;
-    }
-
-    .metric .value {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-
-    .metric .label {
-      font-size: 0.88rem;
-      color: var(--muted-invert);
-    }
-
-    .section {
-      padding: 18px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 16px;
-      margin-bottom: 10px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: 1.5rem;
-      letter-spacing: -0.03em;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--text-soft);
-      max-width: 72ch;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: start;
-    }
-
-    .ticker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--blue);
-      background: var(--blue-soft);
-      border: 1px solid rgba(37,99,235,0.12);
-    }
-
-    .ticker.blue { color: var(--blue); background: var(--blue-soft); border-color: rgba(37,99,235,0.12); }
-    .ticker.green { color: var(--green); background: var(--green-soft); border-color: rgba(22,163,74,0.12); }
-    .ticker.amber { color: var(--amber); background: var(--amber-soft); border-color: rgba(217,119,6,0.12); }
-    .ticker.red { color: var(--red); background: var(--red-soft); border-color: rgba(180,35,24,0.16); }
-    .ticker.asml { color:#10069F; background:#EFEEFF; border-color:rgba(16,6,159,0.14); }
-    .ticker.planet { color:#006A78; background:#E5F6F8; border-color:rgba(0,157,177,0.18); }
-
-    .flow-list {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted-invert);
-    }
-
-    .flow-list li + li { margin-top: 8px; }
-    .flow-list a:hover { color: var(--text-invert); }
-
-    .card h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      letter-spacing: -0.02em;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #f8fafc;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      color: var(--text-soft);
-      font-size: 0.80rem;
-      font-weight: 600;
-    }
-
-    .legacy-pill {
-      color: #785900;
-      background: #fff7df;
-      border-color: #ead486;
-    }
-
-    .summary {
-      color: var(--text-soft);
-      font-size: 0.98rem;
-      min-height: 82px;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: auto;
-    }
-
-    .link-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 14px;
-      border-radius: 9px;
-      font-weight: 700;
-      border: 1px solid rgba(15, 23, 42, 0.10);
-      background: #ffffff;
-    }
-
-    .link-btn.primary {
-      background: var(--text);
-      color: #ffffff;
-      border-color: var(--text);
-    }
-
-    .overview {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .panel {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px;
-    }
-
-    .panel h3 {
-      margin: 0 0 12px;
-      font-size: 1.15rem;
-    }
-
-    .panel p, .panel li {
-      color: var(--text-soft);
-    }
-
-    .panel ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .panel li + li { margin-top: 7px; }
-
-    .section-link {
-      color: var(--blue);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .footer {
-      padding: 24px 0 56px;
-      color: var(--text-soft);
-      font-size: 0.95rem;
-    }
-
-    .footer a {
-      color: var(--blue);
-      font-weight: 700;
-    }
-
-    @media (max-width: 980px) {
-      .hero,
-      .overview {
-        grid-template-columns: 1fr;
-      }
-
-      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-      .summary { min-height: 0; }
-    }
-
-    @media (max-width: 720px) {
-      .nav-inner { padding: 14px 0; }
-      .nav-links { display: none; }
-      .hero { padding-top: 20px; }
-      .hero-main,
-      .hero-side-card,
-      .card,
-      .panel { padding: 16px; }
-      .metric-grid { grid-template-columns: 1fr 1fr; }
-      .cards { grid-template-columns: 1fr; }
-      .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-top: 16px; }
-      .hero-actions .btn:first-child { grid-column: 1 / -1; }
-      .hero-actions .btn:last-child { grid-column: 1 / -1; }
-      .hero-actions .btn { min-height: 40px; padding: 0 8px; font-size: 0.82rem; }
-      .section-head { align-items: start; flex-direction: column; }
-      h1 { font-size: 2.2rem; }
-    }
-  </style>
-    <style>
-      .bv-home { display: inline-flex; align-items: center; flex: 0 0 auto; line-height: 0; text-decoration: none; }
-      .bv-home img { display: block; height: 22px; width: auto; }
-      .bv-home-cluster { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    </style>
+  <link rel="stylesheet" href="assets/library.css">
     <link rel="icon" href="/assets/brand/biotechvision-icon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="/assets/brand/favicon-16.png" type="image/png" sizes="16x16">
@@ -446,71 +14,35 @@
     <link rel="manifest" href="/assets/brand/site.webmanifest">
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="brand"><a class="bv-home" href="https://biotechvision.co.uk/"><img src="/assets/brand/biotechvision-logo-dark.svg" alt="BiotechVision" height="22"></a><span class="brand-dot"></span>
-        <span>Reports Library</span>
-      </div>
-      <div class="nav-links">
-        <a href="help/">Analysis workflow</a>
+  <a class="skip" href="#content">Skip to reports</a>
+  <header class="library-nav">
+    <div class="library-frame nav-inner">
+      <a class="library-wordmark" href="/">Biotech<span>Vision</span></a>
+      <nav class="nav-links" aria-label="Reports library">
         <a href="#reports">Reports</a>
-        <a href="#kpi">KPI</a>
-        <a href="wiki/">Wiki</a>
-        <a href="#overview">Overview</a>
+        <a href="#kpi">KPI monitors</a>
+        <a href="wiki/">Stock wiki</a>
+        <a href="help/">Analysis workflow</a>
         <a href="#archive">Archive</a>
-      </div>
+      </nav>
     </div>
-  </nav>
-
-  <main class="shell">
-    <section class="hero">
-      <div class="hero-main">
-        <div class="eyebrow">Research index</div>
-        <h1>Equity research, KPI dashboards, and a connected stock wiki</h1>
-        <p>
-          A focused research index for moving from a company thesis to operating proof. Read the report, check the KPI signals, then use the wiki to compare recurring themes across stocks.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="help/">Analysis workflow</a>
-          <a class="btn btn-secondary" href="#reports">Company reports</a>
-          <a class="btn btn-secondary" href="#kpi">KPI monitors</a>
-          <a class="btn btn-secondary" href="wiki/">Knowledge wiki</a>
+  </header>
+  <main id="content" tabindex="-1">
+    <header class="library-intro">
+      <div class="library-frame">
+        <div>
+          <h1>Reports library</h1>
+          <p>Equity research, operating KPI monitors and a connected stock wiki.</p>
         </div>
+        <dl class="library-metrics" aria-label="Library coverage">
+          <div><dt>Full reports</dt><dd class="value" data-library-metric="reports">21</dd></div>
+          <div><dt>KPI dashboards</dt><dd class="value" data-library-metric="kpis">16</dd></div>
+          <div><dt>Wiki notes</dt><dd class="value" data-library-metric="wiki">21</dd></div>
+          <div><dt>Companies covered</dt><dd class="value" data-library-metric="companies">22</dd></div>
+        </dl>
       </div>
-
-      <div class="hero-side">
-        <div class="hero-side-card">
-          <h3>Library snapshot</h3>
-          <div class="metric-grid">
-            <div class="metric">
-              <div class="value" data-library-metric="reports">21</div>
-              <div class="label">Full reports</div>
-            </div>
-            <div class="metric">
-              <div class="value" data-library-metric="kpis">16</div>
-              <div class="label">KPI dashboards</div>
-            </div>
-            <div class="metric">
-              <div class="value" data-library-metric="wiki">21</div>
-              <div class="label">Wiki notes</div>
-            </div>
-            <div class="metric">
-              <div class="value" data-library-metric="companies">22</div>
-              <div class="label">Companies covered</div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-side-card">
-          <h3>Three-minute route</h3>
-          <ol class="flow-list">
-            <li><a href="#reports"><strong>Read</strong> a full report for the thesis.</a></li>
-            <li><a href="#kpi"><strong>Check</strong> the KPIs, thresholds, and catalysts.</a></li>
-            <li><a href="wiki/"><strong>Connect</strong> recurring risks and themes in the wiki.</a></li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
+    </header>
+    <div class="library-frame library-sections">
     <section class="section" id="reports">
       <div class="section-head">
         <div>
@@ -826,10 +358,13 @@
       </div>
     </section>
 
-    <div class="footer" id="archive">
-      Root index updated for the reports library. Previous root page archived at
-      <a href="archive/index-war-crisis-2026-04-16.html">archive/index-war-crisis-2026-04-16.html</a>.
     </div>
   </main>
+  <footer class="library-footer" id="archive">
+    <div class="library-frame">
+      <a href="archive/index-war-crisis-2026-04-16.html">Previous library homepage</a>
+      <a href="/">BiotechVision home</a>
+    </div>
+  </footer>
 </body>
 </html>
