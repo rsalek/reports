@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const root = new URL("../", import.meta.url);
@@ -19,6 +19,7 @@ const navigation = '<nav class="bv-report-back" aria-label="BiotechVision"><a hr
 
 for (const [directory, getLayout] of Object.entries(directories)) {
   const folder = new URL(`${directory}/`, root);
+  if (directory === "archive" && !existsSync(folder)) continue;
   for (const file of readdirSync(folder).filter((name) => name.endsWith(".html"))) {
     const path = fileURLToPath(new URL(encodeURIComponent(file), folder));
     const original = readFileSync(path, "utf8");

@@ -16,7 +16,6 @@ reports/
 ├── kpi/             # KPI dashboards and linked thesis notes
 ├── wiki/            # Generated public wiki application and data
 ├── help/            # Equity Deep Dive operator guide
-├── archive/         # Preserved earlier public pages
 └── scripts/         # Wiki builder and viewer templates
 ```
 
